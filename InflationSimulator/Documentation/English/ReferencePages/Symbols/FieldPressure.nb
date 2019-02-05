@@ -1,0 +1,435 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"cb7170d5-d075-42d0-9230-8137c007f084"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"94291299-20d6-4f36-b813-cc05a4d3857e"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"ecaa4b41-52a3-4e53-add4-1b392b9e3900"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised",ExpressionUUID->"4fbc109d-3f61-43e1-9632-8e583493d89e"]
+}], "History",
+ CellID->1247902091,ExpressionUUID->"b9ad004d-aaa8-4eba-b950-38c182b33b58"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"1fce6046-2563-41fa-93af-620a5f2779cf"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"2c9d5d52-9219-4f4c-b092-361dc4c45ae6"],
+
+Cell["InflationSimulator", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"d79d283f-ce89-41af-93d8-623ba5b3dd48"],
+
+Cell["InflationSimulator`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"e2b8444f-2f18-4b21-8c98-d095e85dec50"],
+
+Cell["InflationSimulator/ref/FieldPressure", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"225f28a1-1040-4c4b-9842-0cb0cf02139e"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294,ExpressionUUID->"09132d3f-4728-41a3-b51b-36977bfb7784"],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360,ExpressionUUID->"9d142ee9-2dd6-4d46-b4fd-6e83c834e04f"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408,ExpressionUUID->"2f989ad3-7c3c-4a93-be47-7b81ffd48cbc"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412,ExpressionUUID->"0d56aa4d-b6b0-4cd1-ab2d-18c9f926ac59"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909,ExpressionUUID->"8bf982ad-89fd-4ae3-ba0a-ace76a1c94de"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930,ExpressionUUID->"1de28b7d-2133-4b7c-a8b4-15a423b22a2c"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254,ExpressionUUID->"68678dec-1428-49d5-9781-00367a38f6de"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771,ExpressionUUID->"325961f8-7af0-4657-a3b1-8c841aefb79c"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175,ExpressionUUID->"fccdd242-71b0-4c98-800d-07a5225caa10"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985,ExpressionUUID->"cbbfacc4-f719-4899-afc9-4e6ffd9d356e"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405,ExpressionUUID->"bf265b41-5621-48ac-8770-5d37e5fa9fe1"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269,ExpressionUUID->"1715a5e0-385f-48fd-87ac-de5e73abee36"],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205,ExpressionUUID->"8a4b685f-241b-4808-ab4b-edd339721c4b"],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745,ExpressionUUID->"53c135c2-a0b2-4bd5-ad88-a765990d4422"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810,ExpressionUUID->"622d3401-b2df-42c7-b996-a2bc9cdf4d3e"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350,ExpressionUUID->"ec45ffcc-e97e-4198-95a2-42dbd2b5f666"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365,ExpressionUUID->"9274e597-8556-4f71-bdb3-b4a185805b90"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["FieldPressure", "ObjectName",
+ CellID->1224892054,ExpressionUUID->"954d1638-eb24-4a1b-af78-b80629822b9c"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"6daa9293-28f1-4804-9578-92bd99621644"],
+ Cell[BoxData[
+  RowBox[{"FieldPressure", "[", 
+   RowBox[{
+    StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
+    SubscriptBox[
+     StyleBox["\[CurlyPhi]", "TI"], 
+     StyleBox["t", "TI"]]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "49136dd4-92bb-4ceb-906a-b34a2a142587"],
+ " \[LineSeparator]FieldPressure yields the pressure of the field with \
+Lagrangian \[ScriptCapitalL] and time derivative of the field ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["\[CurlyPhi]", "TI"], 
+   StyleBox["t", "TI"]]],ExpressionUUID->
+  "7d8eb904-cbd4-4d01-bc77-6420b8bc06e1"],
+ "."
+}], "Usage",
+ CellChangeTimes->{{3.758393280361217*^9, 3.758393295553074*^9}},
+ CellID->982511436,ExpressionUUID->"6865fcbe-b125-452b-a307-e42575c794c4"],
+
+Cell[TextData[{
+ "Field pressure happens to simply be equal to the Lagrangian \
+\[ScriptCapitalL], the field derivative ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["\[CurlyPhi]", "TI"], 
+   StyleBox["t", "TI"]]],ExpressionUUID->
+  "7e940236-edee-4f6e-8f69-c40cc6d48876"],
+ " is ignored. See ",
+ Cell[BoxData[
+  ButtonBox["FieldDensity",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/FieldDensity"]], 
+  "InlineFormula",ExpressionUUID->"89cbaa95-6a09-4688-851e-057cf6ca29d7"],
+ " for derivation."
+}], "Notes",
+ CellChangeTimes->{{3.758393312485173*^9, 3.7583933873612223`*^9}},
+ CellID->2025375376,ExpressionUUID->"7e20bea6-e01c-4712-b547-b4c0689e0770"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057,ExpressionUUID->"23e92c1b-6766-4463-a454-0bdcc7c741ce"],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938,ExpressionUUID->"9947196a-a83c-4401-9cd8-531d9a2af47d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905,ExpressionUUID->"45174b1f-8f96-4f41-9e8c-e55037373cc2"],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860,ExpressionUUID->"349ee1ae-9628-423e-aeb2-c74cee0144b7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535,ExpressionUUID->"90cbe4fe-3ef7-49aa-90b1-1a3fcb505918"],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239,ExpressionUUID->"d3a8de3e-d052-432c-a643-83271d874063"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704,ExpressionUUID->"3d0172b8-dcb6-450e-8399-837b256c6688"],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353,ExpressionUUID->"8193e27f-734d-4100-9c00-c824cc918386"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248,ExpressionUUID->"1e0916e1-a805-4db2-a636-43a876e162bb"],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683,ExpressionUUID->"a4fad5bc-baaa-4972-b390-f166ce5370fc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151,ExpressionUUID->"b5c389d9-cff6-406e-992d-2e94994eefdd"],
+
+Cell["Evaluate field density of a real scalar field:", "ExampleText",
+ CellID->2133414990,ExpressionUUID->"7194b72c-7cdd-4c48-8aec-420081585e36"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FieldPressure", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox["\[CurlyPhi]t", "2"]}], "-", 
+    RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], ",", "\[CurlyPhi]t"}], 
+  "]"}]], "Input",
+ CellLabel->"In[13]:=",
+ CellID->1177442084,ExpressionUUID->"9873d45b-f665-4fdf-a202-31e1bd25e5c9"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   SuperscriptBox["\[CurlyPhi]t", "2"], "2"], "-", 
+  RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}]], "Output",
+ CellLabel->"Out[13]=",
+ CellID->1102995458,ExpressionUUID->"fe47555d-c44e-4131-8cad-218a740e2e03"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "78bdc8bd-a308-4d82-94c0-37736b54a25e"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1432581561,ExpressionUUID->"66977307-b84a-4bc8-80f3-169cc1f85a06"],
+
+Cell["Evaluate field density of a non-supersymmetric DBI field:", \
+"ExampleText",
+ CellID->49483078,ExpressionUUID->"08470f69-3640-4afb-9eb3-bf4912e0e20c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dbiPressure", "=", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"FieldPressure", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox[
+         RowBox[{"f", "[", "\[CurlyPhi]", "]"}], 
+         RowBox[{"-", "1"}]]}], 
+       RowBox[{"(", 
+        RowBox[{
+         SqrtBox[
+          RowBox[{"1", "-", 
+           RowBox[{
+            RowBox[{"f", "[", "\[CurlyPhi]", "]"}], 
+            SuperscriptBox["\[CurlyPhi]t", "2"]}]}]], "-", "1"}], ")"}]}], 
+      "-", 
+      RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], ",", "\[CurlyPhi]t"}], "]"}], 
+   "]"}]}]], "Input",
+ CellLabel->"In[15]:=",
+ CellID->392585504,ExpressionUUID->"73c147cb-ad35-471e-89f8-254dd7257e8d"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  FractionBox[
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    SqrtBox[
+     RowBox[{"1", "-", 
+      RowBox[{
+       SuperscriptBox["\[CurlyPhi]t", "2"], " ", 
+       RowBox[{"f", "[", "\[CurlyPhi]", "]"}]}]}]], "+", 
+    RowBox[{
+     RowBox[{"f", "[", "\[CurlyPhi]", "]"}], " ", 
+     RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}]}], 
+   RowBox[{"f", "[", "\[CurlyPhi]", "]"}]]}]], "Output",
+ CellLabel->"Out[15]=",
+ CellID->2041780982,ExpressionUUID->"8fb567f5-c065-4089-8a18-1466dbe40b90"]
+}, Open  ]],
+
+Cell[TextData[{
+ "which is equivalent to equation 3.2 of ",
+ ButtonBox["[Michal Spalinski, \"On Power Law Inflation in DBI Models\", \
+arXiv:hep-th/0702196v2]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/hep-th/0702196"], None},
+  ButtonNote->"https://arxiv.org/abs/hep-th/0702196"],
+ "."
+}], "ExampleText",
+ CellID->1186968378,ExpressionUUID->"af8b5184-1564-4d78-876d-144ed33570a5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Reduce", "[", 
+  RowBox[{"dbiPressure", "\[Equal]", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      FractionBox[
+       RowBox[{"\[Gamma]", "-", "1"}], 
+       RowBox[{
+        RowBox[{"f", "[", "\[CurlyPhi]", "]"}], " ", "\[Gamma]"}]], "-", 
+      RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], "/.", 
+     RowBox[{"\[Gamma]", "\[Rule]", 
+      FractionBox["1", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         RowBox[{
+          RowBox[{"f", "[", "\[CurlyPhi]", "]"}], 
+          SuperscriptBox["\[CurlyPhi]t", "2"]}]}]]]}]}], ")"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[22]:=",
+ CellID->542343200,ExpressionUUID->"5e52a4a3-8f5f-4e0a-a080-d914ef8d71c0"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[22]=",
+ CellID->891084713,ExpressionUUID->"8797eb00-c6db-435e-8204-dab461057622"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968,ExpressionUUID->"752f2796-f9ec-49de-a231-ee0effb4e6a9"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "85f4c99d-ef33-4163-9fb7-6a7af18f300a"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265,ExpressionUUID->"c481feac-ef47-4c23-95dd-730b05d9ebd6"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "99116c5a-628f-4078-9ea1-d5037eccabf4"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627,ExpressionUUID->"2bab3833-15a2-4f8f-8ac5-9c623e9d4662"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "c4663a79-e059-4a4f-ae2a-4b31b3b2584b"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341,ExpressionUUID->"cb057f41-9579-42e0-b713-546a945d97f7"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "8e117407-abcf-40c7-b995-7f6074b50dc3"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783,ExpressionUUID->"f47778f5-28d5-45f2-ac8d-e1bbf29ef1d2"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "289229db-9da4-4efd-93a3-b064ac07a526"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749,ExpressionUUID->"ed127be9-c921-4af2-b6cb-bade11435b33"]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "fb32d68d-375b-4350-bfbb-389f8599feec"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157,ExpressionUUID->"ec1494cb-4032-432c-8b67-1677c6de5c07"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "b81f0959-e211-4ff0-a08a-6c8227494352"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759,ExpressionUUID->"d61a64c1-96ac-4f93-bc9b-02bf9e46bba7"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "dc980f0f-5e67-4b62-a697-1555698a8dda"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373,ExpressionUUID->"0b8f805a-b6aa-4c2f-831e-e80c4dcb93a1"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "511f3552-4c54-45e2-878b-d098fc92ea0f"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318,ExpressionUUID->"384cf47b-a93f-463a-ad83-36b7bc338d95"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "cd884e5c-6f31-406d-b026-ffc6fc4555ac"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740,ExpressionUUID->"4ef9f35a-424f-4821-b1dd-a8827efec627"]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{913, Automatic}, {308, Automatic}},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+CellContext->"Global`",
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+
