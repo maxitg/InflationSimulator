@@ -40,8 +40,8 @@ FieldDensity::usage = UsageString[
 ];
 
 
-FieldDensity[\[ScriptCapitalL]_, \[CurlyPhi]d_] := -\[ScriptCapitalL] + \!\(
-\*SubscriptBox[\(\[PartialD]\), \(\[CurlyPhi]d\)]\[ScriptCapitalL]\) \[CurlyPhi]d
+FieldDensity[lagrangian_, fieldDerivative_] :=
+	-lagrangian + D[lagrangian, fieldDerivative] fieldDerivative
 
 
 (* ::Subsection:: *)
@@ -55,7 +55,7 @@ FieldPressure::usage = UsageString[
 ];
 
 
-FieldPressure[\[ScriptCapitalL]_, \[CurlyPhi]d_] := \[ScriptCapitalL]
+FieldPressure[lagrangian_, fieldDerivative_] := lagrangian
 
 
 (* ::Section:: *)
