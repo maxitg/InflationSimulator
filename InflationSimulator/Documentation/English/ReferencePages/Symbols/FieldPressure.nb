@@ -133,7 +133,6 @@ Lagrangian \[ScriptCapitalL] and time derivative of the field ",
   "7d8eb904-cbd4-4d01-bc77-6420b8bc06e1"],
  "."
 }], "Usage",
- CellChangeTimes->{{3.758393280361217*^9, 3.758393295553074*^9}},
  CellID->982511436,ExpressionUUID->"6865fcbe-b125-452b-a307-e42575c794c4"],
 
 Cell[TextData[{
@@ -152,7 +151,6 @@ Cell[TextData[{
   "InlineFormula",ExpressionUUID->"89cbaa95-6a09-4688-851e-057cf6ca29d7"],
  " for derivation."
 }], "Notes",
- CellChangeTimes->{{3.758393312485173*^9, 3.7583933873612223`*^9}},
  CellID->2025375376,ExpressionUUID->"7e20bea6-e01c-4712-b547-b4c0689e0770"]
 }, Open  ]],
 
@@ -422,8 +420,6 @@ Cell[BoxData[
  CellID->589267740,ExpressionUUID->"4ef9f35a-424f-4821-b1dd-a8827efec627"]
 }, Open  ]]
 },
-WindowSize->{700, 770},
-WindowMargins->{{913, Automatic}, {308, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,

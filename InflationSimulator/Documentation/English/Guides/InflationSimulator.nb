@@ -90,7 +90,6 @@ Cell["XXXX", "Details",
 Cell[CellGroupData[{
 
 Cell["Inflation Simulator", "GuideTitle",
- CellChangeTimes->{3.758388056413787*^9},
  CellID->942062912,ExpressionUUID->"6648ce2e-bed8-43b3-a626-9dfd3a2f53ee"],
 
 Cell["\<\
@@ -99,7 +98,6 @@ with non-canonical kinetic terms), and can generate evolution of both the \
 field and e-foldings count, as well as compute the values of some observables \
 such as tensor and scalar spectral indices, and tensor-to-scalar ratio.\
 \>", "GuideAbstract",
- CellChangeTimes->{{3.758388106897788*^9, 3.758388257585127*^9}},
  CellID->2001916300,ExpressionUUID->"4a056e21-8966-4943-9568-1bdf0aea5605"]
 }, Open  ]],
 
@@ -151,8 +149,6 @@ Cell["XXXX", "GuideMoreAbout",
 Cell["Related Links", "GuideRelatedLinksSection",
  CellID->415694148,ExpressionUUID->"48342707-6d18-4751-8023-8d41b0c4e697"]
 },
-WindowSize->{700, 770},
-WindowMargins->{{Automatic, 558}, {384, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TrackCellChangeTimes->False,
 FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
