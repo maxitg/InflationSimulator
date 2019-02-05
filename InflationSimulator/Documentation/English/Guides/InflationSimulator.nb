@@ -90,7 +90,6 @@ Cell["XXXX", "Details",
 Cell[CellGroupData[{
 
 Cell["Inflation Simulator", "GuideTitle",
- CellChangeTimes->{3.758388056413787*^9},
  CellID->942062912,ExpressionUUID->"6648ce2e-bed8-43b3-a626-9dfd3a2f53ee"],
 
 Cell["\<\
@@ -99,39 +98,28 @@ with non-canonical kinetic terms), and can generate evolution of both the \
 field and e-foldings count, as well as compute the values of some observables \
 such as tensor and scalar spectral indices, and tensor-to-scalar ratio.\
 \>", "GuideAbstract",
- CellChangeTimes->{{3.758388106897788*^9, 3.758388257585127*^9}},
  CellID->2001916300,ExpressionUUID->"4a056e21-8966-4943-9568-1bdf0aea5605"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["", "GuideFunctionsSection",
+Cell["Field Properties", "GuideFunctionsSection",
  CellID->1866139230,ExpressionUUID->"494f9958-7358-4561-960d-81123cc98422"],
 
 Cell[TextData[{
  Cell[BoxData[
- "XXXX"], "InlineGuideFunction",ExpressionUUID->
-  "06d45346-3de2-42b2-b26e-947a4b6959a1"],
- " \[LongDash] XXXX"
-}], "GuideText",
- CellID->203374175,ExpressionUUID->"72aeb8e4-beed-4f9f-8260-9057f289e338"],
-
-Cell[TextData[{
+  ButtonBox["FieldDensity",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/FieldDensity"]], 
+  "InlineFormula",ExpressionUUID->"6b6af529-fb3e-4a42-a8a2-80cf1a654782"],
+ " . ",
  Cell[BoxData[
- "XXXX"], "InlineGuideFunction",ExpressionUUID->
-  "eab1515f-6f1d-4bc0-b27f-6d9ac0be9e27"],
- " \[LongDash] XXXX"
-}], "GuideText",
- CellID->1463276848,ExpressionUUID->"6110340b-9ed9-454d-a7fd-b059ea98050e"],
-
-Cell[CellGroupData[{
-
-Cell["\t", "GuideDelimiter",
- CellID->311258892,ExpressionUUID->"fceefd72-f41b-479b-81dc-bde7928bb6ca"],
-
-Cell["XXXX . XXXX . ", "InlineGuideFunctionListing",
+  ButtonBox["FieldPressure",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/FieldPressure"]], 
+  "InlineFormula",ExpressionUUID->"efe81631-2a3e-4046-a7d8-c971fb88041e"]
+}], "InlineGuideFunctionListing",
  CellID->58033752,ExpressionUUID->"5a954a2c-21a2-4fbd-b16d-4333c62a4834"]
-}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -161,11 +149,11 @@ Cell["XXXX", "GuideMoreAbout",
 Cell["Related Links", "GuideRelatedLinksSection",
  CellID->415694148,ExpressionUUID->"48342707-6d18-4751-8023-8d41b0c4e697"]
 },
-WindowSize->{700, 770},
-WindowMargins->{{1123, Automatic}, {201, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
+TrackCellChangeTimes->False,
 FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
 2018)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
+
