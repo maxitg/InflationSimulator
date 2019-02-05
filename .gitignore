@@ -1,0 +1,5 @@
+# Directory in which documentation is build
+build
+
+# Ant documentation build file, automatically produced by Wolfram Workbench
+docbuild.xml
