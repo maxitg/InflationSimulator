@@ -130,6 +130,24 @@ Cell[TextData[{
 
 Cell[CellGroupData[{
 
+Cell["Field and Space Evolution", "GuideFunctionsSection",
+ CellID->1311770356,ExpressionUUID->"40c4dee4-c885-44ae-beec-704feccd973b"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineGuideFunction",ExpressionUUID->
+  "a2861bad-7a88-4b8b-a199-373ceb0e981a"],
+ " \[LongDash] compute functions describing evolution of the field and the \
+number of e-foldings with time."
+}], "GuideText",
+ CellID->1316496314,ExpressionUUID->"b2cc32b6-2ca5-4687-9374-1440826b3810"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell["Tutorials", "GuideTutorialsSection",
  CellID->415694126,ExpressionUUID->"c79790d6-e121-4055-b2d8-a955377cfee3"],
 

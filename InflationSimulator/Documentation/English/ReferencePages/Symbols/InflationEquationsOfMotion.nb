@@ -120,14 +120,15 @@ Cell[TextData[{
   RowBox[{"InflationEquationsOfMotion", "[", 
    RowBox[{
     StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
-    StyleBox[
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "TI"], ",", " ", 
-    StyleBox[
-     RowBox[{"n", "[", "t", "]"}], "TI"], ",", " ", 
+    RowBox[{
+     StyleBox["\[CurlyPhi]", "TI"], "[", 
+     StyleBox["t", "TI"], "]"}], ",", " ", 
+    RowBox[{
+     StyleBox["n", "TI"], "[", 
+     StyleBox["t", "TI"], "]"}], ",", " ", 
     StyleBox["t", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
   "03996fc1-3cff-45a3-a018-d43b30bc942c"],
- " \[LineSeparator]yields Euler-Lagrange and Friedmann equations fully \
-describing the evolution of a field ",
+ "\[LineSeparator]yields equations fully describing the evolution of a field ",
  StyleBox["\[CurlyPhi]", "TI"],
  " with Lagrangian ",
  StyleBox["\[ScriptCapitalL]", "TI"],
@@ -140,7 +141,10 @@ describing the evolution of a field ",
  CellID->982511436,ExpressionUUID->"d3497367-aaa5-4d02-9740-4ec438e42097"],
 
 Cell["\<\
-The list of Euler-Lagrange and Friedmann equations is returned.\
+The equations are produced by using Euler-Lagrange and Friedmann equations, \
+and transforming them such that there are equations with the double time \
+derivative of the field, and the time derivative of the number of e-foldings \
+on the left hand sides.\
 \>", "Notes",
  CellID->1067943069,ExpressionUUID->"315728a3-d884-49de-8587-111efa049f61"],
 
@@ -420,7 +424,73 @@ Cell[TextData[Cell[BoxData[
 "InlineMath",ExpressionUUID->"46683406-24ae-4e83-bcab-c0326bdac3db"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->35856315,ExpressionUUID->"57226962-6dd5-488c-b7cc-b4247b14ce1f"]
+ CellID->35856315,ExpressionUUID->"57226962-6dd5-488c-b7cc-b4247b14ce1f"],
+
+Cell["\<\
+From these, final equations are derived, assuming Lagrangian does not depend \
+on time explicitly:\
+\>", "Notes",
+ CellID->908600656,ExpressionUUID->"c358c05c-9cd8-4cf5-90f2-712e8d7f06c7"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   OverscriptBox["\[CurlyPhi]", "\[DoubleDot]"], "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SqrtBox[
+         RowBox[{"3", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[ScriptCapitalL]"}], " ", "+", " ", 
+            RowBox[{
+             FractionBox[
+              RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+              RowBox[{"\[PartialD]", 
+               OverscriptBox["\[CurlyPhi]", "."]}]], " ", 
+             OverscriptBox["\[CurlyPhi]", "."]}]}], ")"}]}]]}], " ", 
+       FractionBox[
+        RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+        RowBox[{"\[PartialD]", 
+         OverscriptBox["\[CurlyPhi]", "."]}]]}], " ", "+", " ", 
+      FractionBox[
+       RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+       RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], " ", "-", " ", 
+      RowBox[{
+       OverscriptBox["\[CurlyPhi]", "."], " ", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[PartialD]", "2"], "\[ScriptCapitalL]"}], 
+        RowBox[{
+         RowBox[{"\[PartialD]", "\[CurlyPhi]"}], 
+         RowBox[{"\[PartialD]", 
+          OverscriptBox["\[CurlyPhi]", "."]}]}]]}]}], ")"}], "/", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "2"], "\[ScriptCapitalL]"}], 
+     RowBox[{"\[PartialD]", 
+      SuperscriptBox[
+       OverscriptBox["\[CurlyPhi]", "."], "2"]}]]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"840b47a2-9cc3-44b8-9c53-0bbc354bfbeb"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->35793288,ExpressionUUID->"de48a946-e2a1-4fef-aa4a-5339cd8b5cb8"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   OverscriptBox["n", "."], "=", 
+   SqrtBox[
+    RowBox[{"\[Rho]", "/", "3"}]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"0a53057f-146a-4295-a1c2-3e281ffc2149"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->282370256,ExpressionUUID->"f2a91ed3-a87d-46b1-9fcf-e7db25d3cdcd"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -503,27 +573,37 @@ Cell[BoxData[
       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}]}], ",", 
    RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
    RowBox[{"n", "[", "t", "]"}], ",", "t"}], "]"}]], "Input",
- CellLabel->"In[41]:=",
- CellID->207153771,ExpressionUUID->"02179b15-3c6a-40f4-92f6-bf88b9d11e9a"],
+ CellLabel->"In[119]:=",
+ CellID->692301668,ExpressionUUID->"d14b04fe-b7d0-4a72-bfda-0e8130cfcd51"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
    RowBox[{
     RowBox[{
+     SuperscriptBox["\[CurlyPhi]", "\[Prime]\[Prime]",
+      MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+    RowBox[{
      RowBox[{
       RowBox[{"-", "m"}], " ", 
       RowBox[{"\[CurlyPhi]", "[", "t", "]"}]}], "-", 
-     RowBox[{"3", " ", 
-      RowBox[{
-       SuperscriptBox["n", "\[Prime]",
-        MultilineFunction->None], "[", "t", "]"}], " ", 
+     RowBox[{
+      SqrtBox["3"], " ", 
       RowBox[{
        SuperscriptBox["\[CurlyPhi]", "\[Prime]",
-        MultilineFunction->None], "[", "t", "]"}]}], "-", 
-     RowBox[{
-      SuperscriptBox["\[CurlyPhi]", "\[Prime]\[Prime]",
-       MultilineFunction->None], "[", "t", "]"}]}], "\[Equal]", "0"}], ",", 
+        MultilineFunction->None], "[", "t", "]"}], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         FractionBox["1", "2"], " ", "m", " ", 
+         SuperscriptBox[
+          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{
+           SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "2"]}]}]]}]}]}], ",", 
    RowBox[{
     RowBox[{
      SuperscriptBox["n", "\[Prime]",
@@ -542,8 +622,8 @@ Cell[BoxData[
           SuperscriptBox["\[CurlyPhi]", "\[Prime]",
            MultilineFunction->None], "[", "t", "]"}], "2"]}]}]], 
      SqrtBox["3"]]}]}], "}"}]], "Output",
- CellLabel->"Out[41]=",
- CellID->1497553036,ExpressionUUID->"eac2eec6-1855-4696-94c0-2d5ea4a07687"]
+ CellLabel->"Out[119]=",
+ CellID->1240690168,ExpressionUUID->"e4819ea3-897b-4d24-8d69-925360f84319"]
 }, Open  ]]
 }, Open  ]],
 
@@ -635,3 +715,4 @@ FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
+
