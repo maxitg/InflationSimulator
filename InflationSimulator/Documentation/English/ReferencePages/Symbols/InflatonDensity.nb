@@ -111,21 +111,21 @@ Cell["XXXX", "Details",
 
 Cell[CellGroupData[{
 
-Cell["FieldDensity", "ObjectName",
+Cell["InflatonDensity", "ObjectName",
  CellID->1224892054,ExpressionUUID->"48b980f3-a410-4251-9f32-d72848065ac0"],
 
 Cell[TextData[{
  Cell["   ", "ModInfo",ExpressionUUID->"a964d8dd-0966-4fc9-9d90-8528c36ffee5"],
  Cell[BoxData[
-  RowBox[{"FieldDensity", "[", 
+  RowBox[{"InflatonDensity", "[", 
    RowBox[{
     StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
     SubscriptBox[
      StyleBox["\[CurlyPhi]", "TI"], 
      StyleBox["t", "TI"]]}], "]"}]], "InlineFormula",ExpressionUUID->
   "ccfbb1dd-1d3f-4d7c-957a-d8f9cfb59fa4"],
- " \[LineSeparator]FieldDensity yields the density of the field with \
-Lagrangian \[ScriptCapitalL] and time derivative of the field ",
+ " \[LineSeparator]yields the density of the field with Lagrangian \
+\[ScriptCapitalL] and time derivative of the field ",
  Cell[BoxData[
   SubscriptBox[
    StyleBox["\[CurlyPhi]", "TI"], 
@@ -135,7 +135,35 @@ Lagrangian \[ScriptCapitalL] and time derivative of the field ",
 }], "Usage",
  CellID->982511436,ExpressionUUID->"c5eaf628-b6e1-44cf-82fc-0bf8488b72c5"],
 
-Cell["Derivation", "Notes",
+Cell["Homogeneity and isotropy are assumed.", "Notes",
+ CellID->74899166,ExpressionUUID->"0647cd0a-a51a-4eea-a8d3-632330000411"],
+
+Cell[TextData[{
+ "Density is evaluated as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Rho]", "=", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"\[ScriptCapitalL]", "(", 
+       RowBox[{"\[CurlyPhi]", ",", 
+        RowBox[{"-", 
+         SuperscriptBox[
+          OverscriptBox["\[CurlyPhi]", "."], "2"]}]}], ")"}]}], "+", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"\[Delta]", " ", 
+        RowBox[{"\[ScriptCapitalL]", "(", 
+         RowBox[{"\[CurlyPhi]", ",", 
+          RowBox[{"-", 
+           SuperscriptBox[
+            OverscriptBox["\[CurlyPhi]", "."], "2"]}]}], ")"}]}], 
+       RowBox[{"\[Delta]", " ", 
+        OverscriptBox["\[CurlyPhi]", "."]}]], 
+      OverscriptBox["\[CurlyPhi]", "."]}]}]}], TraditionalForm]], 
+  "InlineMath",ExpressionUUID->"ab89c6be-c2d2-4db1-b53c-30dfd70b5136"],
+ "."
+}], "Notes",
  CellID->721632110,ExpressionUUID->"139f732e-0a25-4fd4-8d91-61ec8532ba32"],
 
 Cell[TextData[{
@@ -144,12 +172,12 @@ Therefore, if we derive those for the DBI field, we would be able to study \
 its time evolution, and determine the number of e-foldings during inflation. \
 Density ",
  Cell[BoxData[
-  FormBox["\[Rho]", TraditionalForm]],ExpressionUUID->
-  "37131e1b-8180-437b-95df-9733aee832db"],
+  FormBox["\[Rho]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "26e23599-4cc1-4dc2-aa22-0d3ad6449907"],
  " and pressure ",
  Cell[BoxData[
-  FormBox["p", TraditionalForm]],ExpressionUUID->
-  "e14e7310-a3fd-4935-b61b-eb33f176b937"],
+  FormBox["p", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "25546724-1081-438b-b1b3-64b95a688c35"],
  " are defined as follows:"
 }], "ExampleText",
  CellID->1086861119,ExpressionUUID->"7198ff93-090e-455a-addb-d89e9fc7383b"],
@@ -157,12 +185,12 @@ Density ",
 Cell[TextData[Cell[BoxData[
  FormBox[
   RowBox[{"\[Rho]", "=", 
-   SuperscriptBox["T", "00"]}], TraditionalForm]], "ExampleText",
- TextAlignment->
-  Center,ExpressionUUID->"c46293b8-4877-4299-aa72-7584c0b07f8a"]], \
+   SuperscriptBox["T", "00"]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"9079a3cf-b498-420b-ad22-2f33d8708072"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->1478217562,ExpressionUUID->"db295c2d-5d31-46f9-897b-f05e52350aed"],
+ CellID->775038841,ExpressionUUID->"5d09b20c-c9e5-4e7c-82bd-ec56dbb8cd47"],
 
 Cell[TextData[Cell[BoxData[
  FormBox[
@@ -174,23 +202,22 @@ Cell[TextData[Cell[BoxData[
       SuperscriptBox["T", "11"], "+", 
       SuperscriptBox["T", "22"], "+", 
       SuperscriptBox["T", "33"]}], ")"}]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"1838a041-4cae-4128-b661-6c5edff892a0"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"e4d1ac05-e415-46fa-b570-9434351d8f23"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->78828008,ExpressionUUID->"606f5a2b-3377-4fd1-9475-76be470be536"],
+ CellID->917967425,ExpressionUUID->"1994cb51-2f37-4898-8700-716da7ed276c"],
 
 Cell[TextData[{
  "where ",
  Cell[BoxData[
-  FormBox["T", TraditionalForm]],ExpressionUUID->
-  "87cc9c01-0778-4152-8779-07c5cd9c668f"],
+  FormBox["T", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "ddf5900f-0adf-4161-afeb-47c3627a7d27"],
  " is the energy-momentum tensor. If we define action ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["I", "m"], TraditionalForm]],ExpressionUUID->
-  "8308c774-3c3e-482f-b833-911b20792955"],
+   SubscriptBox["I", "m"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "8fb743ef-583f-41f5-a18f-765459510bb2"],
  " as:"
 }], "ExampleText",
  CellID->418722618,ExpressionUUID->"7ea68025-05f5-4d15-bbfd-8dd02bea696c"],
@@ -204,12 +231,11 @@ Cell[TextData[Cell[BoxData[
      RowBox[{
       SuperscriptBox["\[DifferentialD]", "4"], "x"}], 
      SqrtBox["g"], "\[ScriptCapitalL]"}]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"6e0d8a1a-61e0-4f60-9b0d-1fd3c6569bb4"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"b18b8650-e4b2-4586-806d-b08643fc91ee"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->364879817,ExpressionUUID->"d7835831-24ba-487f-94a0-24a2a88be34c"],
+ CellID->1089583777,ExpressionUUID->"7e4ca5d7-b9fb-44b8-b037-d777451aaa17"],
 
 Cell["the energy-momentum tensor is defined as:", "ExampleText",
  CellID->948687151,ExpressionUUID->"4a4efa08-0411-4b8f-b2eb-8de147db9d42"],
@@ -230,23 +256,22 @@ Cell[TextData[Cell[BoxData[
        RowBox[{"\[Mu]", " ", "\[Nu]"}]], "\[Delta]", " ", 
       SubscriptBox["g", 
        RowBox[{"\[Mu]", " ", "\[Nu]"}]]}]}]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"3b7284f4-8342-470e-a851-e68b10e5b255"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"5193a918-c0df-4e7c-9cd5-52fccedaff38"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->2125998335,ExpressionUUID->"3a914c51-ce21-429a-9996-73dfa2d1d349"],
+ CellID->1920414663,ExpressionUUID->"f54643d8-be5e-4b62-8ed5-e661bef80b71"],
 
 Cell[TextData[{
  "Therefore, we can derive it by varying ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["I", "m"], TraditionalForm]],ExpressionUUID->
-  "4d005891-e58b-4dfb-9e95-24a7d7f5b9df"],
+   SubscriptBox["I", "m"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "e2e05f7b-8dc8-4f66-988d-9d235bf4ff99"],
  " with respect to ",
  Cell[BoxData[
-  FormBox["g", TraditionalForm]],ExpressionUUID->
-  "dff5c9f9-c101-4373-a34a-296781f7ee72"],
+  FormBox["g", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "2d723d64-83b2-43b1-a2be-1bac059facc4"],
  "."
 }], "ExampleText",
  CellID->195503136,ExpressionUUID->"9290f9bb-51ce-4e95-8123-6f5a330ea565"],
@@ -266,12 +291,11 @@ Cell[TextData[Cell[BoxData[
      RowBox[{"\[Mu]", " ", "\[Nu]"}]], "\[Delta]", " ", 
     SubscriptBox["g", 
      RowBox[{"\[Mu]", " ", "\[Nu]"}]]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"858ae8fb-c54c-4f3b-a726-93845537b4bd"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"dee66423-0598-4b4c-93f2-eb6f71697ed6"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->1220064308,ExpressionUUID->"bba88495-9f4d-48f9-9d5e-add497aa7fa1"],
+ CellID->124209626,ExpressionUUID->"335bf477-b782-4d35-9b5f-00087e847d56"],
 
 Cell[TextData[Cell[BoxData[
  FormBox[
@@ -287,12 +311,11 @@ Cell[TextData[Cell[BoxData[
      RowBox[{"\[Mu]", " ", "\[Nu]"}]], 
     SuperscriptBox["g", 
      RowBox[{"\[Nu]", " ", "\[Beta]"}]]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"f89a00d9-5045-4b4f-9954-083842cc30c9"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"9a7f8ae9-77bc-4fc9-aa99-b94a0ae4d2f7"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->1446963000,ExpressionUUID->"75b1927b-372e-408a-9230-7cecfa6e07f1"],
+ CellID->1321214537,ExpressionUUID->"1b4771bb-22cf-43be-ba4a-df135775408b"],
 
 Cell[CellGroupData[{
 
@@ -422,13 +445,12 @@ Cell[TextData[Cell[BoxData[{
            SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
           RowBox[{
            SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], 
-         ")"}]}]}], ")"}]}]}]}], TraditionalForm]}], "DisplayFormulaNumbered",
- 
- TextAlignment->
-  Center,ExpressionUUID->"1ec1749e-7bfe-40f6-94b6-5eb67dfda713"]], \
+         ")"}]}]}], ")"}]}]}]}], 
+  TraditionalForm]}], \
+"InlineMath",ExpressionUUID->"becd377d-49a2-4dc4-88bb-8aa472065729"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->858032116,ExpressionUUID->"a7d36d99-13ae-410d-908e-6dd052dae5e3"],
+ CellID->1091502574,ExpressionUUID->"dc1255ef-90ff-4f93-ad14-01e59a8cd317"],
 
 Cell["Now, note:", "ExampleText",
  CellID->83794987,ExpressionUUID->"a1ebd961-ae0d-4405-9d78-8089c8f9d02d"],
@@ -485,12 +507,11 @@ Cell[TextData[Cell[BoxData[
        "\[Delta]", " ", 
        SubscriptBox["g", 
         RowBox[{"\[Mu]", " ", "\[Nu]"}]]}]}]}]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"9a53278f-5439-4a41-9286-3b29f7ef4873"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"83276d84-d721-439a-bd97-666590876ac1"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->29108570,ExpressionUUID->"6b5f46c0-9a7a-4c51-b6ae-691bfac172fe"],
+ CellID->1512059879,ExpressionUUID->"8d11bce3-effd-4ebc-ad06-8c5b63f9d6e9"],
 
 Cell["Using that, we can substitute back:", "ExampleText",
  CellID->1602040013,ExpressionUUID->"fd50c063-6679-44aa-9995-8cd3eb65afbf"],
@@ -597,12 +618,11 @@ Cell[TextData[Cell[BoxData[{
       "\[Delta]", " ", 
       SubscriptBox["g", 
        RowBox[{"\[Mu]", " ", "\[Nu]"}]]}]}]}]}], 
-  TraditionalForm]}], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"abc463dd-02a6-4463-8a6a-24a23abe577c"]], \
+  TraditionalForm]}], \
+"InlineMath",ExpressionUUID->"93215cb3-c758-4913-bd85-3f4c2459cbb9"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->1077462165,ExpressionUUID->"02f7aa21-40ee-4297-b0d3-1b030d72328b"],
+ CellID->1046152326,ExpressionUUID->"fb8d0ce2-5c46-4f37-b6e3-1c4b5b51b902"],
 
 Cell["\<\
 Hence, according to the definition of energy-momentum tensor:\
@@ -648,12 +668,11 @@ Cell[TextData[Cell[BoxData[
       SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
      RowBox[{
       SuperscriptBox["\[PartialD]", "\[Nu]"], "\[CurlyPhi]"}]}]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"ef6c58ef-04c1-4af7-bf6a-f6cd85de1794"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"435b059f-0492-446d-82e7-52bee8dddb89"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->1765060272,ExpressionUUID->"35560b27-79b4-4e48-b27d-2768c9713ce2"],
+ CellID->1851210262,ExpressionUUID->"c8d24c3c-5a88-48e8-a0fd-8ccc8e664daf"],
 
 Cell["For density and pressure, we then have:", "ExampleText",
  CellID->1740517876,ExpressionUUID->"21ca92d8-317e-4396-887c-942ad302c487"],
@@ -697,12 +716,11 @@ Cell[TextData[Cell[BoxData[
        SuperscriptBox["\[PartialD]", "0"], "\[CurlyPhi]"}], " ", 
       RowBox[{
        SuperscriptBox["\[PartialD]", "0"], "\[CurlyPhi]"}]}]}]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"9ddfacfc-74e4-4d02-8862-5166330cb0fc"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"cfb436f4-a4d8-42a5-913d-27679f72ac05"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->1020450255,ExpressionUUID->"49215359-039e-471b-b904-bef4c899c5d7"],
+ CellID->337932346,ExpressionUUID->"34343b19-2a1a-4530-bc84-435163b30671"],
 
 Cell[TextData[Cell[BoxData[
  FormBox[
@@ -768,12 +786,12 @@ Cell[TextData[Cell[BoxData[
           SuperscriptBox["\[PartialD]", "3"], "\[CurlyPhi]"}], " ", 
          RowBox[{
           SuperscriptBox["\[PartialD]", "3"], "\[CurlyPhi]"}]}]}], 
-       ")"}]}]}]}]}], TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"87398491-bd51-4333-a35e-935a2a67f329"]], \
+       ")"}]}]}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"2cf5eb62-6f74-48ea-848d-e6ffe9c190d4"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->903030843,ExpressionUUID->"c77e207a-72fa-4bb3-8b95-50b12f79a284"],
+ CellID->1884798147,ExpressionUUID->"db343b41-02c0-4d53-b0b2-8278a9286974"],
 
 Cell[TextData[{
  "In cosmology, we assume, in present time",
@@ -785,8 +803,8 @@ Cell[TextData[{
     SuperscriptBox["g", 
      RowBox[{"\[Mu]", " ", "\[Nu]"}]], "=", 
     SuperscriptBox["\[Eta]", 
-     RowBox[{"\[Mu]", " ", "\[Nu]"}]]}], TraditionalForm]],ExpressionUUID->
-  "87edd1cf-17e3-41bf-a909-e9589338e10c"],
+     RowBox[{"\[Mu]", " ", "\[Nu]"}]]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"802bf2c1-ddc0-4dd2-897b-69b9958ff6de"],
  ". Furthermore, we assume the space to be homogeneous and isotropic, \
 therefore, ",
  Cell[BoxData[
@@ -794,12 +812,13 @@ therefore, ",
    RowBox[{
     RowBox[{
      SubscriptBox["\[PartialD]", "k"], "\[CurlyPhi]"}], "=", "0"}], 
-   TraditionalForm]],ExpressionUUID->"4a3a161c-44a4-49ff-88f6-cc97697ad1c5"],
+   TraditionalForm]], "InlineMath",ExpressionUUID->
+  "7c1cbbb5-8ab7-4987-9d46-d65171caf84f"],
  " for ",
  Cell[BoxData[
   FormBox[
    RowBox[{"1", "\[LessEqual]", "k", "\[LessEqual]", "3"}], TraditionalForm]],
-  ExpressionUUID->"0f8dc49b-e09f-4b9c-abc2-10e81f20ba3d"],
+   "InlineMath",ExpressionUUID->"bfbba19c-8699-43f4-b125-fda6946d0b7f"],
  ". We use the following conventions for the metric sign:"
 }], "ExampleText",
  CellID->657800809,ExpressionUUID->"0d7cfa49-835a-4bf5-870b-1650fd9e42fd"],
@@ -809,12 +828,11 @@ Cell[TextData[Cell[BoxData[
   RowBox[{
    SubscriptBox["\[CurlyPhi]", "0"], "=", 
    OverscriptBox["\[CurlyPhi]", "."]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"05648b18-ecc4-4068-8072-bb80f560cb6a"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"07b3e396-c14d-49a1-a90c-0d9d55bd3ba8"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->1730574814,ExpressionUUID->"dd60097a-f350-4f3a-b021-f6afc994962d"],
+ CellID->1914904230,ExpressionUUID->"5f07e8dc-2148-4c92-bb95-7608aac91706"],
 
 Cell[TextData[Cell[BoxData[{
  FormBox[
@@ -827,12 +845,11 @@ Cell[TextData[Cell[BoxData[{
     SuperscriptBox["\[Eta]", 
      RowBox[{"k", " ", "k"}]], "=", "1"}], ",", " ", 
    RowBox[{"1", "\[LessEqual]", "k", "\[LessEqual]", "3"}]}], 
-  TraditionalForm]}], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"104d987c-dfc1-4839-ac95-f0ad289c5221"]], \
+  TraditionalForm]}], \
+"InlineMath",ExpressionUUID->"aeb8e0c3-941c-4999-8831-c357986e3143"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->252383930,ExpressionUUID->"733864cc-afb0-432d-8c82-95153ad6d1f8"],
+ CellID->192151593,ExpressionUUID->"0fe335c4-0ec0-4e37-82f5-5460b674c84b"],
 
 Cell["Then, equations for density and pressure become:", "ExampleText",
  CellID->1723168737,ExpressionUUID->"67549543-751d-4d6e-82a1-4902fa604e10"],
@@ -870,12 +887,11 @@ Cell[TextData[Cell[BoxData[
           SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], ")"}]}]], 
      SuperscriptBox[
       OverscriptBox["\[CurlyPhi]", "."], "2"]}]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"05f63296-f30e-4319-a49e-9f8db7a22aaf"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"599783be-1c80-4884-9194-580a790cacdb"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->1411638366,ExpressionUUID->"a128c87b-38ae-47f9-bec2-5822860e8a61"],
+ CellID->101414714,ExpressionUUID->"09c854bc-2f80-40a2-9057-8af70f280127"],
 
 Cell[TextData[Cell[BoxData[
  FormBox[
@@ -887,12 +903,11 @@ Cell[TextData[Cell[BoxData[
        SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
       RowBox[{
        SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], ")"}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- TextAlignment->
-  Center,ExpressionUUID->"e90da6e9-63c7-4a33-add9-8a60703248cd"]], \
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"150f0b6d-f408-488c-9a62-082b2b0fb776"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->6685306,ExpressionUUID->"3410dc9d-82e0-4fe9-b166-3f1e0509f8e5"]
+ CellID->1088859969,ExpressionUUID->"4def1359-dd2e-4735-b9be-eacf3906ffee"]
 }, Open  ]]
 }, Open  ]],
 
@@ -962,7 +977,7 @@ Cell["Evaluate field density of a real scalar field:", "ExampleText",
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"FieldDensity", "[", 
+ RowBox[{"InflatonDensity", "[", 
   RowBox[{
    RowBox[{
     RowBox[{
@@ -970,7 +985,7 @@ Cell[BoxData[
      SuperscriptBox["\[CurlyPhi]t", "2"]}], "-", 
     RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], ",", "\[CurlyPhi]t"}], 
   "]"}]], "Input",
- CellLabel->"In[6]:=",
+ CellLabel->"In[18]:=",
  CellID->1177442084,ExpressionUUID->"070c9a59-3e6e-4434-9e48-d06e3f963af7"],
 
 Cell[BoxData[
@@ -978,8 +993,8 @@ Cell[BoxData[
   FractionBox[
    SuperscriptBox["\[CurlyPhi]t", "2"], "2"], "+", 
   RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}]], "Output",
- CellLabel->"Out[6]=",
- CellID->994927129,ExpressionUUID->"c1d1fa4a-45a9-49f1-9728-75c4dc09333a"]
+ CellLabel->"Out[18]=",
+ CellID->192597866,ExpressionUUID->"925dfe85-9211-4b6d-84b6-ca5bc5eedbd8"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -999,7 +1014,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"FullSimplify", "[", 
-  RowBox[{"FieldDensity", "[", 
+  RowBox[{"InflatonDensity", "[", 
    RowBox[{
     RowBox[{
      RowBox[{
@@ -1016,7 +1031,7 @@ Cell[BoxData[
            SuperscriptBox["\[CurlyPhi]t", "2"]}]}]], "-", "1"}], ")"}]}], "-", 
      RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], ",", "\[CurlyPhi]t"}], "]"}], 
   "]"}]], "Input",
- CellLabel->"In[12]:=",
+ CellLabel->"In[19]:=",
  CellID->392585504,ExpressionUUID->"9750a4be-146f-437c-ac76-3315f87f6830"],
 
 Cell[BoxData[
@@ -1032,8 +1047,8 @@ Cell[BoxData[
         RowBox[{"f", "[", "\[CurlyPhi]", "]"}]}]}]]]}], 
    RowBox[{"f", "[", "\[CurlyPhi]", "]"}]], "+", 
   RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}]], "Output",
- CellLabel->"Out[12]=",
- CellID->1706847011,ExpressionUUID->"436b9a2a-2263-41ef-b2e9-140f274a8875"]
+ CellLabel->"Out[19]=",
+ CellID->1570054433,ExpressionUUID->"00794120-4607-4c21-8d96-2e72bdaa1b97"]
 }, Open  ]],
 
 Cell[TextData[{

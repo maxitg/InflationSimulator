@@ -12,10 +12,11 @@
 (*See on GitHub: https://github.com/maxitg/InflationSimulator.*)
 
 
-BeginPackage["InflationSimulator`", {"UsageString`"}]
+BeginPackage["InflationSimulator`", {"UsageString`"}];
 
 
-InflationSimulator`$PublicSymbols = {FieldDensity, FieldPressure};
+InflationSimulator`Private`$PublicSymbols = {
+	InflatonDensity, InflatonPressure, InflationEquationsOfMotion};
 
 
 Unprotect @@ InflationSimulator`Private`$PublicSymbols;
@@ -30,32 +31,59 @@ Begin["`Private`"];
 
 
 (* ::Subsection:: *)
-(*Field Density*)
+(*Density*)
 
 
-FieldDensity::usage = UsageString[
-	"FieldDensity[`\[ScriptCapitalL]`, \!\(\*SubscriptBox[\(`\[CurlyPhi]`\), \(`t`\)]\)] yields the density ",
+InflatonDensity::usage = UsageString[
+	"InflatonDensity[`\[ScriptCapitalL]`, \!\(\*SubscriptBox[\(`\[CurlyPhi]`\), \(`t`\)]\)] yields the density ",
 	"of the field with Lagrangian `\[ScriptCapitalL]` and time derivative of the field ",
-	"\!\(\*SubscriptBox[\(`\[CurlyPhi]`\), \(`t`\)]\)."
+	"\!\(\*SubscriptBox[\(`\[CurlyPhi]`\), \(`t`\)]\), assuming homogeneity and isotropy."
 ];
 
 
-FieldDensity[lagrangian_, fieldDerivative_] :=
+InflatonDensity[lagrangian_, fieldDerivative_] :=
 	-lagrangian + D[lagrangian, fieldDerivative] fieldDerivative
 
 
 (* ::Subsection:: *)
-(*Field Pressure*)
+(*Pressure*)
 
 
-FieldPressure::usage = UsageString[
-	"FieldPressure[`\[ScriptCapitalL]`, \!\(\*SubscriptBox[\(`\[CurlyPhi]`\), \(`t`\)]\)] yields the pressure ",
-	"of the field with Lagrangian `\[ScriptCapitalL]` and time derivative of the field ",
-	"\!\(\*SubscriptBox[\(`\[CurlyPhi]`\), \(`t`\)]\)."
+InflatonPressure::usage = UsageString[
+	"InflatonPressure[`\[ScriptCapitalL]`, \!\(\*SubscriptBox[\(`\[CurlyPhi]`\), \(`t`\)]\)] yields the ",
+	"pressure of the field with Lagrangian `\[ScriptCapitalL]` and time derivative of the field ",
+	"\!\(\*SubscriptBox[\(`\[CurlyPhi]`\), \(`t`\)]\), assuming homogeneity and isotropy."
 ];
 
 
-FieldPressure[lagrangian_, fieldDerivative_] := lagrangian
+InflatonPressure[lagrangian_, fieldDerivative_] := lagrangian
+
+
+(* ::Subsection:: *)
+(*Equations of Motion*)
+
+
+InflationEquationsOfMotion::usage = UsageString[
+	"InflationEquationsOfMotion[`\[ScriptCapitalL]`, `\[CurlyPhi][t]`, `n[t]`, `t`] yields Euler-Lagrange ",
+	"and Friedmann equations fully describing the evolution of a field `\[CurlyPhi]` with ",
+	"Lagrangian `\[ScriptCapitalL]` in homogeneous and isotropic spacetime, ",
+	"where the number of e-foldings is `n`."
+];
+
+
+ClearAll[$EulerLagrangeEquation];
+$EulerLagrangeEquation[lagrangian_, field_, efoldings_, time_] := (
+	D[lagrangian, field] - 3 D[efoldings, time] D[lagrangian, D[field, time]]
+			- D[lagrangian, D[field, time], time] == 0)
+
+
+ClearAll[$FriedmannEquation];
+$FriedmannEquation[lagrangian_, field_, efoldings_, time_] :=
+	D[efoldings, time] == Sqrt[1/3 InflatonDensity[lagrangian, D[field, time]]]
+
+
+InflationEquationsOfMotion[args___] :=
+	{$EulerLagrangeEquation[args], $FriedmannEquation[args]}
 
 
 (* ::Section:: *)

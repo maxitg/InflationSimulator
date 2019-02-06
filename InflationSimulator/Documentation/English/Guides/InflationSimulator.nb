@@ -103,23 +103,29 @@ such as tensor and scalar spectral indices, and tensor-to-scalar ratio.\
 
 Cell[CellGroupData[{
 
-Cell["Field Properties", "GuideFunctionsSection",
+Cell["Static Inflaton Properties", "GuideFunctionsSection",
  CellID->1866139230,ExpressionUUID->"494f9958-7358-4561-960d-81123cc98422"],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["FieldDensity",
+  ButtonBox["InflatonDensity",
    BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/FieldDensity"]], 
-  "InlineFormula",ExpressionUUID->"6b6af529-fb3e-4a42-a8a2-80cf1a654782"],
+   ButtonData->"paclet:InflationSimulator/ref/InflatonDensity"]], 
+  "InlineFormula",ExpressionUUID->"4916dde8-edf0-4de1-83d4-169160f95ca2"],
  " . ",
  Cell[BoxData[
-  ButtonBox["FieldPressure",
+  ButtonBox["InflatonPressure",
    BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/FieldPressure"]], 
-  "InlineFormula",ExpressionUUID->"efe81631-2a3e-4046-a7d8-c971fb88041e"]
+   ButtonData->"paclet:InflationSimulator/ref/InflatonPressure"]], 
+  "InlineFormula",ExpressionUUID->"5ddb2311-6cd4-42cf-8239-871c3c94754c"],
+ " . ",
+ Cell[BoxData[
+  ButtonBox["InflationEquationsOfMotion",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEquationsOfMotion"]], 
+  "InlineFormula",ExpressionUUID->"1a9a06c3-2a57-4c39-817c-fb74465412b6"]
 }], "InlineGuideFunctionListing",
- CellID->58033752,ExpressionUUID->"5a954a2c-21a2-4fbd-b16d-4333c62a4834"]
+ CellID->1341523025,ExpressionUUID->"22793dd0-a165-41ec-b7e5-b55b9bcea08a"]
 }, Open  ]],
 
 Cell[CellGroupData[{

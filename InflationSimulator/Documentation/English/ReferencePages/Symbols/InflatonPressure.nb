@@ -111,13 +111,13 @@ Cell["XXXX", "Details",
 
 Cell[CellGroupData[{
 
-Cell["FieldPressure", "ObjectName",
+Cell["InflatonPressure", "ObjectName",
  CellID->1224892054,ExpressionUUID->"954d1638-eb24-4a1b-af78-b80629822b9c"],
 
 Cell[TextData[{
  Cell["   ", "ModInfo",ExpressionUUID->"6daa9293-28f1-4804-9578-92bd99621644"],
  Cell[BoxData[
-  RowBox[{"FieldPressure", "[", 
+  RowBox[{"InflatonPressure", "[", 
    RowBox[{
     StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
     SubscriptBox[
@@ -135,20 +135,27 @@ Lagrangian \[ScriptCapitalL] and time derivative of the field ",
 }], "Usage",
  CellID->982511436,ExpressionUUID->"6865fcbe-b125-452b-a307-e42575c794c4"],
 
+Cell["Homogeneity and isotropy are assumed.", "Notes",
+ CellID->74899166,ExpressionUUID->"25d4265a-ea94-4e72-92e2-7dda23b68846"],
+
 Cell[TextData[{
- "Field pressure happens to simply be equal to the Lagrangian \
-\[ScriptCapitalL], the field derivative ",
+ "Field pressure happens to simply be equal to the Lagrangian ",
  Cell[BoxData[
-  SubscriptBox[
-   StyleBox["\[CurlyPhi]", "TI"], 
-   StyleBox["t", "TI"]]],ExpressionUUID->
-  "7e940236-edee-4f6e-8f69-c40cc6d48876"],
+  FormBox["\[ScriptCapitalL]", TraditionalForm]], "InlineMath",
+  ExpressionUUID->"718b084e-4d7d-4b54-85f7-c251444825cb"],
+ ", the field derivative ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    StyleBox["\[CurlyPhi]", "TI"], 
+    StyleBox["t", "TI"]], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "0817b251-d273-4d87-ad95-7a2fab9eeeb1"],
  " is ignored. See ",
  Cell[BoxData[
-  ButtonBox["FieldDensity",
+  ButtonBox["InflatonDensity",
    BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/FieldDensity"]], 
-  "InlineFormula",ExpressionUUID->"89cbaa95-6a09-4688-851e-057cf6ca29d7"],
+   ButtonData->"paclet:InflationSimulator/ref/InflatonDensity"]], 
+  "InlineFormula",ExpressionUUID->"0232a524-50f7-4cb8-b1a2-f08e7236de9d"],
  " for derivation."
 }], "Notes",
  CellID->2025375376,ExpressionUUID->"7e20bea6-e01c-4712-b547-b4c0689e0770"]
@@ -220,7 +227,7 @@ Cell["Evaluate field density of a real scalar field:", "ExampleText",
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"FieldPressure", "[", 
+ RowBox[{"InflatonPressure", "[", 
   RowBox[{
    RowBox[{
     RowBox[{
@@ -228,7 +235,7 @@ Cell[BoxData[
      SuperscriptBox["\[CurlyPhi]t", "2"]}], "-", 
     RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], ",", "\[CurlyPhi]t"}], 
   "]"}]], "Input",
- CellLabel->"In[13]:=",
+ CellLabel->"In[20]:=",
  CellID->1177442084,ExpressionUUID->"9873d45b-f665-4fdf-a202-31e1bd25e5c9"],
 
 Cell[BoxData[
@@ -236,8 +243,8 @@ Cell[BoxData[
   FractionBox[
    SuperscriptBox["\[CurlyPhi]t", "2"], "2"], "-", 
   RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}]], "Output",
- CellLabel->"Out[13]=",
- CellID->1102995458,ExpressionUUID->"fe47555d-c44e-4131-8cad-218a740e2e03"]
+ CellLabel->"Out[20]=",
+ CellID->910851273,ExpressionUUID->"8382bfa5-cdde-43c2-b110-4d9e8bb67ad2"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -258,7 +265,7 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"dbiPressure", "=", 
   RowBox[{"FullSimplify", "[", 
-   RowBox[{"FieldPressure", "[", 
+   RowBox[{"InflatonPressure", "[", 
     RowBox[{
      RowBox[{
       RowBox[{
@@ -276,7 +283,7 @@ Cell[BoxData[
       "-", 
       RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], ",", "\[CurlyPhi]t"}], "]"}], 
    "]"}]}]], "Input",
- CellLabel->"In[15]:=",
+ CellLabel->"In[21]:=",
  CellID->392585504,ExpressionUUID->"73c147cb-ad35-471e-89f8-254dd7257e8d"],
 
 Cell[BoxData[
@@ -293,8 +300,8 @@ Cell[BoxData[
      RowBox[{"f", "[", "\[CurlyPhi]", "]"}], " ", 
      RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}]}], 
    RowBox[{"f", "[", "\[CurlyPhi]", "]"}]]}]], "Output",
- CellLabel->"Out[15]=",
- CellID->2041780982,ExpressionUUID->"8fb567f5-c065-4089-8a18-1466dbe40b90"]
+ CellLabel->"Out[21]=",
+ CellID->1846668581,ExpressionUUID->"b9f56b52-b425-4b27-97ad-8018f2707403"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -335,7 +342,7 @@ Cell[BoxData[
 
 Cell[BoxData["True"], "Output",
  CellLabel->"Out[22]=",
- CellID->891084713,ExpressionUUID->"8797eb00-c6db-435e-8204-dab461057622"]
+ CellID->287655037,ExpressionUUID->"7adff4c8-ea13-4a37-95b2-378a948ef39f"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],

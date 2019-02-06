@@ -1,0 +1,637 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"eda6ade1-43de-4a5c-9bed-e65f46ae433d"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"7fb9729e-9af1-4f18-a0ed-de4f4554c8b7"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"f7dcdf1f-ecd1-4221-b149-45d6c846f741"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised",ExpressionUUID->"6324b286-0cd9-418b-8970-be58d779d57f"]
+}], "History",
+ CellID->1247902091,ExpressionUUID->"1f474142-cdc7-49a4-8fd1-fe6108aea840"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"76046588-873e-412d-9889-8d5e3e4a42fd"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"4431f8ad-3cd4-4a50-a78c-83d2d036b8d4"],
+
+Cell["InflationSimulator", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"31815d8e-aded-430f-ab7c-cdea724f1c0c"],
+
+Cell["InflationSimulator`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"c8b5e423-e0f7-4e41-a0a8-506b250eec2d"],
+
+Cell["InflationSimulator/ref/InflationEquationsOfMotion", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"f1a950b6-abe8-45bf-9ff5-21fc457e6e61"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294,ExpressionUUID->"453f98e4-af69-4690-85e0-c3d293c65c0c"],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360,ExpressionUUID->"51243ef7-53ca-4a49-b680-3b5ba4174e4d"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408,ExpressionUUID->"7dc2605b-689f-48dc-ab7a-cda118c9f01f"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412,ExpressionUUID->"5d46b5dc-fe20-4fd4-8b81-1e48c503325b"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909,ExpressionUUID->"96420bf8-8baf-4f6a-98aa-0d56517c2af4"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930,ExpressionUUID->"bcfc7902-fbc2-4d7b-a7bc-37781ad07a88"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254,ExpressionUUID->"d2029428-ffe2-4d82-887e-6cbf311ba66e"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771,ExpressionUUID->"2955f37e-f5cd-471c-a841-28030b004a91"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175,ExpressionUUID->"472dca20-0b7c-480e-aa04-cf1e14a6b901"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985,ExpressionUUID->"7fcde516-c708-4464-ad21-c8514975cbf9"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405,ExpressionUUID->"8a546c5a-d41f-4ad2-a429-4121fde95c76"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269,ExpressionUUID->"4b70f0d8-7114-4ed2-b860-c6604a5cbef7"],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205,ExpressionUUID->"b3d76198-66bc-4f74-93b5-2a9bb231b8d2"],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745,ExpressionUUID->"5974d0d0-6ab7-4042-89fe-4e476e2b52a4"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810,ExpressionUUID->"4eda8329-67da-448d-9009-e76d145b6b91"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350,ExpressionUUID->"ed8003f7-fcc9-4a15-ae4e-143529dd7ea8"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365,ExpressionUUID->"74ae529d-59d2-4ad5-9bcb-71afc7a41708"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["InflationEquationsOfMotion", "ObjectName",
+ CellID->1224892054,ExpressionUUID->"c22583de-3240-49c3-876c-86426b24b533"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"e8a268ad-147f-4205-9477-69150db46c57"],
+ Cell[BoxData[
+  RowBox[{"InflationEquationsOfMotion", "[", 
+   RowBox[{
+    StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
+    StyleBox[
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "TI"], ",", " ", 
+    StyleBox[
+     RowBox[{"n", "[", "t", "]"}], "TI"], ",", " ", 
+    StyleBox["t", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "03996fc1-3cff-45a3-a018-d43b30bc942c"],
+ " \[LineSeparator]yields Euler-Lagrange and Friedmann equations fully \
+describing the evolution of a field ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ " with Lagrangian ",
+ StyleBox["\[ScriptCapitalL]", "TI"],
+ " in homogeneous and isotropic spacetime, where ",
+ StyleBox["n", "TI"],
+ " is the number of e-foldings as a function of time ",
+ StyleBox["t", "TI"],
+ "."
+}], "Usage",
+ CellID->982511436,ExpressionUUID->"d3497367-aaa5-4d02-9740-4ec438e42097"],
+
+Cell["\<\
+The list of Euler-Lagrange and Friedmann equations is returned.\
+\>", "Notes",
+ CellID->1067943069,ExpressionUUID->"315728a3-d884-49de-8587-111efa049f61"],
+
+Cell[TextData[{
+ "Euler-Lagrange equation is evaluated ",
+ StyleBox["as",
+  Deletable->True],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox[
+     RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+     RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], "-", 
+    RowBox[{"3", 
+     FractionBox[
+      OverscriptBox["a", "."], "a"], 
+     FractionBox[
+      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["\[CurlyPhi]", "."]}]]}], "-", 
+    RowBox[{
+     SubscriptBox["\[PartialD]", "t"], 
+     FractionBox[
+      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["\[CurlyPhi]", "."]}]]}]}], TraditionalForm]], 
+  "InlineMath",ExpressionUUID->"7130921b-41f4-4f24-a197-ab89c0d195b4"],
+ "."
+}], "Notes",
+ CellID->1988951768,ExpressionUUID->"8da234b5-07f2-4282-970a-834e10ed051e"],
+
+Cell[TextData[{
+ "To derive that, we need to vary with respect to fields, say, ",
+ Cell[BoxData[
+  FormBox["\[CurlyPhi]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "89d88bc1-4deb-4871-90f3-45d820b91794"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["\[CurlyPhi]", "_"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"e2e2b0eb-550a-46aa-87eb-fff9dd534416"],
+ ", and thus obtain (factors ",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox[
+    RowBox[{"-", "g"}]], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "d77c5066-ad76-4f41-bd14-8ee51d20cb03"],
+ " appear due to the volume integral in the action ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"S", "=", 
+    RowBox[{"\[Integral]", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[DifferentialD]", "4"], "x"}], 
+      SqrtBox[
+       RowBox[{"-", "g"}]], "\[ScriptCapitalL]"}]}]}], TraditionalForm]], 
+  "InlineMath",ExpressionUUID->"45b032af-2af8-4047-bb9f-0b6d08eaf1ea"],
+ "):"
+}], "ExampleText",
+ CellID->413411757,ExpressionUUID->"58eb8634-9160-4e82-a496-50bdcaaf70bb"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SqrtBox[
+      RowBox[{"-", "g"}]], 
+     FractionBox[
+      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+      RowBox[{"\[PartialD]", "\[CurlyPhi]"}]]}], "-", 
+    RowBox[{
+     SubscriptBox["\[PartialD]", "\[Mu]"], 
+     RowBox[{"(", 
+      RowBox[{
+       SqrtBox[
+        RowBox[{"-", "g"}]], 
+       FractionBox[
+        RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+        RowBox[{"\[PartialD]", 
+         RowBox[{"(", 
+          RowBox[{
+           SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], ")"}]}]]}], 
+      ")"}]}]}], "=", "0"}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"aaa156ff-377d-4bc6-88ae-507a43cb46a8"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1063902335,ExpressionUUID->"976ad45a-5da0-401d-98fd-8760617b817f"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+     RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], "-", 
+    RowBox[{
+     FractionBox["1", 
+      SuperscriptBox["a", "3"]], 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "t"], 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["a", "3"], 
+        FractionBox[
+         RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+         RowBox[{"\[PartialD]", 
+          OverscriptBox["\[CurlyPhi]", "."]}]]}], ")"}]}]}]}], "=", "0"}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"3829edd1-3326-4a2c-aca4-7abd2916e0dc"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->898052800,ExpressionUUID->"f0e6019f-0a2a-4af2-b03a-3abd1533c2be"],
+
+Cell["the left-hand side is then simplified as follows:", "ExampleText",
+ CellID->541542619,ExpressionUUID->"c92b3e9d-500a-4abd-97c9-af6b140f2e68"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+     RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], "-", 
+    RowBox[{
+     FractionBox["1", 
+      SuperscriptBox["a", "3"]], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", 
+        SuperscriptBox["a", "2"], 
+        OverscriptBox["a", "."], 
+        FractionBox[
+         RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+         RowBox[{"\[PartialD]", 
+          OverscriptBox["\[CurlyPhi]", "."]}]]}], "+", 
+       RowBox[{
+        SuperscriptBox["a", "3"], 
+        RowBox[{
+         SubscriptBox["\[PartialD]", "t"], 
+         FractionBox[
+          RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+          RowBox[{"\[PartialD]", 
+           OverscriptBox["\[CurlyPhi]", "."]}]]}]}]}], ")"}]}]}], "=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+     RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], "-", 
+    RowBox[{"3", 
+     FractionBox[
+      OverscriptBox["a", "."], "a"], 
+     FractionBox[
+      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["\[CurlyPhi]", "."]}]]}], "-", 
+    RowBox[{
+     SubscriptBox["\[PartialD]", "t"], 
+     FractionBox[
+      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["\[CurlyPhi]", "."]}]]}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"7dae21f0-853b-491c-a65d-c37f5a1fb05b"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1508639280,ExpressionUUID->"c674e707-7abf-4c78-85a9-efb242cdfa03"],
+
+Cell[TextData[{
+ "Friedmann equation is evaluated as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["n", "."], "=", 
+    SqrtBox[
+     RowBox[{"\[Rho]", "/", "3"}]]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"94e9312f-9a20-426e-a29c-d38e03a53512"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["\[Rho]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "e125dc7f-274a-4610-8e9b-4fd86c383dbe"],
+ " is the ",
+ Cell[BoxData[
+  ButtonBox["InflatonDensity",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflatonDensity"]], 
+  "InlineFormula",ExpressionUUID->"35f797a0-6a71-42e5-993c-ddea1bed95b9"],
+ "."
+}], "Notes",
+ CellID->1300789932,ExpressionUUID->"3148c9f0-6d3a-4900-875f-b0b68ae793ef"],
+
+Cell[TextData[{
+ "Setting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"8", "\[Pi]", " ", "G"}], "=", "1"}], TraditionalForm]], 
+  "InlineMath",ExpressionUUID->"b548c02c-6e46-452e-acc9-c68007585a44"],
+ ", and assuming ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", "=", "1"}], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "4b3451fa-99a2-4c62-ba42-8b8a31004610"],
+ ", the Friedmann equations are:"
+}], "ExampleText",
+ CellID->996238993,ExpressionUUID->"2073aad8-9ab3-4b28-808b-58db91ee3768"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox["H", "2"], "=", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox[
+       OverscriptBox["a", "."], "a"], ")"}], "2"], "=", 
+    RowBox[{
+     FractionBox["1", "3"], "\[Rho]"}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"03476e0a-5992-45f9-9b7f-dae5f2246af2"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1266037317,ExpressionUUID->"ec1b708a-8007-4cbe-a72f-7e1291a2ba3d"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox[
+    OverscriptBox["a", "\[DoubleDot]"], "a"], "=", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox["1", "6"]}], 
+    RowBox[{"(", 
+     RowBox[{"\[Rho]", "+", 
+      RowBox[{"3", "p"}]}], ")"}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"77ccf77a-16dc-4091-9a5a-2be4635a997f"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->535126653,ExpressionUUID->"dd9401fb-9f8d-457b-9328-7911aadc80cc"],
+
+Cell[TextData[{
+ "We only need one equation for the scale factor ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "ac5b5fec-da25-464e-8fca-cd2b2e5f6a0d"],
+ ", and we are going to use the first one for simplicity. We further note ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     OverscriptBox["a", "."], "/", "a"}], "=", 
+    OverscriptBox["n", "."]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"314f2912-5969-4698-8ca5-c1fda2b11f51"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "c1221a94-3000-4df5-906a-57f3c0015aa2"],
+ " is the number of e-foldings since ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", "1"}], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "626b1f74-15f5-4a33-841e-7cb5c9f61001"],
+ ". The first Friedmann equation then becomes:"
+}], "ExampleText",
+ CellID->1924754869,ExpressionUUID->"e9fcd956-0ca9-436f-884e-01570b6e5883"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   OverscriptBox["n", "."], "=", 
+   SqrtBox[
+    RowBox[{"\[Rho]", "/", "3"}]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"46683406-24ae-4e83-bcab-c0326bdac3db"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->35856315,ExpressionUUID->"57226962-6dd5-488c-b7cc-b4247b14ce1f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057,ExpressionUUID->"12f758fa-cf4e-4257-8445-baf667502268"],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938,ExpressionUUID->"e8b055bb-d6f8-4788-adf5-93e98847dcf9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905,ExpressionUUID->"c693700b-0352-49a0-9718-aedcb92e179d"],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860,ExpressionUUID->"5f9d7f10-20a9-42f7-8be5-f0dc26d69dde"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535,ExpressionUUID->"86c1a1f9-744b-4526-958a-9163d59def6e"],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239,ExpressionUUID->"0a9a6cbe-c0d5-4e8e-9997-ad1cd6f55bf2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704,ExpressionUUID->"cfd5ba82-efd9-4e25-8b1a-08131f39e046"],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353,ExpressionUUID->"5ccaaee5-2f69-4176-9cd9-4c602d8cd1de"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248,ExpressionUUID->"d7dba8a0-d522-4dee-9035-4c18cf6443da"],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683,ExpressionUUID->"350183c8-389f-438a-9183-5f98a7825672"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151,ExpressionUUID->"c9b81878-474b-47a4-947e-2e3d1638cc1a"],
+
+Cell["Derive equation of motion for a real scalar field:", "ExampleText",
+ CellID->1903380307,ExpressionUUID->"9f477714-4627-4f80-9a13-66fd95df7bd4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InflationEquationsOfMotion", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
+      RowBox[{
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{
+     FractionBox["m", "2"], 
+     SuperscriptBox[
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}]}], ",", 
+   RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+   RowBox[{"n", "[", "t", "]"}], ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[41]:=",
+ CellID->207153771,ExpressionUUID->"02179b15-3c6a-40f4-92f6-bf88b9d11e9a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "m"}], " ", 
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}]}], "-", 
+     RowBox[{"3", " ", 
+      RowBox[{
+       SuperscriptBox["n", "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], " ", 
+      RowBox[{
+       SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}]}], "-", 
+     RowBox[{
+      SuperscriptBox["\[CurlyPhi]", "\[Prime]\[Prime]",
+       MultilineFunction->None], "[", "t", "]"}]}], "\[Equal]", "0"}], ",", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["n", "\[Prime]",
+      MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+    FractionBox[
+     SqrtBox[
+      RowBox[{
+       RowBox[{
+        FractionBox["1", "2"], " ", "m", " ", 
+        SuperscriptBox[
+         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+           MultilineFunction->None], "[", "t", "]"}], "2"]}]}]], 
+     SqrtBox["3"]]}]}], "}"}]], "Output",
+ CellLabel->"Out[41]=",
+ CellID->1497553036,ExpressionUUID->"eac2eec6-1855-4696-94c0-2d5ea4a07687"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968,ExpressionUUID->"e2accd2e-22fc-4e2e-9e7e-9f0eaf7ed723"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "0fca2d42-03aa-44c6-a8c9-ac8899a35a35"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265,ExpressionUUID->"8d1bd590-e2cf-4a69-9924-d260053229e8"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "56744eb6-1895-45ab-a261-b2191e859a71"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627,ExpressionUUID->"e5b37e83-1039-416f-9726-97ba5fab13ac"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "f7b37dc7-ef45-416d-bc7e-54ee70620335"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341,ExpressionUUID->"126ced3d-a41f-42e3-924f-01d08accb56f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "35f8469d-1df3-4be7-a180-8e9a32da31bf"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783,ExpressionUUID->"6784c60f-2e31-4b42-b372-a33668c63785"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "02a802a6-1dbc-4f32-91af-554de1bec8ff"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749,ExpressionUUID->"36f367f5-315b-4975-9fce-5f8a96ccecfb"]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "410da4d4-0bfe-4238-83b3-fdd6db9120c6"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157,ExpressionUUID->"158599c9-785b-4ead-a012-7529df01571d"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "a96bb944-ca93-48e0-a59a-d838209c480d"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759,ExpressionUUID->"4670f783-ddd5-49bb-9906-6419ceefe662"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "99f21488-aaa8-4295-b085-a900c89761ac"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373,ExpressionUUID->"85e91d99-be53-4c98-94bb-86ad791fe61d"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "e97b82e2-a326-4bcf-b9c2-04e2bebcf8e8"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318,ExpressionUUID->"80415a52-4fa2-42e4-a61a-1f558f129060"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "bce76c88-736d-4441-830a-bb323547406b"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740,ExpressionUUID->"5138e490-fb5b-4337-8f74-69100c7c7ef8"]
+}, Open  ]]
+},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+CellContext->"Global`",
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
