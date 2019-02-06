@@ -1014,7 +1014,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"FullSimplify", "[", 
-  RowBox[{"FieldDensity", "[", 
+  RowBox[{"InflatonDensity", "[", 
    RowBox[{
     RowBox[{
      RowBox[{
@@ -1145,8 +1145,6 @@ Cell[BoxData[
  CellID->589267740,ExpressionUUID->"7dfcb8dc-27eb-46b5-acfe-a88ace37e201"]
 }, Open  ]]
 },
-WindowSize->{808, 911},
-WindowMargins->{{Automatic, 1026}, {206, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,

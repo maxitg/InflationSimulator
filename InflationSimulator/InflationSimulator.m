@@ -15,7 +15,7 @@
 BeginPackage["InflationSimulator`", {"UsageString`"}];
 
 
-InflationSimulator`$PublicSymbols = {
+InflationSimulator`Private`$PublicSymbols = {
 	InflatonDensity, InflatonPressure, InflationEquationsOfMotion};
 
 

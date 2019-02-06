@@ -137,14 +137,11 @@ describing the evolution of a field ",
  StyleBox["t", "TI"],
  "."
 }], "Usage",
- CellChangeTimes->{{3.758450280835112*^9, 3.758450348696083*^9}, {
-  3.758450407636013*^9, 3.7584504101009274`*^9}},
  CellID->982511436,ExpressionUUID->"d3497367-aaa5-4d02-9740-4ec438e42097"],
 
 Cell["\<\
 The list of Euler-Lagrange and Friedmann equations is returned.\
 \>", "Notes",
- CellChangeTimes->{{3.758450464767112*^9, 3.758450479772255*^9}},
  CellID->1067943069,ExpressionUUID->"315728a3-d884-49de-8587-111efa049f61"],
 
 Cell[TextData[{
@@ -630,8 +627,6 @@ Cell[BoxData[
  CellID->589267740,ExpressionUUID->"5138e490-fb5b-4337-8f74-69100c7c7ef8"]
 }, Open  ]]
 },
-WindowSize->{700, 770},
-WindowMargins->{{Automatic, 989}, {343, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,

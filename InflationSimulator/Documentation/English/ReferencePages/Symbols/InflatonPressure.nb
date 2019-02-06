@@ -427,8 +427,6 @@ Cell[BoxData[
  CellID->589267740,ExpressionUUID->"4ef9f35a-424f-4821-b1dd-a8827efec627"]
 }, Open  ]]
 },
-WindowSize->{808, 911},
-WindowMargins->{{Automatic, 994}, {222, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
