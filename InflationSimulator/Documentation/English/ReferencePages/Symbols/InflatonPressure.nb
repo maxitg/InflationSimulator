@@ -120,37 +120,27 @@ Cell[TextData[{
   RowBox[{"InflatonPressure", "[", 
    RowBox[{
     StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
-    SubscriptBox[
-     StyleBox["\[CurlyPhi]", "TI"], 
-     StyleBox["t", "TI"]]}], "]"}]], "InlineFormula",ExpressionUUID->
+    RowBox[{
+     StyleBox["\[CurlyPhi]", "TI"], "[", 
+     StyleBox["t", "TI"], "]"}], ",", " ", 
+    StyleBox["t", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
   "49136dd4-92bb-4ceb-906a-b34a2a142587"],
- " \[LineSeparator]FieldPressure yields the pressure of the field with \
-Lagrangian \[ScriptCapitalL] and time derivative of the field ",
- Cell[BoxData[
-  SubscriptBox[
-   StyleBox["\[CurlyPhi]", "TI"], 
-   StyleBox["t", "TI"]]],ExpressionUUID->
-  "7d8eb904-cbd4-4d01-bc77-6420b8bc06e1"],
+ "\[LineSeparator]yields the pressure of a homogeneous field ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ "[",
+ StyleBox["t", "TI"],
+ "] with Lagrangian ",
+ StyleBox["\[ScriptCapitalL]", "TI"],
  "."
 }], "Usage",
  CellID->982511436,ExpressionUUID->"6865fcbe-b125-452b-a307-e42575c794c4"],
-
-Cell["Homogeneity and isotropy are assumed.", "Notes",
- CellID->74899166,ExpressionUUID->"25d4265a-ea94-4e72-92e2-7dda23b68846"],
 
 Cell[TextData[{
  "Field pressure happens to simply be equal to the Lagrangian ",
  Cell[BoxData[
   FormBox["\[ScriptCapitalL]", TraditionalForm]], "InlineMath",
   ExpressionUUID->"718b084e-4d7d-4b54-85f7-c251444825cb"],
- ", the field derivative ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox[
-    StyleBox["\[CurlyPhi]", "TI"], 
-    StyleBox["t", "TI"]], TraditionalForm]], "InlineMath",ExpressionUUID->
-  "0817b251-d273-4d87-ad95-7a2fab9eeeb1"],
- " is ignored. See ",
+ ", the second and the third arguments are ignored. See ",
  Cell[BoxData[
   ButtonBox["InflatonDensity",
    BaseStyle->"Link",
@@ -232,19 +222,28 @@ Cell[BoxData[
    RowBox[{
     RowBox[{
      FractionBox["1", "2"], 
-     SuperscriptBox["\[CurlyPhi]t", "2"]}], "-", 
-    RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], ",", "\[CurlyPhi]t"}], 
-  "]"}]], "Input",
- CellLabel->"In[20]:=",
+     SuperscriptBox[
+      RowBox[{
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{"V", "[", 
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], ",", 
+   RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[114]:=",
  CellID->1177442084,ExpressionUUID->"9873d45b-f665-4fdf-a202-31e1bd25e5c9"],
 
 Cell[BoxData[
  RowBox[{
-  FractionBox[
-   SuperscriptBox["\[CurlyPhi]t", "2"], "2"], "-", 
-  RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}]], "Output",
- CellLabel->"Out[20]=",
- CellID->910851273,ExpressionUUID->"8382bfa5-cdde-43c2-b110-4d9e8bb67ad2"]
+  RowBox[{"-", 
+   RowBox[{"V", "[", 
+    RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+      MultilineFunction->None], "[", "t", "]"}], "2"]}]}]], "Output",
+ CellLabel->"Out[114]=",
+ CellID->1609166377,ExpressionUUID->"0ed9df02-1586-4250-abce-197bd07eb498"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -271,19 +270,25 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"-", 
         SuperscriptBox[
-         RowBox[{"f", "[", "\[CurlyPhi]", "]"}], 
+         RowBox[{"f", "[", 
+          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}], 
          RowBox[{"-", "1"}]]}], 
        RowBox[{"(", 
         RowBox[{
          SqrtBox[
           RowBox[{"1", "-", 
            RowBox[{
-            RowBox[{"f", "[", "\[CurlyPhi]", "]"}], 
-            SuperscriptBox["\[CurlyPhi]t", "2"]}]}]], "-", "1"}], ")"}]}], 
-      "-", 
-      RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], ",", "\[CurlyPhi]t"}], "]"}], 
+            RowBox[{"f", "[", 
+             RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}], 
+            SuperscriptBox[
+             RowBox[{
+              RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}]}]], "-", 
+         "1"}], ")"}]}], "-", 
+      RowBox[{"V", "[", 
+       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], ",", 
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "t"}], "]"}], 
    "]"}]}]], "Input",
- CellLabel->"In[21]:=",
+ CellLabel->"In[116]:=",
  CellID->392585504,ExpressionUUID->"73c147cb-ad35-471e-89f8-254dd7257e8d"],
 
 Cell[BoxData[
@@ -291,17 +296,24 @@ Cell[BoxData[
   FractionBox[
    RowBox[{
     RowBox[{"-", "1"}], "+", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}], " ", 
+     RowBox[{"V", "[", 
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], "+", 
     SqrtBox[
      RowBox[{"1", "-", 
       RowBox[{
-       SuperscriptBox["\[CurlyPhi]t", "2"], " ", 
-       RowBox[{"f", "[", "\[CurlyPhi]", "]"}]}]}]], "+", 
-    RowBox[{
-     RowBox[{"f", "[", "\[CurlyPhi]", "]"}], " ", 
-     RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}]}], 
-   RowBox[{"f", "[", "\[CurlyPhi]", "]"}]]}]], "Output",
- CellLabel->"Out[21]=",
- CellID->1846668581,ExpressionUUID->"b9f56b52-b425-4b27-97ad-8018f2707403"]
+       RowBox[{"f", "[", 
+        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}], " ", 
+       SuperscriptBox[
+        RowBox[{
+         SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+          MultilineFunction->None], "[", "t", "]"}], "2"]}]}]]}], 
+   RowBox[{"f", "[", 
+    RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]]}]], "Output",
+ CellLabel->"Out[116]=",
+ CellID->1422956759,ExpressionUUID->"12d408e2-86c2-4545-8172-5dc0c588c93e"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -327,22 +339,28 @@ Cell[BoxData[
       FractionBox[
        RowBox[{"\[Gamma]", "-", "1"}], 
        RowBox[{
-        RowBox[{"f", "[", "\[CurlyPhi]", "]"}], " ", "\[Gamma]"}]], "-", 
-      RowBox[{"V", "[", "\[CurlyPhi]", "]"}]}], "/.", 
+        RowBox[{"f", "[", 
+         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}], " ", "\[Gamma]"}]], 
+      "-", 
+      RowBox[{"V", "[", 
+       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], "/.", 
      RowBox[{"\[Gamma]", "\[Rule]", 
       FractionBox["1", 
        SqrtBox[
         RowBox[{"1", "-", 
          RowBox[{
-          RowBox[{"f", "[", "\[CurlyPhi]", "]"}], 
-          SuperscriptBox["\[CurlyPhi]t", "2"]}]}]]]}]}], ")"}]}], 
-  "]"}]], "Input",
- CellLabel->"In[22]:=",
+          RowBox[{"f", "[", 
+           RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}], 
+          SuperscriptBox[
+           RowBox[{
+            RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}]}]]]}]}], 
+    ")"}]}], "]"}]], "Input",
+ CellLabel->"In[117]:=",
  CellID->542343200,ExpressionUUID->"5e52a4a3-8f5f-4e0a-a080-d914ef8d71c0"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[22]=",
- CellID->287655037,ExpressionUUID->"7adff4c8-ea13-4a37-95b2-378a948ef39f"]
+ CellLabel->"Out[117]=",
+ CellID->1743202214,ExpressionUUID->"82f77c71-55c0-49d0-9f21-bdeb384f9d8a"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
