@@ -180,7 +180,10 @@ Cell[TextData[{
 
 Cell[TextData[{
  Cell[BoxData[
- "InflationQ"], "InlineGuideFunction",ExpressionUUID->
+  ButtonBox["InflationQ",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationQ"]], 
+  "InlineGuideFunction",ExpressionUUID->
   "b513bf36-f842-4964-8dd1-bbb6a772aabe"],
  " \[LongDash] determine if a given model produces terminating inflation with \
 a sufficient number of e-foldings."

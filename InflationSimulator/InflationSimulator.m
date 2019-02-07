@@ -4,7 +4,7 @@
 (*Inflation Simulator*)
 
 
-(* ::Section:: *)
+(* ::Chapter:: *)
 (*Begin*)
 
 
@@ -16,23 +16,28 @@ BeginPackage["InflationSimulator`", {"UsageString`"}];
 
 
 InflationSimulator`Private`$PublicSymbols = {
-	InflatonDensity, InflatonPressure, InflationEquationsOfMotion, InflationEvolution,
-	InflationStopsQ, InflationEfoldingsCount, CosmologicalHorizonExitTime};
+	InflatonDensity, InflatonPressure, InflationEquationsOfMotion,
+	InflationEvolution, InflationStopsQ, InflationEfoldingsCount,
+		CosmologicalHorizonExitTime, InflationQ};
 
 
 Unprotect @@ InflationSimulator`Private`$PublicSymbols;
 ClearAll @@ InflationSimulator`Private`$PublicSymbols;
 
 
-(* ::Section:: *)
+(* ::Chapter:: *)
 (*Implementation*)
 
 
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
-(*Density*)
+(* ::Section:: *)
+(*Equations of Motion*)
+
+
+(* ::Subsection::Closed:: *)
+(*InflatonDensity*)
 
 
 InflatonDensity::usage = "InflatonDensity[\!\(\*
@@ -54,8 +59,8 @@ InflatonDensity[lagrangian_, field_, time_] :=
 	$InflatonDensity[lagrangian, D[field, time]]
 
 
-(* ::Subsection:: *)
-(*Pressure*)
+(* ::Subsection::Closed:: *)
+(*InflatonPressure*)
 
 
 InflatonPressure::usage = "InflatonPressure[\!\(\*
@@ -71,8 +76,8 @@ StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\).";
 InflatonPressure[lagrangian_, field_, time_] := lagrangian
 
 
-(* ::Subsection:: *)
-(*Equations of Motion*)
+(* ::Subsection::Closed:: *)
+(*InflationEquationsOfMotion*)
 
 
 InflationEquationsOfMotion::usage = "InflationEquationsOfMotion[\!\(\*
@@ -108,8 +113,12 @@ InflationEquationsOfMotion[lagrangian_, field_, efoldings_, time_] := {
 	D[efoldings, time] == $EfoldingsTimeDerivative[lagrangian, field, D[field, time]]}
 
 
+(* ::Section:: *)
+(*Evolution*)
+
+
 (* ::Subsection:: *)
-(*Inflation Evolution*)
+(*InflationEvolution*)
 
 
 (* ::Subsubsection:: *)
@@ -340,7 +349,7 @@ InflationEvolution[
 			Message[InflationEvolution::inwp, 2 workingPrecision];
 			inflationStoppedQ = False;	
 			InflationEvolution[
-					lagrangian,
+					inputLagrangian,
 					{field, inputFieldInitial, inputFieldDerivativeInitial},
 					time,
 					WorkingPrecision -> 2 workingPrecision, o],
@@ -359,8 +368,8 @@ InflationEvolution[
 ]
 
 
-(* ::Subsection:: *)
-(*Inflation Stops Q*)
+(* ::Subsection::Closed:: *)
+(*InflationStopsQ*)
 
 
 InflationStopsQ::usage = StringRiffle[{
@@ -410,8 +419,8 @@ InflationStopsQ[
 			o]]
 
 
-(* ::Subsection:: *)
-(*Inflation E-foldings Count*)
+(* ::Subsection::Closed:: *)
+(*InflationEfoldingsCount*)
 
 
 InflationEfoldingsCount::usage = StringRiffle[{
@@ -466,8 +475,8 @@ InflationEfoldingsCount[
 			o]]
 
 
-(* ::Subsection:: *)
-(*Cosmological Horizon Exit Time*)
+(* ::Subsection::Closed:: *)
+(*CosmologicalHorizonExitTime*)
 
 
 CosmologicalHorizonExitTime::usage = StringRiffle[{
@@ -543,7 +552,62 @@ CosmologicalHorizonExitTime[
 		pivotEfoldings]
 
 
-(* ::Section:: *)
+(* ::Subsection:: *)
+(*InflationQ*)
+
+
+InflationQ::usage = StringRiffle[{
+	"InflationQ[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"N\", \"TI\"], 
+StyleBox[\"pivot\", \"TI\"]]\)] " <>
+		"yields True if inflation stops and produces at least \!\(\*SubscriptBox[
+StyleBox[\"N\", \"TI\"], 
+StyleBox[\"pivot\", \"TI\"]]\) number of " <>
+		"e-foldings.",
+	"InflationQ[\!\(\*
+StyleBox[\"evo\", \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"N\", \"TI\"], 
+StyleBox[\"pivot\", \"TI\"]]\)] " <>
+		"takes the output \!\(\*
+StyleBox[\"evo\", \"TI\"]\) of InflationEvolution as its input."},
+"\n"];
+
+
+InflationQ[evolution_Association, pivotEfoldings_ ? NumericQ] := (
+	InflationStopsQ[evolution] && pivotEfoldings < InflationEfoldingsCount[evolution]
+) === True
+
+
+Options[InflationQ] = Options[InflationEvolution];
+
+
+InflationQ[
+		inputLagrangian_,
+		{field_, inputFieldInitial_ ? NumericQ,
+				inputFieldDerivativeInitial_ ? NumericQ},
+		time_,
+		pivotEfoldings_ ? NumericQ,
+		o : OptionsPattern[]] :=
+	InflationQ[
+		InflationEvolution[
+			inputLagrangian,
+			{field, inputFieldInitial, inputFieldDerivativeInitial},
+			time,
+			o],
+		pivotEfoldings]
+
+
+(* ::Chapter::Closed:: *)
 (*End*)
 
 
