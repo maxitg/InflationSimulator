@@ -207,6 +207,15 @@ Cell[BoxData[GridBox[{
  CellID->865749754,ExpressionUUID->"25d0ae17-f4a7-4e3d-a73b-cbe5a116a205"],
 
 Cell[TextData[{
+ "Various derivatives of the values above are supported as well, see ",
+ ButtonBox["$InflationProperties",
+  BaseStyle->"Link",
+  ButtonData->"paclet:InflationSimulator/ref/$InflationProperties"],
+ " for the full list."
+}], "Notes",
+ CellID->282198613,ExpressionUUID->"1a22f413-a305-433f-b33d-637b7344f206"],
+
+Cell[TextData[{
  "Time ",
  StyleBox["t", "TI"],
  " could either be a number, or one of the following:"
