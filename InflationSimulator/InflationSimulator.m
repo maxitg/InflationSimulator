@@ -18,7 +18,8 @@ BeginPackage["InflationSimulator`", {"UsageString`"}];
 InflationSimulator`Private`$PublicSymbols = {
 	InflatonDensity, InflatonPressure, InflationEquationsOfMotion,
 	InflationEvolution, InflationStopsQ, InflationEfoldingsCount,
-		CosmologicalHorizonExitTime, InflationQ};
+		CosmologicalHorizonExitTime, InflationQ,
+	InflationProperty};
 
 
 Unprotect @@ InflationSimulator`Private`$PublicSymbols;
@@ -605,6 +606,73 @@ InflationQ[
 			time,
 			o],
 		pivotEfoldings]
+
+
+(* ::Section:: *)
+(*Observables*)
+
+
+(* ::Subsection:: *)
+(*InflationProperty*)
+
+
+InflationProperty::usage =
+	"InflationProperty[\!\(\*
+StyleBox[\"var\", \"TI\"]\), \!\(\*
+StyleBox[\"t\", \"TI\"]\)]" <>
+		"represents an inflation variable \!\(\*
+StyleBox[\"var\", \"TI\"]\) at time \!\(\*
+StyleBox[\"t\", \"TI\"]\).";
+
+
+InflationProperty /: MakeBoxes[
+		InflationProperty[obs_String, time_], StandardForm] := TemplateBox[
+	{
+		"\<\"" <> obs <> "\"\>",
+		"\<\"" <> If[StringQ[time], time, "t = " <> ToString[time]] <> "\"\>"
+	},
+	"InflationValue",
+	DisplayFunction -> (FrameBox[
+		PanelBox[
+			GridBox[
+				{{
+					StyleBox[#1, Bold, FontSize -> 13, FontColor -> RGBColor[0.061158, 0.20595, 0.395437]],
+					StyleBox[
+						RowBox[{"(", #2, ")"}],
+						FontColor -> GrayLevel[0.65],
+						FontSize -> 13,
+						FontWeight -> "Plain"]
+				}},
+				GridBoxSpacings -> {"Columns" -> {{0.2}}, "Rows" -> {{0}}}, 
+				BaselinePosition -> {1, 1}
+			],
+			Background -> RGBColor[0.921569, 0.980392, 1.],
+			BaselinePosition -> Baseline,
+			FrameMargins -> {{5, 5}, {1.5, 1.5}},
+			BaseStyle -> {FontFamily -> "Helvetica"}
+		],
+		FrameMargins -> None,
+		FrameStyle -> RGBColor[0., 0.504768, 1.],
+		BaselinePosition -> Baseline,
+		RoundingRadius -> 4
+	] &),
+	InterpretationFunction ->
+			(\!\(\*
+TagBox[
+StyleBox[
+RowBox[{"RowBox", "[", 
+RowBox[{"{", 
+RowBox[{"\"\<InflationProperty\>\"", ",", " ", "\"\<[\>\"", ",", " ", 
+RowBox[{"RowBox", "[", 
+RowBox[{"{", 
+RowBox[{"#1", ",", " ", "\"\<,\>\"", ",", " ", "#2"}], "}"}], "]"}], ",", " ", "\"\<]\>\""}], "}"}], "]"}],
+ShowSpecialCharacters->False,
+ShowStringCharacters->True,
+NumberMarks->True],
+FullForm]\) &),
+	Editable -> False,
+	Selectable -> False
+]
 
 
 (* ::Chapter::Closed:: *)

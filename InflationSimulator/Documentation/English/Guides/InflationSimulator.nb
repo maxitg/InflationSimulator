@@ -198,7 +198,10 @@ Cell["Observables", "GuideFunctionsSection",
 
 Cell[TextData[{
  Cell[BoxData[
- "InflationProperty"], "InlineGuideFunction",ExpressionUUID->
+  ButtonBox["InflationProperty",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationProperty"]], 
+  "InlineGuideFunction",ExpressionUUID->
   "55c31cc6-ae68-4953-8c60-44c6f91afedc"],
  " \[LongDash] represents an inflation variables at a particular time."
 }], "GuideText",

@@ -1,0 +1,480 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"391c06dc-3407-41a1-928e-4ec9ed9fcdc5"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"88a82e6e-f3eb-4601-888f-09e7bc47544d"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"c2561e74-42ba-431a-8a95-747de1608849"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised",ExpressionUUID->"e25a2881-7840-4019-8782-d5e8d973928e"]
+}], "History",
+ CellID->1247902091,ExpressionUUID->"7ddf601a-922c-4d99-a8dd-f07bca08209d"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"a18ab094-97b0-4e71-8ec7-b822fb2d7b1a"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"fcd01b36-d586-4c13-871b-a986a09f6d60"],
+
+Cell["InflationSimulator", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"20a97015-2d21-42a0-868f-ac068d1afdab"],
+
+Cell["InflationSimulator`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"812ad7ce-f788-43d7-8391-b1008d93d41c"],
+
+Cell["InflationSimulator/ref/InflationProperty", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"02dd59c4-d007-4933-a396-c056c933d703"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294,ExpressionUUID->"f4f07a63-f875-4de2-b564-25679eae655f"],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360,ExpressionUUID->"b1f3c964-9648-44ac-aa31-e5e08f3c2dcb"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408,ExpressionUUID->"62a1b23f-de28-4521-999a-3ad6e838574d"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412,ExpressionUUID->"a8d10d06-a8e4-437b-b5a5-9b7fcb2449ba"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909,ExpressionUUID->"ee63003a-0961-4e0e-a799-6d9b52ebfca6"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930,ExpressionUUID->"3f64d5e2-4477-4e02-922d-d1569c54ba86"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254,ExpressionUUID->"6746c3f8-3bbd-4f05-a694-82da12e7adc4"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771,ExpressionUUID->"31367ac3-ffa5-4f6e-a01f-b9456de5e5cc"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175,ExpressionUUID->"6c577eb9-499e-4150-b1dc-51f868e11404"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985,ExpressionUUID->"959eb298-0bfb-4b9e-a148-3a17d179eb56"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405,ExpressionUUID->"c725d6fc-f62a-46c2-bfae-d22ba1219fd0"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269,ExpressionUUID->"6d0010b3-be06-4d8a-8e44-2ae3237eb76e"],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205,ExpressionUUID->"c15e9132-c2dc-47e0-a725-6a825238ceb6"],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745,ExpressionUUID->"76614785-37b4-4394-a54b-ba6ef15c0d2b"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810,ExpressionUUID->"8f430869-a700-4f33-89d7-0d6f488176d9"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350,ExpressionUUID->"376092d6-e90a-45af-b16c-5deb2ebbccce"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365,ExpressionUUID->"2cc0628c-d5ab-4825-9027-cc3ded001aef"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["InflationProperty", "ObjectName",
+ CellID->1224892054,ExpressionUUID->"036f5b86-a7d1-4bfb-9608-e14740e632d1"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"29f2be5b-df8a-416b-a0e0-504318c0a829"],
+ Cell[BoxData[
+  RowBox[{"InflationProperty", "[", 
+   RowBox[{
+    StyleBox["var", "TI"], ",", " ", 
+    StyleBox["t", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "d91104f8-f601-474f-9153-e50b7fe080e2"],
+ "\[LineSeparator]represents an inflation variable ",
+ StyleBox["var", "TI"],
+ " at time ",
+ StyleBox["t", "TI"],
+ "."
+}], "Usage",
+ CellID->982511436,ExpressionUUID->"d5542aaa-2262-44c0-a65e-648008a7bbdb"],
+
+Cell[TextData[{
+ "Possible values of ",
+ StyleBox["var", "TI"],
+ " are:"
+}], "Notes",
+ CellID->1101916426,ExpressionUUID->"73765a62-2906-4113-ad95-192b5fef2ce1"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "3da882c6-3793-4b30-9788-f3ac3c5b4703"], "\"\<Time\>\"", Cell[
+    "simulation time", "TableText",ExpressionUUID->
+     "8ccbc3cb-85e2-41e2-8b0a-9965135ddd5a"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "f3d6e6da-4230-43f1-a7f4-7f87d8436571"], "\"\<Field\>\"", Cell[
+    "inflaton field value", "TableText",ExpressionUUID->
+     "2622bf95-e6ff-4dd3-8e59-6eb9214374cf"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "d2b90bd8-faa2-4951-8421-5ea57b3e5a9d"], "\"\<Efoldings\>\"", Cell[
+    "e-foldings count from the start of simulation", "TableText",
+     ExpressionUUID->"fcc4fe9e-2935-433e-a66a-fdd9fe43573e"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "6323f763-91d7-449b-aaf9-374539f69c97"], "\"\<Lagrangian\>\"", Cell[
+    "value of the Lagrangian", "TableText",ExpressionUUID->
+     "c7ca6c65-55bb-40bd-b240-52886098738f"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "c44cc0e6-90ae-4850-9618-130393ddac03"], "\"\<Density\>\"", Cell[
+    "density of the inflaton field", "TableText",ExpressionUUID->
+     "d022039f-c17d-41f7-be4d-5efe31a6c7fa"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "76ff338d-330d-4527-be6d-9be4bcfd1165"], "\"\<Pressure\>\"", Cell[
+    "pressure of the inflaton field", "TableText",ExpressionUUID->
+     "36c038f6-3a30-40f1-b7ce-08b2ede20a0c"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "a4022478-3d7c-45d4-9309-35f4fc53d8f9"], "\"\<HubbleParameter\>\"", Cell[
+    "value of the Hubble parameter", "TableText",ExpressionUUID->
+     "0bd1b2c5-9ad5-4338-bbf3-7c4bcad84d74"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "318b3b65-2e05-4e58-94ae-8050ce9ff3f4"], "\"\<SlowRollEpsilon\>\"", Cell[
+    "value of the slow-roll parameter \[Epsilon]", "TableText",
+     ExpressionUUID->"a93c2895-25dc-4efe-b53c-167cf66681ee"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "dde8ce20-56ca-4a2e-97b8-75d73bb2e6d7"], "\"\<SlowRollEta\>\"", Cell[
+    "value of the slow-roll parameter \[Eta]", "TableText",ExpressionUUID->
+     "03743ad2-6d08-47cb-92f0-85399a3ffa60"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "f5f261f9-41b0-4302-9b36-232c6ec11e6f"], "\"\<ScalarPowerSpectrum\>\"", 
+    Cell["value of the power spectrum of the scalar perturbations", 
+     "TableText",ExpressionUUID->"0bf3720c-82ff-48ef-ac15-fa6705b683c7"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "5ad29a6e-4619-402c-83eb-b301115d854d"], "\"\<ScalarSpectralIndex\>\"", 
+    Cell["spectral index of scalar perturbations", "TableText",
+     ExpressionUUID->"e585468d-5783-4196-a5be-c6c9ceec20c1"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "aa4ec6de-ae36-4cdd-8a22-a197fe299db5"], "\"\<TensorPowerSpectrum\>\"", 
+    Cell["value of the power spectrum of the tensor perturbations", 
+     "TableText",ExpressionUUID->"5faf68aa-2592-45d0-9a80-c4c2747cce83"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "4fac4564-6269-4797-872e-a824539d39da"], "\"\<TensorSpectralIndex\>\"", 
+    Cell["spectral index of tensor perturbations", "TableText",
+     ExpressionUUID->"3418f898-d659-4dc9-a767-c6f2d9220439"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "447ba715-f508-4dc8-a71d-3fecefce28e8"], "\"\<TensorToScalarRatio\>\"", 
+    Cell["ratio of power spectra of tensor to scalar perturbations", 
+     "TableText",ExpressionUUID->"113e30d5-40cf-4c37-87c3-8cc0765a286c"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "adc311ac-e9fb-4a98-8ca1-2f512ee61265"], "\"\<SpeedOfSound\>\"", Cell[
+    "value of the speed of sound", "TableText",ExpressionUUID->
+     "acd264c3-a0da-4519-ab25-d5e2c3f807e1"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "96799c66-5ad2-4107-9a0d-673cf518417e"], 
+    "\"\<NonGaussianityAmplitude\>\"", Cell[
+    "value of non-gaussianity amplitude", "TableText",ExpressionUUID->
+     "3b816004-ab74-4f71-8fdc-f2acffec14d2"]}
+  }]], "2ColumnTableMod",
+ CellID->865749754,ExpressionUUID->"25d0ae17-f4a7-4e3d-a73b-cbe5a116a205"],
+
+Cell[TextData[{
+ "Time ",
+ StyleBox["t", "TI"],
+ " could either be a number, or one of the following:"
+}], "Notes",
+ CellID->1067943069,ExpressionUUID->"863f1539-e349-462b-8b16-af42e172c025"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "478a6927-50ed-46e3-aef3-b3f467dfab4c"], "\"\<Start\>\"", Cell[
+    "time at the beginning of the simulation", "TableText",ExpressionUUID->
+     "763a199a-fdfc-4643-bc13-df529f7fc5e4"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "81b3f843-8126-4d78-8c2f-353333f9ecb9"], "\"\<HorizonExit\>\"", Cell[
+    "time at which present scale exits cosmological horizon", "TableText",
+     ExpressionUUID->"d8a31a53-1667-485d-872b-471b3e2eaadc"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "d037e25d-8542-48e5-b40d-0818f24f3182"], "\"\<End\>\"", Cell[
+    "time at the end of the simulation", "TableText",ExpressionUUID->
+     "3f8648a1-2be8-4611-a554-be00a6fb111c"]}
+  }]], "2ColumnTableMod",
+ CellID->1177381377,ExpressionUUID->"b96188c6-e5b3-4b00-901c-14c5a9bc920c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057,ExpressionUUID->"a02a925f-37b4-49be-af9e-8af0802a2823"],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938,ExpressionUUID->"1ce128a4-8972-4fbc-aeca-b890870480e7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905,ExpressionUUID->"ba0454ce-3389-43d3-b3f8-d69b022f2ace"],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860,ExpressionUUID->"56d56799-f751-4eb5-bc89-33497cda264b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535,ExpressionUUID->"2e7e79dd-9a36-49a2-905b-10ca329dbd0c"],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239,ExpressionUUID->"6a63ccc1-6937-452c-9fa8-bd0b02515bf1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704,ExpressionUUID->"5c478046-c967-4718-8ab0-0555f0efdf4d"],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353,ExpressionUUID->"1a39809d-cf47-43d3-b563-ed1f113366b7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248,ExpressionUUID->"2835a198-34fa-4d49-9beb-af4c8fcbe080"],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683,ExpressionUUID->"7c9acec0-e15b-427f-832f-5c9b45e44fa7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151,ExpressionUUID->"0785d878-355a-4ff3-8be1-57265e58c400"],
+
+Cell[TextData[{
+ "Expression representing slow-roll parameter ",
+ Cell[BoxData[
+  FormBox["\[Epsilon]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "84197ccb-fda9-4228-816b-c3557905854d"],
+ " at horizon exit:"
+}], "ExampleText",
+ CellID->1634652555,ExpressionUUID->"03e2d1e3-c7ec-4a1b-a50d-fc73d753277e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InflationProperty", "[", 
+  RowBox[{"\"\<SlowRollEpsilon\>\"", ",", "\"\<HorizonExit\>\""}], 
+  "]"}]], "Input",
+ CellLabel->"In[209]:=",
+ CellID->614905509,ExpressionUUID->"261cfb4a-6fc8-4cc5-a6ff-9a530a6aa2cd"],
+
+Cell[BoxData[
+ TemplateBox[{"\"SlowRollEpsilon\"","\"HorizonExit\""},
+  "InflationValue",
+  DisplayFunction->(FrameBox[
+    PanelBox[
+     GridBox[{{
+        StyleBox[#, Bold, FontSize -> 13, FontColor -> 
+         RGBColor[0.061158, 0.20595, 0.395437]], 
+        StyleBox[
+         RowBox[{"(", #2, ")"}], FontColor -> GrayLevel[0.65], FontSize -> 13,
+          FontWeight -> "Plain"]}}, 
+      GridBoxSpacings -> {"Columns" -> {{0.2}}, "Rows" -> {{0}}}, 
+      BaselinePosition -> {1, 1}], Background -> 
+     RGBColor[0.921569, 0.980392, 1.], BaselinePosition -> Baseline, 
+     FrameMargins -> {{5, 5}, {1.5, 1.5}}, 
+     BaseStyle -> {FontFamily -> "Helvetica"}], FrameMargins -> None, 
+    FrameStyle -> RGBColor[0., 0.504768, 1.], BaselinePosition -> Baseline, 
+    RoundingRadius -> 4]& ),
+  Editable->False,
+  InterpretationFunction->(RowBox[{"InflationProperty", "[", 
+     RowBox[{#, ",", #2}], "]"}]& ),
+  Selectable->False]], "Output",
+ CellLabel->"Out[209]=",
+ CellID->1562446466,ExpressionUUID->"05449ec3-92b7-4303-b2a7-0bca0dc8c965"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "0a8b63cf-24bf-4316-879c-031c47a532f4"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->2088320035,ExpressionUUID->"4e53706f-f3fd-4737-87ec-8371c9d18269"],
+
+Cell[TextData[{
+ "Value of the Lagrangian at time ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"t", "=", "2.34`"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"543e7b3b-f3c2-4ea4-9716-3483880132d5"],
+ ":"
+}], "ExampleText",
+ CellID->1916667951,ExpressionUUID->"477afc6e-02b7-4f25-b25b-ec4ad9e064b5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InflationProperty", "[", 
+  RowBox[{"\"\<Lagrangian\>\"", ",", "2.34"}], "]"}]], "Input",
+ CellLabel->"In[215]:=",
+ CellID->1331864018,ExpressionUUID->"a41c37df-49fe-446a-bf3c-252ca4e2a57f"],
+
+Cell[BoxData[
+ TemplateBox[{"\"Lagrangian\"","\"t = 2.34\""},
+  "InflationValue",
+  DisplayFunction->(FrameBox[
+    PanelBox[
+     GridBox[{{
+        StyleBox[#, Bold, FontSize -> 13, FontColor -> 
+         RGBColor[0.061158, 0.20595, 0.395437]], 
+        StyleBox[
+         RowBox[{"(", #2, ")"}], FontColor -> GrayLevel[0.65], FontSize -> 13,
+          FontWeight -> "Plain"]}}, 
+      GridBoxSpacings -> {"Columns" -> {{0.2}}, "Rows" -> {{0}}}, 
+      BaselinePosition -> {1, 1}], Background -> 
+     RGBColor[0.921569, 0.980392, 1.], BaselinePosition -> Baseline, 
+     FrameMargins -> {{5, 5}, {1.5, 1.5}}, 
+     BaseStyle -> {FontFamily -> "Helvetica"}], FrameMargins -> None, 
+    FrameStyle -> RGBColor[0., 0.504768, 1.], BaselinePosition -> Baseline, 
+    RoundingRadius -> 4]& ),
+  Editable->False,
+  InterpretationFunction->(RowBox[{"InflationProperty", "[", 
+     RowBox[{#, ",", #2}], "]"}]& ),
+  Selectable->False]], "Output",
+ CellLabel->"Out[215]=",
+ CellID->2129020772,ExpressionUUID->"30abd2ac-20fb-465a-9352-364eee7b043d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968,ExpressionUUID->"ddc3d7d1-d89e-46a8-aa6b-e2c5209cc90e"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "f8c8fb7b-dae4-4273-b024-cee1a37370bc"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265,ExpressionUUID->"ebdc9b32-2feb-4e64-8490-cb3a015da48f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "63dbf934-0b63-4691-a960-9c18974b54b9"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627,ExpressionUUID->"58457074-feeb-40d5-a2fa-ef915d63469b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "567c7506-e4a3-492c-a07c-c03f6c03341b"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341,ExpressionUUID->"2dee6769-c424-4d6b-a1c0-03d42fe0771c"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "e74724f8-17de-49ba-ad42-909503a99348"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783,ExpressionUUID->"2f956f0f-5545-4a1f-a306-d1a07cf47325"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "f52d57b4-ec7c-452e-b6df-df8cc0a33ad7"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749,ExpressionUUID->"1d4b14c9-b4a9-433a-9b88-0c96682cbd00"]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "d4e4b420-c114-4980-8b5a-5f39c821c50d"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157,ExpressionUUID->"89d1bcaf-9225-481f-85d1-c2615d9dac6f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "9349677e-f4aa-4c97-8422-b98e49102d3e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759,ExpressionUUID->"d0426b93-372e-4ebc-8fcd-5a8c70be0356"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "0b24f8c5-e294-468e-87d9-04e1e65ca58f"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373,ExpressionUUID->"8f94bd64-9fd5-48eb-b665-57e0cf6a3a51"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "844befa8-b221-4cae-9e51-9401cd520290"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318,ExpressionUUID->"cbb3b626-f46b-420b-a0c0-40e3f63f7168"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "3581a16b-fbd9-4afa-87da-af2b4a93fc5e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740,ExpressionUUID->"b88fd29c-d47c-4103-a690-c6f9719ecc37"]
+}, Open  ]]
+},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+CellContext->"Global`",
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+
