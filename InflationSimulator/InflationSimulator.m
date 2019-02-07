@@ -117,7 +117,7 @@ InflationEquationsOfMotion[lagrangian_, field_, efoldings_, time_] := {
 (*Evolution*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflationEvolution*)
 
 
@@ -552,7 +552,7 @@ CosmologicalHorizonExitTime[
 		pivotEfoldings]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflationQ*)
 
 
