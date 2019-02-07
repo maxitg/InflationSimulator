@@ -1,0 +1,412 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"bd84b394-18e3-4258-938f-ade51e04ad46"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"84cff7d1-6e94-4df0-bdb7-d5fb98d8b6d3"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"e8e915f3-f525-49ff-9068-6aa157fe2f2b"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised",ExpressionUUID->"330debf9-93a3-44ce-af3c-19851e4d0859"]
+}], "History",
+ CellID->1247902091,ExpressionUUID->"487b6242-f00d-4b93-a95c-37866c5194d9"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"d825984e-cb91-47eb-86ce-ddcd95fbee0e"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"c2e8fad0-8ced-4f9f-aa68-2ea37ab07451"],
+
+Cell["InflationSimulator", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"6fcec9e9-9405-4022-8ff1-046b8510fe82"],
+
+Cell["InflationSimulator`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"36effce6-7296-494a-b7e5-c71290e617ca"],
+
+Cell["InflationSimulator/ref/CosmologicalHorizonExitTime", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"1b4dfe35-404f-42aa-983a-30cec83afc81"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294,ExpressionUUID->"260352de-bd35-413e-86e8-e94d1c92de92"],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360,ExpressionUUID->"814cfb99-3c70-48d4-8949-26180823b929"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408,ExpressionUUID->"f6046f86-71f4-4cf8-88e2-5161ef4aed5a"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412,ExpressionUUID->"654b15e0-7eb0-4b15-bc00-4fb523c163ef"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909,ExpressionUUID->"e900a85c-8758-4994-9534-1a7383f8741c"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930,ExpressionUUID->"3bc1a7a7-2a77-49ea-a0c5-3bccda01d7a7"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254,ExpressionUUID->"c81bbf34-5cde-4032-a990-369778c710c5"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771,ExpressionUUID->"39e32553-b360-4afa-8f6a-dbbc4a812e78"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175,ExpressionUUID->"c80c3cad-8910-4691-b245-c9055e0d7ebe"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985,ExpressionUUID->"cc41ddb2-1d55-4a85-9f42-31dae5c2c971"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405,ExpressionUUID->"b52af384-8760-4094-ae56-ea4e04748a3b"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269,ExpressionUUID->"56bb86bf-d1c1-46d4-ad03-5311d503c4ab"],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205,ExpressionUUID->"d7997f9a-6f0e-4fac-8e59-dafca27e8454"],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745,ExpressionUUID->"b1557751-c1a0-4b60-b766-56e773cfb526"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810,ExpressionUUID->"ee76b344-e3e3-4cb2-9f1f-c1bcbd2e700c"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350,ExpressionUUID->"fea3c607-fbc5-4b57-aad3-feb73ca344ff"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365,ExpressionUUID->"3ae7eb33-56b6-4c16-9043-8dd0d802d768"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["CosmologicalHorizonExitTime", "ObjectName",
+ CellID->1224892054,ExpressionUUID->"d6be9426-dcb1-4ce3-ba97-dc987a06fc11"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"8a7b7f5c-024b-42a7-9f3e-56a681e8dee4"],
+ Cell[BoxData[
+  RowBox[{"CosmologicalHorizonExitTime", "[", 
+   RowBox[{
+    StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       StyleBox["\[CurlyPhi]", "TI"], "[", 
+       StyleBox["t", "TI"], "]"}], ",", " ", 
+      SubscriptBox[
+       StyleBox["\[CurlyPhi]", "TI"], 
+       StyleBox["0", "TR"]], ",", " ", 
+      RowBox[{
+       SubscriptBox[
+        StyleBox["\[PartialD]", "TI"], 
+        StyleBox["t", "TI"]], 
+       SubscriptBox[
+        StyleBox["\[CurlyPhi]", "TI"], 
+        StyleBox["0", "TR"]]}]}], "}"}], ",", " ", 
+    StyleBox["t", "TI"], ",", " ", 
+    SubscriptBox[
+     StyleBox["N", "TI"], 
+     StyleBox["pivot", "TI"]]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "6570dd06-bcfc-4135-a058-1e20e3efef7a"],
+ "\[LineSeparator]yields the time at which a scale specified by ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["N", "TI"], 
+   StyleBox["pivot", "TI"]]], "InlineFormula",ExpressionUUID->
+  "c8c9d56b-b1e9-4867-894f-2f33a1764cf7"],
+ " exits cosmological horizon during inflation produced by a model with \
+Lagrangian ",
+ StyleBox["\[ScriptCapitalL]", "TI"],
+ ", starting with initial conditions ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["\[CurlyPhi]", "TI"], 
+   StyleBox["0", "TR"]]], "InlineFormula",ExpressionUUID->
+  "c6c34c35-ded4-4898-8889-0c8d0db2ea87"],
+ ", ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox[
+    StyleBox["\[PartialD]", "TI"], 
+    StyleBox["t", "TI"]], 
+   SubscriptBox[
+    StyleBox["\[CurlyPhi]", "TI"], 
+    StyleBox["0", "TR"]]}]], "InlineFormula",ExpressionUUID->
+  "cdb5757f-1ecc-41f8-9670-9efdca337260"],
+ " for the field ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ ".\n",
+ Cell["      ", "ModInfo",ExpressionUUID->
+  "cb8c2d21-81c7-4086-910f-607d99020275"],
+ Cell[BoxData[
+  RowBox[{"CosmologicalHorizonExitTime", "[", 
+   RowBox[{
+    StyleBox["evo", "TI"], ",", " ", 
+    SubscriptBox[
+     StyleBox["N", "TI"], 
+     StyleBox["pivot", "TI"]]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "66eb444c-a6f0-4694-aa2d-87e4a084fc9d"],
+ "\[LineSeparator]takes the output ",
+ StyleBox["evo", "TI"],
+ " of ",
+ Cell[BoxData[
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"2e24d796-5a92-4b07-ba9b-20d082cbe4be"],
+ " as its input."
+}], "Usage",
+ CellID->982511436,ExpressionUUID->"d9ab80bd-2d92-48c0-b637-a46c2e0ce79e"],
+
+Cell[TextData[{
+ "Horizon exit time is determined by subtracting ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["N", "TI"], 
+   StyleBox["pivot", "TI"]]], "InlineFormula",ExpressionUUID->
+  "72798b64-737b-40aa-adf8-7a2d3b0b7dce"],
+ " e-foldings from the end of inflation, as determined by ",
+ ButtonBox["InflationEfoldingsCount",
+  BaseStyle->"Link",
+  ButtonData->"paclet:InflationSimulator/ref/InflationEfoldingsCount"],
+ ", and finding the time at which that number of e-foldings occurred using ",
+ StyleBox["evo", "TI"],
+ "."
+}], "Notes",
+ CellID->1067943069,ExpressionUUID->"3442f11e-db19-4bdb-a729-1affec50381d"],
+
+Cell[TextData[{
+ ButtonBox["InflationEfoldingsCount",
+  BaseStyle->"Link",
+  ButtonData->"paclet:InflationSimulator/ref/InflationEfoldingsCount"],
+ " has the same options as ",
+ Cell[BoxData[
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"eba8cf5d-a5e2-424f-8b6b-795b30dee623"],
+ " if Lagrangian is used as the input."
+}], "Notes",
+ CellID->1218465677,ExpressionUUID->"6af7dbbc-a667-45a3-af5e-4ae0bb307cf8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057,ExpressionUUID->"4d6fbcf4-45d8-4ad9-827d-92ae4a674d72"],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938,ExpressionUUID->"510dec66-c085-45d0-b84d-07586a01a35a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905,ExpressionUUID->"1911952d-ddea-4de3-ad17-73f19466d43a"],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860,ExpressionUUID->"d196c7dd-88cc-4dd3-bc16-f7986a904d75"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535,ExpressionUUID->"4986daff-50e7-4421-b637-7756af55a09b"],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239,ExpressionUUID->"ba313985-570e-4aba-b832-ddd9a0d03d97"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704,ExpressionUUID->"6f2da510-1481-4a50-a8a5-f25056b2d2b3"],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353,ExpressionUUID->"a3e10d0f-15d2-400e-8981-9ceab7095097"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248,ExpressionUUID->"30d9ffac-54ea-4586-b045-d7fed3cde8e0"],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683,ExpressionUUID->"5fd07fd6-6cde-438d-8a55-6045724bc100"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151,ExpressionUUID->"88fe5649-a7ce-4097-a255-15cdb3a397ee"],
+
+Cell["\<\
+Determine the time at which horizon exit occurred for a quartic potential \
+model.\
+\>", "ExampleText",
+ CellID->418077166,ExpressionUUID->"edca7cfd-7a9c-4541-92d0-f57d50b8fe66"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CosmologicalHorizonExitTime", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
+      RowBox[{
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"4", "!"}]], " ", 
+     SuperscriptBox[
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "4"]}], "-", 
+    FractionBox["3", "2"]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "25.0", ",", "0.0"}], "}"}],
+    ",", "t", ",", "60.0"}], "]"}]], "Input",
+ CellLabel->"In[128]:=",
+ CellID->1099185550,ExpressionUUID->"45ed27e2-f6ca-47a9-bc69-01673dcd083b"],
+
+Cell[BoxData["0.22220782540798711`"], "Output",
+ CellLabel->"Out[128]=",
+ CellID->420309825,ExpressionUUID->"6b116ad0-8863-4f24-9896-16629de10c00"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968,ExpressionUUID->"b0cf4a54-d858-4c79-98d3-7cd8a188cef1"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "3590bd0e-84f5-4171-9bea-ea24cd8875e9"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265,ExpressionUUID->"0d2cf14d-a915-4627-ae61-6289b460d60b"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "8b4d9591-3ea5-4c60-91bf-91340a928dfe"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627,ExpressionUUID->"9fd1011f-4d87-4252-af4f-f24f05505629"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "c765e0ec-b34f-4b07-ac05-20e5b5221e6f"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341,ExpressionUUID->"332980c2-7393-41e9-b1cb-9048df9519fe"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "da70a7cf-8a50-4288-acc5-652623dee427"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783,ExpressionUUID->"4ba11ede-6db9-4d43-99ca-19e824f92dd1"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "6a08dab2-601c-4fcd-9d12-39fbae53b54a"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749,ExpressionUUID->"a0ed6752-1d36-488e-8ee8-030bc1e3babf"]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "6594f26e-8f34-4c78-9110-f8b8f6f9c267"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157,ExpressionUUID->"8791ed61-1995-4385-8bd8-0896aad6873b"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "5f31678e-caae-4295-869a-ba08be57a53f"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759,ExpressionUUID->"f5404792-270e-447a-9cae-387049205d64"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "28eb725b-551c-4f30-b75a-fbb46a9d7324"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373,ExpressionUUID->"f9d196a5-7b6d-4866-a0db-35a1621bafec"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "54c6c580-d969-4c4e-9c36-2192acd0acfe"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318,ExpressionUUID->"eaf73787-9b2c-4455-860c-f55393a0781e"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "748c91af-f850-4f00-9b05-e09c65ff8441"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740,ExpressionUUID->"243f248c-81af-4617-b44b-b62e0c6f3e19"]
+}, Open  ]]
+},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+CellContext->"Global`",
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]

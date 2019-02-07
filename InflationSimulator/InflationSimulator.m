@@ -16,7 +16,8 @@ BeginPackage["InflationSimulator`", {"UsageString`"}];
 
 
 InflationSimulator`Private`$PublicSymbols = {
-	InflatonDensity, InflatonPressure, InflationEquationsOfMotion, InflationEvolution};
+	InflatonDensity, InflatonPressure, InflationEquationsOfMotion, InflationEvolution,
+	InflationStopsQ, InflationEfoldingsCount, CosmologicalHorizonExitTime};
 
 
 Unprotect @@ InflationSimulator`Private`$PublicSymbols;
@@ -356,6 +357,190 @@ InflationEvolution[
 			InflationEvolution::comp}] /; lagrangianNumericQ
 	]
 ]
+
+
+(* ::Subsection:: *)
+(*Inflation Stops Q*)
+
+
+InflationStopsQ::usage = StringRiffle[{
+	"InflationStopsQ[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\)] yields True if inflation produced by a " <>
+		"model with Lagrangian \!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), starting with initial conditions \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\) for the " <>
+		"field \!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\) stops eventually, and yields False otherwise.",
+	"InflationStopsQ[\!\(\*
+StyleBox[\"evo\", \"TI\"]\)] takes the output \!\(\*
+StyleBox[\"evo\", \"TI\"]\) of InflationEvolution as its input."},
+"\n"];
+
+
+InflationStopsQ[evolution_Association] := evolution["InflationStoppedQ"]
+
+
+Options[InflationStopsQ] = Options[InflationEvolution];
+
+
+InflationStopsQ[
+		inputLagrangian_,
+		{field_, inputFieldInitial_ ? NumericQ,
+				inputFieldDerivativeInitial_ ? NumericQ},
+		time_,
+		o : OptionsPattern[]] :=
+	InflationStopsQ[InflationEvolution[
+			inputLagrangian,
+			{field, inputFieldInitial, inputFieldDerivativeInitial},
+			time,
+			o]]
+
+
+(* ::Subsection:: *)
+(*Inflation E-foldings Count*)
+
+
+InflationEfoldingsCount::usage = StringRiffle[{
+	"InflationEfoldingsCount[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\)] yields the number of e-foldings " <>
+		"produced by a model with Lagrangian \!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), starting with initial conditions " <>
+		"\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\) for the field \!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\)\!\(\*
+StyleBox[\".\", \"TI\"]\)",
+	"InflationEfoldingsCount[\!\(\*
+StyleBox[\"evo\", \"TI\"]\)] takes the output \!\(\*
+StyleBox[\"evo\", \"TI\"]\) of InflationEvolution as its " <>
+		"input."},
+"\n"];
+
+
+InflationEfoldingsCount[evolution_Association] := If[!InflationStopsQ[evolution],
+	\[Infinity],
+	evolution["Efoldings"][$IntegrationTime[evolution]]
+]
+
+
+Options[InflationEfoldingsCount] = Options[InflationEvolution];
+
+
+InflationEfoldingsCount[
+		inputLagrangian_,
+		{field_, inputFieldInitial_ ? NumericQ,
+				inputFieldDerivativeInitial_ ? NumericQ},
+		time_,
+		o : OptionsPattern[]] :=
+	InflationEfoldingsCount[InflationEvolution[
+			inputLagrangian,
+			{field, inputFieldInitial, inputFieldDerivativeInitial},
+			time,
+			o]]
+
+
+(* ::Subsection:: *)
+(*Cosmological Horizon Exit Time*)
+
+
+CosmologicalHorizonExitTime::usage = StringRiffle[{
+	"CosmologicalHorizonExitTime[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"N\", \"TI\"], 
+StyleBox[\"pivot\", \"TI\"]]\)] yields the time at " <>
+		"which a scale specified by \!\(\*SubscriptBox[
+StyleBox[\"N\", \"TI\"], 
+StyleBox[\"pivot\", \"TI\"]]\) exits cosmological horizon during " <>
+		"inflation produced by a model with Lagrangian \!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), starting with initial " <>
+		"conditions \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\) for the field \!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\).",
+	"CosmologicalHorizonExitTime[\!\(\*
+StyleBox[\"evo\", \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"N\", \"TI\"], 
+StyleBox[\"pivot\", \"TI\"]]\)] takes the output \!\(\*
+StyleBox[\"evo\", \"TI\"]\) of " <>
+		"InflationEvolution as its input."},
+"\n"];
+
+
+CosmologicalHorizonExitTime[
+		evolution_Association, pivotEfoldings_ ? NumericQ] := Module[
+	{totalEfoldings, horizonExitEfoldings, t},
+	totalEfoldings = InflationEfoldingsCount[evolution];
+	Switch[totalEfoldings,
+		\[Infinity],
+			\[Infinity],
+		x_ ? (# < pivotEfoldings &),
+				Missing["Unknown", "Horizon exit before start of integration."],
+		_,
+			horizonExitEfoldings = totalEfoldings - pivotEfoldings;
+			t /. FindRoot[
+					evolution["Efoldings"][t] - horizonExitEfoldings,
+					{t, 0, $IntegrationTime[evolution]}]
+	]
+]
+
+
+Options[CosmologicalHorizonExitTime] = Options[InflationEvolution];
+
+
+CosmologicalHorizonExitTime[
+		inputLagrangian_,
+		{field_, inputFieldInitial_ ? NumericQ,
+				inputFieldDerivativeInitial_ ? NumericQ},
+		time_,
+		pivotEfoldings_ ? NumericQ,
+		o : OptionsPattern[]] :=
+	CosmologicalHorizonExitTime[
+		InflationEvolution[
+			inputLagrangian,
+			{field, inputFieldInitial, inputFieldDerivativeInitial},
+			time,
+			o],
+		pivotEfoldings]
 
 
 (* ::Section:: *)
