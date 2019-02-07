@@ -176,7 +176,62 @@ Cell[TextData[{
   "e88f602d-f789-4053-aa6a-8eb9ea9baae5"],
  " \[LongDash] determine when horizon exit occurs in a given model."
 }], "GuideText",
- CellID->289606521,ExpressionUUID->"66facc03-dfa8-460c-a8bc-2f0432a33be6"]
+ CellID->289606521,ExpressionUUID->"66facc03-dfa8-460c-a8bc-2f0432a33be6"],
+
+Cell[TextData[{
+ Cell[BoxData[
+ "InflationQ"], "InlineGuideFunction",ExpressionUUID->
+  "b513bf36-f842-4964-8dd1-bbb6a772aabe"],
+ " \[LongDash] determine if a given model produces terminating inflation with \
+a sufficient number of e-foldings."
+}], "GuideText",
+ CellID->323842774,ExpressionUUID->"257c6ed8-6c8b-476c-94c8-06b96ca3bd0d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Observables", "GuideFunctionsSection",
+ CellID->473211328,ExpressionUUID->"05333d47-1f6e-432d-bff3-4a932bad788b"],
+
+Cell[TextData[{
+ Cell[BoxData[
+ "InflationProperty"], "InlineGuideFunction",ExpressionUUID->
+  "55c31cc6-ae68-4953-8c60-44c6f91afedc"],
+ " \[LongDash] represents an inflation variables at a particular time."
+}], "GuideText",
+ CellID->2024153100,ExpressionUUID->"d0935373-d84d-437c-9dd5-961312095e0f"],
+
+Cell[TextData[{
+ Cell[BoxData[
+ "InflationValue"], "InlineGuideFunction",ExpressionUUID->
+  "638a838f-60dd-4b73-b103-5fd74aa47512"],
+ " \[LongDash] compute values of various inflation parameters and observables."
+}], "GuideText",
+ CellID->718253418,ExpressionUUID->"9ebea00d-d341-4ae7-8c8a-55c9ce2abd42"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Comparison with Experiment", "GuideFunctionsSection",
+ CellID->1921907099,ExpressionUUID->"16694b97-a2c9-40c3-b5e6-9b83b21f9351"],
+
+Cell[TextData[{
+ Cell[BoxData[
+ "ExperimentallyConsistentInflationQ"], "InlineGuideFunction",ExpressionUUID->
+  "a21d6dd6-e902-4361-802c-9591e5336117"],
+ " \[LongDash] determine if a given model produces terminating inflation with \
+a sufficient number of e-foldings."
+}], "GuideText",
+ CellID->408746707,ExpressionUUID->"809fafab-2bcb-4edf-b1a2-e00b08c9f17f"],
+
+Cell[TextData[{
+ Cell[BoxData[
+ "InflationReport"], "InlineGuideFunction",ExpressionUUID->
+  "79a8ccd7-4d0a-4675-a143-b30a417fd3d1"],
+ " \[LongDash] produces an association with various properties of a specified \
+inflation model."
+}], "GuideText",
+ CellID->1126633111,ExpressionUUID->"1672b449-c8bf-42fa-a4bb-02c0a713503d"]
 }, Open  ]],
 
 Cell[CellGroupData[{
