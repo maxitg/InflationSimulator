@@ -237,21 +237,16 @@ Cell["Comparison with Experiment", "GuideFunctionsSection",
 
 Cell[TextData[{
  Cell[BoxData[
- "ExperimentallyConsistentInflationQ"], "InlineGuideFunction",ExpressionUUID->
+  ButtonBox["ExperimentallyConsistentInflationQ",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:InflationSimulator/ref/ExperimentallyConsistentInflationQ"]], 
+  "InlineGuideFunction",ExpressionUUID->
   "a21d6dd6-e902-4361-802c-9591e5336117"],
  " \[LongDash] determine if a given model produces terminating inflation with \
 a sufficient number of e-foldings."
 }], "GuideText",
- CellID->408746707,ExpressionUUID->"809fafab-2bcb-4edf-b1a2-e00b08c9f17f"],
-
-Cell[TextData[{
- Cell[BoxData[
- "InflationReport"], "InlineGuideFunction",ExpressionUUID->
-  "79a8ccd7-4d0a-4675-a143-b30a417fd3d1"],
- " \[LongDash] produces an association with various properties of a specified \
-inflation model."
-}], "GuideText",
- CellID->1126633111,ExpressionUUID->"1672b449-c8bf-42fa-a4bb-02c0a713503d"]
+ CellID->408746707,ExpressionUUID->"809fafab-2bcb-4edf-b1a2-e00b08c9f17f"]
 }, Open  ]],
 
 Cell[CellGroupData[{

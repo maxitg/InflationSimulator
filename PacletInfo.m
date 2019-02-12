@@ -11,8 +11,7 @@ Paclet[
     Extensions -> 
         {
             {"Documentation", Language -> "English", MainPage -> "Guides/InflationSimulator"}, 
-            {"Application", Context -> "InflationSimulator`"}
+            {"Application", Context -> "InflationSimulator`"},
+            {"Resource", Root -> "Data", Resources -> {"PlanckConstraints-TT_TE_EE_lowP-95CL.csv"}}
         }
 ]
-
-

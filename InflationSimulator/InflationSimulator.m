@@ -4,7 +4,7 @@
 (*Inflation Simulator*)
 
 
-(* ::Chapter:: *)
+(* ::Chapter::Closed:: *)
 (*Begin*)
 
 
@@ -19,7 +19,8 @@ InflationSimulator`Private`$PublicSymbols = Hold[{
 	InflatonDensity, InflatonPressure, InflationEquationsOfMotion,
 	InflationEvolution, InflationStopsQ, InflationEfoldingsCount,
 		CosmologicalHorizonExitTime, InflationQ,
-	InflationProperty, $InflationProperties, InflationValue}];
+	InflationProperty, $InflationProperties, InflationValue,
+	ExperimentallyConsistentInflationQ}];
 
 
 Unprotect @@@ InflationSimulator`Private`$PublicSymbols;
@@ -1222,6 +1223,76 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 	"NonGaussianityAmplitude" -> 35/108 (1/("SpeedOfSound")^2 - 1)
 			- 5/81 ((1/("SpeedOfSound")^2 - 1 - 2 ("z2")/("z1")) + (3 - 2 EulerGamma) "z" ("z2")/("z1"))
 }];
+
+
+(* ::Section:: *)
+(*Comparison with Experiment*)
+
+
+(* ::Subsection::Closed:: *)
+(*ExperimentallyConsistentInflationQ*)
+
+
+ExperimentallyConsistentInflationQ::usage = StringRiffle[{
+	"ExperimentallyConsistentInflationQ[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"N\", \"TI\"], 
+StyleBox[\"pivot\", \"TI\"]]\)] " <>
+		"yields True if the specified model results in inflation with " <>
+		"experimentally consistent observables, and False otherwise.",
+	"ExperimentallyConsistentInflationQ[\!\(\*SubscriptBox[
+StyleBox[\"n\", \"TI\"], 
+StyleBox[\"s\", \"TI\"]]\), \!\(\*
+StyleBox[\"r\", \"TI\"]\)] " <>
+		"yields True if a given index of scalar spectral perturbations " <>
+		"\!\(\*SubscriptBox[
+StyleBox[\"n\", \"TI\"], 
+StyleBox[\"s\", \"TI\"]]\) and " <>
+		"tensor-to-scalar power spectrum ratio \!\(\*
+StyleBox[\"r\", \"TI\"]\) are consistent with experimental " <>
+		"bounds, and False otherwise."
+}, "\n"];
+
+
+Options[ExperimentallyConsistentInflationQ] = Options[InflationEvolution];
+
+
+ClearAll[$PlanckScalarIndexTensorToScalarRatioRegion];
+$PlanckScalarIndexTensorToScalarRatioRegion = Region @ Polygon @ Rest @ Import @
+		PacletManager`PacletResource[
+				"InflationSimulator", "PlanckConstraints-TT_TE_EE_lowP-95CL.csv"];
+
+
+ExperimentallyConsistentInflationQ[ns_ ? NumericQ, r_ ? NumericQ] :=
+	RegionMember[$PlanckScalarIndexTensorToScalarRatioRegion, {ns, r}]
+
+
+ExperimentallyConsistentInflationQ[
+			lagrangian_,
+			{field_, fieldInitial_ ? NumericQ, fieldDerivativeInitial_ ? NumericQ},
+			time_,
+			pivotEfoldings_ ? NumericQ,
+			o : OptionsPattern[]] := With[
+		{evolution = InflationEvolution[
+				lagrangian, {field, fieldInitial, fieldDerivativeInitial}, time]},
+	InflationQ[evolution, pivotEfoldings] &&
+			ExperimentallyConsistentInflationQ @@ $InflationValue[
+					lagrangian,
+					field,
+					time,
+					evolution,
+					{"ScalarSpectralIndex", "TensorToScalarRatio"},
+					CosmologicalHorizonExitTime[evolution, pivotEfoldings]]
+]
 
 
 (* ::Chapter::Closed:: *)
