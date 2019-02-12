@@ -15,18 +15,15 @@
 BeginPackage["InflationSimulator`", {"UsageString`"}];
 
 
-ClearAll[$InflationProperties];
-
-
-InflationSimulator`Private`$PublicSymbols = {
+InflationSimulator`Private`$PublicSymbols = Hold[{
 	InflatonDensity, InflatonPressure, InflationEquationsOfMotion,
 	InflationEvolution, InflationStopsQ, InflationEfoldingsCount,
 		CosmologicalHorizonExitTime, InflationQ,
-	InflationProperty, $InflationProperties, InflationValue};
+	InflationProperty, $InflationProperties, InflationValue}];
 
 
-Unprotect @@ InflationSimulator`Private`$PublicSymbols;
-ClearAll @@ InflationSimulator`Private`$PublicSymbols;
+Unprotect @@@ InflationSimulator`Private`$PublicSymbols;
+ClearAll @@@ InflationSimulator`Private`$PublicSymbols;
 
 
 (* ::Chapter:: *)
@@ -163,7 +160,6 @@ InflationEvolution::nnuml =
 
 InflationEvolution::inwp =
 	"Insufficient working precision. Doubling working precision to `1`.";
-(*Off[InflationEvolution::inwp];*)
 
 
 InflationEvolution::comp =
@@ -1232,7 +1228,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*End*)
 
 
-Protect @@ InflationSimulator`Private`$PublicSymbols;
+Protect @@@ InflationSimulator`Private`$PublicSymbols;
 
 
 End[];
