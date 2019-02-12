@@ -169,8 +169,7 @@ observables, and ",
  Cell[BoxData[
   SubscriptBox[
    StyleBox["n", "TI"], 
-   StyleBox["s", "TI"]]], "InlineFormula",
-  FormatType->"StandardForm",ExpressionUUID->
+   StyleBox["s", "TI"]]], "InlineFormula",ExpressionUUID->
   "6583654b-8cf6-446b-9888-33bfc7259139"],
  " and tensor-to-scalar power spectrum ratio ",
  StyleBox["r", "TI"],
@@ -190,7 +189,13 @@ Cell[TextData[{
   BaseStyle->"Link",
   ButtonData->"paclet:ref/True"],
  " will only be yielded if inflation stops and produces sufficient number of \
-e-foldings."
+e-foldings. In this case, options of ",
+ Cell[BoxData[
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"92e6000c-3d88-4f62-ab3f-b2fffc5c6f5a"],
+ " are accepted."
 }], "Notes",
  CellID->1067943069,ExpressionUUID->"827e7ab9-a889-48df-a4fb-c2a180da389e"],
 
@@ -267,6 +272,14 @@ Cell[BoxData[
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151,ExpressionUUID->"025dda20-6209-4d1a-8d26-81e19896de4a"],
 
+Cell["\<\
+Check if an inflation model with a quartic potential satisfies experimental \
+constraints:\
+\>", "ExampleText",
+ CellID->340009159,ExpressionUUID->"91614508-950a-4aa3-8850-4d9ddc033a89"],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"ExperimentallyConsistentInflationQ", "[", 
   RowBox[{
@@ -290,7 +303,62 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "25.0", ",", "0.0"}], "}"}],
     ",", "t", ",", "60.0"}], "]"}]], "Input",
+ CellLabel->"In[355]:=",
  CellID->110677409,ExpressionUUID->"0a30b95b-cb1a-4358-9faa-c62630fcae76"],
+
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[355]=",
+ CellID->1655156783,ExpressionUUID->"eaaa2717-e931-4b75-ad58-456ba275bd0c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "7199bfd0-739d-48c4-b18b-d94b3b9f857a"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1384394933,ExpressionUUID->"ae44bfe7-6d03-4457-980d-454e617d4863"],
+
+Cell["Quadratic model works for some initial field values:", "ExampleText",
+ CellID->1687807333,ExpressionUUID->"d6db2f46-043c-4a70-bf5d-9540c1ff5561"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"ExperimentallyConsistentInflationQ", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], 
+       SuperscriptBox[
+        RowBox[{
+         RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+      RowBox[{
+       FractionBox["1", "2"], 
+       SuperscriptBox[
+        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "\[CurlyPhi]0", ",", 
+       "0.0"}], "}"}], ",", "t", ",", "60.0"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[CurlyPhi]0", ",", "10", ",", "300", ",", "50"}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[363]:=",
+ CellID->1429462046,ExpressionUUID->"bf3ceff5-8c6c-4d32-84c8-afad89e32543"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "False", ",", "False", ",", "True", ",", "True", ",", "False", ",", 
+   "False"}], "}"}]], "Output",
+ CellLabel->"Out[363]=",
+ CellID->1799895225,ExpressionUUID->"e000a53b-2ada-4a66-9a99-b91cb19d68d1"]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -301,10 +369,111 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleDelimiter",
  CellID->420122510,ExpressionUUID->"5bd55f67-888a-4fa3-ad77-792a5e9a603a"],
 
+Cell[TextData[{
+ "Check that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["n", "s"], "=", "0.965`"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"bc6512f2-3acc-4060-8769-1c9120d335da"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"r", "=", "0.06`"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"c7902a2e-a496-4fc8-b2e6-77a37e14c1a3"],
+ " lies inside experimental bounds:"
+}], "ExampleText",
+ CellID->2099709104,ExpressionUUID->"43610b1b-01b4-4f69-abaf-19f3ac7087cf"],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"ExperimentallyConsistentInflationQ", "[", 
-  RowBox[{"0.965", ",", "0.04"}], "]"}]], "Input",
- CellID->1534495695,ExpressionUUID->"ffd868e8-cd65-4ca7-8698-ee882a467034"]
+  RowBox[{"0.965", ",", "0.06"}], "]"}]], "Input",
+ CellLabel->"In[106]:=",
+ CellID->1534495695,ExpressionUUID->"ffd868e8-cd65-4ca7-8698-ee882a467034"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[106]=",
+ CellID->1539665063,ExpressionUUID->"63312bcf-b84c-43d4-a078-89ed88fdbd71"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "1b5f0add-8ef6-42fd-81ea-f6adaca26d65"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->923115832,ExpressionUUID->"2f9ff36f-9e32-4a36-96b2-851aca66abd8"],
+
+Cell[TextData[{
+ "Decreasing scalar spectral index to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["n", "s"], "=", "0.955`"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"2ce4aa9e-6b1c-47e5-8844-80ddac5dd282"],
+ " puts the point outside experimental bounds:"
+}], "ExampleText",
+ CellID->1655136568,ExpressionUUID->"e1f46e6e-2db9-4984-bf71-b658333ef4fc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ExperimentallyConsistentInflationQ", "[", 
+  RowBox[{"0.955", ",", "0.06"}], "]"}]], "Input",
+ CellLabel->"In[105]:=",
+ CellID->1385922496,ExpressionUUID->"db9d67f4-2510-4b5a-b790-67fb6c478a34"],
+
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[105]=",
+ CellID->373175488,ExpressionUUID->"374f5bf5-44ae-4acc-966c-e30e757cac12"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "99c2f3be-4409-4a82-bd96-ee96e68cc5d2"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->952619166,ExpressionUUID->"99fe3ff7-073f-40f4-b090-fd110470de58"],
+
+Cell[TextData[{
+ "But if tensor-to-scalar ratio is also decreased to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"r", "=", "0.03`"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"f9c0c308-47b1-4466-b89c-440979f0adf5"],
+ ", the points lies inside experimental bounds again. Note, experimental \
+bounds on ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["n", "s"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "992895a5-3f9e-4800-870a-a4dab3d03591"],
+ " and ",
+ Cell[BoxData[
+  FormBox["r", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "34995649-e03e-4036-b6b1-16690113b6f3"],
+ " are not independent:"
+}], "ExampleText",
+ CellID->1641662020,ExpressionUUID->"3c1fabc7-b4bf-4f12-8c51-7acbd77a5c9e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ExperimentallyConsistentInflationQ", "[", 
+  RowBox[{"0.955", ",", "0.03"}], "]"}]], "Input",
+ CellLabel->"In[107]:=",
+ CellID->1179734577,ExpressionUUID->"77423d75-0fb3-4d1f-8384-97ed690bc978"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[107]=",
+ CellID->1277475793,ExpressionUUID->"4cde4b08-972d-41e4-92a9-244caead1872"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -396,3 +565,4 @@ FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
+
