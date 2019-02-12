@@ -12,7 +12,7 @@
 (*See on GitHub: https://github.com/maxitg/InflationSimulator.*)
 
 
-BeginPackage["InflationSimulator`", {"UsageString`"}];
+BeginPackage["InflationSimulator`"];
 
 
 InflationSimulator`Private`$PublicSymbols = Hold[{
