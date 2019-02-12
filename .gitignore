@@ -3,3 +3,6 @@ build
 
 # Ant documentation build file, automatically produced by Wolfram Workbench
 docbuild.xml
+
+# MacOS metadata
+.DS_Store
