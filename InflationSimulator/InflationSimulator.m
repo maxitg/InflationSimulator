@@ -19,7 +19,7 @@ InflationSimulator`Private`$PublicSymbols = Hold[{
 	InflatonDensity, InflatonPressure, InflationEquationsOfMotion,
 	InflationEvolution, InflationStopsQ, InflationEfoldingsCount,
 		CosmologicalHorizonExitTime, InflationQ,
-	InflationProperty, $InflationProperties, InflationValue,
+	InflationProperty, InflationPropertyData, InflationValue,
 	ExperimentallyConsistentInflationQ}];
 
 
@@ -849,20 +849,28 @@ $AddToSet[set_, item_] := $AddToSet[set, {item}]
 
 
 (* ::Subsubsection:: *)
-(*$InflationProperties*)
+(*InflationPropertyData*)
 
 
-$InflationProperties::usage =
-	"$InflationProperties " <>
+InflationPropertyData::usage = StringRiffle[{
+	"InflationPropertyData[] " <>
 		"gives the list of all properties supported by InflationProperty and " <>
-		"InflationValue.";
+		"InflationValue.",
+	"InflationPropertyData[\!\(\*
+StyleBox[\"p\", \"TI\"]\)] " <>
+		"gives the list of methods supported for property \!\(\*
+StyleBox[\"p\", \"TI\"]\)."
+}, "\n"];
 
 
 (* ::Text:: *)
 (*The values are added later in the implementation.*)
 
 
-$InflationProperties = {};
+InflationPropertyData[] = {};
+
+
+InflationPropertyData[property_String] := {};
 
 
 (* ::Subsubsection:: *)
@@ -873,7 +881,7 @@ $InflationProperties = {};
 (*Time simply returns its argument.*)
 
 
-$InflationProperties = $AddToSet[$InflationProperties, {"Time"}];
+InflationPropertyData[] = $AddToSet[InflationPropertyData[], {"Time"}];
 
 
 $InflationValue[
@@ -894,8 +902,8 @@ $InflationValue[
 (*First, we evaluate trivial observables, which we have already computed as part of the evolution, i.e. the value of the field, e-foldings, and their derivatives.*)
 
 
-$InflationProperties =
-		$AddToSet[$InflationProperties, {"Field", "FieldTimeDerivative", "Efoldings"}];
+InflationPropertyData[] = $AddToSet[
+		InflationPropertyData[], {"Field", "FieldTimeDerivative", "Efoldings"}];
 
 
 $InflationValue[
@@ -932,8 +940,8 @@ $EvolutionDerivativeSpecs = <|
 |>;
 
 
-$InflationProperties =
-		$AddToSet[$InflationProperties, Keys[$EvolutionDerivativeSpecs]];
+InflationPropertyData[] =
+		$AddToSet[InflationPropertyData[], Keys[$EvolutionDerivativeSpecs]];
 
 
 ClearAll[$DerivativeValues];
@@ -1011,7 +1019,7 @@ $InflationValue[
 (*Hubble parameter*)
 
 
-$InflationProperties = $AddToSet[$InflationProperties, {
+InflationPropertyData[] = $AddToSet[InflationPropertyData[], {
 	"HubbleParameter",
 	"HubbleParameterTimeDerivative",
 	"HubbleParameterSecondTimeDerivative",
@@ -1031,7 +1039,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*Slow-roll parameter \[Epsilon] and and its derivative*)
 
 
-$InflationProperties = $AddToSet[$InflationProperties, {
+InflationPropertyData[] = $AddToSet[InflationPropertyData[], {
 	"SlowRollEpsilon", "SlowRollEpsilonTimeDerivative"
 }];
 
@@ -1049,7 +1057,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*Slow-roll parameter \[Eta]*)
 
 
-$InflationProperties = $AddToSet[$InflationProperties, {"SlowRollEta"}];
+InflationPropertyData[] = $AddToSet[InflationPropertyData[], {"SlowRollEta"}];
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {
@@ -1062,8 +1070,8 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*Effective axion decay constant*)
 
 
-$InflationProperties =
-		$AddToSet[$InflationProperties, {"EffectiveAxionDecayConstant"}];
+InflationPropertyData[] =
+		$AddToSet[InflationPropertyData[], {"EffectiveAxionDecayConstant"}];
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {
@@ -1123,8 +1131,8 @@ $LagrangianDerivativeSpecs = <|
 |>;
 
 
-$InflationProperties =
-		$AddToSet[$InflationProperties, Keys[$LagrangianDerivativeSpecs]];
+InflationPropertyData[] =
+		$AddToSet[InflationPropertyData[], Keys[$LagrangianDerivativeSpecs]];
 
 
 $InflationValue[
@@ -1159,8 +1167,8 @@ $InflationValue[
 (*Speed of sound and its derivative*)
 
 
-$InflationProperties = $AddToSet[
-		$InflationProperties, {"SpeedOfSound", "SpeedOfSoundTimeDerivative"}];
+InflationPropertyData[] = $AddToSet[
+		InflationPropertyData[], {"SpeedOfSound", "SpeedOfSoundTimeDerivative"}];
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {
@@ -1181,7 +1189,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*Slow roll parameter s*)
 
 
-$InflationProperties = $AddToSet[$InflationProperties, {"SlowRollS"}];
+InflationPropertyData[] = $AddToSet[InflationPropertyData[], {"SlowRollS"}];
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {
@@ -1193,8 +1201,8 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*Scalar and tensor spectral indices*)
 
 
-$InflationProperties = $AddToSet[
-		$InflationProperties, {"ScalarSpectralIndex", "TensorSpectralIndex"}];
+InflationPropertyData[] = $AddToSet[
+		InflationPropertyData[], {"ScalarSpectralIndex", "TensorSpectralIndex"}];
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {
@@ -1207,8 +1215,8 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*Scalar and tensor power spectra*)
 
 
-$InflationProperties = $AddToSet[
-		$InflationProperties,
+InflationPropertyData[] = $AddToSet[
+		InflationPropertyData[],
 		{"ScalarPowerSpectrum", "TensorPowerSpectrum", "TensorToScalarRatio"}];
 
 
@@ -1224,8 +1232,8 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*Non-Gaussianity amplitude*)
 
 
-$InflationProperties =
-		$AddToSet[$InflationProperties, {"z1", "z2", "z", "NonGaussianityAmplitude"}];
+InflationPropertyData[] = $AddToSet[
+		InflationPropertyData[], {"z1", "z2", "z", "NonGaussianityAmplitude"}];
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {

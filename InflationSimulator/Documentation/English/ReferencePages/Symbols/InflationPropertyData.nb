@@ -111,16 +111,25 @@ Cell["XXXX", "Details",
 
 Cell[CellGroupData[{
 
-Cell["$InflationProperties", "ObjectName",
+Cell["InflationPropertyData", "ObjectName",
  CellID->1224892054,ExpressionUUID->"f11efd61-a8a2-45dd-bbb2-2ed61810e651"],
 
 Cell[TextData[{
  Cell["   ", "ModInfo",ExpressionUUID->"58bd8185-268a-482c-90b0-d919208f232f"],
  Cell[BoxData[
- "$InflationProperties"], "InlineFormula",ExpressionUUID->
-  "3b1f38d1-b3dc-4250-b381-f594f63975bd"],
+  RowBox[{"InflationPropertyData", "[", "]"}]], "InlineFormula",
+  ExpressionUUID->"3b1f38d1-b3dc-4250-b381-f594f63975bd"],
  "\[LineSeparator]gives the list of all properties supported by \
-InflationProperty and InflationValue."
+InflationProperty and InflationValue.\n",
+ Cell["      ", "ModInfo",ExpressionUUID->
+  "79fa8fec-86a0-4f17-8812-52939f504228"],
+ Cell[BoxData[
+  RowBox[{"InflationPropertyData", "[", 
+   StyleBox["p", "TI"], "]"}]], "InlineFormula",ExpressionUUID->
+  "90d44485-300c-4e44-8d6b-d31166b85d01"],
+ "\[LineSeparator]gives the list of methods supported for property ",
+ StyleBox["p", "TI"],
+ "."
 }], "Usage",
  CellID->982511436,ExpressionUUID->"e6672e2c-7910-4af1-ba2c-2ea71bdeeea1"],
 
@@ -196,9 +205,13 @@ Cell[BoxData[
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151,ExpressionUUID->"db4cf832-9411-40e2-b303-a64918b9ee31"],
 
+Cell["Check the list of all supported properties:", "ExampleText",
+ CellID->1391871070,ExpressionUUID->"637ca31d-5361-4bd6-b919-3646b74c54b4"],
+
 Cell[CellGroupData[{
 
-Cell[BoxData["$InflationProperties"], "Input",
+Cell[BoxData[
+ RowBox[{"InflationPropertyData", "[", "]"}]], "Input",
  CellLabel->"In[3508]:=",
  CellID->1458218148,ExpressionUUID->"6608c825-7eec-4ebd-a4f5-86567d24b6de"],
 
@@ -220,7 +233,21 @@ Cell[BoxData[
    "}"}]], "Output",
  CellLabel->"Out[3508]=",
  CellID->1770721571,ExpressionUUID->"fc7316e7-b6be-4ec5-be73-4283646667a4"]
-}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+ "Check methods supported for evaluating ",
+ Cell[BoxData["\"\<SlowRollEpsilon\>\""], "InlineFormula",
+  FormatType->"StandardForm",ExpressionUUID->
+  "71d78623-4819-44bf-bca9-e05b3a33c0ab"],
+ ":"
+}], "ExampleText",
+ CellID->1286400396,ExpressionUUID->"f8f213ed-33be-4109-b888-c5b72c673cfd"],
+
+Cell[BoxData[
+ RowBox[{"InflationPropertyData", "[", "\"\<SlowRollEpsilon\>\"", 
+  "]"}]], "Input",
+ CellID->1583537063,ExpressionUUID->"a9fa9333-d343-4fd5-b73a-e7ccfb221292"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -303,6 +330,8 @@ Cell[BoxData[
  CellID->589267740,ExpressionUUID->"14be77f6-e6c0-468b-93ba-0641ec13b15f"]
 }, Open  ]]
 },
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 752}, {236, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,

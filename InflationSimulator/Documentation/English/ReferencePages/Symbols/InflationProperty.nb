@@ -248,11 +248,19 @@ Cell[BoxData[GridBox[{
  CellID->865749754,ExpressionUUID->"61122542-8320-4870-bbf5-b4794133ba34"],
 
 Cell[TextData[{
- "Various derivatives of the values above are supported as well, see ",
- ButtonBox["$InflationProperties",
+ ButtonBox["Method",
   BaseStyle->"Link",
-  ButtonData->"paclet:InflationSimulator/ref/$InflationProperties"],
- " for the full list."
+  ButtonData->"paclet:ref/Method"],
+ " can be given as an option for some variables."
+}], "Notes",
+ CellID->987360668,ExpressionUUID->"87e50ce9-6f95-47ff-8762-1020fbbb398d"],
+
+Cell[TextData[{
+ "Various derivatives of the values above are supported as well, see ",
+ ButtonBox["InflationPropertyData",
+  BaseStyle->"Link",
+  ButtonData->"paclet:InflationSimulator/ref/InflationPropertyData"],
+ " for the full list and for the methods available."
 }], "Notes",
  CellID->282198613,ExpressionUUID->"1a22f413-a305-433f-b33d-637b7344f206"],
 
@@ -519,6 +527,8 @@ Cell[BoxData[
  CellID->589267740,ExpressionUUID->"b88fd29c-d47c-4103-a690-c6f9719ecc37"]
 }, Open  ]]
 },
+WindowSize->{808, 911},
+WindowMargins->{{1037, Automatic}, {171, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
