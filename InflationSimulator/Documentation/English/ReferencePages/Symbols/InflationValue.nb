@@ -318,6 +318,469 @@ Cell[TextData[Cell[BoxData[
 
 Cell[TextData[{
  Cell[BoxData[
+ "\"\<EffectiveAxionDecayConstant\>\""], "InlineFormula",ExpressionUUID->
+  "bdadaa4e-1e2e-42ee-ae05-d754dec6f05e"],
+ " is computed as:"
+}], "Notes",
+ CellID->1876158815,ExpressionUUID->"f244edbc-d04a-4225-8c3a-5cd4ad234009"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["f", "e"], "=", 
+   FractionBox["1", 
+    SqrtBox[
+     RowBox[{"\[Eta]", "-", 
+      RowBox[{"2", "\[Epsilon]"}]}]]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"46391e86-a5f2-41fa-88ee-0b802ad182df"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->839455855,ExpressionUUID->"ea62ac0d-60a5-443d-b6f8-0e46337144e4"],
+
+Cell["Consider an inflation model with a Lagrangian of the form", \
+"ExampleText",
+ CellID->451953273,ExpressionUUID->"25f26c98-ff8b-426f-88c5-00ab64c6d4c1"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"\[ScriptCapitalL]", "(", 
+    RowBox[{"\[CurlyPhi]", ",", 
+     OverscriptBox["\[CurlyPhi]", "."]}], ")"}], "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
+      OverscriptBox["\[CurlyPhi]", "."], "2"]}], "-", 
+    RowBox[{"V", "(", "\[CurlyPhi]", ")"}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"6b97bfa3-52d6-42d7-9242-7ed97650e789"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->854720038,ExpressionUUID->"90dea2c8-78f5-416d-9818-2f6ba92ff7ed"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"V", "(", "\[CurlyPhi]", ")"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"464e8e8f-1af4-4f8e-b099-3349a96c7031"],
+ " is an arbitrary potential for a single inflaton field ",
+ Cell[BoxData[
+  FormBox["\[CurlyPhi]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "c5606974-0580-486c-8b68-021342c41289"],
+ ". This Lagrangian can be compared to Natural Inflation:"
+}], "ExampleText",
+ CellID->1877941326,ExpressionUUID->"a7510dde-519f-4d0a-83f2-1d51ad03da49"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[ScriptCapitalL]", "NI"], "(", 
+    RowBox[{"\[CurlyPhi]", ",", 
+     OverscriptBox["\[CurlyPhi]", "."]}], ")"}], "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
+      OverscriptBox["\[CurlyPhi]", "."], "2"]}], "-", 
+    RowBox[{
+     SubscriptBox["V", "NI"], "(", "\[CurlyPhi]", ")"}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"283a624e-409e-440a-9501-9ee86c525e88"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->2046645845,ExpressionUUID->"b957520a-fa29-41f8-bddc-7041fbaee307"],
+
+Cell["where the potential takes the following form:", "ExampleText",
+ CellID->611355718,ExpressionUUID->"e1b3d8ca-4079-4a56-8acc-acb80131b654"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["V", "NI"], "(", "\[CurlyPhi]", ")"}], "=", 
+   RowBox[{"\[Lambda]", " ", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"cos", "(", 
+       FractionBox["\[CurlyPhi]", 
+        SubscriptBox["f", "e"]], ")"}]}], ")"}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"ed54f318-1ede-45b1-962d-34010e15073b"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1128452744,ExpressionUUID->"e2d0ae9d-b1c0-4453-8976-6b28732eaf69"],
+
+Cell[TextData[{
+ "Note that due to kinetic terms being identical in both models it is \
+sufficient to have ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"V", "(", "\[CurlyPhi]", ")"}], "\[TildeTilde]", 
+    RowBox[{
+     SubscriptBox["V", "NI"], "(", "\[CurlyPhi]", ")"}]}], TraditionalForm]], 
+  "InlineMath",ExpressionUUID->"ce607307-d743-4982-bb8e-ac9dbc79765d"],
+ " at ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CurlyPhi]", "\[TildeTilde]", 
+    SubscriptBox["\[CurlyPhi]", "0"]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"169519f6-163c-4e75-9201-b6ff3b5bcc65"],
+ " for similar evolution of the field and the scale factor near the field \
+value of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[CurlyPhi]", "0"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"cc1f7480-50db-4deb-b3a7-ea186befe116"],
+ ". With that observation in mind, we can then proceed to express parameters \
+of Natural Inflation ",
+ Cell[BoxData[
+  FormBox["\[Lambda]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "aa45db5c-149e-4e64-8e71-704fbb83a363"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["f", "e"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "6eee02a8-ec39-4a82-87f3-eeaf79badf4e"],
+ " in terms of derivatives of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"V", "(", "\[CurlyPhi]", ")"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"49f424bb-a8fe-4d1a-97de-561196f00849"],
+ " with respect to the field."
+}], "ExampleText",
+ CellID->1963653216,ExpressionUUID->"4c0c3a49-19c4-43b8-b455-4e0dc0510092"],
+
+Cell[TextData[{
+ "In order to derive such correspondence, we expand ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "NI"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "8ec575a2-05ff-48c8-be65-6846e8b684c5"],
+ " to the second order in ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Phi]", "-", 
+    SubscriptBox["\[Phi]", "0"]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"816b6bd6-2846-4822-a4ad-ca33d0b1d982"],
+ ":"
+}], "ExampleText",
+ CellID->590914216,ExpressionUUID->"d3453f38-dc88-4f49-b4c3-97c627a51e27"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["V", "NI"], "(", "\[Phi]", ")"}], "=", 
+   RowBox[{
+    RowBox[{"\[Lambda]", " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{"cos", "(", 
+        FractionBox[
+         SubscriptBox["\[Phi]", "0"], 
+         SubscriptBox["f", "e"]], ")"}]}], ")"}]}], "+", 
+    RowBox[{
+     FractionBox["\[Lambda]", 
+      SubscriptBox["f", "e"]], 
+     RowBox[{"sin", "(", 
+      FractionBox[
+       SubscriptBox["\[Phi]", "0"], 
+       SubscriptBox["f", "e"]], ")"}], 
+     RowBox[{"(", 
+      RowBox[{"\[Phi]", "-", 
+       SubscriptBox["\[Phi]", "0"]}], ")"}]}], "+", 
+    RowBox[{
+     FractionBox["\[Lambda]", 
+      RowBox[{"2", 
+       SubsuperscriptBox["f", "e", "2"]}]], 
+     RowBox[{"cos", "(", 
+      FractionBox[
+       SubscriptBox["\[Phi]", "0"], 
+       SubscriptBox["f", "e"]], ")"}], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"\[Phi]", "-", 
+        SubscriptBox["\[Phi]", "0"]}], ")"}], "2"]}], "+", 
+    SuperscriptBox[
+     RowBox[{"\[ScriptCapitalO]", "(", 
+      RowBox[{"\[Phi]", "-", 
+       SubscriptBox["\[Phi]", "0"]}], ")"}], "3"]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"31ec49bd-807d-4b78-9a3e-071ec970e94e"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->2124738820,ExpressionUUID->"fb86e95d-a452-42a1-b4bc-d93fb3e54be9"],
+
+Cell[TextData[{
+ "Next, identifying the expansion coefficients with corresponding derivatives \
+of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"V", "(", "\[Phi]", ")"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"df617c23-7e6c-417e-99bd-9d2f93a92321"],
+ ", and solving for ",
+ Cell[BoxData[
+  FormBox["\[Lambda]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "11470de4-d9ed-40ff-8fdc-2e3e0448b5a7"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["f", "e"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "ab7df283-ba9b-412e-b601-33d25e84e7bb"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"cos", "(", 
+    FractionBox[
+     SubscriptBox["\[Phi]", "0"], 
+     SubscriptBox["f", "e"]], ")"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"dd021a8e-3bfa-4939-9306-73bba58a2dd7"],
+ ", we obtain approximate expressions for these:"
+}], "ExampleText",
+ CellID->2050832228,ExpressionUUID->"0a7ca4c2-369a-40d4-859b-7a1cc1785924"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"\[Lambda]", "=", 
+   RowBox[{
+    RowBox[{"V", "(", 
+     SubscriptBox["\[Phi]", "0"], ")"}], 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SuperscriptBox["V", "\[Prime]"], "2"], 
+       RowBox[{"(", 
+        SubscriptBox["\[Phi]", "0"], ")"}]}], "-", 
+      RowBox[{
+       RowBox[{"V", "(", 
+        SubscriptBox["\[Phi]", "0"], ")"}], 
+       RowBox[{
+        SuperscriptBox["V", "\[DoublePrime]"], "(", 
+        SubscriptBox["\[Phi]", "0"], ")"}]}]}], 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SuperscriptBox["V", "\[Prime]"], "2"], "(", 
+       SubscriptBox["\[Phi]", "0"], ")"}], "-", 
+      RowBox[{"2", 
+       RowBox[{"V", "(", 
+        SubscriptBox["\[Phi]", "0"], ")"}], 
+       RowBox[{
+        SuperscriptBox["V", "\[DoublePrime]"], "(", 
+        SubscriptBox["\[Phi]", "0"], ")"}]}]}]]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"304fbe8c-7cf2-4a67-ba37-b4d4217875e7"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1987640052,ExpressionUUID->"a1a7f275-b703-4384-8f5c-e7196d460adb"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["f", "e"], "=", 
+   FractionBox[
+    RowBox[{"V", "(", 
+     SubscriptBox["\[Phi]", "0"], ")"}], 
+    SqrtBox[
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SuperscriptBox["V", "\[Prime]"], "2"], "(", 
+       SubscriptBox["\[Phi]", "0"], ")"}], "-", 
+      RowBox[{"2", 
+       RowBox[{"V", "(", 
+        SubscriptBox["\[Phi]", "0"], ")"}], 
+       RowBox[{
+        SuperscriptBox["V", "\[DoublePrime]"], "(", 
+        SubscriptBox["\[Phi]", "0"], ")"}]}]}]]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"6d94b8ae-eede-4366-a45b-94d4924724a6"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1580614028,ExpressionUUID->"6fe2f4dc-3ff3-4217-8354-b60e6d8b4fbd"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"cos", "(", 
+    FractionBox[
+     SubscriptBox["\[Phi]", "0"], 
+     SubscriptBox["f", "e"]], ")"}], "=", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"V", "(", 
+      SubscriptBox["\[Phi]", "0"], ")"}], 
+     RowBox[{
+      SuperscriptBox["V", "\[DoublePrime]"], "(", 
+      SubscriptBox["\[Phi]", "0"], ")"}]}], 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       SuperscriptBox["V", "\[Prime]"], "2"], "(", 
+      SubscriptBox["\[Phi]", "0"], ")"}], "-", 
+     RowBox[{
+      RowBox[{"V", "(", 
+       SubscriptBox["\[Phi]", "0"], ")"}], 
+      RowBox[{
+       SuperscriptBox["V", "\[DoublePrime]"], "(", 
+       SubscriptBox["\[Phi]", "0"], ")"}]}]}]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"e19d1297-caa4-4cdb-99c1-e2efdd23d28c"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1017521507,ExpressionUUID->"cd215cf2-3082-4215-ad29-2cb5c5833245"],
+
+Cell["\<\
+We can then define computed-from-potential versions of the slow-roll \
+parameters:\
+\>", "ExampleText",
+ CellID->1784925229,ExpressionUUID->"e7e565a0-be23-401a-84de-19189cf68a8b"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["\[Epsilon]", "V"], "=", 
+   RowBox[{
+    FractionBox["1", "2"], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["V", "\[Prime]"], "(", 
+        SubscriptBox["\[Phi]", "0"], ")"}], 
+       RowBox[{"V", "(", 
+        SubscriptBox["\[Phi]", "0"], ")"}]], ")"}], "2"]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"a560c6fb-12e3-44b8-bd4a-bfd2bd004e5b"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1557499842,ExpressionUUID->"e2592ab6-b4ad-42ca-ab16-6e4fd72902d4"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["\[Eta]", "V"], "=", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["V", "\[DoublePrime]"], "(", 
+     SubscriptBox["\[Phi]", "0"], ")"}], 
+    RowBox[{"V", "(", 
+     SubscriptBox["\[Phi]", "0"], ")"}]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"abc7aab2-dd3a-4089-a4fd-ca0e249bef08"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->595893699,ExpressionUUID->"4a2427a2-19ca-4142-9f5e-a675d3703967"],
+
+Cell[TextData[{
+ "Substituting this back into the expression for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["f", "e"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "b77a37c6-e109-4847-998b-0c797ce44aff"],
+ ", we get the expression used if ",
+ Cell[BoxData[
+  RowBox[{"Method", " ", "->", " ", "\"\<Potential\>\""}]], "InlineFormula",
+  FormatType->"StandardForm",ExpressionUUID->
+  "5e04a0c0-4bbc-46d1-9a44-9d15b22bd600"],
+ " is supplied to ",
+ Cell[BoxData[
+  ButtonBox["InflationProperty",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationProperty"]], 
+  "InlineFormula",ExpressionUUID->"9e1ea9a3-a7b0-451c-84f5-a420e37532f8"],
+ ":"
+}], "ExampleText",
+ CellID->447032893,ExpressionUUID->"8b5134f2-0d45-4bf3-adde-52b0831e43a2"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["f", "e"], "=", 
+   FractionBox["1", 
+    SqrtBox[
+     RowBox[{"2", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\[Epsilon]", "V"], "-", 
+        SubscriptBox["\[Eta]", "V"]}], ")"}]}]]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"c3813346-0723-44c9-b74a-7fa6e8f93670"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1409310768,ExpressionUUID->"41d86a05-2345-40ab-94c3-89feaa62a535"],
+
+Cell[TextData[{
+ "If we then express these potential-derived parameters in terms of dynamic \
+parameters ",
+ Cell[BoxData[
+  FormBox["\[Epsilon]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "af919266-4d21-406f-9a4c-d74ca116aa27"],
+ " and ",
+ Cell[BoxData[
+  FormBox["\[Eta]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "f48a06cc-e762-4d11-9432-c83887bce381"],
+ ":"
+}], "ExampleText",
+ CellID->43587874,ExpressionUUID->"6a83cb27-e2fc-4bcb-889f-968a8c946613"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"\[Epsilon]", "=", 
+   SubscriptBox["\[Epsilon]", "V"]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"5179a9c4-1abc-47b6-8ac4-b310a1311e8f"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->2132425285,ExpressionUUID->"c26c49ca-eba5-4079-9cb4-3a3695fae5ed"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"\[Eta]", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "2"}], 
+     SubscriptBox["\[Eta]", "V"]}], "+", 
+    RowBox[{"4", 
+     SubscriptBox["\[Epsilon]", "V"]}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"50e57b33-aca7-42a8-b058-c88d2db2d57f"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1269996689,ExpressionUUID->"05715935-ea28-449b-9d1c-374b7c376704"],
+
+Cell[TextData[{
+ "and obtain the expressions used for ",
+ Cell[BoxData[
+  RowBox[{"Method", " ", "->", " ", "\"\<Dynamic\>\""}]], "InlineFormula",
+  FormatType->"StandardForm",ExpressionUUID->
+  "1f80a142-8234-4652-a807-7c0de20659e8"],
+ ":"
+}], "ExampleText",
+ CellID->401733464,ExpressionUUID->"76ca5e1a-0b21-45ad-a1cc-1caa8ccec1e7"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["f", "e"], "=", 
+   FractionBox["1", 
+    SqrtBox[
+     RowBox[{"\[Eta]", "-", 
+      RowBox[{"2", "\[Epsilon]"}]}]]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"dedb7934-dfe9-484e-8231-5111fdbb10b6"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1405769814,ExpressionUUID->"951b5cfe-d68b-496c-b43d-02c1a2bd6f8c"],
+
+Cell[TextData[{
+ Cell[BoxData[
  "\"\<SpeedOfSound\>\""], "InlineFormula",ExpressionUUID->
   "36c5ada2-504c-4430-b41a-c843183decc8"],
  " and ",

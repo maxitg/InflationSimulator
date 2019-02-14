@@ -139,88 +139,113 @@ Cell[TextData[{
 
 Cell[BoxData[GridBox[{
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "bc11a359-5b32-4920-8ce6-c6f626464d2f"], "\"\<Time\>\"", Cell[
+     "e587c99d-6773-4190-b85a-a19a99fe67e9"], "\"\<Time\>\"", Cell[
     "simulation time", "TableText",ExpressionUUID->
-     "99917eb9-2134-40b8-83a9-f19e976707c3"]},
+     "f52b9077-f2a4-4ac0-9274-99650b98c7a5"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "6f10f287-5ff9-402c-9cc4-6c02883ee487"], "\"\<Field\>\"", Cell[
+     "81aac325-a716-4717-9f2e-364df72d530f"], "\"\<Field\>\"", Cell[
     "inflaton field value", "TableText",ExpressionUUID->
-     "81d39faf-9e86-42e8-938a-0329262fbcbc"]},
+     "18164f0f-ef0a-4636-b8ce-5fc075f11045"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "9919d584-52e4-40f9-ab2d-588190c1cf25"], "\"\<Efoldings\>\"", Cell[
+     "df009ba0-a9cc-4231-82f6-223d601498f6"], "\"\<Efoldings\>\"", Cell[
     "e-foldings count from the start of simulation", "TableText",
-     ExpressionUUID->"e84cc977-395e-4213-827f-44f2e827eeaf"]},
+     ExpressionUUID->"1153f958-181c-4db3-b1b6-0c6df547407c"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "3c367782-066b-4e24-8ee4-caa5ab00a3f4"], "\"\<Lagrangian\>\"", Cell[
+     "0322e096-9e93-447c-b451-c3226396dbdb"], "\"\<Lagrangian\>\"", Cell[
     "value of the Lagrangian", "TableText",ExpressionUUID->
-     "27dbfacb-7386-42cc-82ec-5145d3552a51"]},
+     "879bc64c-d704-4185-bded-63840ef4613d"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "eb1e8e94-d100-4954-b56c-849dc19a358b"], "\"\<Density\>\"", Cell[
+     "626daa08-1b59-4092-bd38-cd19a1edc9dc"], "\"\<Density\>\"", Cell[
     "density of the inflaton field", "TableText",ExpressionUUID->
-     "7d18bfa9-d5ab-470f-8bac-d9fe2ac80782"]},
+     "f266b599-a115-4794-a3dc-012ec0195364"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "8f07e1b2-309b-4c2a-a868-9a6c87ae2cf6"], "\"\<Pressure\>\"", Cell[
+     "a9df7c39-f2b6-496f-b1ad-2e28db46a3b4"], "\"\<Pressure\>\"", Cell[
     "pressure of the inflaton field", "TableText",ExpressionUUID->
-     "90fd1ffb-ece3-4218-8215-605348bca937"]},
+     "f7b2d43d-0d84-469e-af61-6479ed2e18d9"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "45e65016-5ea2-45e8-88aa-9e7e85611cbd"], "\"\<HubbleParameter\>\"", Cell[
+     "06e42877-e7b3-4ad8-a48d-df5b8af6313c"], "\"\<HubbleParameter\>\"", Cell[
     "value of the Hubble parameter", "TableText",ExpressionUUID->
-     "15046fca-d60d-4597-b54b-7c3dc078a024"]},
+     "a97e53c7-3c47-4d7a-b7dd-3ecb49ffe531"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "a2cc1829-363c-4837-b9c2-eadf8445c985"], "\"\<SlowRollEpsilon\>\"", Cell[
+     "cb0c8448-7f2b-4067-938f-24cc5eee8d93"], "\"\<SlowRollEpsilon\>\"", Cell[
     TextData[{
      "value of the slow-roll parameter ",
      Cell[BoxData[
       FormBox["\[Epsilon]", TraditionalForm]], "InlineMath",ExpressionUUID->
-      "dac57c7f-8f91-4883-888f-a33664030a63"]
-    }], "TableText",ExpressionUUID->"db392563-56ab-4e1f-a2c7-6808b786a0a4"]},
+      "b63e5ee0-89cb-418a-9142-99b433841b99"]
+    }], "TableText",ExpressionUUID->"6019ac66-3002-42fe-97e5-baa16980f49b"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "4924d77d-08a9-4596-9ecf-a2275cbfb937"], "\"\<SlowRollEta\>\"", Cell[
+     "fcb31ebd-40d8-4480-b7af-8f1975f2222e"], "\"\<SlowRollEta\>\"", Cell[
     TextData[{
      "value of the slow-roll parameter ",
      Cell[BoxData[
       FormBox["\[Eta]", TraditionalForm]], "InlineMath",ExpressionUUID->
-      "8abeb50f-c975-49f1-8aae-06edabc30104"]
-    }], "TableText",ExpressionUUID->"401faf23-beff-44e3-aaa3-db917421745e"]},
+      "727126ca-7c7a-4716-b6c6-eb007e85de96"]
+    }], "TableText",ExpressionUUID->"ceae6d34-6f1c-4237-9f3c-db01fa4baaa0"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "48ffabb9-fe67-4acc-8a0d-3ec63104dd42"], "\"\<SlowRollS\>\"", Cell[
+     "91660291-7837-4165-afa3-61342967ea39"], "\"\<SlowRollS\>\"", Cell[
     TextData[{
      "value of the slow-roll parameter ",
      Cell[BoxData[
       FormBox["s", TraditionalForm]], "InlineMath",ExpressionUUID->
-      "4aaa75e9-2cd7-47e0-b925-0e31ab727530"]
-    }], "TableText",ExpressionUUID->"5b0b09c1-602f-456a-9980-5e6c866ca5b7"]},
+      "2420ef7c-49bc-4b41-92c5-c818bdd99c5e"]
+    }], "TableText",ExpressionUUID->"02609b43-9f6b-48db-8c25-a751400a96ed"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "d54aad75-651e-4e62-be4e-4b45bc245596"], "\"\<ScalarPowerSpectrum\>\"", 
+     "91f2000e-a896-4dbc-90d0-34d7d0fcfa7f"], 
+    "\"\<EffectiveAxionDecayConstant\>\"", Cell[TextData[{
+     "the value of ",
+     Cell[BoxData[
+      FormBox[
+       SubscriptBox["f", "e"], TraditionalForm]], "InlineMath",
+      ExpressionUUID->"34907dd4-8822-4c68-b3a7-1928e1aff2f3"],
+     " if the model was locally approximated by a model with Lagrangian ",
+     Cell[BoxData[
+      FormBox[
+       RowBox[{"\[ScriptCapitalL]", "=", 
+        RowBox[{
+         FractionBox[
+          SuperscriptBox[
+           OverscriptBox["\[CurlyPhi]", "."], "2"], "2"], "-", 
+         RowBox[{"\[CapitalLambda]", " ", 
+          RowBox[{"(", 
+           RowBox[{"1", "-", 
+            RowBox[{"cos", "(", 
+             FractionBox["\[CurlyPhi]", 
+              SubscriptBox["f", "e"]], ")"}]}], ")"}]}]}]}], 
+       TraditionalForm]], "InlineMath",ExpressionUUID->
+      "a4d248c1-a1ce-4d86-ba7b-7792c6995913"]
+    }], "TableText",ExpressionUUID->"8ef93064-37d8-42b3-8f88-259bba2947a0"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "92ca1945-f2e7-431c-a884-84338571a162"], "\"\<ScalarPowerSpectrum\>\"", 
     Cell["value of the power spectrum of the scalar perturbations", 
-     "TableText",ExpressionUUID->"ca47644f-968d-489a-82d0-026e741a765c"]},
+     "TableText",ExpressionUUID->"3d845e58-747c-412b-ac20-1a7019b249ef"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "324a040c-f50c-42e9-8a31-6ad44b697b55"], "\"\<ScalarSpectralIndex\>\"", 
+     "4067baab-b71e-49ae-a61b-871c3ad3df9c"], "\"\<ScalarSpectralIndex\>\"", 
     Cell["spectral index of scalar perturbations", "TableText",
-     ExpressionUUID->"9bb78422-f151-4eb8-9b35-9cc4a80dee5a"]},
+     ExpressionUUID->"68431bc6-c69d-431d-ac05-d419d1a4c845"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "875374de-1d94-4123-b362-ecbddcc6b56a"], "\"\<TensorPowerSpectrum\>\"", 
+     "dfbd607a-f21c-49be-8140-de3ee71b385c"], "\"\<TensorPowerSpectrum\>\"", 
     Cell["value of the power spectrum of the tensor perturbations", 
-     "TableText",ExpressionUUID->"c12f95f8-b79b-4889-9e97-6f51044c1e37"]},
+     "TableText",ExpressionUUID->"e64d9b4b-22df-4eae-9130-3c63d495e500"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "0101e57c-0123-4e76-b991-d6fc3e240fae"], "\"\<TensorSpectralIndex\>\"", 
+     "e6ff2c29-a232-4a02-904f-531393a26509"], "\"\<TensorSpectralIndex\>\"", 
     Cell["spectral index of tensor perturbations", "TableText",
-     ExpressionUUID->"a6afe951-69d5-4eee-8a07-230b47a89a89"]},
+     ExpressionUUID->"5d167f2d-b957-4782-bb57-e0ac46a4d8ab"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "7b21e8d8-3680-43cd-82ef-1a4d1bd39661"], "\"\<TensorToScalarRatio\>\"", 
+     "200df7b8-a995-48a5-b4fa-39458cd8d715"], "\"\<TensorToScalarRatio\>\"", 
     Cell["ratio of power spectra of tensor to scalar perturbations", 
-     "TableText",ExpressionUUID->"6346e7f4-01e0-4200-a50c-9001fe0e1e68"]},
+     "TableText",ExpressionUUID->"4bcc7d4e-8401-4d99-89fa-4ea7a76d0fab"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "87e6deb0-f061-4469-b0af-7c58f682772f"], "\"\<SpeedOfSound\>\"", Cell[
+     "5a553217-7aba-45e4-9b37-105b914752fb"], "\"\<SpeedOfSound\>\"", Cell[
     "value of the speed of sound", "TableText",ExpressionUUID->
-     "5fb5157a-cd7a-4f4b-9031-09751eddb6d8"]},
+     "da59d81b-6ee3-42c9-b025-77d928e3c7bf"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "b3396663-2e05-4f82-9154-b76be043dd65"], 
+     "8458fb12-3c9a-400b-a8ea-4b3d0cb5181a"], 
     "\"\<NonGaussianityAmplitude\>\"", Cell[
     "value of non-gaussianity amplitude", "TableText",ExpressionUUID->
-     "c06a7737-9f19-4cba-be8b-f40eb4585fd1"]}
+     "36fef347-5df7-4069-a774-e0de4116b13c"]}
   }]], "2ColumnTableMod",
- CellID->865749754,ExpressionUUID->"cf35aabe-b269-4b18-a2bb-23045546e39b"],
+ CellID->865749754,ExpressionUUID->"61122542-8320-4870-bbf5-b4794133ba34"],
 
 Cell[TextData[{
  "Various derivatives of the values above are supported as well, see ",

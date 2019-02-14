@@ -1028,7 +1028,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 
 
 (* ::Subsubsection:: *)
-(*Slow-roll parameters \[Epsilon] and \!\(\*OverscriptBox[\(\[Epsilon]\), \(.\)]\)*)
+(*Slow-roll parameter \[Epsilon] and and its derivative*)
 
 
 $InflationProperties = $AddToSet[$InflationProperties, {
@@ -1046,7 +1046,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 
 
 (* ::Subsubsection:: *)
-(*Slow-roll parameters \[Eta]*)
+(*Slow-roll parameter \[Eta]*)
 
 
 $InflationProperties = $AddToSet[$InflationProperties, {"SlowRollEta"}];
@@ -1055,6 +1055,19 @@ $InflationProperties = $AddToSet[$InflationProperties, {"SlowRollEta"}];
 $DerivedValues = $AddToSet[$DerivedValues, {
 	"SlowRollEta" ->
 			"SlowRollEpsilonTimeDerivative" / ("SlowRollEpsilon" "HubbleParameter")
+}];
+
+
+(* ::Subsubsection:: *)
+(*Effective axion decay constant*)
+
+
+$InflationProperties =
+		$AddToSet[$InflationProperties, {"EffectiveAxionDecayConstant"}];
+
+
+$DerivedValues = $AddToSet[$DerivedValues, {
+	"EffectiveAxionDecayConstant" -> 1 / Sqrt["SlowRollEta" - 2 "SlowRollEpsilon"]
 }];
 
 
@@ -1143,8 +1156,7 @@ $InflationValue[
 
 
 (* ::Subsubsection:: *)
-(*Speed of sound Subscript[c, s] and \!\(\*OverscriptBox[*)
-(*SubscriptBox[\(c\), \(s\)], \(.\)]\)*)
+(*Speed of sound and its derivative*)
 
 
 $InflationProperties = $AddToSet[
@@ -1178,7 +1190,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 
 
 (* ::Subsubsection:: *)
-(*Scalar and tensor spectral indices Subscript[n, s] and Subscript[n, t]*)
+(*Scalar and tensor spectral indices*)
 
 
 $InflationProperties = $AddToSet[
@@ -1192,7 +1204,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 
 
 (* ::Subsubsection:: *)
-(*Scalar and tensor power spectra P^\[Zeta] and P^h*)
+(*Scalar and tensor power spectra*)
 
 
 $InflationProperties = $AddToSet[
@@ -1201,14 +1213,15 @@ $InflationProperties = $AddToSet[
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {
-	"ScalarPowerSpectrum" -> 1/(8 \[Pi]^2) ("HubbleParameter")^2/("SpeedOfSound" "SlowRollEpsilon"),
+	"ScalarPowerSpectrum" ->
+			1/(8 \[Pi]^2) "HubbleParameter"^2 / ("SpeedOfSound" "SlowRollEpsilon"),
 	"TensorPowerSpectrum" -> 2/(3 \[Pi]^2) "Density",
 	"TensorToScalarRatio" -> -8 "SpeedOfSound" "TensorSpectralIndex"
 }];
 
 
 (* ::Subsubsection:: *)
-(*Non-Gaussianity amplitude Subscript[f, NL]*)
+(*Non-Gaussianity amplitude*)
 
 
 $InflationProperties =
@@ -1218,10 +1231,13 @@ $InflationProperties =
 $DerivedValues = $AddToSet[$DerivedValues, {
 	"z1" -> 1/2 ("FieldTimeDerivative")^2 "LagrangianSecondFieldVelocityDerivative",
 	"z2" -> 1/12 ("FieldTimeDerivative")^3 "LagrangianThirdFieldVelocityDerivative",
-	"z" -> 1/("HubbleParameter") (("LagrangianThirdFieldVelocityDerivativeTimeDerivative")/("LagrangianThirdFieldVelocityDerivative")
+	"z" -> 1/("HubbleParameter") (
+		"LagrangianThirdFieldVelocityDerivativeTimeDerivative"
+				/ "LagrangianThirdFieldVelocityDerivative"
 			+ 3 ("FieldSecondTimeDerivative")/("FieldTimeDerivative")),
-	"NonGaussianityAmplitude" -> 35/108 (1/("SpeedOfSound")^2 - 1)
-			- 5/81 ((1/("SpeedOfSound")^2 - 1 - 2 ("z2")/("z1")) + (3 - 2 EulerGamma) "z" ("z2")/("z1"))
+	"NonGaussianityAmplitude" -> 35 / 108 (1 / "SpeedOfSound"^2 - 1)
+			- 5 / 81 ((1 / "SpeedOfSound"^2 - 1 - 2 "z2" / "z1")
+				+ (3 - 2 EulerGamma) "z" "z2" / "z1")
 }];
 
 
