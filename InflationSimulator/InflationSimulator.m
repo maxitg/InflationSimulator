@@ -1169,7 +1169,7 @@ $ExplicitProperty["SlowRollEpsilon", time_, "FromPotential"] :=
 	$ExplicitProperty["SlowRollEpsilonFromPotential", time]
 
 
-$ExplicitProperty["SlowRollEpsilon", time_, "FromHubbleParameter"] :=
+$ExplicitProperty["SlowRollEpsilon", time_, "FromHubbleParameter"...] :=
 	$ExplicitProperty["SlowRollEpsilonFromHubbleParameter", time]
 
 
@@ -1235,7 +1235,7 @@ $ExplicitProperty["EffectiveAxionDecayConstant", time_, "FromPotential"] :=
 	$ExplicitProperty["EffectiveAxionDecayConstantFromPotential", time]
 
 
-$ExplicitProperty["EffectiveAxionDecayConstant", time_, "FromHubbleParameter"] :=
+$ExplicitProperty["EffectiveAxionDecayConstant", time_, "FromHubbleParameter"...] :=
 	$ExplicitProperty["EffectiveAxionDecayConstantFromHubbleParameter", time]
 
 
@@ -1309,7 +1309,7 @@ $ExplicitProperty["ScalarSpectralIndex", time_, "FromPotential"] :=
 	$ExplicitProperty["ScalarSpectralIndexFromPotential", time]
 
 
-$ExplicitProperty["ScalarSpectralIndex", time_, "FromHubbleParameter"] :=
+$ExplicitProperty["ScalarSpectralIndex", time_, "FromHubbleParameter"...] :=
 	$ExplicitProperty["ScalarSpectralIndexFromHubbleParameter", time]
 
 
@@ -1321,7 +1321,7 @@ $ExplicitProperty["TensorSpectralIndex", time_, "FromPotential"] :=
 	$ExplicitProperty["TensorSpectralIndexFromPotential", time]
 
 
-$ExplicitProperty["TensorSpectralIndex", time_, "FromHubbleParameter"] :=
+$ExplicitProperty["TensorSpectralIndex", time_, "FromHubbleParameter"...] :=
 	$ExplicitProperty["TensorSpectralIndexFromHubbleParameter", time]
 
 
