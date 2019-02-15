@@ -1019,7 +1019,7 @@ $InflationValue[
 	$DerivativeValues[lagrangian, field, time, evolution, {property}, lookupTime][[1]]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*$InflationValue for derived values*)
 
 
@@ -1040,7 +1040,7 @@ $InflationValue[
 $DerivedValues = {};
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Hubble parameter*)
 
 
@@ -1259,7 +1259,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Speed of sound and its derivative*)
 
 
@@ -1281,7 +1281,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Slow roll parameter s*)
 
 
@@ -1301,12 +1301,54 @@ InflationPropertyData[] = $AddToSet[
 		InflationPropertyData[], {"ScalarSpectralIndex", "TensorSpectralIndex"}];
 
 
+InflationPropertyData["ScalarSpectralIndex"] =
+		{"FromPotential", "FromHubbleParameter"};
+
+
+$ExplicitProperty["ScalarSpectralIndex", time_, "FromPotential"] :=
+	$ExplicitProperty["ScalarSpectralIndexFromPotential", time]
+
+
+$ExplicitProperty["ScalarSpectralIndex", time_, "FromHubbleParameter"] :=
+	$ExplicitProperty["ScalarSpectralIndexFromHubbleParameter", time]
+
+
+InflationPropertyData["TensorSpectralIndex"] =
+		{"FromPotential", "FromHubbleParameter"};
+
+
+$ExplicitProperty["TensorSpectralIndex", time_, "FromPotential"] :=
+	$ExplicitProperty["TensorSpectralIndexFromPotential", time]
+
+
+$ExplicitProperty["TensorSpectralIndex", time_, "FromHubbleParameter"] :=
+	$ExplicitProperty["TensorSpectralIndexFromHubbleParameter", time]
+
+
+(* ::Text:: *)
+(*From Hubble parameter*)
+
+
 $DerivedValues = $AddToSet[$DerivedValues, {
-	"ScalarSpectralIndex" -> 1
+	"ScalarSpectralIndexFromHubbleParameter" -> 1
 			- 2 "SlowRollEpsilonFromHubbleParameter"
 			- "SlowRollDynamicEta"
 			- "SlowRollS",
-	"TensorSpectralIndex" -> - 2 "SlowRollEpsilonFromHubbleParameter"
+	"TensorSpectralIndexFromHubbleParameter" ->
+			- 2 "SlowRollEpsilonFromHubbleParameter"
+}];
+
+
+(* ::Text:: *)
+(*From potential*)
+
+
+$DerivedValues = $AddToSet[$DerivedValues, {
+	"ScalarSpectralIndexFromPotential" -> 1
+			- 6 "SlowRollEpsilonFromPotential"
+			+ 2 "SlowRollPotentialEta",
+	"TensorSpectralIndexFromPotential" ->
+			- 2 "SlowRollEpsilonFromPotential"
 }];
 
 

@@ -248,7 +248,13 @@ Cell[TextData[{
  Cell[BoxData[
  "\"\<SlowRollEpsilon\>\""], "InlineFormula",ExpressionUUID->
   "eede3406-2408-4064-9e43-ff3936e93e3c"],
- " with Method -> \"FromHubbleParameter\" and ",
+ " with ",
+ Cell[BoxData[
+  RowBox[{"Method", " ", "->", " ", "\"\<FromHubbleParameter\>\""}]], 
+  "InlineFormula",
+  FormatType->"StandardForm",ExpressionUUID->
+  "42ac6a07-8cd3-4541-b4f7-5c4371851a93"],
+ " and ",
  Cell[BoxData[
  "\"\<SlowRollEpsilonTimeDerivative\>\""], "InlineFormula",ExpressionUUID->
   "1a193371-ab50-4202-bfda-9ab2a46c5907"],
@@ -300,8 +306,13 @@ Cell[TextData[{
  Cell[BoxData[
  "\"\<SlowRollEpsilon\>\""], "InlineFormula",ExpressionUUID->
   "fdea75f3-b3e0-400a-8c30-522a45e7bd62"],
- " with Method -> \"FromPotential\" is computed assuming field acceleration \
-is zero as:"
+ " with ",
+ Cell[BoxData[
+  RowBox[{"Method", " ", "->", " ", "\"\<FromPotential\>\""}]], 
+  "InlineFormula",
+  FormatType->"StandardForm",ExpressionUUID->
+  "7c2f8238-95d2-43b2-8b90-b303cebc948f"],
+ " is computed assuming field acceleration is zero as:"
 }], "Notes",
  CellID->1428889108,ExpressionUUID->"f6998f06-8dc2-4b37-8cda-ef8beedd785e"],
 
@@ -1085,6 +1096,27 @@ Cell[TextData[Cell[BoxData[
 "ExampleText",
  TextAlignment->Center,
  CellID->1506892071,ExpressionUUID->"17dc3a48-82a5-4157-88cc-781a24109799"],
+
+Cell[TextData[{
+ "If ",
+ Cell[BoxData[
+  RowBox[{"Method", " ", "->", " ", "\"\<FromPotential\>\""}]], 
+  "InlineFormula",
+  FormatType->"StandardForm",ExpressionUUID->
+  "ed925bb3-8ac0-4bdd-94e6-8e4b9cc26f11"],
+ " is supplied, equivalent expressions in terms of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Epsilon]", "V"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"b777dc1c-8c1f-4526-abee-b1c69bd595c2"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Eta]", "V"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"144d61f1-45b1-4aaa-8c94-661cd0c4a076"],
+ " are used."
+}], "ExampleText",
+ CellID->1619467995,ExpressionUUID->"fb1ad127-e4c2-4860-aa68-46878d16513b"],
 
 Cell[TextData[{
  Cell[BoxData[
