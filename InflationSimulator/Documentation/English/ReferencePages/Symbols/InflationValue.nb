@@ -762,8 +762,8 @@ Cell[TextData[{
   "b77a37c6-e109-4847-998b-0c797ce44aff"],
  ", we get the expression used if ",
  Cell[BoxData[
-  RowBox[{"Method", " ", "->", " ", "\"\<Potential\>\""}]], "InlineFormula",
-  ExpressionUUID->"5e04a0c0-4bbc-46d1-9a44-9d15b22bd600"],
+  RowBox[{"Method", " ", "->", " ", "\"\<FromPotential\>\""}]], 
+  "InlineFormula",ExpressionUUID->"5e04a0c0-4bbc-46d1-9a44-9d15b22bd600"],
  " is supplied to ",
  Cell[BoxData[
   ButtonBox["InflationProperty",
@@ -833,8 +833,8 @@ Cell[TextData[Cell[BoxData[
 Cell[TextData[{
  "and obtain the expressions used for ",
  Cell[BoxData[
-  RowBox[{"Method", " ", "->", " ", "\"\<Dynamic\>\""}]], "InlineFormula",
-  ExpressionUUID->"1f80a142-8234-4652-a807-7c0de20659e8"],
+  RowBox[{"Method", " ", "->", " ", "\"\<FromHubbleParameter\>\""}]], 
+  "InlineFormula",ExpressionUUID->"1f80a142-8234-4652-a807-7c0de20659e8"],
  ":"
 }], "ExampleText",
  CellID->401733464,ExpressionUUID->"76ca5e1a-0b21-45ad-a1cc-1caa8ccec1e7"],
@@ -1754,6 +1754,72 @@ Cell[BoxData[
  CellLabel->"Out[721]=",
  CellID->293983942,ExpressionUUID->"08d42351-f8dc-4921-af4b-eaaf62ef10f3"]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "8f044b01-2bd6-4a0d-adbd-6069f380aa9e"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->2046956413,ExpressionUUID->"1a8a0901-2910-4612-b22a-793a373ffd0a"],
+
+Cell["\<\
+Check that effective axion decay constant equals the true decay constant in \
+the case of Natural inflation, and that getting it from potential derivatives \
+and from Hubble parameter derivatives yields similar results:\
+\>", "ExampleText",
+ CellID->508408351,ExpressionUUID->"a7858983-2ef8-47db-8d9a-5cd3a549f713"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"f", "=", "10."}], "}"}], ",", 
+   RowBox[{"InflationValue", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], 
+       SuperscriptBox[
+        RowBox[{
+         RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"Cos", "[", 
+         RowBox[{
+          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "f"}], "]"}]}], 
+       ")"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+       RowBox[{"0.9", " ", "f", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
+     ",", "60.0", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"InflationProperty", "[", 
+        RowBox[{
+        "\"\<EffectiveAxionDecayConstant\>\"", ",", "\"\<HorizonExit\>\"", 
+         ",", 
+         RowBox[{"Method", "\[Rule]", "\"\<FromPotential\>\""}]}], "]"}], ",", 
+       RowBox[{"InflationProperty", "[", 
+        RowBox[{
+        "\"\<EffectiveAxionDecayConstant\>\"", ",", "\"\<HorizonExit\>\"", 
+         ",", 
+         RowBox[{"Method", "\[Rule]", "\"\<FromHubbleParameter\>\""}]}], 
+        "]"}]}], "}"}]}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[249]:=",
+ CellID->1627757159,ExpressionUUID->"fa05976a-6ecf-445d-bb85-af7d9d17161e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"10.`", ",", "10.041269980560386`"}], "}"}]], "Output",
+ CellLabel->"Out[249]=",
+ CellID->671932223,ExpressionUUID->"edc59f86-a3b7-4b4d-bc16-4488e42dc825"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -1984,7 +2050,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{Automatic, 176}, {351, Automatic}},
+WindowMargins->{{Automatic, 750}, {262, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,

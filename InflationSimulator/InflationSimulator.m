@@ -1188,7 +1188,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 
 
 (* ::Text:: *)
-(*Using potential derivative*)
+(*Using potential*)
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {
@@ -1197,7 +1197,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Slow-roll parameter \[Eta]*)
 
 
@@ -1227,9 +1227,35 @@ InflationPropertyData[] =
 		$AddToSet[InflationPropertyData[], {"EffectiveAxionDecayConstant"}];
 
 
+InflationPropertyData["EffectiveAxionDecayConstant"] =
+		{"FromPotential", "FromHubbleParameter"};
+
+
+$ExplicitProperty["EffectiveAxionDecayConstant", time_, "FromPotential"] :=
+	$ExplicitProperty["EffectiveAxionDecayConstantFromPotential", time]
+
+
+$ExplicitProperty["EffectiveAxionDecayConstant", time_, "FromHubbleParameter"] :=
+	$ExplicitProperty["EffectiveAxionDecayConstantFromHubbleParameter", time]
+
+
+(* ::Text:: *)
+(*From Hubble parameter*)
+
+
 $DerivedValues = $AddToSet[$DerivedValues, {
-	"EffectiveAxionDecayConstant" ->
+	"EffectiveAxionDecayConstantFromHubbleParameter" ->
 			1 / Sqrt["SlowRollDynamicEta" - 2 "SlowRollEpsilonFromHubbleParameter"]
+}];
+
+
+(* ::Text:: *)
+(*From potential*)
+
+
+$DerivedValues = $AddToSet[$DerivedValues, {
+	"EffectiveAxionDecayConstantFromPotential" ->
+			1 / Sqrt[2 ("SlowRollEpsilonFromPotential" - "SlowRollPotentialEta")]
 }];
 
 
