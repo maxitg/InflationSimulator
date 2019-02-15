@@ -1135,90 +1135,9 @@ Cell[TextData[{
  Cell[BoxData[
  "\"\<TensorToScalarRatio\>\""], "InlineFormula",ExpressionUUID->
   "9dea6f36-4c10-4249-944d-e3791c450387"],
- " is computed as:"
+ " is computed as the ratio of these spectra."
 }], "Notes",
  CellID->1517479973,ExpressionUUID->"ba7eebb1-e205-4b90-b82d-0c1d8841185c"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   FractionBox[
-    SuperscriptBox["P", "h"], 
-    SuperscriptBox["P", "\[Zeta]"]], "=", 
-   RowBox[{
-    FractionBox[
-     RowBox[{
-      FractionBox["2", 
-       RowBox[{"3", 
-        SuperscriptBox["\[Pi]", "2"]}]], "\[Rho]"}], 
-     RowBox[{
-      FractionBox["1", 
-       RowBox[{"8", 
-        SuperscriptBox["\[Pi]", "2"]}]], 
-      FractionBox[
-       SuperscriptBox["H", "2"], 
-       RowBox[{
-        SubscriptBox["c", "s"], "\[Epsilon]"}]]}]], "=", 
-    RowBox[{
-     FractionBox[
-      RowBox[{"16", 
-       SuperscriptBox["\[Pi]", "2"], "\[Rho]", " ", 
-       SubscriptBox["c", "s"], "\[Epsilon]"}], 
-      RowBox[{"3", 
-       SuperscriptBox["\[Pi]", "2"], 
-       SuperscriptBox["H", "2"]}]], "=", 
-     RowBox[{
-      RowBox[{
-       FractionBox["16", "3"], 
-       FractionBox["1", 
-        SuperscriptBox["H", "2"]], "\[Rho]", " ", 
-       SubscriptBox["c", "s"], "\[Epsilon]"}], "=", 
-      RowBox[{
-       RowBox[{"-", "8"}], 
-       SubscriptBox["c", "s"], 
-       SubscriptBox["n", "t"], 
-       FractionBox["\[Rho]", 
-        RowBox[{"3", 
-         SuperscriptBox["H", "2"]}]]}]}]}]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"fdb73ff0-3145-4892-8b96-087fb45802bb"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->876373161,ExpressionUUID->"1dd347a6-6176-4b98-83fa-9e71d56ae487"],
-
-Cell["where according to Friedmann equation:", "ExampleText",
- CellID->42780151,ExpressionUUID->"5b897a31-1829-442f-83cb-29e0ad959772"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SuperscriptBox["H", "2"], "=", 
-   RowBox[{
-    FractionBox["1", "3"], "\[Rho]"}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"20b1e1ed-6d5f-489d-b74d-5d2a4d93d001"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->268299510,ExpressionUUID->"d49f7d9c-b11f-4046-a7eb-93c59e9b46fe"],
-
-Cell["therefore we get", "ExampleText",
- CellID->1638891566,ExpressionUUID->"58ee34ff-b7b1-4dd1-b62a-5008f1d239f9"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   FractionBox[
-    SuperscriptBox["P", "h"], 
-    SuperscriptBox["P", "\[Zeta]"]], "=", 
-   RowBox[{
-    RowBox[{"-", "8"}], 
-    SubscriptBox["c", "s"], 
-    SubscriptBox["n", "t"]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"83c6743f-95eb-423b-9f22-0c73f923b1b0"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->1691486733,ExpressionUUID->"63ff8010-b128-49ad-84b7-fa9f5d034170"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -2490,7 +2409,7 @@ T46acKpIE6T7hX35Oo+5dbw16j1ldQNPsudMm5v4NxpAAhE=
 }, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{343, Automatic}, {257, Automatic}},
+WindowMargins->{{Automatic, 869}, {270, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,

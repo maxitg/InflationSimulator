@@ -612,7 +612,7 @@ InflationQ[
 (*Observables*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InflationProperty*)
 
 
@@ -1019,7 +1019,7 @@ $InflationValue[
 	$DerivativeValues[lagrangian, field, time, evolution, {property}, lookupTime][[1]]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*$InflationValue for derived values*)
 
 
@@ -1060,7 +1060,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Lagrangian, potential, density, and pressure, and their derivatives with respect to the field and time*)
 
 
@@ -1197,7 +1197,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Slow-roll parameter \[Eta]*)
 
 
@@ -1324,7 +1324,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 			1/(8 \[Pi]^2) "HubbleParameter"^2 /
 					("SpeedOfSound" "SlowRollEpsilonFromHubbleParameter"),
 	"TensorPowerSpectrum" -> 2/(3 \[Pi]^2) "Density",
-	"TensorToScalarRatio" -> -8 "SpeedOfSound" "TensorSpectralIndex"
+	"TensorToScalarRatio" -> "TensorPowerSpectrum" / "ScalarPowerSpectrum"
 }];
 
 
