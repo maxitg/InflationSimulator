@@ -260,7 +260,7 @@ Cell[BoxData[
  CellID->880084151,ExpressionUUID->"fe748791-2d5c-4b2e-bf18-16852dc030f1"],
 
 Cell["\<\
-Determine if inflation produced by a field with a quartic potential stops:\
+Determine if inflation produced by a Natural Inflation model stops:\
 \>", "ExampleText",
  CellID->983100344,ExpressionUUID->"bb4234d7-4b49-4f38-b0a9-03dec811f5dc"],
 
@@ -274,27 +274,24 @@ Cell[BoxData[
      FractionBox["1", "2"], 
      SuperscriptBox[
       RowBox[{
-       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "+", 
-    RowBox[{
-     FractionBox["1", "2"], 
-     SuperscriptBox[
-      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "-", 
-    RowBox[{
-     FractionBox["1", 
-      RowBox[{"4", "!"}]], " ", 
-     SuperscriptBox[
-      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "4"]}], "-", 
-    FractionBox["3", "2"]}], ",", 
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
+    ",", 
    RowBox[{"{", 
     RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "25.0", ",", "0.0"}], "}"}],
-    ",", "t"}], "]"}]], "Input",
- CellLabel->"In[36]:=",
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+     RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t"}],
+   "]"}]], "Input",
+ CellLabel->"In[505]:=",
  CellID->1525454868,ExpressionUUID->"27178f9a-c02d-4d9e-8318-4a038f67c6a4"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[36]=",
- CellID->1174632964,ExpressionUUID->"e0bdbd3b-589b-4011-b115-21a09d18e6bd"]
+ CellLabel->"Out[505]=",
+ CellID->838110741,ExpressionUUID->"33cb8fdc-92dc-4d9e-8408-56964e8a0009"]
 }, Open  ]]
 }, Open  ]],
 
@@ -386,3 +383,4 @@ FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
+

@@ -283,7 +283,7 @@ Cell[BoxData[
  CellID->880084151,ExpressionUUID->"88fe5649-a7ce-4097-a255-15cdb3a397ee"],
 
 Cell["\<\
-Determine the time at which horizon exit occurred for a quartic potential \
+Determine the time at which horizon exit occurred for a Natural Inflation \
 model.\
 \>", "ExampleText",
  CellID->418077166,ExpressionUUID->"edca7cfd-7a9c-4541-92d0-f57d50b8fe66"],
@@ -298,27 +298,24 @@ Cell[BoxData[
      FractionBox["1", "2"], 
      SuperscriptBox[
       RowBox[{
-       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "+", 
-    RowBox[{
-     FractionBox["1", "2"], 
-     SuperscriptBox[
-      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "-", 
-    RowBox[{
-     FractionBox["1", 
-      RowBox[{"4", "!"}]], " ", 
-     SuperscriptBox[
-      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "4"]}], "-", 
-    FractionBox["3", "2"]}], ",", 
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
+    ",", 
    RowBox[{"{", 
     RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "25.0", ",", "0.0"}], "}"}],
-    ",", "t", ",", "60.0"}], "]"}]], "Input",
- CellLabel->"In[128]:=",
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+     RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0.0"}], "}"}], ",", "t", 
+   ",", "60.0"}], "]"}]], "Input",
+ CellLabel->"In[530]:=",
  CellID->1099185550,ExpressionUUID->"45ed27e2-f6ca-47a9-bc69-01673dcd083b"],
 
-Cell[BoxData["0.22220782540798711`"], "Output",
- CellLabel->"Out[128]=",
- CellID->420309825,ExpressionUUID->"6b116ad0-8863-4f24-9896-16629de10c00"]
+Cell[BoxData["426.1075843365069`"], "Output",
+ CellLabel->"Out[530]=",
+ CellID->241057190,ExpressionUUID->"93b05cf9-b0ab-4d81-a380-22b0c367409b"]
 }, Open  ]]
 }, Open  ]],
 
@@ -410,3 +407,4 @@ FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
+

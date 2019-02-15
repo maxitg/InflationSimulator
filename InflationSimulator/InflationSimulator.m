@@ -612,7 +612,7 @@ InflationQ[
 (*Observables*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflationProperty*)
 
 
@@ -629,10 +629,16 @@ Options[InflationProperty] = {Method -> Automatic};
 
 
 InflationProperty /: MakeBoxes[
-		InflationProperty[obs_String, time_], StandardForm] := TemplateBox[
+		InflationProperty[obs_String, time_, o : OptionsPattern[]],
+		StandardForm] := TemplateBox[
 	{
 		"\<\"" <> obs <> "\"\>",
-		"\<\"" <> If[StringQ[time], time, "t = " <> ToString[time]] <> "\"\>"
+		"\<\"" <> StringRiffle[{
+			If[StringQ[time], time, "t = " <> ToString[time]],
+			With[{method = OptionValue[InflationProperty, o, Method]},
+				If[method === Automatic, Nothing, method]
+			]
+		}, ", "] <> "\"\>"
 	},
 	"InflationValue",
 	DisplayFunction -> (FrameBox[
@@ -670,7 +676,7 @@ InflationProperty /: MakeBoxes[
 ]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflationValue*)
 
 
@@ -1019,7 +1025,7 @@ $InflationValue[
 	$DerivativeValues[lagrangian, field, time, evolution, {property}, lookupTime][[1]]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*$InflationValue for derived values*)
 
 
@@ -1040,7 +1046,7 @@ $InflationValue[
 $DerivedValues = {};
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Hubble parameter*)
 
 
@@ -1153,7 +1159,7 @@ $InflationValue[
 	}
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Slow-roll parameter \[Epsilon] and and its derivative*)
 
 
@@ -1197,7 +1203,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Slow-roll parameter \[Eta]*)
 
 
@@ -1219,7 +1225,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Effective axion decay constant*)
 
 
@@ -1259,7 +1265,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Speed of sound and its derivative*)
 
 
@@ -1281,7 +1287,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Slow roll parameter s*)
 
 
@@ -1293,7 +1299,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Scalar and tensor spectral indices*)
 
 
@@ -1352,7 +1358,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Scalar and tensor power spectra*)
 
 
@@ -1368,7 +1374,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Tensor-to-scalar ratio*)
 
 
@@ -1480,7 +1486,8 @@ ExperimentallyConsistentInflationQ[
 					field,
 					time,
 					evolution,
-					{"ScalarSpectralIndex", "TensorToScalarRatio"},
+					{"ScalarSpectralIndexFromHubbleParameter",
+					 "TensorToScalarRatioFromHubbleParameter"},
 					CosmologicalHorizonExitTime[evolution, pivotEfoldings]]
 ]
 

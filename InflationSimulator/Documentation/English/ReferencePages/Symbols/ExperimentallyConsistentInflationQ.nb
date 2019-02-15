@@ -273,8 +273,7 @@ Cell[BoxData[
  CellID->880084151,ExpressionUUID->"025dda20-6209-4d1a-8d26-81e19896de4a"],
 
 Cell["\<\
-Check if an inflation model with a quartic potential satisfies experimental \
-constraints:\
+Check if a Natural Inflation model satisfies experimental constraints:\
 \>", "ExampleText",
  CellID->340009159,ExpressionUUID->"91614508-950a-4aa3-8850-4d9ddc033a89"],
 
@@ -288,27 +287,24 @@ Cell[BoxData[
      FractionBox["1", "2"], 
      SuperscriptBox[
       RowBox[{
-       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "+", 
-    RowBox[{
-     FractionBox["1", "2"], 
-     SuperscriptBox[
-      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "-", 
-    RowBox[{
-     FractionBox["1", 
-      RowBox[{"4", "!"}]], " ", 
-     SuperscriptBox[
-      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "4"]}], "-", 
-    FractionBox["3", "2"]}], ",", 
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
+    ",", 
    RowBox[{"{", 
     RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "25.0", ",", "0.0"}], "}"}],
-    ",", "t", ",", "60.0"}], "]"}]], "Input",
- CellLabel->"In[355]:=",
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+     RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
+   ",", "60.0"}], "]"}]], "Input",
+ CellLabel->"In[135]:=",
  CellID->110677409,ExpressionUUID->"0a30b95b-cb1a-4358-9faa-c62630fcae76"],
 
-Cell[BoxData["False"], "Output",
- CellLabel->"Out[355]=",
- CellID->1655156783,ExpressionUUID->"eaaa2717-e931-4b75-ad58-456ba275bd0c"]
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[135]=",
+ CellID->1268513865,ExpressionUUID->"a72b5863-5dc8-4219-8466-a8ca95c8d2fa"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -320,7 +316,14 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleDelimiter",
  CellID->1384394933,ExpressionUUID->"ae44bfe7-6d03-4457-980d-454e617d4863"],
 
-Cell["Quadratic model works for some initial field values:", "ExampleText",
+Cell[TextData[{
+ "Natural Inflation model works for large enough values of the axion decay \
+constant ",
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "e9273188-4113-4708-bb55-7f306ffb60a8"],
+ ":"
+}], "ExampleText",
  CellID->1687807333,ExpressionUUID->"d6db2f46-043c-4a70-bf5d-9540c1ff5561"],
 
 Cell[CellGroupData[{
@@ -336,27 +339,30 @@ Cell[BoxData[
        SuperscriptBox[
         RowBox[{
          RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
-      RowBox[{
-       FractionBox["1", "2"], 
-       SuperscriptBox[
-        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}]}], ",", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"Cos", "[", 
+         RowBox[{
+          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "f"}], "]"}]}], 
+       ")"}]}], ",", 
      RowBox[{"{", 
       RowBox[{
-       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "\[CurlyPhi]0", ",", 
-       "0.0"}], "}"}], ",", "t", ",", "60.0"}], "]"}], ",", 
+       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+       RowBox[{"0.9", " ", "f", " ", "\[Pi]"}], ",", "0.0"}], "}"}], ",", "t",
+      ",", "60.0"}], "]"}], ",", 
    RowBox[{"{", 
-    RowBox[{"\[CurlyPhi]0", ",", "10", ",", "300", ",", "50"}], "}"}]}], 
-  "]"}]], "Input",
- CellLabel->"In[363]:=",
+    RowBox[{"f", ",", "1", ",", "10", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[136]:=",
  CellID->1429462046,ExpressionUUID->"bf3ceff5-8c6c-4d32-84c8-afad89e32543"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-  "False", ",", "False", ",", "True", ",", "True", ",", "False", ",", 
-   "False"}], "}"}]], "Output",
- CellLabel->"Out[363]=",
- CellID->1799895225,ExpressionUUID->"e000a53b-2ada-4a66-9a99-b91cb19d68d1"]
+  "False", ",", "False", ",", "False", ",", "False", ",", "False", ",", 
+   "True", ",", "True", ",", "True", ",", "True", ",", "True"}], 
+  "}"}]], "Output",
+ CellLabel->"Out[136]=",
+ CellID->862938165,ExpressionUUID->"5c01c309-14b7-4251-bf6d-41447e00d8c6"]
 }, Open  ]]
 }, Open  ]],
 
