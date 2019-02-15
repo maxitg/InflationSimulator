@@ -1163,11 +1163,22 @@ Cell[TextData[Cell[BoxData[
  CellID->893193944,ExpressionUUID->"240aad47-4638-4448-bba9-60704eeae4bc"],
 
 Cell[TextData[{
- "Then, ",
  Cell[BoxData[
  "\"\<TensorToScalarRatio\>\""], "InlineFormula",ExpressionUUID->
   "9dea6f36-4c10-4249-944d-e3791c450387"],
- " is computed as the ratio of these spectra."
+ " is computed as the ratio of these spectra by default or as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"16", " ", 
+    SubscriptBox["\[Epsilon]", "V"]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"c7c03a11-03e2-4b3b-bfdc-34f3a3252736"],
+ " if ",
+ Cell[BoxData[
+  RowBox[{"Method", " ", "->", " ", "\"\<FromPotential\>\""}]], 
+  "InlineFormula",
+  FormatType->"StandardForm",ExpressionUUID->
+  "07e238b6-2526-41dc-acbc-f1c9bd0f7a75"],
+ " is used."
 }], "Notes",
  CellID->1517479973,ExpressionUUID->"ba7eebb1-e205-4b90-b82d-0c1d8841185c"],
 
@@ -2441,7 +2452,7 @@ T46acKpIE6T7hX35Oo+5dbw16j1ldQNPsudMm5v4NxpAAhE=
 }, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{Automatic, 869}, {270, Automatic}},
+WindowMargins->{{Automatic, 534}, {258, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,

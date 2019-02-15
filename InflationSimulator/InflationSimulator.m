@@ -1162,15 +1162,15 @@ InflationPropertyData[] = $AddToSet[InflationPropertyData[], {
 }];
 
 
-InflationPropertyData["SlowRollEpsilon"] = {"FromPotential", "FromHubbleParameter"};
-
-
-$ExplicitProperty["SlowRollEpsilon", time_, "FromPotential"] :=
-	$ExplicitProperty["SlowRollEpsilonFromPotential", time]
+InflationPropertyData["SlowRollEpsilon"] = {"FromHubbleParameter", "FromPotential"};
 
 
 $ExplicitProperty["SlowRollEpsilon", time_, "FromHubbleParameter"...] :=
 	$ExplicitProperty["SlowRollEpsilonFromHubbleParameter", time]
+
+
+$ExplicitProperty["SlowRollEpsilon", time_, "FromPotential"] :=
+	$ExplicitProperty["SlowRollEpsilonFromPotential", time]
 
 
 (* ::Text:: *)
@@ -1228,15 +1228,15 @@ InflationPropertyData[] =
 
 
 InflationPropertyData["EffectiveAxionDecayConstant"] =
-		{"FromPotential", "FromHubbleParameter"};
-
-
-$ExplicitProperty["EffectiveAxionDecayConstant", time_, "FromPotential"] :=
-	$ExplicitProperty["EffectiveAxionDecayConstantFromPotential", time]
+		{"FromHubbleParameter", "FromPotential"};
 
 
 $ExplicitProperty["EffectiveAxionDecayConstant", time_, "FromHubbleParameter"...] :=
 	$ExplicitProperty["EffectiveAxionDecayConstantFromHubbleParameter", time]
+
+
+$ExplicitProperty["EffectiveAxionDecayConstant", time_, "FromPotential"] :=
+	$ExplicitProperty["EffectiveAxionDecayConstantFromPotential", time]
 
 
 (* ::Text:: *)
@@ -1302,27 +1302,27 @@ InflationPropertyData[] = $AddToSet[
 
 
 InflationPropertyData["ScalarSpectralIndex"] =
-		{"FromPotential", "FromHubbleParameter"};
-
-
-$ExplicitProperty["ScalarSpectralIndex", time_, "FromPotential"] :=
-	$ExplicitProperty["ScalarSpectralIndexFromPotential", time]
+		{"FromHubbleParameter", "FromPotential"};
 
 
 $ExplicitProperty["ScalarSpectralIndex", time_, "FromHubbleParameter"...] :=
 	$ExplicitProperty["ScalarSpectralIndexFromHubbleParameter", time]
 
 
+$ExplicitProperty["ScalarSpectralIndex", time_, "FromPotential"] :=
+	$ExplicitProperty["ScalarSpectralIndexFromPotential", time]
+
+
 InflationPropertyData["TensorSpectralIndex"] =
-		{"FromPotential", "FromHubbleParameter"};
-
-
-$ExplicitProperty["TensorSpectralIndex", time_, "FromPotential"] :=
-	$ExplicitProperty["TensorSpectralIndexFromPotential", time]
+		{"FromHubbleParameter", "FromPotential"};
 
 
 $ExplicitProperty["TensorSpectralIndex", time_, "FromHubbleParameter"...] :=
 	$ExplicitProperty["TensorSpectralIndexFromHubbleParameter", time]
+
+
+$ExplicitProperty["TensorSpectralIndex", time_, "FromPotential"] :=
+	$ExplicitProperty["TensorSpectralIndexFromPotential", time]
 
 
 (* ::Text:: *)
@@ -1357,16 +1357,40 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 
 
 InflationPropertyData[] = $AddToSet[
-		InflationPropertyData[],
-		{"ScalarPowerSpectrum", "TensorPowerSpectrum", "TensorToScalarRatio"}];
+		InflationPropertyData[], {"ScalarPowerSpectrum", "TensorPowerSpectrum"}];
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {
 	"ScalarPowerSpectrum" ->
 			1/(8 \[Pi]^2) "HubbleParameter"^2 /
 					("SpeedOfSound" "SlowRollEpsilonFromHubbleParameter"),
-	"TensorPowerSpectrum" -> 2/(3 \[Pi]^2) "Density",
-	"TensorToScalarRatio" -> "TensorPowerSpectrum" / "ScalarPowerSpectrum"
+	"TensorPowerSpectrum" -> 2/(3 \[Pi]^2) "Density"
+}];
+
+
+(* ::Subsubsection:: *)
+(*Tensor-to-scalar ratio*)
+
+
+InflationPropertyData[] = $AddToSet[InflationPropertyData[], {"TensorToScalarRatio"}];
+
+
+InflationPropertyData["TensorToScalarRatio"] =
+		{"FromHubbleParameter", "FromPotential"};
+
+
+$ExplicitProperty["TensorToScalarRatio", time_, "FromHubbleParameter"...] :=
+	$ExplicitProperty["TensorToScalarRatioFromHubbleParameter", time]
+
+
+$ExplicitProperty["TensorToScalarRatio", time_, "FromPotential"] :=
+	$ExplicitProperty["TensorToScalarRatioFromPotential", time]
+
+
+$DerivedValues = $AddToSet[$DerivedValues, {
+	"TensorToScalarRatioFromHubbleParameter" ->
+			"TensorPowerSpectrum" / "ScalarPowerSpectrum",
+	"TensorToScalarRatioFromPotential" -> 16 "SlowRollEpsilonFromPotential"
 }];
 
 
