@@ -307,7 +307,8 @@ is zero as:"
 
 Cell[TextData[Cell[BoxData[
  FormBox[
-  RowBox[{"\[Epsilon]", "=", 
+  RowBox[{
+   SubscriptBox["\[Epsilon]", "V"], "=", 
    RowBox[{
     FractionBox["1", "2"], 
     SuperscriptBox[
@@ -326,7 +327,7 @@ Cell[TextData[Cell[BoxData[
 
 Cell[TextData[{
  Cell[BoxData[
- "\"\<SlowRollEta\>\""], "InlineFormula",ExpressionUUID->
+ "\"\<SlowRollDynamicEta\>\""], "InlineFormula",ExpressionUUID->
   "bd8a5557-d93c-4104-bc67-8059b4584463"],
  " is computed according to:"
 }], "Notes",
@@ -343,6 +344,53 @@ Cell[TextData[Cell[BoxData[
 "ExampleText",
  TextAlignment->Center,
  CellID->975402016,ExpressionUUID->"0e1ce9ae-ce33-4081-a643-56a67a9244aa"],
+
+Cell[TextData[{
+ Cell[BoxData[
+ "\"\<SlowRollPotentialEta\>\""], "InlineFormula",ExpressionUUID->
+  "07cbbfa0-ff9f-46c5-9dea-231252c40270"],
+ " is computed as follows."
+}], "Notes",
+ CellID->182210122,ExpressionUUID->"9ff0aa4f-64b2-433e-aaca-28533031e482"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["\[Eta]", "V"], "=", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[ScriptCapitalL]", "\[DoublePrime]"], "(", 
+     "\[CurlyPhi]", ")"}], 
+    RowBox[{"\[ScriptCapitalL]", "(", "\[CurlyPhi]", ")"}]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"d7ac0224-128a-44ce-b330-2245796a2633"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->93839832,ExpressionUUID->"3fb52038-157b-41dd-b3f1-d8970c176ff5"],
+
+Cell[TextData[{
+ "Note that this expression is different from ",
+ Cell[BoxData[
+ "\"\<SlowRollDynamicEta\>\""], "InlineFormula",ExpressionUUID->
+  "0f9634be-6d8a-4c05-a1e8-9c10291cf498"],
+ ". Specifically,"
+}], "ExampleText",
+ CellID->600488685,ExpressionUUID->"7625c63d-eea7-4826-84d6-caa6e153edc9"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"\[Eta]", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "2"}], 
+     SubscriptBox["\[Eta]", "V"]}], "+", 
+    RowBox[{"4", 
+     SubscriptBox["\[Epsilon]", "V"]}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"0e518159-c2e1-47c6-aceb-51274f3b0387"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->902963654,ExpressionUUID->"1acc6c0a-9646-41de-9562-07c1a05633ca"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -1936,7 +1984,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{Automatic, 1096}, {326, Automatic}},
+WindowMargins->{{Automatic, 176}, {351, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
