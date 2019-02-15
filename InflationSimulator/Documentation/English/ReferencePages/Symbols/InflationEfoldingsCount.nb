@@ -268,8 +268,7 @@ Cell[BoxData[
  CellID->880084151,ExpressionUUID->"b8c3fb6a-88e3-4a54-a66d-f5b555a5ae66"],
 
 Cell["\<\
-Determine the number of e-foldings produced by a field with a quartic \
-potential stops:\
+Determine the number of e-foldings produced by a Natural Inflation model:\
 \>", "ExampleText",
  CellID->983100344,ExpressionUUID->"8da75891-877a-4651-a4ff-e244989aee59"],
 
@@ -283,27 +282,24 @@ Cell[BoxData[
      FractionBox["1", "2"], 
      SuperscriptBox[
       RowBox[{
-       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "+", 
-    RowBox[{
-     FractionBox["1", "2"], 
-     SuperscriptBox[
-      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "-", 
-    RowBox[{
-     FractionBox["1", 
-      RowBox[{"4", "!"}]], " ", 
-     SuperscriptBox[
-      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "4"]}], "-", 
-    FractionBox["3", "2"]}], ",", 
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
+    ",", 
    RowBox[{"{", 
     RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "25.0", ",", "0.0"}], "}"}],
-    ",", "t"}], "]"}]], "Input",
- CellLabel->"In[81]:=",
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+     RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t"}],
+   "]"}]], "Input",
+ CellLabel->"In[142]:=",
  CellID->73484633,ExpressionUUID->"f751f788-7a79-4454-b854-f5fa5d589622"],
 
-Cell[BoxData["74.70585751106982`"], "Output",
- CellLabel->"Out[81]=",
- CellID->1845093326,ExpressionUUID->"da481bb9-5e3b-4a69-81de-4cdd21911b16"]
+Cell[BoxData["372.8569454313329`"], "Output",
+ CellLabel->"Out[142]=",
+ CellID->1036729300,ExpressionUUID->"52da96c3-d5ae-431e-a174-9266925356df"]
 }, Open  ]]
 }, Open  ]],
 
@@ -395,3 +391,4 @@ FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
+

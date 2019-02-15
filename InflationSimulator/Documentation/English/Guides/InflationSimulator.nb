@@ -209,14 +209,14 @@ Cell[TextData[{
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["$InflationProperties",
+  ButtonBox["InflationPropertyData",
    BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/$InflationProperties"]], 
+   ButtonData->"paclet:InflationSimulator/ref/InflationPropertyData"]], 
   "InlineGuideFunction",ExpressionUUID->
-  "9760b64f-9c69-4ca1-b1d5-9aa0595b4cb3"],
+  "22439e0b-6beb-47bc-9ed0-873842bbeba3"],
  " \[LongDash] list all supported inflation properties."
 }], "GuideText",
- CellID->2122387338,ExpressionUUID->"0ed7b786-ba66-4173-a221-851f6425f3d0"],
+ CellID->381197379,ExpressionUUID->"acc9b7fa-672a-4b39-8d16-8f0bca37b7c1"],
 
 Cell[TextData[{
  Cell[BoxData[

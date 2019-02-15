@@ -111,16 +111,25 @@ Cell["XXXX", "Details",
 
 Cell[CellGroupData[{
 
-Cell["$InflationProperties", "ObjectName",
+Cell["InflationPropertyData", "ObjectName",
  CellID->1224892054,ExpressionUUID->"f11efd61-a8a2-45dd-bbb2-2ed61810e651"],
 
 Cell[TextData[{
  Cell["   ", "ModInfo",ExpressionUUID->"58bd8185-268a-482c-90b0-d919208f232f"],
  Cell[BoxData[
- "$InflationProperties"], "InlineFormula",ExpressionUUID->
-  "3b1f38d1-b3dc-4250-b381-f594f63975bd"],
+  RowBox[{"InflationPropertyData", "[", "]"}]], "InlineFormula",
+  ExpressionUUID->"3b1f38d1-b3dc-4250-b381-f594f63975bd"],
  "\[LineSeparator]gives the list of all properties supported by \
-InflationProperty and InflationValue."
+InflationProperty and InflationValue.\n",
+ Cell["      ", "ModInfo",ExpressionUUID->
+  "79fa8fec-86a0-4f17-8812-52939f504228"],
+ Cell[BoxData[
+  RowBox[{"InflationPropertyData", "[", 
+   StyleBox["p", "TI"], "]"}]], "InlineFormula",ExpressionUUID->
+  "90d44485-300c-4e44-8d6b-d31166b85d01"],
+ "\[LineSeparator]gives the list of methods supported for property ",
+ StyleBox["p", "TI"],
+ "."
 }], "Usage",
  CellID->982511436,ExpressionUUID->"e6672e2c-7910-4af1-ba2c-2ea71bdeeea1"],
 
@@ -196,15 +205,22 @@ Cell[BoxData[
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151,ExpressionUUID->"db4cf832-9411-40e2-b303-a64918b9ee31"],
 
+Cell["Check the list of all supported properties:", "ExampleText",
+ CellID->1391871070,ExpressionUUID->"637ca31d-5361-4bd6-b919-3646b74c54b4"],
+
 Cell[CellGroupData[{
 
-Cell[BoxData["$InflationProperties"], "Input",
- CellLabel->"In[3508]:=",
+Cell[BoxData[
+ RowBox[{"InflationPropertyData", "[", "]"}]], "Input",
+ CellLabel->"In[487]:=",
  CellID->1458218148,ExpressionUUID->"6608c825-7eec-4ebd-a4f5-86567d24b6de"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"\<\"Efoldings\"\>", ",", "\<\"EfoldingsFourthTimeDerivative\"\>", 
+  RowBox[{"\<\"Density\"\>", ",", "\<\"DensityFieldVelocityDerivative\"\>", 
+   ",", "\<\"DensityFieldVelocityDerivativeTimeDerivative\"\>", 
+   ",", "\<\"EffectiveAxionDecayConstant\"\>", ",", "\<\"Efoldings\"\>", 
+   ",", "\<\"EfoldingsFourthTimeDerivative\"\>", 
    ",", "\<\"EfoldingsSecondTimeDerivative\"\>", 
    ",", "\<\"EfoldingsThirdTimeDerivative\"\>", 
    ",", "\<\"EfoldingsTimeDerivative\"\>", ",", "\<\"Field\"\>", 
@@ -214,12 +230,50 @@ Cell[BoxData[
    ",", "\<\"FieldTimeDerivative\"\>", ",", "\<\"HubbleParameter\"\>", 
    ",", "\<\"HubbleParameterSecondTimeDerivative\"\>", 
    ",", "\<\"HubbleParameterThirdTimeDerivative\"\>", 
-   ",", "\<\"HubbleParameterTimeDerivative\"\>", 
-   ",", "\<\"SlowRollEpsilon\"\>", 
-   ",", "\<\"SlowRollEpsilonTimeDerivative\"\>", ",", "\<\"SlowRollEta\"\>"}],
-   "}"}]], "Output",
- CellLabel->"Out[3508]=",
- CellID->1770721571,ExpressionUUID->"fc7316e7-b6be-4ec5-be73-4283646667a4"]
+   ",", "\<\"HubbleParameterTimeDerivative\"\>", ",", "\<\"Lagrangian\"\>", 
+   ",", "\<\"LagrangianSecondFieldVelocityDerivative\"\>", 
+   ",", "\<\"LagrangianThirdFieldVelocityDerivative\"\>", 
+   ",", "\<\"LagrangianThirdFieldVelocityDerivativeTimeDerivative\"\>", 
+   ",", "\<\"NonGaussianityAmplitude\"\>", ",", "\<\"Potential\"\>", 
+   ",", "\<\"PotentialFieldDerivative\"\>", 
+   ",", "\<\"PotentialSecondFieldDerivative\"\>", ",", "\<\"Pressure\"\>", 
+   ",", "\<\"PressureFieldVelocityDerivative\"\>", 
+   ",", "\<\"PressureFieldVelocityDerivativeTimeDerivative\"\>", 
+   ",", "\<\"ScalarPowerSpectrum\"\>", ",", "\<\"ScalarSpectralIndex\"\>", 
+   ",", "\<\"SlowRollDynamicEta\"\>", ",", "\<\"SlowRollEpsilon\"\>", 
+   ",", "\<\"SlowRollEpsilonTimeDerivative\"\>", 
+   ",", "\<\"SlowRollPotentialEta\"\>", ",", "\<\"SlowRollS\"\>", 
+   ",", "\<\"SpeedOfSound\"\>", ",", "\<\"SpeedOfSoundTimeDerivative\"\>", 
+   ",", "\<\"TensorPowerSpectrum\"\>", ",", "\<\"TensorSpectralIndex\"\>", 
+   ",", "\<\"TensorToScalarRatio\"\>", ",", "\<\"Time\"\>", ",", "\<\"z\"\>", 
+   ",", "\<\"z1\"\>", ",", "\<\"z2\"\>"}], "}"}]], "Output",
+ CellLabel->"Out[487]=",
+ CellID->28700687,ExpressionUUID->"1e55a1b0-fa29-4426-8ddd-23fdbbe8b570"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Check methods supported for evaluating ",
+ Cell[BoxData[
+ "\"\<SlowRollEpsilon\>\""], "InlineFormula",ExpressionUUID->
+  "71d78623-4819-44bf-bca9-e05b3a33c0ab"],
+ ":"
+}], "ExampleText",
+ CellID->1286400396,ExpressionUUID->"f8f213ed-33be-4109-b888-c5b72c673cfd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InflationPropertyData", "[", "\"\<SlowRollEpsilon\>\"", 
+  "]"}]], "Input",
+ CellLabel->"In[488]:=",
+ CellID->1583537063,ExpressionUUID->"a9fa9333-d343-4fd5-b73a-e7ccfb221292"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"FromHubbleParameter\"\>", ",", "\<\"FromPotential\"\>"}], 
+  "}"}]], "Output",
+ CellLabel->"Out[488]=",
+ CellID->1820752174,ExpressionUUID->"36225a62-2370-45fa-ac28-70613b8b312f"]
 }, Open  ]]
 }, Open  ]],
 
