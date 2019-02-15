@@ -212,12 +212,15 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"InflationPropertyData", "[", "]"}]], "Input",
- CellLabel->"In[3508]:=",
+ CellLabel->"In[123]:=",
  CellID->1458218148,ExpressionUUID->"6608c825-7eec-4ebd-a4f5-86567d24b6de"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"\<\"Efoldings\"\>", ",", "\<\"EfoldingsFourthTimeDerivative\"\>", 
+  RowBox[{"\<\"Density\"\>", ",", "\<\"DensityFieldVelocityDerivative\"\>", 
+   ",", "\<\"DensityFieldVelocityDerivativeTimeDerivative\"\>", 
+   ",", "\<\"EffectiveAxionDecayConstant\"\>", ",", "\<\"Efoldings\"\>", 
+   ",", "\<\"EfoldingsFourthTimeDerivative\"\>", 
    ",", "\<\"EfoldingsSecondTimeDerivative\"\>", 
    ",", "\<\"EfoldingsThirdTimeDerivative\"\>", 
    ",", "\<\"EfoldingsTimeDerivative\"\>", ",", "\<\"Field\"\>", 
@@ -227,12 +230,25 @@ Cell[BoxData[
    ",", "\<\"FieldTimeDerivative\"\>", ",", "\<\"HubbleParameter\"\>", 
    ",", "\<\"HubbleParameterSecondTimeDerivative\"\>", 
    ",", "\<\"HubbleParameterThirdTimeDerivative\"\>", 
-   ",", "\<\"HubbleParameterTimeDerivative\"\>", 
+   ",", "\<\"HubbleParameterTimeDerivative\"\>", ",", "\<\"Lagrangian\"\>", 
+   ",", "\<\"LagrangianFieldDerivative\"\>", 
+   ",", "\<\"LagrangianSecondFieldDerivative\"\>", 
+   ",", "\<\"LagrangianSecondFieldVelocityDerivative\"\>", 
+   ",", "\<\"LagrangianThirdFieldVelocityDerivative\"\>", 
+   ",", "\<\"LagrangianThirdFieldVelocityDerivativeTimeDerivative\"\>", 
+   ",", "\<\"NonGaussianityAmplitude\"\>", ",", "\<\"Pressure\"\>", 
+   ",", "\<\"PressureFieldVelocityDerivative\"\>", 
+   ",", "\<\"PressureFieldVelocityDerivativeTimeDerivative\"\>", 
+   ",", "\<\"ScalarPowerSpectrum\"\>", ",", "\<\"ScalarSpectralIndex\"\>", 
    ",", "\<\"SlowRollEpsilon\"\>", 
-   ",", "\<\"SlowRollEpsilonTimeDerivative\"\>", ",", "\<\"SlowRollEta\"\>"}],
-   "}"}]], "Output",
- CellLabel->"Out[3508]=",
- CellID->1770721571,ExpressionUUID->"fc7316e7-b6be-4ec5-be73-4283646667a4"]
+   ",", "\<\"SlowRollEpsilonTimeDerivative\"\>", ",", "\<\"SlowRollEta\"\>", 
+   ",", "\<\"SlowRollS\"\>", ",", "\<\"SpeedOfSound\"\>", 
+   ",", "\<\"SpeedOfSoundTimeDerivative\"\>", 
+   ",", "\<\"TensorPowerSpectrum\"\>", ",", "\<\"TensorSpectralIndex\"\>", 
+   ",", "\<\"TensorToScalarRatio\"\>", ",", "\<\"Time\"\>", ",", "\<\"z\"\>", 
+   ",", "\<\"z1\"\>", ",", "\<\"z2\"\>"}], "}"}]], "Output",
+ CellLabel->"Out[123]=",
+ CellID->1264975922,ExpressionUUID->"22c5e5d3-43db-490c-ae85-56ae79991b4a"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -244,10 +260,21 @@ Cell[TextData[{
 }], "ExampleText",
  CellID->1286400396,ExpressionUUID->"f8f213ed-33be-4109-b888-c5b72c673cfd"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"InflationPropertyData", "[", "\"\<SlowRollEpsilon\>\"", 
   "]"}]], "Input",
- CellID->1583537063,ExpressionUUID->"a9fa9333-d343-4fd5-b73a-e7ccfb221292"]
+ CellLabel->"In[124]:=",
+ CellID->1583537063,ExpressionUUID->"a9fa9333-d343-4fd5-b73a-e7ccfb221292"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"FromPotential\"\>", ",", "\<\"FromHubbleParameter\"\>"}], 
+  "}"}]], "Output",
+ CellLabel->"Out[124]=",
+ CellID->610861747,ExpressionUUID->"4fe41859-c99f-4648-9aab-fa539b82ea49"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -331,7 +358,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{Automatic, 752}, {236, Automatic}},
+WindowMargins->{{Automatic, 435}, {231, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,

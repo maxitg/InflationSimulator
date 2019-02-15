@@ -625,6 +625,9 @@ StyleBox[\"var\", \"TI\"]\) at time \!\(\*
 StyleBox[\"t\", \"TI\"]\).";
 
 
+Options[InflationProperty] = {Method -> Automatic};
+
+
 InflationProperty /: MakeBoxes[
 		InflationProperty[obs_String, time_], StandardForm] := TemplateBox[
 	{
@@ -667,11 +670,11 @@ InflationProperty /: MakeBoxes[
 ]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InflationValue*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*InflationValue implementation*)
 
 
@@ -753,6 +756,23 @@ InflationValue[
 
 
 (* ::Subsubsection:: *)
+(*$ExplicitProperty*)
+
+
+ClearAll[$EvaluateProperty];
+
+
+$EvaluateProperty[InflationProperty[prop_String, time_, o : OptionsPattern[]]] :=
+		$ExplicitProperty[prop, time, OptionValue[InflationProperty, o, Method]];
+
+
+ClearAll[$ExplicitProperty];
+
+
+$ExplicitProperty[prop_String, time_, Automatic] := $ExplicitProperty[prop, time]
+
+
+(* ::Subsubsection:: *)
 (*$InflationValueInternalData*)
 
 
@@ -767,7 +787,8 @@ $InflationValueInternalData[
 		properties_List,
 		opts : OptionsPattern[]] := Module[{
 				evolution, integrationTime, totalEfoldingsCount,
-				propertiesByTime, valuesByTime},
+				explicitProperties, propertiesByTime, valuesByTime},
+	explicitProperties = $EvaluateProperty /@ properties;
 	evolution = InflationEvolution[
 			lagrangian, {field, fieldInitial, fieldDerivativeInitial}, time, opts];
 	integrationTime = $IntegrationTime[evolution];
@@ -779,7 +800,8 @@ $InflationValueInternalData[
 			"End" -> integrationTime
 		} &,
 		Merge[
-			Association[{Reverse[#]}] & /@ Thread[properties -> properties[[All, 2]]],
+			Association[{Reverse[#]}] & /@
+					Thread[explicitProperties -> explicitProperties[[All, 2]]],
 			Join]];
 	valuesByTime = Join @@ KeyValueMap[
 		Association @ Switch[#1,
@@ -799,9 +821,34 @@ $InflationValueInternalData[
 	<|
 		"Evolution" -> evolution,
 		"IntegrationTime" -> integrationTime,
-		"Values" -> (properties /. valuesByTime)
+		"Values" -> (explicitProperties /. valuesByTime)
 	|>
 ]
+
+
+(* ::Subsubsection:: *)
+(*InflationPropertyData*)
+
+
+InflationPropertyData::usage = StringRiffle[{
+	"InflationPropertyData[] " <>
+		"gives the list of all properties supported by InflationProperty and " <>
+		"InflationValue.",
+	"InflationPropertyData[\!\(\*
+StyleBox[\"p\", \"TI\"]\)] " <>
+		"gives the list of methods supported for property \!\(\*
+StyleBox[\"p\", \"TI\"]\)."
+}, "\n"];
+
+
+(* ::Text:: *)
+(*The values are added later in the implementation.*)
+
+
+InflationPropertyData[] = {};
+
+
+InflationPropertyData[property_String] := {};
 
 
 (* ::Subsubsection:: *)
@@ -839,7 +886,7 @@ $InflationValue[
 ]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*$AddToSet*)
 
 
@@ -848,32 +895,7 @@ $AddToSet[set_, items_List] := Union[If[ListQ[set], Join[set, items], items]];
 $AddToSet[set_, item_] := $AddToSet[set, {item}]
 
 
-(* ::Subsubsection:: *)
-(*InflationPropertyData*)
-
-
-InflationPropertyData::usage = StringRiffle[{
-	"InflationPropertyData[] " <>
-		"gives the list of all properties supported by InflationProperty and " <>
-		"InflationValue.",
-	"InflationPropertyData[\!\(\*
-StyleBox[\"p\", \"TI\"]\)] " <>
-		"gives the list of methods supported for property \!\(\*
-StyleBox[\"p\", \"TI\"]\)."
-}, "\n"];
-
-
-(* ::Text:: *)
-(*The values are added later in the implementation.*)
-
-
-InflationPropertyData[] = {};
-
-
-InflationPropertyData[property_String] := {};
-
-
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Time*)
 
 
@@ -894,7 +916,7 @@ $InflationValue[
 	lookupTime
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Elementary observables*)
 
 
@@ -916,7 +938,7 @@ $InflationValue[
 	evolution[property][lookupTime]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Derivatives of elementary observables*)
 
 
@@ -997,7 +1019,7 @@ $InflationValue[
 	$DerivativeValues[lagrangian, field, time, evolution, {property}, lookupTime][[1]]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*$InflationValue for derived values*)
 
 
@@ -1015,7 +1037,7 @@ $InflationValue[
 	$InflationValue[lagrangian, field, time, evolution, {property}, lookupTime][[1]]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Hubble parameter*)
 
 
@@ -1036,50 +1058,6 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 
 
 (* ::Subsubsection:: *)
-(*Slow-roll parameter \[Epsilon] and and its derivative*)
-
-
-InflationPropertyData[] = $AddToSet[InflationPropertyData[], {
-	"SlowRollEpsilon", "SlowRollEpsilonTimeDerivative"
-}];
-
-
-$DerivedValues = $AddToSet[$DerivedValues, {
-	"SlowRollEpsilon" -> - "HubbleParameterTimeDerivative" / ("HubbleParameter")^2,
-	"SlowRollEpsilonTimeDerivative" ->
-			(2 ("HubbleParameterTimeDerivative")^2
-					- "HubbleParameter" "HubbleParameterSecondTimeDerivative")
-			/ ("HubbleParameter")^3
-}];
-
-
-(* ::Subsubsection:: *)
-(*Slow-roll parameter \[Eta]*)
-
-
-InflationPropertyData[] = $AddToSet[InflationPropertyData[], {"SlowRollEta"}];
-
-
-$DerivedValues = $AddToSet[$DerivedValues, {
-	"SlowRollEta" ->
-			"SlowRollEpsilonTimeDerivative" / ("SlowRollEpsilon" "HubbleParameter")
-}];
-
-
-(* ::Subsubsection:: *)
-(*Effective axion decay constant*)
-
-
-InflationPropertyData[] =
-		$AddToSet[InflationPropertyData[], {"EffectiveAxionDecayConstant"}];
-
-
-$DerivedValues = $AddToSet[$DerivedValues, {
-	"EffectiveAxionDecayConstant" -> 1 / Sqrt["SlowRollEta" - 2 "SlowRollEpsilon"]
-}];
-
-
-(* ::Subsubsection:: *)
 (*Lagrangian, density, and pressure, and their derivatives with respect to the field and time*)
 
 
@@ -1090,11 +1068,11 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 ClearAll[$PropertyExpression];
 
 
-$PropertyExpression[lagrangian_, field_, time_, {"Lagrangian", 0, 0}] := lagrangian
+$PropertyExpression[lagrangian_, field_, time_, {"Lagrangian", 0, 0, 0}] := lagrangian
 
 
 $PropertyExpression[
-		lagrangian_, field_, time_, {obs : "Density" | "Pressure", 0, 0}] :=
+		lagrangian_, field_, time_, {obs : "Density" | "Pressure", 0, 0, 0}] :=
 	If[obs === "Density", InflatonDensity, InflatonPressure][lagrangian, field, time]
 
 
@@ -1103,13 +1081,15 @@ $PropertyExpression[
 		field_,
 		time_,
 		{obs : "Lagrangian" | "Density" | "Pressure",
+		 fieldOrder_,
 		 fieldVelocityOrder_,
 		 timeOrder_}] :=
 	Module[
-			{noDerivative, fieldVelocityDerivative, timeDerivative},
-		noDerivative = $PropertyExpression[lagrangian, field, time, {obs, 0, 0}];
+			{noDerivative, fieldDerivative, fieldVelocityDerivative, timeDerivative},
+		noDerivative = $PropertyExpression[lagrangian, field, time, {obs, 0, 0, 0}];
+		fieldDerivative = D[noDerivative, {field, fieldOrder}];
 		fieldVelocityDerivative =
-				D[noDerivative, {D[field, time], fieldVelocityOrder}];
+				D[fieldDerivative, {D[field, time], fieldVelocityOrder}];
 		timeDerivative = D[fieldVelocityDerivative, {time, timeOrder}]
 	]
 
@@ -1118,16 +1098,18 @@ ClearAll[$LagrangianDerivativeSpecs];
 
 
 $LagrangianDerivativeSpecs = <|
-	"Lagrangian" -> {"Lagrangian", 0, 0},
-	"LagrangianSecondFieldVelocityDerivative" -> {"Lagrangian", 2, 0},
-	"LagrangianThirdFieldVelocityDerivative" -> {"Lagrangian", 3, 0},
-	"LagrangianThirdFieldVelocityDerivativeTimeDerivative" -> {"Lagrangian", 3, 1},
-	"Density" -> {"Density", 0, 0},
-	"DensityFieldVelocityDerivative" -> {"Density", 1, 0},
-	"DensityFieldVelocityDerivativeTimeDerivative" -> {"Density", 1, 1},
-	"Pressure" -> {"Pressure", 0, 0},
-	"PressureFieldVelocityDerivative" -> {"Pressure", 1, 0},
-	"PressureFieldVelocityDerivativeTimeDerivative" -> {"Pressure", 1, 1}
+	"Lagrangian" -> {"Lagrangian", 0, 0, 0},
+	"LagrangianFieldDerivative" -> {"Lagrangian", 1, 0, 0},
+	"LagrangianSecondFieldDerivative" -> {"Lagrangian", 2, 0, 0},
+	"LagrangianSecondFieldVelocityDerivative" -> {"Lagrangian", 0, 2, 0},
+	"LagrangianThirdFieldVelocityDerivative" -> {"Lagrangian", 0, 3, 0},
+	"LagrangianThirdFieldVelocityDerivativeTimeDerivative" -> {"Lagrangian", 0, 3, 1},
+	"Density" -> {"Density", 0, 0, 0},
+	"DensityFieldVelocityDerivative" -> {"Density", 0, 1, 0},
+	"DensityFieldVelocityDerivativeTimeDerivative" -> {"Density", 0, 1, 1},
+	"Pressure" -> {"Pressure", 0, 0, 0},
+	"PressureFieldVelocityDerivative" -> {"Pressure", 0, 1, 0},
+	"PressureFieldVelocityDerivativeTimeDerivative" -> {"Pressure", 0, 1, 1}
 |>;
 
 
@@ -1164,6 +1146,78 @@ $InflationValue[
 
 
 (* ::Subsubsection:: *)
+(*Slow-roll parameter \[Epsilon] and and its derivative*)
+
+
+InflationPropertyData[] = $AddToSet[InflationPropertyData[], {
+	"SlowRollEpsilon", "SlowRollEpsilonTimeDerivative"
+}];
+
+
+InflationPropertyData["SlowRollEpsilon"] = {"FromPotential", "FromHubbleParameter"};
+
+
+$ExplicitProperty["SlowRollEpsilon", time_, "FromPotential"] :=
+	$ExplicitProperty["SlowRollEpsilonFromPotential", time]
+
+
+$ExplicitProperty["SlowRollEpsilon", time_, "FromHubbleParameter"] :=
+	$ExplicitProperty["SlowRollEpsilonFromHubbleParameter", time]
+
+
+(* ::Text:: *)
+(*Using Hubble parameter*)
+
+
+$DerivedValues = $AddToSet[$DerivedValues, {
+	"SlowRollEpsilonFromHubbleParameter" ->
+			- "HubbleParameterTimeDerivative" / ("HubbleParameter")^2,
+	"SlowRollEpsilonTimeDerivative" ->
+			(2 ("HubbleParameterTimeDerivative")^2
+					- "HubbleParameter" "HubbleParameterSecondTimeDerivative")
+			/ ("HubbleParameter")^3
+}];
+
+
+(* ::Text:: *)
+(*Using potential derivative*)
+
+
+$DerivedValues = $AddToSet[$DerivedValues, {
+	"SlowRollEpsilonFromPotential" ->
+			1/2 ("LagrangianFieldDerivative" / "Lagrangian")^2
+}];
+
+
+(* ::Subsubsection:: *)
+(*Slow-roll parameter \[Eta]*)
+
+
+InflationPropertyData[] = $AddToSet[InflationPropertyData[], {"SlowRollEta"}];
+
+
+$DerivedValues = $AddToSet[$DerivedValues, {
+	"SlowRollEta" ->
+			"SlowRollEpsilonTimeDerivative" /
+				("SlowRollEpsilonFromHubbleParameter" "HubbleParameter")
+}];
+
+
+(* ::Subsubsection:: *)
+(*Effective axion decay constant*)
+
+
+InflationPropertyData[] =
+		$AddToSet[InflationPropertyData[], {"EffectiveAxionDecayConstant"}];
+
+
+$DerivedValues = $AddToSet[$DerivedValues, {
+	"EffectiveAxionDecayConstant" ->
+			1 / Sqrt["SlowRollEta" - 2 "SlowRollEpsilonFromHubbleParameter"]
+}];
+
+
+(* ::Subsubsection::Closed:: *)
 (*Speed of sound and its derivative*)
 
 
@@ -1185,7 +1239,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Slow roll parameter s*)
 
 
@@ -1206,8 +1260,9 @@ InflationPropertyData[] = $AddToSet[
 
 
 $DerivedValues = $AddToSet[$DerivedValues, {
-	"ScalarSpectralIndex" -> 1 - 2 "SlowRollEpsilon" - "SlowRollEta" - "SlowRollS",
-	"TensorSpectralIndex" -> - 2 "SlowRollEpsilon"
+	"ScalarSpectralIndex" ->
+			1 - 2 "SlowRollEpsilonFromHubbleParameter" - "SlowRollEta" - "SlowRollS",
+	"TensorSpectralIndex" -> - 2 "SlowRollEpsilonFromHubbleParameter"
 }];
 
 
@@ -1222,13 +1277,14 @@ InflationPropertyData[] = $AddToSet[
 
 $DerivedValues = $AddToSet[$DerivedValues, {
 	"ScalarPowerSpectrum" ->
-			1/(8 \[Pi]^2) "HubbleParameter"^2 / ("SpeedOfSound" "SlowRollEpsilon"),
+			1/(8 \[Pi]^2) "HubbleParameter"^2 /
+					("SpeedOfSound" "SlowRollEpsilonFromHubbleParameter"),
 	"TensorPowerSpectrum" -> 2/(3 \[Pi]^2) "Density",
 	"TensorToScalarRatio" -> -8 "SpeedOfSound" "TensorSpectralIndex"
 }];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Non-Gaussianity amplitude*)
 
 

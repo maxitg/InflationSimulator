@@ -248,7 +248,7 @@ Cell[TextData[{
  Cell[BoxData[
  "\"\<SlowRollEpsilon\>\""], "InlineFormula",ExpressionUUID->
   "eede3406-2408-4064-9e43-ff3936e93e3c"],
- " and ",
+ " with Method -> \"FromHubbleParameter\" and ",
  Cell[BoxData[
  "\"\<SlowRollEpsilonTimeDerivative\>\""], "InlineFormula",ExpressionUUID->
   "1a193371-ab50-4202-bfda-9ab2a46c5907"],
@@ -295,6 +295,34 @@ Cell[TextData[Cell[BoxData[
 "ExampleText",
  TextAlignment->Center,
  CellID->1087195707,ExpressionUUID->"997b0573-ec35-4d4e-bb9f-147ef0a9c6d4"],
+
+Cell[TextData[{
+ Cell[BoxData[
+ "\"\<SlowRollEpsilon\>\""], "InlineFormula",ExpressionUUID->
+  "fdea75f3-b3e0-400a-8c30-522a45e7bd62"],
+ " with Method -> \"FromPotential\" is computed assuming field acceleration \
+is zero as:"
+}], "Notes",
+ CellID->1428889108,ExpressionUUID->"f6998f06-8dc2-4b37-8cda-ef8beedd785e"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"\[Epsilon]", "=", 
+   RowBox[{
+    FractionBox["1", "2"], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[ScriptCapitalL]", "\[Prime]"], "(", "\[CurlyPhi]", 
+        ")"}], 
+       RowBox[{"\[ScriptCapitalL]", "(", "\[CurlyPhi]", ")"}]], ")"}], 
+     "2"]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"7b2b62ff-2257-44a4-abf1-bfe7dafb1e5e"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->369088393,ExpressionUUID->"68752731-9a5d-42b1-a6bc-8caead2cdf8d"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -687,8 +715,7 @@ Cell[TextData[{
  ", we get the expression used if ",
  Cell[BoxData[
   RowBox[{"Method", " ", "->", " ", "\"\<Potential\>\""}]], "InlineFormula",
-  FormatType->"StandardForm",ExpressionUUID->
-  "5e04a0c0-4bbc-46d1-9a44-9d15b22bd600"],
+  ExpressionUUID->"5e04a0c0-4bbc-46d1-9a44-9d15b22bd600"],
  " is supplied to ",
  Cell[BoxData[
   ButtonBox["InflationProperty",
@@ -759,8 +786,7 @@ Cell[TextData[{
  "and obtain the expressions used for ",
  Cell[BoxData[
   RowBox[{"Method", " ", "->", " ", "\"\<Dynamic\>\""}]], "InlineFormula",
-  FormatType->"StandardForm",ExpressionUUID->
-  "1f80a142-8234-4652-a807-7c0de20659e8"],
+  ExpressionUUID->"1f80a142-8234-4652-a807-7c0de20659e8"],
  ":"
 }], "ExampleText",
  CellID->401733464,ExpressionUUID->"76ca5e1a-0b21-45ad-a1cc-1caa8ccec1e7"],
@@ -1909,6 +1935,8 @@ Cell[BoxData[
 }, Open  ]]
 }, Open  ]]
 },
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 1096}, {326, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
