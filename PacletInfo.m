@@ -4,7 +4,7 @@
 
 Paclet[
     Name -> "InflationSimulator",
-    Version -> "0.2",
+    Version -> "0.2.1",
     MathematicaVersion -> "11.3+",
     Description -> "Code for simulating inflation, including Lagrangians with non-canonical kinetic energy.",
     Creator -> "Maksim Piskunov",
