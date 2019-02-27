@@ -100,7 +100,7 @@ $FieldSecondTimeDerivative[lagrangian_, field_, fieldDot_] :=
 	(- Sqrt[3 (-lagrangian + D[lagrangian, fieldDot] fieldDot)]
 			* D[lagrangian, fieldDot]
 		+ D[lagrangian, field]
-		- D[lagrangian, fieldDot] D[lagrangian, field, fieldDot]) /
+		- fieldDot D[lagrangian, field, fieldDot]) /
 	D[lagrangian, {fieldDot, 2}]
 
 
