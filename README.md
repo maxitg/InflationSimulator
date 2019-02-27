@@ -9,7 +9,7 @@ Code for simulating inflation, including Lagrangians with non-canonical kinetic 
 4. Click Build to build documentation.
 5. Click Deploy Application, and select a directory to put a temporary deployed package.
 6. Make sure all files selected, click Next. Make sure documentation is selected, click Finish. A new directory `InflationSimulator` will be created in a directory specified.
-7. Open Mathematica, and evaluate ```PacletManager`PackPaclet["path_to_newly_created_UsageString_directory"]```. The output will be the path to the compiled paclet.
+7. Open Mathematica, and evaluate ```PacletManager`PackPaclet["path_to_newly_created_InflationSimulator_directory"]```. The output will be the path to the compiled paclet.
 
 ## Install
 
