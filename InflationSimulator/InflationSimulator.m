@@ -1479,7 +1479,7 @@ ExperimentallyConsistentInflationQ[
 			pivotEfoldings_ ? NumericQ,
 			o : OptionsPattern[]] := With[
 		{evolution = InflationEvolution[
-				lagrangian, {field, fieldInitial, fieldDerivativeInitial}, time]},
+				lagrangian, {field, fieldInitial, fieldDerivativeInitial}, time, o]},
 	InflationQ[evolution, pivotEfoldings] &&
 			ExperimentallyConsistentInflationQ @@ $InflationValue[
 					lagrangian,
