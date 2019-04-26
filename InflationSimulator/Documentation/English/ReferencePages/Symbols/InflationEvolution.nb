@@ -185,64 +185,71 @@ Cell["The following options can be given: ", "Notes",
 
 Cell[BoxData[GridBox[{
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "e8b0fcd4-c69d-40ba-9bc6-937a96525b46"], 
+     "e46a8421-f232-4183-85cd-a5d1e34f4e76"], 
     "\"\<EfoldingsDerivativeThreshold\>\"", "0.0625", Cell[TextData[Cell["\<\
 ratio of derivative to time-average of e-foldings at which integration should \
 stop\
-\>", "TableText",ExpressionUUID->"f9a14e7a-741a-49f4-8415-25564038d168"]], 
-     "TableText",ExpressionUUID->"5fa787ed-27d1-49cc-907d-5f2ec6a16186"]},
+\>", "TableText",ExpressionUUID->"fc3f4de0-36fa-4410-a8a5-6add9b5e90f6"]], 
+     "TableText",ExpressionUUID->"1b1482e3-fdef-4ba4-9d7e-62d7129472fb"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "39f0cc28-832a-4100-8be4-2879de644754"], "\"\<EfoldingsThreshold\>\"", 
+     "a30654d7-e8fc-4bbd-89ea-f48af6fa92fc"], "\"\<EfoldingsThreshold\>\"", 
     "4096", Cell[TextData[Cell["\<\
 maximum number of e-foldings at which integration should stop\
-\>", "TableText",ExpressionUUID->"50828760-3de0-4e8e-a70f-9812cc5a900f"]], 
-     "TableText",ExpressionUUID->"513b1dda-bd0f-43b9-b7a6-d1b16e3578ab"]},
+\>", "TableText",ExpressionUUID->"8e2b7886-3e81-407d-8a6b-45e48b636ac3"]], 
+     "TableText",ExpressionUUID->"4364d83f-f469-4cef-9433-e9b67f18b8dd"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "941ca098-9f83-4bca-a9a8-d46a9b3342ae"], 
+     "b75e7872-01cb-43f5-bf53-6761e1be070d"], 
     "\"\<FieldDerivativeThreshold\>\"", "0.00390625", Cell[TextData[Cell["\<\
 ratio of derivative to time-average of field deviation from initial value at \
 which integration should stop\
-\>", "TableText",ExpressionUUID->"97531d2c-72ef-4f79-b8e4-eadbafffd00f"]], 
-     "TableText",ExpressionUUID->"1d3fb409-0ef7-424c-ae00-eb5bb8b03e57"]},
+\>", "TableText",ExpressionUUID->"004d3aee-ccf2-4fc7-9c24-4f0ad7165e50"]], 
+     "TableText",ExpressionUUID->"4bf881ad-4406-417a-a1a2-e144b2dfc2bb"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "23185099-7dd0-4f13-b193-6853cfe99f59"], "\"\<FieldBounceThreshold\>\"", 
+     "39e83fe4-88c4-44c9-baf4-25a5e3373327"], "\"\<FieldBounceThreshold\>\"", 
     "32", Cell[TextData[Cell["\<\
 maximum number of times the field derivative can change sign before \
 integration is stopped\
-\>", "TableText",ExpressionUUID->"13e2ece0-1f73-4248-8560-363ca7890333"]], 
-     "TableText",ExpressionUUID->"62deeb82-03f3-4fd1-a9f4-6f787649a8cb"]},
+\>", "TableText",ExpressionUUID->"80d066b4-6120-43d8-8cdd-0a33a1a6fd4a"]], 
+     "TableText",ExpressionUUID->"a424b5e8-9485-4846-9c85-c2680f16cd95"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "f0ed4d02-81d2-4f2b-8c01-f1c7ae673556"], "\"\<MaxIntegrationTime\>\"", 
+     "f8185385-1681-4fef-bf43-24a3c0c294db"], "\"\<MaxIntegrationTime\>\"", 
     ButtonBox["Infinity",
      BaseStyle->"Link"], Cell[TextData[Cell[
-    "time at which integration should be stopped", "TableText",
-     ExpressionUUID->"1f0ad58c-1707-4df4-8640-9758ef8b91cd"]], "TableText",
-     ExpressionUUID->"51321c0b-a398-4eb5-a2d1-30972d271ecd"]},
+    "time at which integration should be stopped", "TableText",ExpressionUUID->
+     "c76797e7-fa72-40fe-b091-5119d0dca508"]], "TableText",ExpressionUUID->
+     "f951de36-7fa0-46f5-8947-8465f18e1783"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "61cebda6-3bae-4079-86dc-2945ef7a369c"], 
+     "d37119e6-26cb-4810-b1d4-c612381c021b"], "\"\<FieldFinal\>\"", 
+    ButtonBox["Automatic",
+     BaseStyle->"Link"], Cell[TextData[Cell[
+    "field value at which integration should be stopped", "TableText",
+     ExpressionUUID->"9b740b2f-62ce-4431-8094-40ba99f43d41"]], "TableText",
+     ExpressionUUID->"e484326f-258c-4fb4-a60c-b47bf1264249"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "8ea7c13d-20f2-43d7-89f3-612472f26b7b"], 
     ButtonBox["WorkingPrecision",
      BaseStyle->"Link"], 
     ButtonBox["Automatic",
      BaseStyle->"Link"], Cell[TextData[Cell[
-    "the precision used in internal computations", "TableText",
-     ExpressionUUID->"28993ad8-c436-4ee5-ae0b-6f1dc6eff9d7"]], "TableText",
-     ExpressionUUID->"e694863e-0931-4378-b2b7-1c515b2cb8c9"]},
+    "the precision used in internal computations", "TableText",ExpressionUUID->
+     "092ac1a9-e51a-438c-bef8-28f3d3a28174"]], "TableText",ExpressionUUID->
+     "0620be70-87d4-4a9d-bdf1-2f02dc825286"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "2b0d42d3-bf9e-4165-839f-9956a29da25c"], 
+     "52b21f15-806a-4b92-9903-008616cc4c16"], 
     ButtonBox["PrecisionGoal",
      BaseStyle->"Link"], 
     RowBox[{"MachinePrecision", "/", "2"}], Cell[TextData[Cell[
     "digits of precision sought", "TableText",ExpressionUUID->
-     "b6752fa6-c571-41f6-bc80-351bd44a41fc"]], "TableText",ExpressionUUID->
-     "3fd52bf9-55c6-4e0f-9de3-16dfa9af7e50"]},
+     "c4e25c38-a244-4922-bdd7-3e05823afebd"]], "TableText",ExpressionUUID->
+     "31beba1c-83f7-4a8d-be71-491fa662b1d2"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "3f61594e-cd10-4308-8144-8c8410fb7d51"], "\"\<Debug\>\"", 
+     "80f52419-0be3-4a9e-a3c2-9141ea82c805"], "\"\<Debug\>\"", 
     ButtonBox["False",
      BaseStyle->"Link"], Cell[TextData[Cell["\<\
 whether to show a plot of last 1000 field / e-foldings values during \
 evaluation, significantly slows down computation\
-\>", "TableText",ExpressionUUID->"4d8198fc-ddc3-492f-ae15-3e43edbd91b4"]], 
-     "TableText",ExpressionUUID->"d2360391-8037-4dcd-841a-6c7688fdbd7a"]}
+\>", "TableText",ExpressionUUID->"3389210b-ce61-4fe9-ac09-f02fc50381cc"]], 
+     "TableText",ExpressionUUID->"a4457f51-dbf7-4d47-adeb-bb5c89b43474"]}
   }]], "3ColumnTableMod",
  CellID->1373626260,ExpressionUUID->"7587a645-0b79-48d7-b6eb-81eba9124017"],
 
@@ -664,8 +671,9 @@ Cell[BoxData[
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -719,8 +727,9 @@ JZybUkN46m9o0ivG6fJRLbvQN25XX9XSzkUV4xtPpSg04rnbf1GytAo=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -775,8 +784,9 @@ JZybUkN46m9o0ivG6fJRLbvQN25XX9XSzkUV4xtPpSg04rnbf1GytAo=
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -830,8 +840,9 @@ JZybUkN46m9o0ivG6fJRLbvQN25XX9XSzkUV4xtPpSg04rnbf1GytAo=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -1066,8 +1077,9 @@ nhYa6AnsZ4eWt1q/tChHWL9s9R7XPnZH7HlG+fsy/F9IxP78
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -1122,8 +1134,9 @@ OER2ybKzv190zUCuD4NA355fKA7ksr+S7aQ6hWKDQLs4lgWx3LC/fOjbZA==
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -1177,8 +1190,9 @@ OER2ybKzv190zUCuD4NA355fKA7ksr+S7aQ6hWKDQLs4lgWx3LC/fOjbZA==
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -1233,8 +1247,9 @@ OER2ybKzv190zUCuD4NA355fKA7ksr+S7aQ6hWKDQLs4lgWx3LC/fOjbZA==
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -1466,8 +1481,9 @@ b6w53IHRV0UdRZjy2ToZJ7uV83+98mfk
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -1521,8 +1537,9 @@ XPF19BBK8fn83TunDslQ96D1vbKEUthUGlkPMGT4D/6lrI0=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -1577,8 +1594,9 @@ XPF19BBK8fn83TunDslQ96D1vbKEUthUGlkPMGT4D/6lrI0=
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -1632,8 +1650,9 @@ XPF19BBK8fn83TunDslQ96D1vbKEUthUGlkPMGT4D/6lrI0=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -1868,8 +1887,9 @@ i2aC99te/2ZDJmaYUe9TLNLharKzQPFRJspRJSp2P02F/wP5ly0Z
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -1914,8 +1934,9 @@ t0usWpMQfABsH9wG
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -1969,8 +1990,9 @@ t0usWpMQfABsH9wG
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -2015,8 +2037,9 @@ t0usWpMQfABsH9wG
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -2570,8 +2593,9 @@ Cell[BoxData[
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -2625,8 +2649,9 @@ s5pAozZX2I+EgjfTKdTW6vqYxyt+2hmGN5Lwvcm6v/4Du2ObLg==
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -2681,8 +2706,9 @@ s5pAozZX2I+EgjfTKdTW6vqYxyt+2hmGN5Lwvcm6v/4Du2ObLg==
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -2736,8 +2762,9 @@ s5pAozZX2I+EgjfTKdTW6vqYxyt+2hmGN5Lwvcm6v/4Du2ObLg==
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -3459,8 +3486,9 @@ XGiGdW02LCOB5x6kTXyQjkD/AyKULtg=
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -3530,8 +3558,9 @@ rxNoc8Zklr90G22WsTBVQLuCTt3VCmo/j4xXKg==
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -3586,8 +3615,9 @@ rxNoc8Zklr90G22WsTBVQLuCTt3VCmo/j4xXKg==
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -3604,6 +3634,7 @@ rxNoc8Zklr90G22WsTBVQLuCTt3VCmo/j4xXKg==
                     0.058294550052673345`}, {8.525427625691304, 
                     0.10094622625145298`}, {9.634617918799739, 
                     0.1607623420946575}}], 
+                    
                     LineBox[{{15.280174339269134`, 0.1607623420946575}, {
                     15.7733198753438, -0.07837513337967263}, {
                     16.294795987297494`, -0.1410582810084855}}], 
@@ -3656,8 +3687,9 @@ rxNoc8Zklr90G22WsTBVQLuCTt3VCmo/j4xXKg==
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -4389,8 +4421,9 @@ ZA==
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -4444,8 +4477,9 @@ DVPS1s62vDi8692dN/gmjb7OrRWckTgMJd/qKw3e8LYpajp2x+MDv5u2vhE0
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -4500,8 +4534,9 @@ DVPS1s62vDi8692dN/gmjb7OrRWckTgMJd/qKw3e8LYpajp2x+MDv5u2vhE0
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -4555,8 +4590,9 @@ DVPS1s62vDi8692dN/gmjb7OrRWckTgMJd/qKw3e8LYpajp2x+MDv5u2vhE0
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -5258,8 +5294,9 @@ wXoXkP/0sBm3roe6w/1qA4XFQD4AvjKBKg==
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -5305,8 +5342,9 @@ hgwhe1wsC9+LrQB9zJme+6IK4r9Og+sf
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -5360,8 +5398,9 @@ hgwhe1wsC9+LrQB9zJme+6IK4r9Og+sf
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -5407,8 +5446,9 @@ hgwhe1wsC9+LrQB9zJme+6IK4r9Og+sf
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -6357,8 +6397,9 @@ Cell[BoxData[
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -6411,8 +6452,9 @@ duA4Nwed0caADvdf/gPWGGmR
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -6467,8 +6509,9 @@ duA4Nwed0caADvdf/gPWGGmR
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -6521,8 +6564,9 @@ duA4Nwed0caADvdf/gPWGGmR
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -7458,8 +7502,9 @@ IlXf0L93oL5ot470HjbPQXss+YSboP5+3J3r1eMgoP8BHCsSww==
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -7501,7 +7546,6 @@ b7A=
                     
                     LineBox[{{17.678859978101038`, -0.11893375210669202`}, {
                     18.756399214050607`, 0.12814030590182032`}}], 
-                    
                     LineBox[{{19.57004791796103, 0.12814030590182032`}, {
                     20.780684012179567`, -0.11893375210669202`}}]}, 
                     Annotation[#, 
@@ -7527,8 +7571,9 @@ b7A=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -7564,8 +7609,7 @@ b7A=
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-                False, 
-                GridBoxItemSize -> {
+                False, GridBoxItemSize -> {
                  "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
                 GridBoxSpacings -> {
                  "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
@@ -7585,15 +7629,15 @@ b7A=
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
                     Opacity[1.], 
                     RGBColor[0.368417, 0.506779, 0.709798], 
                     AbsoluteThickness[1]], 
-                    
                     LineBox[{{1.912309193297968*^-6, 
                     1.9122618760478087`*^-8}, {1.8392673941230684`, 
                     0.007086322670647988}, {3.8332419395246937`, 
@@ -7654,8 +7698,9 @@ b7A=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -8606,8 +8651,9 @@ Zo/BlD0L+2tfAqwGl7LcBUf8MVIsfu1rBqwxCE45Ph+I54pKPyqYpINzFLvW
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -8661,8 +8707,9 @@ AcbXiIY=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -8717,8 +8764,9 @@ AcbXiIY=
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -8772,8 +8820,9 @@ AcbXiIY=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -9678,8 +9727,9 @@ x6Rbj/6GQf3W+zG56CvUw7flvoZB2Wn33kV0ush7Z+73YfA/500FSw==
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -9726,8 +9776,9 @@ Fxk88f0=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -9781,8 +9832,9 @@ Fxk88f0=
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                GraphicsBox[{{{{}, {}, 
                    TagBox[{
                     Directive[
@@ -9829,8 +9881,9 @@ Fxk88f0=
                  GridLines -> {None, None}, GridLinesStyle -> Directive[
                    GrayLevel[0.5, 0.4]], ImageSize -> 
                  Dynamic[{
-                   Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                   Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                  Method -> {
                   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
                    AbsolutePointSize[6], "ScalingFunctions" -> None, 
@@ -9940,11 +9993,12 @@ Cell[BoxData[
  CellID->589267740,ExpressionUUID->"0e45f665-12b6-40e3-83e2-30ff399fff00"]
 }, Open  ]]
 },
+WindowSize->{808, 911},
+WindowMargins->{{1196, Automatic}, {Automatic, 382}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
