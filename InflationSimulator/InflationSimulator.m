@@ -177,6 +177,7 @@ Options[InflationEvolution] = {
 	"EfoldingsThreshold" -> 16^^1000,
 	"FieldDerivativeThreshold" -> 16^^0.01,
 	"FieldBounceThreshold" -> 16^^20,
+	"FieldFinal" -> Automatic,
 	"MaxIntegrationTime" -> \[Infinity],
 	WorkingPrecision -> Automatic,
 	PrecisionGoal -> MachinePrecision / 2,
@@ -304,6 +305,15 @@ InflationEvolution[
 							fieldBounceCount[t] -> fieldBounceCount[t] + 1
 						],
 						"LocationMethod" -> "StepEnd"
+					],
+					
+					(* final field *)
+					If[NumericQ[OptionValue["FieldFinal"]],
+						WhenEvent[f[t] == OptionValue["FieldFinal"],
+							inflationStoppedQ = True;
+							"StopIntegration",
+							"LocationMethod" -> "StepEnd"],
+						Nothing
 					]
 				},
 				{f, ft, n, fieldBounceCount},
