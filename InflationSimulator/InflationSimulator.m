@@ -4,7 +4,7 @@
 (*Inflation Simulator*)
 
 
-(* ::Chapter::Closed:: *)
+(* ::Chapter:: *)
 (*Begin*)
 
 
@@ -17,7 +17,7 @@ BeginPackage["InflationSimulator`"];
 
 InflationSimulator`Private`$PublicSymbols = Hold[{
 	InflatonDensity, InflatonPressure, InflationEquationsOfMotion,
-	InflationEvolution, InflationStopsQ, InflationEfoldingsCount,
+	InflationEvolution, InflationDuration, InflationStopsQ, InflationEfoldingsCount,
 		CosmologicalHorizonExitTime, InflationQ,
 	InflationProperty, InflationPropertyData, InflationValue,
 	ExperimentallyConsistentInflationQ}];
@@ -165,24 +165,8 @@ StyleBox[\"\[CurlyPhi]\", \"TI\"]\).";
 (*Messages*)
 
 
-InflationEvolution::nnuml = "Lagrangian did not evaluate to a numerical value.";
-
-
-InflationEvolution::inwp =
-	"Insufficient working precision. Doubling working precision to `1`.";
-
-
-InflationEvolution::wpe =
-	"Working precision `1` is too large. Increase MaxWorkingPrecision.";
-
-
-InflationEvolution::comp =
-	"Right-hand side of either Euler-Lagrange or Friedmann equation evaluated " <>
-	"to a complex number.";
-
-
-InflationEvolution::mff =
-	"FieldFinal is implemented only for a single-field inflation.";
+InflationEvolution::nnuml =
+	"Lagrangian did not evaluate to a numerical value for initial condition.";
 
 
 (* ::Subsubsection:: *)
@@ -194,12 +178,7 @@ Options[InflationEvolution] = {
 	"EfoldingsThreshold" -> 16^^1000,
 	"FieldDerivativeThreshold" -> 16^^0.01,
 	"FieldBounceThreshold" -> 16^^20,
-	"FieldFinal" -> Automatic,
-	"MaxIntegrationTime" -> \[Infinity],
-	WorkingPrecision -> Automatic,
-	"MaxWorkingPrecision" -> ,
-	PrecisionGoal -> MachinePrecision / 2,
-	"Debug" -> False
+	"MaxIntegrationTime" -> \[Infinity]
 };
 
 
@@ -207,215 +186,110 @@ Options[InflationEvolution] = {
 (*Implementation*)
 
 
-ClearAll[$IntegrationTime];
-$IntegrationTime[solution_] := solution["Efoldings"][[1, 1, 2]];
+InflationDuration[solution_] := solution["Efoldings"][[1, 1, 2]];
 
 
-ClearAll[$SetPrecision];
-$SetDoublePrecision[expr_, precision_ ? NumericQ] := SetPrecision[expr, 2 precision]
-$SetDoublePrecision[expr_, Automatic] := expr
+(* ::Text:: *)
+(*THERE IS A PROBLEM WITH FIELD BOUNCING, by which if one field bounces much faster than the other, inflation will stop early. Instead, there must be a way to determine when the fields stabilize.*)
 
 
 InflationEvolution[
-		inputLagrangian_,
-		inputFieldSpecs_,
-		(*{field_, inputFieldInitial_ ? NumericQ,
-				inputFieldDerivativeInitial_ ? NumericQ},*)
+		lagrangian_,
+		fieldSpecs_, (* spec is {fieldLabel, initialValue, initialDerivativeValue} *)
 		time_,
 		o : OptionsPattern[]] := Module[{
-			workingPrecision, lagrangian, fieldSpecs, lagrangianNumericQ,
-			fieldsValues, fieldsDerivativesValues, efoldingsValues, bounceValue,
-				debugPrint,
-			evolution, t, f, ft, n, fieldBounceCount, inflationStoppedQ,
-				fieldVariables, fieldDerivativeVariables},
-	workingPrecision = If[OptionValue[WorkingPrecision] === Automatic,
-		MachinePrecision,
-		OptionValue[WorkingPrecision]];
-	If[workingPrecision >= 16 MachinePrecision,
-		];
-	{lagrangian, fieldSpecs} = $SetDoublePrecision[
-			{inputLagrangian, inputFieldSpecs},
-			OptionValue[WorkingPrecision]] /. Flatten @ Table[{
-				D[field[time], time] -> ft[field][t],
-				field[time] -> f[field][t]}, {field, inputFieldSpecs[[All, 1]]}];
-	(* spec is {fieldLabel, initialValue, initialDerivativeValue} *)
-	lagrangianNumericQ = Quiet[NumericQ[lagrangian /. Flatten @ Table[
+			lagrangianNumericQ, lagrangianReduced, solution,
+			f, ft, n, fieldBounceCount, t, inflationStoppedQ},
+	lagrangianReduced = lagrangian /. Flatten @ Table[{
+		D[field[time], time] -> ft[field][t],
+		field[time] -> f[field][t]}, {field, fieldSpecs[[All, 1]]}];
+	lagrangianNumericQ = Quiet[NumericQ[lagrangianReduced /. Flatten @ Table[
 		{ft[spec[[1]]][t] -> spec[[3]], f[spec[[1]]][t] -> spec[[2]]},
-		{spec, inputFieldSpecs}]]];
+		{spec, fieldSpecs}]]];
 	If[!lagrangianNumericQ, Message[InflationEvolution::nnuml]];
-	If[OptionValue["Debug"],
-		fieldsValues = Table[{}, fieldSpecs];
-		fieldsDerivativesValues = Table[{}, fieldSpecs];
-		efoldingsValues = {};
-		bounceValue = 0;
-		debugPrint = PrintTemporary[Dynamic[Refresh[Column[{
-			StringTemplate[
-				"Bounced `1` times. WorkingPrecision = `2` MachinePrecision."][
-					Round @ bounceValue, workingPrecision/MachinePrecision],
-			Quiet @ GraphicsRow[(
-				ListPlot[
-					#[[1]],
-					PlotLabel -> #[[2]],
-					Frame -> True,
-					FrameLabel -> {"Time", #[[2]]}] & /@ Append[
-						Flatten @ Table[
-							{{fieldsValues[[k]], fieldSpecs[[k, 1]]},
-							 {fieldsDerivativesValues[[k]],
-								 "\[PartialD]" <> fieldSpecs[[k, 1]]}},
-							{k, Length @ fieldSpecs}],
-						{efoldingsValues, "Efoldings"}]),
-				ImageSize -> Scaled[1]]
-		}], UpdateInterval -> 1]]];
-	];
-	fieldVariables = Table[f[field][t], {field, fieldSpecs[[All, 1]]}];
-	fieldDerivativeVariables = Table[ft[field][t], {field, fieldSpecs[[All, 1]]}];
 	
-	With[{messagesToCatch = {
-			Power::infy, Infinity::indet, Divide::indet, NDSolve::nlnum,
-			NDSolve::nrnum1, NDSolve::ndcf, NDSolve::evcvmit, NDSolve::ndnum,
-			Greater::nord, General::munfl, NDSolve::ndsz, NDSolve::nderr,
-			InflationEvolution::comp}},
-		Quieeet[Check[
-			evolution = Join[Association[(With[{
-					fieldStoppedCondition =
-						t Sqrt[Total[fieldDerivativeVariables^2]] <
-							Sqrt[Total[(fieldVariables - fieldSpecs[[All, 2]])^2]]
-								OptionValue["FieldDerivativeThreshold"]},
-				NDSolve[Join[
-					Table[f[spec[[1]]][0] == spec[[2]], {spec, fieldSpecs}],
-					Table[ft[spec[[1]]][0] == spec[[3]], {spec, fieldSpecs}],
-					Table[f[field]'[t] == ft[field][t], {field, fieldSpecs[[All, 1]]}],
-					Thread[Table[ft[field]'[t], {field, fieldSpecs[[All, 1]]}] ==
-						$FieldsSecondTimeDerivatives[
-							lagrangian, fieldVariables, fieldDerivativeVariables]],
-					{n'[t] == $EfoldingsTimeDerivative[
-						lagrangian, fieldVariables, fieldDerivativeVariables],
-					 n[0] == 0,
-					 fieldBounceCount[0] == 0},
+	solution = With[{
+			fieldVariables = Table[f[field][t], {field, fieldSpecs[[All, 1]]}],
+			fieldDerivativeVariables =
+				Table[ft[field][t], {field, fieldSpecs[[All, 1]]}]},
+		NDSolve[
+			Join[
+				Table[f[spec[[1]]][0] == spec[[2]], {spec, fieldSpecs}],
+				Table[ft[spec[[1]]][0] == spec[[3]], {spec, fieldSpecs}],
+				Table[f[field]'[t] == ft[field][t], {field, fieldSpecs[[All, 1]]}],
+				Thread[Table[ft[field]'[t], {field, fieldSpecs[[All, 1]]}] ==
+					$FieldsSecondTimeDerivatives[
+						lagrangianReduced, fieldVariables, fieldDerivativeVariables]],
+				{n'[t] == $EfoldingsTimeDerivative[
+					lagrangianReduced, fieldVariables, fieldDerivativeVariables],
+				 n[0] == 0,
+				 fieldBounceCount[0] == 0},
+				
+				(* encountered complex field *)
+				Table[With[{field = field}, WhenEvent[Im[f[field][t]] != 0,
+					Message[InflationEvolution::comp];
+					"StopIntegration",
+					"LocationMethod" -> "StepEnd"
+				]], {field, fieldSpecs[[All, 1]]}],
+				
+				(* efoldings stopped increasing *)
+				{WhenEvent[t n'[t] <
+							n[t] OptionValue["EfoldingsDerivativeThreshold"],
+					inflationStoppedQ = True;
+					"StopIntegration",
+					"LocationMethod" -> "StepEnd"]},
 					
-					(* encountered complex field *)
-					Table[With[{field = field}, WhenEvent[Im[f[field][t]] != 0,
-						Message[InflationEvolution::comp];
-						"StopIntegration",
+				(* field stopped after max e-foldings reached *)
+				{WhenEvent[t Sqrt[Total[fieldDerivativeVariables^2]] <
+						Sqrt[Total[(fieldVariables - fieldSpecs[[All, 2]])^2]]
+							OptionValue["FieldDerivativeThreshold"],
+					If[n[t] > OptionValue["EfoldingsThreshold"], 
+						inflationStoppedQ = False;
+						"StopIntegration"],
+					"LocationMethod" -> "StepEnd"]},
+				
+				(* max e-foldings reached after field stopped *)
+				{WhenEvent[n[t] > OptionValue["EfoldingsThreshold"],
+					If[t Sqrt[Total[fieldDerivativeVariables^2]] <
+						Sqrt[Total[(fieldVariables - fieldSpecs[[All, 2]])^2]]
+							OptionValue["FieldDerivativeThreshold"], 
+						inflationStoppedQ = False;
+						"StopIntegration"
+					],
+					"LocationMethod" -> "StepEnd"]},
+					
+				(* field bounced *)
+				Table[With[{fieldDerivative = fieldDerivative},
+					WhenEvent[fieldDerivative == 0,
+						If[fieldBounceCount[t] >=
+								OptionValue["FieldBounceThreshold"] - 1,
+							inflationStoppedQ = False; "StopIntegration",
+							fieldBounceCount[t] ->
+								fieldBounceCount[t] + 1 / Length[fieldVariables]
+						],
 						"LocationMethod" -> "StepEnd"
-					]], {field, fieldSpecs[[All, 1]]}],
-					
-					(* efoldings stopped increasing *)
-					{WhenEvent[t n'[t] <
-								n[t] OptionValue["EfoldingsDerivativeThreshold"],
-						inflationStoppedQ = True;
-						"StopIntegration",
-						"LocationMethod" -> "StepEnd"]},
-						
-					(* field stopped after max e-foldings reached *)
-					{WhenEvent[fieldStoppedCondition,
-						If[n[t] > OptionValue["EfoldingsThreshold"], 
-							inflationStoppedQ = False;
-							"StopIntegration"],
-						"LocationMethod" -> "StepEnd"]},
-					
-					(* max e-foldings reached after field stopped *)
-					{WhenEvent[n[t] > OptionValue["EfoldingsThreshold"],
-						If[fieldStoppedCondition, 
-							inflationStoppedQ = False;
-							"StopIntegration"
-						],
-						"LocationMethod" -> "StepEnd"]},
-						
-					(* field bounced *)
-					Table[With[{fieldDerivative = fieldDerivative},
-						WhenEvent[fieldDerivative == 0,
-							If[fieldBounceCount[t] >=
-									OptionValue["FieldBounceThreshold"] - 1,
-								inflationStoppedQ = False; "StopIntegration",
-								fieldBounceCount[t] ->
-									fieldBounceCount[t] + 1 / Length[fieldVariables]
-							],
-							"LocationMethod" -> "StepEnd"
-					]], {fieldDerivative, fieldDerivativeVariables}],
-					
-					(* final field *)
-					If[NumericQ[OptionValue["FieldFinal"]],
-						If[Length[fieldVariables] == 1,
-							{WhenEvent[fieldVariables[[1]] ==
-									OptionValue["FieldFinal"],
-								inflationStoppedQ = True;
-								"StopIntegration",
-								"LocationMethod" -> "StepEnd"]},
-							Message[InflationEvolution::mff];
-							{}
-						],
-						{}
-					]],
-				Join[
-					Table[f[field], {field, fieldSpecs[[All, 1]]}],
-					Table[ft[field], {field, fieldSpecs[[All, 1]]}],
-					{n, fieldBounceCount}
-				],
-				{t, 0, OptionValue["MaxIntegrationTime"]},
-				MaxSteps -> Infinity,
-				DiscreteVariables -> fieldBounceCount,
-				WorkingPrecision -> workingPrecision,
-				PrecisionGoal -> OptionValue[PrecisionGoal],
-				If[OptionValue["Debug"],
-					EvaluationMonitor :> (
-						Do[
-							AppendTo[fieldsValues[[k]], {t, fieldVariables[[k]]}],
-							{k, Length[fieldVariables]}];
-						Do[
-							AppendTo[
-								fieldsDerivativesValues[[k]],
-								{t, fieldDerivativeVariables[[k]]}],
-							{k, Length[fieldDerivativeVariables]}];
-						AppendTo[efoldingsValues, {t, n[t]}];
-						If[Length[efoldingsValues] > 1000,
-							Do[
-								fieldsValues[[k]] = Rest[fieldsValues[[k]]];
-								fieldsDerivativesValues[[k]] =
-									Rest[fieldsDerivativesValues[[k]]],
-								{k, Length[fieldsValues]}];
-							efoldingsValues = Rest[efoldingsValues]];
-						bounceValue = fieldBounceCount[t];
-					),
-					{}
-				]
-			]] /. {
-				HoldPattern[NDSolve[_, _, ___]] :> {
-					f[_] :> $Failed,
-					ft[_] :> $Failed,
-					n -> $Failed,
-					fieldBounceCount -> $Failed
-				}
-			})[[1]] /. {
+				]], {fieldDerivative, fieldDerivativeVariables}]],
+			Join[
+				Table[f[field], {field, fieldSpecs[[All, 1]]}],
+				Table[ft[field], {field, fieldSpecs[[All, 1]]}],
+				{n, fieldBounceCount}
+			],
+			{t, 0, OptionValue["MaxIntegrationTime"]},
+			MaxSteps -> Infinity,
+			DiscreteVariables -> fieldBounceCount]];
+	If[Head[solution] === NDSolve,
+		$Failed,
+		Join[
+			Association[solution[[1]] /. {
 				f[label_] :> label,
-				ft[label_] :> D[label, time],
+				ft[label_] :> Derivative[1][label],
 				n -> "Efoldings",
-				fieldBounceCount -> "FieldBounceCount"
-			}], <|"InflationStoppedQ" -> inflationStoppedQ|>];
-			NotebookDelete[debugPrint];
-			Message[InflationEvolution::inwp, 2 workingPrecision];
-			inflationStoppedQ = False;	
-			InflationEvolution[
-					inputLagrangian,
-					inputFieldSpecs,
-					time,
-					WorkingPrecision -> 2 workingPrecision, o],
-			{
-			Power::infy, Infinity::indet, Divide::indet, NDSolve::nlnum,
-			NDSolve::nrnum1, NDSolve::ndcf, NDSolve::evcvmit, NDSolve::ndnum,
-			Greater::nord, General::munfl, NDSolve::ndsz, NDSolve::nderr,
-			InflationEvolution::comp}
-		],
-		{
-			Power::infy, Infinity::indet, Divide::indet, NDSolve::nlnum,
-			NDSolve::nrnum1, NDSolve::ndcf, NDSolve::evcvmit, NDSolve::ndnum,
-			Greater::nord, General::munfl, NDSolve::ndsz, NDSolve::nderr,
-			InflationEvolution::comp}] /; lagrangianNumericQ
-	]
+				fieldBounceCount -> "FieldBounceCount"}],
+			<|"InflationStoppedQ" -> inflationStoppedQ|>]]
 ]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InflationStopsQ*)
 
 
