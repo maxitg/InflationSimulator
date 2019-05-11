@@ -17,8 +17,7 @@ BeginPackage["InflationSimulator`"];
 
 InflationSimulator`Private`$PublicSymbols = Hold[{
 	InflatonDensity, InflatonPressure, InflationEquationsOfMotion,
-	InflationEvolution, InflationDuration, InflationStopsQ, InflationEfoldingsCount,
-		CosmologicalHorizonExitTime, InflationQ,
+	InflationEvolution, CosmologicalHorizonExitTime, InflationQ,
 	InflationProperty, InflationPropertyData, InflationValue,
 	ExperimentallyConsistentInflationQ}];
 
@@ -174,229 +173,143 @@ InflationEvolution::nnuml =
 
 
 Options[InflationEvolution] = {
-	"EfoldingsDerivativeThreshold" -> 16^^0.1,
-	"EfoldingsThreshold" -> 16^^1000,
-	"FieldDerivativeThreshold" -> 16^^0.01,
-	"FieldBounceThreshold" -> 16^^20,
+	"FinalDensityPrecisionGoal" -> 1.*^-8,
+	"FinalDensityRelativeDuration" -> 0.5,
+	"ZeroDensityTolerance" -> 10,
 	"MaxIntegrationTime" -> \[Infinity]
 };
+
+
+ClearAll[$InitialEfoldings, $InitialDensityFraction, $StoppedEarlyString];
+$InitialEfoldings = 0.1;
+$InitialDensityFraction = 0.99;
+$StoppedEarlyMissing = Missing["Unknown", "Stopped before reaching final density."];
 
 
 (* ::Subsubsection:: *)
 (*Implementation*)
 
 
-InflationDuration[solution_] := solution["Efoldings"][[1, 1, 2]];
-
-
-(* ::Text:: *)
-(*THERE IS A PROBLEM WITH FIELD BOUNCING, by which if one field bounces much faster than the other, inflation will stop early. Instead, there must be a way to determine when the fields stabilize.*)
-
-
 InflationEvolution[
 		lagrangian_,
-		fieldSpecs_, (* spec is {fieldLabel, initialValue, initialDerivativeValue} *)
+		initialConditions_,
 		time_,
 		o : OptionsPattern[]] := Module[{
-			lagrangianNumericQ, lagrangianReduced, solution,
-			f, ft, n, fieldBounceCount, t, inflationStoppedQ},
-	lagrangianReduced = lagrangian /. Flatten @ Table[{
-		D[field[time], time] -> ft[field][t],
-		field[time] -> f[field][t]}, {field, fieldSpecs[[All, 1]]}];
-	lagrangianNumericQ = Quiet[NumericQ[lagrangianReduced /. Flatten @ Table[
-		{ft[spec[[1]]][t] -> spec[[3]], f[spec[[1]]][t] -> spec[[2]]},
-		{spec, fieldSpecs}]]];
-	If[!lagrangianNumericQ, Message[InflationEvolution::nnuml]];
+			fields, momenta, lagrangianMomentumSpace, density,
+			initialLagrangian, initialDensity, tEnd,
+			finalDensitySign, solution, integrationTime,
+			field, momentum, efoldings, finalDensity, finalDensityStartTime,
+			i},
+	{fields, momenta} = Transpose @ Table[
+		#[i][time] & /@ {field, momentum}, {i, initialConditions[[All, 1]]}];
+	
+	lagrangianMomentumSpace = lagrangian /. Flatten @ Table[
+		{i'[time] -> momentum[i][time], i[time] -> field[i][time]},
+		{i, initialConditions[[All, 1]]}];
+	density = $InflatonDensity[lagrangianMomentumSpace, momenta];
+	
+	{initialLagrangian, initialDensity} =
+		{lagrangianMomentumSpace,
+		 $InflatonDensity[lagrangianMomentumSpace, momenta]} /. Join[
+			Thread[fields -> initialConditions[[All, 2]]],
+			Thread[momenta -> initialConditions[[All, 3]]]];
+	If[!NumericQ[initialLagrangian],
+		Message[InflationEvolution::nnuml]; Return[$Failed]];
+	
+	tEnd = If[initialDensity <= 0.,
+		finalDensitySign = Sign[initialDensity];
+		0,
+		finalDensitySign = $StoppedEarlyMissing;
+		OptionValue["MaxIntegrationTime"]];
 	
 	solution = With[{
-			fieldVariables = Table[f[field][t], {field, fieldSpecs[[All, 1]]}],
-			fieldDerivativeVariables =
-				Table[ft[field][t], {field, fieldSpecs[[All, 1]]}]},
+			finalDensityPrecisionGoal = OptionValue["FinalDensityPrecisionGoal"],
+			finalDensityRelativeDuration = OptionValue["FinalDensityRelativeDuration"],
+			zeroDensityPrecision =
+				OptionValue["ZeroDensityTolerance"]
+					OptionValue["FinalDensityPrecisionGoal"],
+			initialEfoldings = $InitialEfoldings,
+			initialDensityFraction = $InitialDensityFraction,
+			density = density},
 		NDSolve[
 			Join[
-				Table[f[spec[[1]]][0] == spec[[2]], {spec, fieldSpecs}],
-				Table[ft[spec[[1]]][0] == spec[[3]], {spec, fieldSpecs}],
-				Table[f[field]'[t] == ft[field][t], {field, fieldSpecs[[All, 1]]}],
-				Thread[Table[ft[field]'[t], {field, fieldSpecs[[All, 1]]}] ==
-					$FieldsSecondTimeDerivatives[
-						lagrangianReduced, fieldVariables, fieldDerivativeVariables]],
-				{n'[t] == $EfoldingsTimeDerivative[
-					lagrangianReduced, fieldVariables, fieldDerivativeVariables],
-				 n[0] == 0,
-				 fieldBounceCount[0] == 0},
+				(* Initial conditions *)
+				Table[field[i[[1]]][0] == i[[2]], {i, initialConditions}],
+				Table[momentum[i[[1]]][0] == i[[3]], {i, initialConditions}],
+				{efoldings[0] == 0},
+				{finalDensity[0] == initialDensity},
+				{finalDensityStartTime[0] == 0},
 				
-				(* encountered complex field *)
-				Table[With[{field = field}, WhenEvent[Im[f[field][t]] != 0,
-					Message[InflationEvolution::comp];
+				(* Evolution equations *)
+				Table[
+					field[i]'[time] == momentum[i][time],
+					{i, initialConditions[[All, 1]]}],
+				Thread[Table[momentum[i]'[time], {i, initialConditions[[All, 1]]}] ==
+					(* Re is needed to avoid warnings if negative density is reached,
+					   integration is aborted in that case, so no incorrect results
+					   are returned. *)
+					Re @ $FieldsSecondTimeDerivatives[
+						lagrangianMomentumSpace, fields, momenta]],
+				{efoldings'[time] == Re @ $EfoldingsTimeDerivative[
+					lagrangianMomentumSpace, fields, momenta]},
+				
+				(* Initialize final density thresholds *)
+				{WhenEvent[efoldings[time] >= initialEfoldings ||
+						density <= initialDensityFraction initialDensity,
+					{finalDensity[time], finalDensityStartTime[time]} ->
+						{density, time},
+					"LocationMethod" -> "StepEnd"]},
+				
+				(* Reached time threshold, potential end-of-inflation *)
+				{WhenEvent[time > finalDensityStartTime[time] /
+						(1 - finalDensityRelativeDuration),
+					If[finalDensity[time] - density <=
+							finalDensityPrecisionGoal
+								(initialDensity - finalDensity[time]),
+						(* density is stable, check sign and stop *)
+						finalDensitySign = If[
+							density <= zeroDensityPrecision initialDensity,
+							0,
+							+1];
+						"StopIntegration",
+						(* density is still changing, set new threshold *)
+						{finalDensity[time], finalDensityStartTime[time]} ->
+							{density, time}],
+					"LocationMethod" -> "StepEnd"]},
+				 
+				(* Reached negative density, abort *)
+				{WhenEvent[density < 0,
+					finalDensitySign = -1;
 					"StopIntegration",
-					"LocationMethod" -> "StepEnd"
-				]], {field, fieldSpecs[[All, 1]]}],
-				
-				(* efoldings stopped increasing *)
-				{WhenEvent[t n'[t] <
-							n[t] OptionValue["EfoldingsDerivativeThreshold"],
-					inflationStoppedQ = True;
-					"StopIntegration",
-					"LocationMethod" -> "StepEnd"]},
-					
-				(* field stopped after max e-foldings reached *)
-				{WhenEvent[t Sqrt[Total[fieldDerivativeVariables^2]] <
-						Sqrt[Total[(fieldVariables - fieldSpecs[[All, 2]])^2]]
-							OptionValue["FieldDerivativeThreshold"],
-					If[n[t] > OptionValue["EfoldingsThreshold"], 
-						inflationStoppedQ = False;
-						"StopIntegration"],
-					"LocationMethod" -> "StepEnd"]},
-				
-				(* max e-foldings reached after field stopped *)
-				{WhenEvent[n[t] > OptionValue["EfoldingsThreshold"],
-					If[t Sqrt[Total[fieldDerivativeVariables^2]] <
-						Sqrt[Total[(fieldVariables - fieldSpecs[[All, 2]])^2]]
-							OptionValue["FieldDerivativeThreshold"], 
-						inflationStoppedQ = False;
-						"StopIntegration"
-					],
-					"LocationMethod" -> "StepEnd"]},
-					
-				(* field bounced *)
-				Table[With[{fieldDerivative = fieldDerivative},
-					WhenEvent[fieldDerivative == 0,
-						If[fieldBounceCount[t] >=
-								OptionValue["FieldBounceThreshold"] - 1,
-							inflationStoppedQ = False; "StopIntegration",
-							fieldBounceCount[t] ->
-								fieldBounceCount[t] + 1 / Length[fieldVariables]
-						],
-						"LocationMethod" -> "StepEnd"
-				]], {fieldDerivative, fieldDerivativeVariables}]],
+					"LocationMethod" -> "StepEnd"]}],
 			Join[
-				Table[f[field], {field, fieldSpecs[[All, 1]]}],
-				Table[ft[field], {field, fieldSpecs[[All, 1]]}],
-				{n, fieldBounceCount}
+				Table[field[i], {i, initialConditions[[All, 1]]}],
+				Table[momentum[i], {i, initialConditions[[All, 1]]}],
+				{efoldings}
 			],
-			{t, 0, OptionValue["MaxIntegrationTime"]},
+			{time, 0, tEnd},
 			MaxSteps -> Infinity,
-			DiscreteVariables -> fieldBounceCount]];
+			DiscreteVariables -> {finalDensity, finalDensityStartTime}]];
 	If[Head[solution] === NDSolve,
-		$Failed,
+		$Failed, (* something is wrong with NDSolve inputs *)
+		integrationTime = (efoldings /. solution)[[1, 1, 1, 2]];
 		Join[
 			Association[solution[[1]] /. {
-				f[label_] :> label,
-				ft[label_] :> Derivative[1][label],
-				n -> "Efoldings",
-				fieldBounceCount -> "FieldBounceCount"}],
-			<|"InflationStoppedQ" -> inflationStoppedQ|>]]
+				field[label_] :> label,
+				momentum[label_] :> label',
+				efoldings -> "Efoldings"}],
+			<|
+				"FinalDensitySign" -> finalDensitySign,
+				"IntegrationTime" -> integrationTime,
+				"TotalEfoldings" -> Switch[finalDensitySign,
+					-1, Indeterminate,
+					 0, (efoldings /. solution)[[1]][integrationTime],
+					+1, Infinity,
+					Missing[___], $StoppedEarlyMissing]|>]]
 ]
 
 
 (* ::Subsection:: *)
-(*InflationStopsQ*)
-
-
-InflationStopsQ::usage = StringRiffle[{
-	"InflationStopsQ[\!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
-StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
-StyleBox[\"t\", \"TI\"]\)] yields True if inflation produced by a " <>
-		"model with Lagrangian \!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), starting with initial conditions \!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\) for the " <>
-		"field \!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\) stops eventually, and yields False otherwise.",
-	"InflationStopsQ[\!\(\*
-StyleBox[\"evo\", \"TI\"]\)] takes the output \!\(\*
-StyleBox[\"evo\", \"TI\"]\) of InflationEvolution as its input."},
-"\n"];
-
-
-InflationStopsQ[evolution_Association] := evolution["InflationStoppedQ"]
-
-
-Options[InflationStopsQ] = Options[InflationEvolution];
-
-
-InflationStopsQ[
-		inputLagrangian_,
-		{field_, inputFieldInitial_ ? NumericQ,
-				inputFieldDerivativeInitial_ ? NumericQ},
-		time_,
-		o : OptionsPattern[]] :=
-	InflationStopsQ[InflationEvolution[
-			inputLagrangian,
-			{field, inputFieldInitial, inputFieldDerivativeInitial},
-			time,
-			o]]
-
-
-(* ::Subsection::Closed:: *)
-(*InflationEfoldingsCount*)
-
-
-InflationEfoldingsCount::usage = StringRiffle[{
-	"InflationEfoldingsCount[\!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
-StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
-StyleBox[\"t\", \"TI\"]\)] yields the number of e-foldings " <>
-		"produced by a model with Lagrangian \!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), starting with initial conditions " <>
-		"\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\) for the field \!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\)\!\(\*
-StyleBox[\".\", \"TI\"]\)",
-	"InflationEfoldingsCount[\!\(\*
-StyleBox[\"evo\", \"TI\"]\)] takes the output \!\(\*
-StyleBox[\"evo\", \"TI\"]\) of InflationEvolution as its " <>
-		"input."},
-"\n"];
-
-
-InflationEfoldingsCount[evolution_Association] := If[!InflationStopsQ[evolution],
-	\[Infinity],
-	evolution["Efoldings"][$IntegrationTime[evolution]]
-]
-
-
-Options[InflationEfoldingsCount] = Options[InflationEvolution];
-
-
-InflationEfoldingsCount[
-		inputLagrangian_,
-		{field_, inputFieldInitial_ ? NumericQ,
-				inputFieldDerivativeInitial_ ? NumericQ},
-		time_,
-		o : OptionsPattern[]] :=
-	InflationEfoldingsCount[InflationEvolution[
-			inputLagrangian,
-			{field, inputFieldInitial, inputFieldDerivativeInitial},
-			time,
-			o]]
-
-
-(* ::Subsection::Closed:: *)
 (*CosmologicalHorizonExitTime*)
 
 
@@ -436,20 +349,26 @@ StyleBox[\"evo\", \"TI\"]\) of " <>
 "\n"];
 
 
+$NotEnoughEfoldingsMissing =
+	Missing["Unknown", "Horizon exit before start of integration."];
+
+
 CosmologicalHorizonExitTime[
 		evolution_Association, pivotEfoldings_ ? NumericQ] := Module[
 	{totalEfoldings, horizonExitEfoldings, t},
-	totalEfoldings = InflationEfoldingsCount[evolution];
+	totalEfoldings = evolution["TotalEfoldings"];
 	Switch[totalEfoldings,
 		\[Infinity],
 			\[Infinity],
+		Indeterminate,
+			Indeterminate,
 		x_ ? (# < pivotEfoldings &),
-				Missing["Unknown", "Horizon exit before start of integration."],
+			$NotEnoughEfoldingsMissing,
 		_,
 			horizonExitEfoldings = totalEfoldings - pivotEfoldings;
 			t /. FindRoot[
 					evolution["Efoldings"][t] - horizonExitEfoldings,
-					{t, 0, $IntegrationTime[evolution]}]
+					{t, 0, evolution["IntegrationTime"]}]
 	]
 ]
 
@@ -458,22 +377,16 @@ Options[CosmologicalHorizonExitTime] = Options[InflationEvolution];
 
 
 CosmologicalHorizonExitTime[
-		inputLagrangian_,
-		{field_, inputFieldInitial_ ? NumericQ,
-				inputFieldDerivativeInitial_ ? NumericQ},
+		lagrangian_,
+		initialConditions_,
 		time_,
 		pivotEfoldings_ ? NumericQ,
 		o : OptionsPattern[]] :=
 	CosmologicalHorizonExitTime[
-		InflationEvolution[
-			inputLagrangian,
-			{field, inputFieldInitial, inputFieldDerivativeInitial},
-			time,
-			o],
-		pivotEfoldings]
+		InflationEvolution[lagrangian, initialConditions, time, o], pivotEfoldings]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InflationQ*)
 
 
@@ -505,7 +418,7 @@ StyleBox[\"evo\", \"TI\"]\) of InflationEvolution as its input."},
 
 
 InflationQ[evolution_Association, pivotEfoldings_ ? NumericQ] := (
-	InflationStopsQ[evolution] && pivotEfoldings < InflationEfoldingsCount[evolution]
+	evolution["FinalDensitySign"] == 0 && pivotEfoldings < evolution["TotalEfoldings"]
 ) === True
 
 
@@ -513,18 +426,13 @@ Options[InflationQ] = Options[InflationEvolution];
 
 
 InflationQ[
-		inputLagrangian_,
-		{field_, inputFieldInitial_ ? NumericQ,
-				inputFieldDerivativeInitial_ ? NumericQ},
+		lagrangian_,
+		initialConditions_,
 		time_,
 		pivotEfoldings_ ? NumericQ,
 		o : OptionsPattern[]] :=
 	InflationQ[
-		InflationEvolution[
-			inputLagrangian,
-			{field, inputFieldInitial, inputFieldDerivativeInitial},
-			time,
-			o],
+		InflationEvolution[lagrangian, initialConditions, time, o],
 		pivotEfoldings]
 
 
@@ -532,7 +440,7 @@ InflationQ[
 (*Observables*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InflationProperty*)
 
 
@@ -600,7 +508,7 @@ InflationProperty /: MakeBoxes[
 (*InflationValue*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*InflationValue implementation*)
 
 
@@ -653,53 +561,48 @@ Options[InflationValue] = Options[InflationEvolution];
 
 InflationValue[
 		lagrangian_,
-		{field_, fieldInitial_ ? NumericQ, fieldDerivativeInitial_ ? NumericQ},
+		initialConditions_,
 		time_,
 		pivotEfoldings_ ? NumericQ,
 		properties_List,
 		o : OptionsPattern[]] := $InflationValueInternalData[
-			lagrangian,
-			{field, fieldInitial, fieldDerivativeInitial},
-			time,
-			pivotEfoldings,
-			properties,
-			o]["Values"]
+			lagrangian, initialConditions, time, pivotEfoldings, properties, o][
+				"Values"]
 
 
 InflationValue[
 		lagrangian_,
-		{field_, fieldInitial_ ? NumericQ, fieldDerivativeInitial_ ? NumericQ},
+		initialConditions_,
 		time_,
 		pivotEfoldings_ ? NumericQ,
 		property_InflationProperty,
 		o : OptionsPattern[]] := InflationValue[
-			lagrangian,
-			{field, fieldInitial, fieldDerivativeInitial},
-			time,
-			pivotEfoldings,
-			{property},
-			o][[1]]
+			lagrangian, initialConditions, time, pivotEfoldings, {property}, o][[1]]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*$ExplicitProperty*)
 
 
 ClearAll[$EvaluateProperty];
 
 
-$EvaluateProperty[InflationProperty[prop_String, time_, o : OptionsPattern[]]] :=
+$EvaluateProperty[InflationProperty[prop_, time_, o : OptionsPattern[]]] :=
 		$ExplicitProperty[prop, time, OptionValue[InflationProperty, o, Method]];
 
 
 ClearAll[$ExplicitProperty];
 
 
-$ExplicitProperty[prop_String, time_, Automatic] := $ExplicitProperty[prop, time]
+$ExplicitProperty[prop_, time_, Automatic] := $ExplicitProperty[prop, time]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*$InflationValueInternalData*)
+
+
+(* ::Text:: *)
+(*START HERE*)
 
 
 ClearAll[$InflationValueInternalData];
@@ -707,7 +610,7 @@ ClearAll[$InflationValueInternalData];
 
 $InflationValueInternalData[
 		lagrangian_,
-		{field_, fieldInitial_ ? NumericQ, fieldDerivativeInitial_ ? NumericQ},
+		initialConditions_,
 		time_,
 		pivotEfoldings_ ? NumericQ,
 		properties_List,
@@ -715,10 +618,9 @@ $InflationValueInternalData[
 				evolution, integrationTime, totalEfoldingsCount,
 				explicitProperties, propertiesByTime, valuesByTime},
 	explicitProperties = $EvaluateProperty /@ properties;
-	evolution = InflationEvolution[
-			lagrangian, {field, fieldInitial, fieldDerivativeInitial}, time, opts];
-	integrationTime = $IntegrationTime[evolution];
-	totalEfoldingsCount = InflationEfoldingsCount[evolution];
+	evolution = InflationEvolution[lagrangian, initialConditions, time, opts];
+	integrationTime = evolution["IntegrationTime"];
+	totalEfoldingsCount = evolution["TotalEfoldings"];
 	propertiesByTime = KeyMap[
 		# /. {
 			"Start" -> 0.0,
@@ -735,12 +637,16 @@ $InflationValueInternalData[
 				Table[property -> #1, {property, #2}],
 			\[Infinity],
 				Table[
-					property ->
-         				Missing["Unknown", "Horizon exit after end of integration."],
+					property -> $NotEnoughEfoldingsMissing,
 					{property, #2}],
 			_,
 				Thread[#2 -> $InflationValue[
-					lagrangian, field, time, evolution, #2[[All, 1]], #1]]
+					lagrangian,
+					initialConditions[[All, 1]],
+					time,
+					evolution,
+					#2[[All, 1]],
+					#1]]
 		] &,
 		propertiesByTime
 	];
@@ -786,7 +692,7 @@ ClearAll[$InflationValue];
 
 $InflationValue[
 		lagrangian_,
-		field_,
+		fields_,
 		time_,
 		evolution_Association,
 		properties_List,
@@ -795,14 +701,18 @@ $InflationValue[
 			derivativePropertyValues, derivedPropertyNames,
 			derivedPropertyValues},
 	derivedExpressions = properties //. $DerivedValues;
-	rawPropertyNames = Union[Cases[derivedExpressions, _String, {0, \[Infinity]}]];
-	derivativePropertyNames =
+	rawPropertyNames = Union[Cases[
+		derivedExpressions,
+		_String | _ ? (MemberQ[Join[fields, Thread[fields']], #] &),
+		{0, \[Infinity]}]];
+	(*derivativePropertyNames =
 			Select[MemberQ[Keys[$EvolutionDerivativeSpecs], #] &] @ rawPropertyNames;
 	derivativePropertyValues = $DerivativeValues[
-			lagrangian, field, time, evolution, derivativePropertyNames, lookupTime];
+			lagrangian, fields, time, evolution, derivativePropertyNames, lookupTime];*)
+		(**) derivativePropertyNames = {}; derivativePropertyValues = {};
 	derivedPropertyNames = Complement[rawPropertyNames, derivativePropertyNames];
 	derivedPropertyValues = $InflationValue[
-			lagrangian, field, time, evolution, #, lookupTime] &
+			lagrangian, fields, time, evolution, #, lookupTime] &
 					/@ derivedPropertyNames;
 	Quiet[
 		derivedExpressions /. Join[
@@ -821,7 +731,7 @@ $AddToSet[set_, items_List] := Union[If[ListQ[set], Join[set, items], items]];
 $AddToSet[set_, item_] := $AddToSet[set, {item}]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Time*)
 
 
@@ -834,7 +744,7 @@ InflationPropertyData[] = $AddToSet[InflationPropertyData[], {"Time"}];
 
 $InflationValue[
 		lagrangian_,
-		field_,
+		fields_,
 		time_,
 		evolution_Association,
 		"Time",
@@ -842,7 +752,7 @@ $InflationValue[
 	lookupTime
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Elementary observables*)
 
 
@@ -851,16 +761,17 @@ $InflationValue[
 
 
 InflationPropertyData[] = $AddToSet[
-		InflationPropertyData[], {"Field", "FieldTimeDerivative", "Efoldings"}];
+		InflationPropertyData[], {"Efoldings"}];
 
 
 $InflationValue[
 		lagrangian_,
-		field_,
+		fields_,
 		time_,
 		evolution_Association,
-		property : "Field" | "FieldTimeDerivative" | "Efoldings",
-		lookupTime_ ? NumericQ] :=
+		property_,
+		lookupTime_ ? NumericQ] /;
+			MemberQ[Join[{"Efoldings"}, fields, Thread[fields']], property] :=
 	evolution[property][lookupTime]
 
 
@@ -1079,7 +990,7 @@ $InflationValue[
 	}
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Slow-roll parameter \[Epsilon] and and its derivative*)
 
 
@@ -1123,7 +1034,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Slow-roll parameter \[Eta]*)
 
 
@@ -1294,7 +1205,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Tensor-to-scalar ratio*)
 
 
@@ -1345,7 +1256,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*Comparison with Experiment*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*ExperimentallyConsistentInflationQ*)
 
 
