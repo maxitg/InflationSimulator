@@ -18,7 +18,7 @@ BeginPackage["InflationSimulator`"];
 InflationSimulator`Private`$PublicSymbols = Hold[{
 	InflatonDensity, InflatonPressure, InflationEquationsOfMotion,
 	InflationEvolution, CosmologicalHorizonExitTime, InflationQ,
-	InflationProperty, InflationPropertyData, InflationValue,
+	InflationProperty, InflationPropertyData, InflationValue, InflatonLagrangianValue,
 	ExperimentallyConsistentInflationQ}];
 
 
@@ -172,12 +172,12 @@ InflationEvolution::nnuml =
 (*Options*)
 
 
-Options[InflationEvolution] = {
+Options[InflationEvolution] = Join[{
 	"FinalDensityPrecisionGoal" -> 1.*^-8,
 	"FinalDensityRelativeDuration" -> 0.5,
 	"ZeroDensityTolerance" -> 10,
 	"MaxIntegrationTime" -> \[Infinity]
-};
+}, Options[NDSolve]];
 
 
 ClearAll[$InitialEfoldings, $InitialDensityFraction, $StoppedEarlyString];
@@ -192,7 +192,7 @@ $StoppedEarlyMissing = Missing["Unknown", "Stopped before reaching final density
 
 InflationEvolution[
 		lagrangian_,
-		initialConditions_,
+		initialConditions : {___List},
 		time_,
 		o : OptionsPattern[]] := Module[{
 			fields, momenta, lagrangianMomentumSpace, density,
@@ -290,8 +290,9 @@ InflationEvolution[
 				{efoldings}
 			],
 			{time, 0, tEnd},
-			MaxSteps -> Infinity,
-			DiscreteVariables -> {finalDensity, finalDensityStartTime}]];
+			DiscreteVariables -> {finalDensity, finalDensityStartTime},
+			FilterRules[{o}, Options[NDSolve]],
+			MaxSteps -> Infinity]];
 	If[Head[solution] === NDSolve,
 		$Failed, (* something is wrong with NDSolve inputs *)
 		integrationTime = (efoldings /. solution)[[1, 1, 1, 2]];
@@ -309,6 +310,10 @@ InflationEvolution[
 					+1, Infinity,
 					Missing[___], $StoppedEarlyMissing]|>]]
 ]
+
+
+InflationEvolution[lagrangian_, initialConditions_, time_, o : OptionsPattern[]] :=
+	InflationEvolution[lagrangian, {initialConditions}, time, o]
 
 
 (* ::Subsection:: *)
@@ -512,10 +517,10 @@ InflationValue[
 	propagatedDerivatives = evolutionVariablesOnly /.
 		With[{variables = Append[fields, "Efoldings"]}, Join[
 			Thread[variables -> Through[variables[time]]],
-			Derivative[n_][#] :> $D[#[time], {time, n}] & /@ variables]] /.
+			Derivative[n_][#] :> $D[#[time], {time, n}] & /@ variables]] //.
 		Derivative[n_][f_] :> $D[f, {time, n}] /.
 		$D -> D;
-	
+		
 	higherDerivativesRules = Append[
 		With[{secondDerivatives = $FieldsSecondTimeDerivatives[
 				lagrangian, Through[fields[time]], D[Through[fields[time]], time]]},
@@ -681,6 +686,58 @@ InflationPropertyData[] = $AddToSet[InflationPropertyData[], {"TensorToScalarRat
 $DerivedValues = $AddToSet[$DerivedValues, {
 	"TensorToScalarRatio" -> 16 "SlowRollEpsilon"
 }];
+
+
+(* ::Subsection:: *)
+(*InflatonLagrangianValue*)
+
+
+InflatonLagrangianValue::nonq = "Only quadratic forms are supported for kinetic terms.";
+
+
+InflatonLagrangianValue[lagrangian_, time_, expression_, state : {___List}] := Module[{
+		fields, momenta, metric, potential, metricDerivative, connection},
+	fields = Through[state[[All, 1]][time]];
+	momenta = D[fields, time];
+	metric = D[lagrangian, {momenta, 2}];
+	If[(D[lagrangian, {momenta}] /. Thread[momenta -> 0]) !=
+				Table[0, Length[momenta]] ||
+			!And @@ (FreeQ[metric, #, All] & /@ momenta),
+		Message[InflatonLagrangianValue::nonq]; Return[$Failed]];
+	potential = - lagrangian /. Thread[momenta -> 0];
+	metricDerivative = D[metric, {fields}];
+	connection = 1/2 TensorContract[
+		TensorProduct[
+			Inverse[metric],
+			metricDerivative
+				+ Transpose[metricDerivative, 1 <-> 2]
+				- Transpose[metricDerivative, 1 <-> 3]],
+		{{1, 5}}];
+	expression //. {
+		"SlowRollEpsilon" :> (
+			1/2 D[potential, {fields}].Inverse[metric].D[potential, {fields}]
+					/ potential^2 /.
+				Thread[fields -> state[[All, 2]]]),
+		"SlowRollEta" -> (
+			D[potential, {fields}]
+						.Inverse[metric]
+						.(D[potential, {fields, 2}]
+							- D[potential, {fields}].connection)
+						.Inverse[metric]
+						.D[potential, {fields}] /
+					(potential
+						D[potential, {fields}]
+						.Inverse[metric]
+						.D[potential, {fields}]) /.
+				Thread[fields -> state[[All, 2]]]),
+		"EffectiveAxionDecayConstant" ->
+			1 / Sqrt[2 ("SlowRollEpsilon" - "SlowRollEta")]
+	}
+]
+
+
+InflatonLagrangianValue[lagrangian_, time_, expression_, state_] :=
+	InflatonLagrangianValue[lagrangian, time, expression, {state}]
 
 
 (* ::Section:: *)
