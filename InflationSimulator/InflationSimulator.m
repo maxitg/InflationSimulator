@@ -195,111 +195,140 @@ InflationEvolution[
 		initialConditions : {___List},
 		time_,
 		o : OptionsPattern[]] := Module[{
-			fields, momenta, lagrangianMomentumSpace, density,
-			initialLagrangian, initialDensity, tEnd,
-			finalDensitySign, solution, integrationTime,
-			field, momentum, efoldings, finalDensity, finalDensityStartTime,
+			initialLagrangian, initialDensity,
+			fields, velocities, scaledLagrangian, scaledDensity,
+			scaledMaxTime,
+			finalDensitySign, scaledSolution, solution, integrationTime,
+			field, velocity, efoldings, finalDensity, finalDensityStartTime,
 			i},
-	{fields, momenta} = Transpose @ Table[
-		#[i][time] & /@ {field, momentum}, {i, initialConditions[[All, 1]]}];
-	
-	lagrangianMomentumSpace = lagrangian /. Flatten @ Table[
-		{i'[time] -> momentum[i][time], i[time] -> field[i][time]},
-		{i, initialConditions[[All, 1]]}];
-	density = $InflatonDensity[lagrangianMomentumSpace, momenta];
-	
-	{initialLagrangian, initialDensity} =
-		{lagrangianMomentumSpace,
-		 $InflatonDensity[lagrangianMomentumSpace, momenta]} /. Join[
-			{time -> 0},
-			Thread[fields -> initialConditions[[All, 2]]],
-			Thread[momenta -> initialConditions[[All, 3]]]];
+	{initialLagrangian, initialDensity} = {
+		lagrangian,
+		$InflatonDensity[
+				lagrangian,
+				D[Through[initialConditions[[All, 1]][time]], time]]} /. Join[
+			Thread[Through[initialConditions[[All, 1]][time]] ->
+				initialConditions[[All, 2]]],
+			Thread[D[Through[initialConditions[[All, 1]][time]], time] ->
+				initialConditions[[All, 3]]],
+			{time -> 0}];
 	If[!NumericQ[initialLagrangian],
 		Message[InflationEvolution::nnuml]; Return[$Failed]];
 	
-	tEnd = If[initialDensity <= 0.,
+	{fields, velocities} = Transpose @ Table[
+		#[i][time] & /@ {field, velocity}, {i, initialConditions[[All, 1]]}];
+	scaledLagrangian = lagrangian / initialDensity /. Flatten @ Table[
+		{i'[time] -> Sqrt[initialDensity] velocity[i][time],
+			i[time] -> field[i][time]},
+		{i, initialConditions[[All, 1]]}];
+	scaledDensity = $InflatonDensity[scaledLagrangian, velocities];
+	
+	scaledMaxTime = If[initialDensity <= 0.,
 		finalDensitySign = Sign[initialDensity];
 		0,
 		finalDensitySign = $StoppedEarlyMissing;
-		OptionValue["MaxIntegrationTime"]];
+		OptionValue["MaxIntegrationTime"] Sqrt[initialDensity]];
 	
-	solution = With[{
+	scaledSolution = With[{
 			finalDensityPrecisionGoal = OptionValue["FinalDensityPrecisionGoal"],
-			finalDensityRelativeDuration = OptionValue["FinalDensityRelativeDuration"],
+			finalDensityRelativeDuration =
+				OptionValue["FinalDensityRelativeDuration"],
 			zeroDensityPrecision =
 				OptionValue["ZeroDensityTolerance"]
 					OptionValue["FinalDensityPrecisionGoal"],
 			initialEfoldings = $InitialEfoldings,
 			initialDensityFraction = $InitialDensityFraction,
-			density = density},
+			scaledDensity = scaledDensity},
 		NDSolve[
 			Join[
 				(* Initial conditions *)
 				Table[field[i[[1]]][0] == i[[2]], {i, initialConditions}],
-				Table[momentum[i[[1]]][0] == i[[3]], {i, initialConditions}],
+				Table[
+					velocity[i[[1]]][0] == i[[3]] / Sqrt[initialDensity],
+					{i, initialConditions}],
 				{efoldings[0] == 0},
 				{finalDensity[0] == initialDensity},
 				{finalDensityStartTime[0] == 0},
 				
 				(* Evolution equations *)
 				Table[
-					field[i]'[time] == momentum[i][time],
+					field[i]'[time] == velocity[i][time],
 					{i, initialConditions[[All, 1]]}],
-				Thread[Table[momentum[i]'[time], {i, initialConditions[[All, 1]]}] ==
+				Thread[Table[velocity[i]'[time], {i, initialConditions[[All, 1]]}] ==
 					(* Re is needed to avoid warnings if negative density is reached,
 					   integration is aborted in that case, so no incorrect results
 					   are returned. *)
-					Re @ $FieldsSecondTimeDerivatives[
-						lagrangianMomentumSpace, fields, momenta]],
-				{efoldings'[time] == Re @ $EfoldingsTimeDerivative[
-					lagrangianMomentumSpace, fields, momenta]},
+					Re[$FieldsSecondTimeDerivatives[
+						scaledLagrangian, fields, velocities]]],
+				{efoldings'[time] == Re[$EfoldingsTimeDerivative[
+					scaledLagrangian, fields, velocities]]},
 				
 				(* Initialize final density thresholds *)
 				{WhenEvent[efoldings[time] >= initialEfoldings ||
-						density <= initialDensityFraction initialDensity,
+						scaledDensity <= initialDensityFraction,
 					{finalDensity[time], finalDensityStartTime[time]} ->
-						{density, time},
+						{scaledDensity, time},
 					"LocationMethod" -> "StepEnd"]},
 				
 				(* Reached time threshold, potential end-of-inflation *)
 				{WhenEvent[time > finalDensityStartTime[time] /
 						(1 - finalDensityRelativeDuration),
 					If[finalDensityPrecisionGoal > 0 &&
-							finalDensity[time] - density <=
-								finalDensityPrecisionGoal
-									(initialDensity - finalDensity[time]),
+							finalDensity[time] - scaledDensity <=
+								finalDensityPrecisionGoal (1 - finalDensity[time]),
 						(* density is stable, check sign and stop *)
 						finalDensitySign = If[
-							density <= zeroDensityPrecision initialDensity,
+							scaledDensity <= zeroDensityPrecision,
 							0,
 							+1];
 						"StopIntegration",
 						(* density is still changing, set new threshold *)
 						{finalDensity[time], finalDensityStartTime[time]} ->
-							{density, time}],
+							{scaledDensity, time}],
 					"LocationMethod" -> "StepEnd"]},
 				 
 				(* Reached negative density, abort *)
-				{WhenEvent[density < 0,
+				{WhenEvent[scaledDensity < 0,
 					finalDensitySign = -1;
 					"StopIntegration",
 					"LocationMethod" -> "StepEnd"]}],
 			Join[
 				Table[field[i], {i, initialConditions[[All, 1]]}],
-				Table[momentum[i], {i, initialConditions[[All, 1]]}],
+				Table[velocity[i], {i, initialConditions[[All, 1]]}],
 				{efoldings}
 			],
-			{time, 0, tEnd},
+			{time, 0, scaledMaxTime},
 			DiscreteVariables -> {finalDensity, finalDensityStartTime},
 			FilterRules[{o}, Options[NDSolve]],
 			MaxSteps -> Infinity]];
-	If[Head[solution] === NDSolve,
+	If[Head[scaledSolution] === NDSolve,
 		$Failed, (* something is wrong with NDSolve inputs *)
+		(* This uses internal structure of InterpolatingFunction, so it might
+			break in the future *)
+		solution = scaledSolution /.
+			InterpolatingFunction[$1_, $2_, $3_, {$41_, $42_, $43_}, $5_] :>
+				InterpolatingFunction[
+					$1 / Sqrt[initialDensity], (* domain *)
+					$2, (* some metadata *)
+					$3 / Sqrt[initialDensity], (* timestamps *)
+					{$41, (* values *)
+						$42,
+						Table[
+							$43[[i]] If[EvenQ[i], Sqrt[initialDensity], 1],
+							{i, Length[$43]}]},
+					$5] /.
+			(velocity[x_] ->
+					InterpolatingFunction[$1_, $2_, $3_, {$41_, $42_, $43_}, $5_]) :>
+				velocity[x] -> InterpolatingFunction[
+					$1,
+					$2,
+					$3,
+					{$41, $42, $43 Sqrt[initialDensity]},
+					$5];
 		integrationTime = (efoldings /. solution)[[1, 1, 1, 2]];
 		Join[
 			Association[solution[[1]] /. {
 				field[label_] :> label,
-				momentum[label_] :> label',
+				velocity[label_] :> label',
 				efoldings -> "Efoldings"}],
 			<|
 				"FinalDensitySign" -> finalDensitySign,
