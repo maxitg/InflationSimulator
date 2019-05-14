@@ -173,7 +173,7 @@ InflationEvolution::nnuml =
 
 
 Options[InflationEvolution] = Join[{
-	"FinalDensityPrecisionGoal" -> 1.*^-8,
+	"FinalDensityPrecisionGoal" -> 8,
 	"FinalDensityRelativeDuration" -> 0.5,
 	"ZeroDensityTolerance" -> 10,
 	"MaxIntegrationTime" -> \[Infinity]
@@ -229,12 +229,13 @@ InflationEvolution[
 		OptionValue["MaxIntegrationTime"] Sqrt[initialDensity]];
 	
 	scaledSolution = With[{
-			finalDensityPrecisionGoal = OptionValue["FinalDensityPrecisionGoal"],
+			finalDensityPrecision =
+				10^(-OptionValue["FinalDensityPrecisionGoal"]),
 			finalDensityRelativeDuration =
 				OptionValue["FinalDensityRelativeDuration"],
 			zeroDensityPrecision =
 				OptionValue["ZeroDensityTolerance"]
-					OptionValue["FinalDensityPrecisionGoal"],
+					10^(-OptionValue["FinalDensityPrecisionGoal"]),
 			initialEfoldings = $InitialEfoldings,
 			initialDensityFraction = $InitialDensityFraction,
 			scaledDensity = scaledDensity},
@@ -272,9 +273,9 @@ InflationEvolution[
 				(* Reached time threshold, potential end-of-inflation *)
 				{WhenEvent[time > finalDensityStartTime[time] /
 						(1 - finalDensityRelativeDuration),
-					If[finalDensityPrecisionGoal > 0 &&
+					If[finalDensityPrecision > 0 &&
 							finalDensity[time] - scaledDensity <=
-								finalDensityPrecisionGoal (1 - finalDensity[time]),
+								finalDensityPrecision (1 - finalDensity[time]),
 						(* density is stable, check sign and stop *)
 						finalDensitySign = If[
 							scaledDensity <= zeroDensityPrecision,
