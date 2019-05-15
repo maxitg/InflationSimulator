@@ -4,7 +4,7 @@
 (*Inflation Simulator*)
 
 
-(* ::Chapter:: *)
+(* ::Chapter::Closed:: *)
 (*Begin*)
 
 
@@ -38,7 +38,7 @@ Begin["`Private`"];
 (*Equations of Motion*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflatonDensity*)
 
 
@@ -77,7 +77,7 @@ InflatonDensity[lagrangian_, field_, time_] :=
 	InflatonDensity[lagrangian, {field}, time]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflatonPressure*)
 
 
@@ -106,7 +106,7 @@ StyleBox[\"t\", \"TI\"]\)] yields the pressure for a Lagrangian with multiple fi
 InflatonPressure[lagrangian_, fields_, time_] := lagrangian
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflationEquationsOfMotion*)
 
 
@@ -169,7 +169,7 @@ InflationEquationsOfMotion[lagrangian_, field_, efoldings_, time_] :=
 (*Evolution*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflationEvolution*)
 
 
@@ -412,7 +412,7 @@ InflationEvolution[lagrangian_, initialConditions_, time_, o : OptionsPattern[]]
 	InflationEvolution[lagrangian, {initialConditions}, time, o]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*CosmologicalHorizonExitTime*)
 
 
@@ -472,7 +472,7 @@ CosmologicalHorizonExitTime[
 		InflationEvolution[lagrangian, initialConditions, time, o], pivotEfoldings]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflationQ*)
 
 
@@ -515,7 +515,7 @@ InflationQ[
 (*Observables*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflationValue*)
 
 
@@ -725,7 +725,7 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 }];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflatonLagrangianValue*)
 
 
@@ -814,7 +814,7 @@ InflatonLagrangianValue[lagrangian_, state_, time_, expression_] :=
 	InflatonLagrangianValue[lagrangian, {state}, time, expression]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflatonLagrangianPropertyData*)
 
 
@@ -830,7 +830,7 @@ InflatonLagrangianPropertyData[] =
 (*Comparison with Experiment*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*ExperimentallyConsistentInflationQ*)
 
 
