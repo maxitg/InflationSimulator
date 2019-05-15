@@ -4,7 +4,7 @@ Cell[TextData[{
  Cell["0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"bd84b394-18e3-4258-938f-ade51e04ad46"],
  " | Modified in: ",
- Cell[" ", "HistoryData",
+ Cell[" 0.3", "HistoryData",
   CellTags->"Modified",ExpressionUUID->"84cff7d1-6e94-4df0-bdb7-d5fb98d8b6d3"],
  " | Obsolete in: ",
  Cell[" ", "HistoryData",
@@ -120,21 +120,7 @@ Cell[TextData[{
   RowBox[{"CosmologicalHorizonExitTime", "[", 
    RowBox[{
     StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{
-       StyleBox["\[CurlyPhi]", "TI"], "[", 
-       StyleBox["t", "TI"], "]"}], ",", " ", 
-      SubscriptBox[
-       StyleBox["\[CurlyPhi]", "TI"], 
-       StyleBox["0", "TR"]], ",", " ", 
-      RowBox[{
-       SubscriptBox[
-        StyleBox["\[PartialD]", "TI"], 
-        StyleBox["t", "TI"]], 
-       SubscriptBox[
-        StyleBox["\[CurlyPhi]", "TI"], 
-        StyleBox["0", "TR"]]}]}], "}"}], ",", " ", 
+    StyleBox["init", "TI"], ",", " ", 
     StyleBox["t", "TI"], ",", " ", 
     SubscriptBox[
      StyleBox["N", "TI"], 
@@ -151,22 +137,8 @@ Lagrangian ",
  StyleBox["\[ScriptCapitalL]", "TI"],
  ", starting with initial conditions ",
  Cell[BoxData[
-  SubscriptBox[
-   StyleBox["\[CurlyPhi]", "TI"], 
-   StyleBox["0", "TR"]]], "InlineFormula",ExpressionUUID->
+  StyleBox["init", "TI"]], "InlineFormula",ExpressionUUID->
   "c6c34c35-ded4-4898-8889-0c8d0db2ea87"],
- ", ",
- Cell[BoxData[
-  RowBox[{
-   SubscriptBox[
-    StyleBox["\[PartialD]", "TI"], 
-    StyleBox["t", "TI"]], 
-   SubscriptBox[
-    StyleBox["\[CurlyPhi]", "TI"], 
-    StyleBox["0", "TR"]]}]], "InlineFormula",ExpressionUUID->
-  "cdb5757f-1ecc-41f8-9670-9efdca337260"],
- " for the field ",
- StyleBox["\[CurlyPhi]", "TI"],
  ".\n",
  Cell["      ", "ModInfo",ExpressionUUID->
   "cb8c2d21-81c7-4086-910f-607d99020275"],
@@ -198,10 +170,15 @@ Cell[TextData[{
    StyleBox["pivot", "TI"]]], "InlineFormula",ExpressionUUID->
   "72798b64-737b-40aa-adf8-7a2d3b0b7dce"],
  " e-foldings from the end of inflation, as determined by ",
- ButtonBox["InflationEfoldingsCount",
-  BaseStyle->"Link",
-  ButtonData->"paclet:InflationSimulator/ref/InflationEfoldingsCount"],
- ", and finding the time at which that number of e-foldings occurred using ",
+ StyleBox["\"TotalEfoldings\"", "InlineCode"],
+ " value in the ",
+ Cell[BoxData[
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"b13d93ab-4937-46b2-b4c9-382b2df8044e"],
+ " output, and finding the time at which that number of e-foldings occurred \
+using ",
  StyleBox["evo", "TI"],
  "."
 }], "Notes",
@@ -219,7 +196,21 @@ Cell[TextData[{
   "InlineFormula",ExpressionUUID->"eba8cf5d-a5e2-424f-8b6b-795b30dee623"],
  " if Lagrangian is used as the input."
 }], "Notes",
- CellID->1218465677,ExpressionUUID->"6af7dbbc-a667-45a3-af5e-4ae0bb307cf8"]
+ CellID->1218465677,ExpressionUUID->"6af7dbbc-a667-45a3-af5e-4ae0bb307cf8"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox["init", "TI"]], "InlineFormula",ExpressionUUID->
+  "433b603b-9471-4d45-8dc0-c7ceda849e90"],
+ " has the same format as in ",
+ Cell[BoxData[
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"a1e1513e-45b4-4cb4-bab8-275e2627a05a"],
+ "."
+}], "Notes",
+ CellID->905464957,ExpressionUUID->"38180bf8-535e-4955-a93d-8b1da84ceefc"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -306,16 +297,15 @@ Cell[BoxData[
         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
     ",", 
    RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+    RowBox[{"\[CurlyPhi]", ",", 
      RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0.0"}], "}"}], ",", "t", 
    ",", "60.0"}], "]"}]], "Input",
- CellLabel->"In[530]:=",
+ CellLabel->"In[424]:=",
  CellID->1099185550,ExpressionUUID->"45ed27e2-f6ca-47a9-bc69-01673dcd083b"],
 
-Cell[BoxData["426.1075843365069`"], "Output",
- CellLabel->"Out[530]=",
- CellID->241057190,ExpressionUUID->"93b05cf9-b0ab-4d81-a380-22b0c367409b"]
+Cell[BoxData["434.63353963726166`"], "Output",
+ CellLabel->"Out[424]=",
+ CellID->1052343792,ExpressionUUID->"2b6656f8-ed4b-430e-9fc3-4c9ddf3a55aa"]
 }, Open  ]]
 }, Open  ]],
 
@@ -402,8 +392,7 @@ Cell[BoxData[
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

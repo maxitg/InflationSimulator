@@ -18,7 +18,8 @@ BeginPackage["InflationSimulator`"];
 InflationSimulator`Private`$PublicSymbols = Hold[{
 	InflatonDensity, InflatonPressure, InflationEquationsOfMotion,
 	InflationEvolution, CosmologicalHorizonExitTime, InflationQ,
-	InflationProperty, InflationPropertyData, InflationValue, InflatonLagrangianValue,
+	InflationValue, InflationPropertyData,
+	InflatonLagrangianValue, InflatonLagrangianPropertyData,
 	ExperimentallyConsistentInflationQ}];
 
 
@@ -48,7 +49,19 @@ StyleBox[\"t\", \"TI\"]\)], \!\(\*
 StyleBox[\"t\", \"TI\"]\)] yields the density of a homogeneous field \!\(\*
 StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
 StyleBox[\"t\", \"TI\"]\)] with Lagrangian \!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\).";
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\).
+InflatonDensity[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"1\", \"TR\"]], \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"2\", \"TR\"]], \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*
+StyleBox[\"\[Ellipsis]\", \"TR\"]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\)] yields the density for a Lagrangian with multiple fields.";
 
 
 ClearAll[$InflatonDensity];
@@ -75,7 +88,19 @@ StyleBox[\"t\", \"TI\"]\)], \!\(\*
 StyleBox[\"t\", \"TI\"]\)] yields the pressure of a homogeneous field \!\(\*
 StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
 StyleBox[\"t\", \"TI\"]\)] with Lagrangian \!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\).";
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\).
+InflatonPressure[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"1\", \"TR\"]], \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"2\", \"TR\"]], \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*
+StyleBox[\"\[Ellipsis]\", \"TR\"]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\)] yields the pressure for a Lagrangian with multiple fields.";
 
 
 InflatonPressure[lagrangian_, fields_, time_] := lagrangian
@@ -91,11 +116,26 @@ StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
 StyleBox[\"t\", \"TI\"]\)], \!\(\*
 StyleBox[\"n\", \"TI\"]\)[\!\(\*
 StyleBox[\"t\", \"TI\"]\)], \!\(\*
-StyleBox[\"t\", \"TI\"]\)] yields equations fully describing the evolution of a " <>
-"field \!\(\*StyleBox[\"\[CurlyPhi]\", \"TI\"]\) with Lagrangian \!\(\*
+StyleBox[\"t\", \"TI\"]\)] yields equations fully describing the evolution of " <>
+"a field \!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\) with Lagrangian \!\(\*
 StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\) in homogeneous and isotropic spacetime, where \!\(\*
 StyleBox[\"n\", \"TI\"]\) is the number of e-foldings as a function of time \!\(\*
-StyleBox[\"t\", \"TI\"]\).";
+StyleBox[\"t\", \"TI\"]\).
+InflationEquationsOfMotion[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"1\", \"TR\"]], \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"2\", \"TR\"]], \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*
+StyleBox[\"\[Ellipsis]\", \"TR\"]\)}, \!\(\*
+StyleBox[\"n\", \"TI\"]\)[\!\(\*
+StyleBox[\"t\", \"TI\"]\)], \!\(\*
+StyleBox[\"t\", \"TI\"]\)] yields the equations for a multiple field model.";
 
 
 ClearAll[$FieldSecondTimeDerivative];
@@ -139,16 +179,15 @@ InflationEquationsOfMotion[lagrangian_, field_, efoldings_, time_] :=
 
 InflationEvolution::usage = "InflationEvolution[\!\(\*
 StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
-StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\), \!\(\*SubscriptBox[
 StyleBox[\"\[CurlyPhi]\", \"TI\"], 
 StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
 StyleBox[\"\[PartialD]\", \"TI\"], 
 StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
 StyleBox[\"\[CurlyPhi]\", \"TI\"], 
 StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
-StyleBox[\"t\", \"TI\"]\)] yields functions describing evolution of the field and " <>
-"the number of e-foldings as functions of time \!\(\*
+StyleBox[\"t\", \"TI\"]\)] yields functions describing evolution of the field " <>
+"and the number of e-foldings over time \!\(\*
 StyleBox[\"t\", \"TI\"]\) for a model with Lagrangian \!\(\*
 StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), starting with initial conditions \!\(\*SubscriptBox[
 StyleBox[\"\[CurlyPhi]\", \"TI\"], 
@@ -157,7 +196,34 @@ StyleBox[\"\[PartialD]\", \"TI\"],
 StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
 StyleBox[\"\[CurlyPhi]\", \"TI\"], 
 StyleBox[\"0\", \"TR\"]]\) for the field \!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\).";
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\), as well as the total number of e-foldings, total time, " <>
+"and the final density sign.
+InflationEvolution[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {{\!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"1\", \"TR\"]], \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[
+RowBox[{\"1\", \",\", \" \", \"0\"}], \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[
+RowBox[{\"1\", \",\", \" \", \"0\"}], \"TR\"]]\)}, {\!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"2\", \"TR\"]], \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[
+RowBox[{\"2\", \",\", \" \", \"0\"}], \"TR\"]]\), \!\(\*SubscriptBox[
+StyleBox[\"\[PartialD]\", \"TI\"], 
+StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[
+RowBox[{\"2\", \",\", \" \", \"0\"}], \"TR\"]]\)}, \!\(\*
+StyleBox[\"\[Ellipsis]\", \"TR\"]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\)] yields the same for a multiple field inflation.";
 
 
 (* ::Subsubsection:: *)
@@ -350,40 +416,23 @@ InflationEvolution[lagrangian_, initialConditions_, time_, o : OptionsPattern[]]
 (*CosmologicalHorizonExitTime*)
 
 
-CosmologicalHorizonExitTime::usage = StringRiffle[{
-	"CosmologicalHorizonExitTime[\!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
-StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+CosmologicalHorizonExitTime::usage = "CosmologicalHorizonExitTime[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), \!\(\*
+StyleBox[\"init\", \"TI\"]\), \!\(\*
 StyleBox[\"t\", \"TI\"]\), \!\(\*SubscriptBox[
 StyleBox[\"N\", \"TI\"], 
-StyleBox[\"pivot\", \"TI\"]]\)] yields the time at " <>
-		"which a scale specified by \!\(\*SubscriptBox[
+StyleBox[\"pivot\", \"TI\"]]\)] yields the time at which a scale specified by " <>
+"\!\(\*SubscriptBox[
 StyleBox[\"N\", \"TI\"], 
-StyleBox[\"pivot\", \"TI\"]]\) exits cosmological horizon during " <>
-		"inflation produced by a model with Lagrangian \!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), starting with initial " <>
-		"conditions \!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\) for the field \!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\).",
-	"CosmologicalHorizonExitTime[\!\(\*
+StyleBox[\"pivot\", \"TI\"]]\) exits cosmological horizon during inflation " <>
+"produced by a model with Lagrangian \!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), starting with initial conditions \!\(\*
+StyleBox[\"init\", \"TI\"]\).
+CosmologicalHorizonExitTime[\!\(\*
 StyleBox[\"evo\", \"TI\"]\), \!\(\*SubscriptBox[
 StyleBox[\"N\", \"TI\"], 
 StyleBox[\"pivot\", \"TI\"]]\)] takes the output \!\(\*
-StyleBox[\"evo\", \"TI\"]\) of " <>
-		"InflationEvolution as its input."},
-"\n"];
+StyleBox[\"evo\", \"TI\"]\) of InflationEvolution as its input.";
 
 
 $NotEnoughEfoldingsMissing =
@@ -427,31 +476,20 @@ CosmologicalHorizonExitTime[
 (*InflationQ*)
 
 
-InflationQ::usage = StringRiffle[{
-	"InflationQ[\!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
-StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+InflationQ::usage = "InflationQ[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), \!\(\*
+StyleBox[\"init\", \"TI\"]\), \!\(\*
 StyleBox[\"t\", \"TI\"]\), \!\(\*SubscriptBox[
 StyleBox[\"N\", \"TI\"], 
-StyleBox[\"pivot\", \"TI\"]]\)] " <>
-		"yields True if inflation stops and produces at least \!\(\*SubscriptBox[
+StyleBox[\"pivot\", \"TI\"]]\)] yields True if inflation stops (final density " <>
+"is zero) and produces at least \!\(\*SubscriptBox[
 StyleBox[\"N\", \"TI\"], 
-StyleBox[\"pivot\", \"TI\"]]\) number of " <>
-		"e-foldings.",
-	"InflationQ[\!\(\*
+StyleBox[\"pivot\", \"TI\"]]\) number of e-foldings.
+InflationQ[\!\(\*
 StyleBox[\"evo\", \"TI\"]\), \!\(\*SubscriptBox[
 StyleBox[\"N\", \"TI\"], 
-StyleBox[\"pivot\", \"TI\"]]\)] " <>
-		"takes the output \!\(\*
-StyleBox[\"evo\", \"TI\"]\) of InflationEvolution as its input."},
-"\n"];
+StyleBox[\"pivot\", \"TI\"]]\)] takes the output \!\(\*
+StyleBox[\"evo\", \"TI\"]\) of InflationEvolution as its input.";
 
 
 InflationQ[evolution_Association, pivotEfoldings_ ? NumericQ] := (
@@ -485,48 +523,27 @@ InflationQ[
 (*InflationValue implementation*)
 
 
-InflationValue::usage = StringRiffle[{
-	"InflationValue[\!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
-StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+InflationValue::usage = "InflationValue[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), \!\(\*
+StyleBox[\"init\", \"TI\"]\), \!\(\*
 StyleBox[\"t\", \"TI\"]\), \!\(\*SubscriptBox[
 StyleBox[\"N\", \"TI\"], 
 StyleBox[\"pivot\", \"TI\"]]\), \!\(\*
-StyleBox[\"property\", \"TI\"]\)] " <>
-		"yield the value of a specified \!\(\*
-StyleBox[\"property\", \"TI\"]\) for a specified model.",
-	"InflationValue[\!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
-StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+StyleBox[\"property\", \"TI\"]\), \!\(\*
+StyleBox[\"timespec\", \"TI\"]\)] yields the value of a specified \!\(\*
+StyleBox[\"property\", \"TI\"]\)\!\(\*
+StyleBox[\" \", \"TI\"]\)at time \!\(\*
+StyleBox[\"timespec\", \"TI\"]\) for a specified model.
+InflationValue[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), \!\(\*
+StyleBox[\"evo\", \"TI\"]\), \!\(\*
 StyleBox[\"t\", \"TI\"]\), \!\(\*SubscriptBox[
 StyleBox[\"N\", \"TI\"], 
-StyleBox[\"pivot\", \"TI\"]]\), {\!\(\*SubscriptBox[
-StyleBox[\"p\", \"TI\"], 
-StyleBox[\"1\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"p\", \"TI\"], 
-StyleBox[\"2\", \"TR\"]]\), \!\(\*
-StyleBox[\"\[Ellipsis]\", \"TR\"]\)}] " <>
-		"yields a list of values for properties \!\(\*SubscriptBox[
-StyleBox[\"p\", \"TI\"], 
-StyleBox[\"1\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"p\", \"TI\"], 
-StyleBox[\"2\", \"TR\"]]\), \!\(\*
-StyleBox[\"\[Ellipsis]\", \"TR\"]\)"},
-"\n"];
+StyleBox[\"pivot\", \"TI\"]]\), \!\(\*
+StyleBox[\"property\", \"TI\"]\), \!\(\*
+StyleBox[\"timespec\", \"TI\"]\)] yields the value using a precomputed output of " <>
+"InflationEvolution \!\(\*
+StyleBox[\"evo\", \"TI\"]\).";
 
 
 InflationValue[
@@ -613,25 +630,15 @@ InflationValue[
 (*InflationPropertyData*)
 
 
-InflationPropertyData::usage = StringRiffle[{
-	"InflationPropertyData[] " <>
-		"gives the list of all properties supported by InflationProperty and " <>
-		"InflationValue.",
-	"InflationPropertyData[\!\(\*
-StyleBox[\"p\", \"TI\"]\)] " <>
-		"gives the list of methods supported for property \!\(\*
-StyleBox[\"p\", \"TI\"]\)."
-}, "\n"];
+InflationPropertyData::usage = "InflationPropertyData[] " <>
+"gives the list of all basic properties supported by InflationValue.";
 
 
 (* ::Text:: *)
 (*The values are added later in the implementation.*)
 
 
-InflationPropertyData[] = {};
-
-
-InflationPropertyData[property_String] := {};
+InflationPropertyData[] = {"Efoldings"};
 
 
 (* ::Subsubsection::Closed:: *)
@@ -722,10 +729,47 @@ $DerivedValues = $AddToSet[$DerivedValues, {
 (*InflatonLagrangianValue*)
 
 
+InflatonLagrangianValue::usage = "InflatonLagrangianValue[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\), \!\(\*
+StyleBox[\"property\", \"TI\"]\)] yields the value of a specified \!\(\*
+StyleBox[\"property\", \"TI\"]\) of Lagrangian \!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\) of the field \!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\)\!\(\*
+StyleBox[\"(\", \"TI\"]\)\!\(\*
+StyleBox[\"t\", \"TI\"]\)\!\(\*
+StyleBox[\")\", \"TI\"]\) assuming the field takes the value \!\(\*
+StyleBox[\"\[CurlyPhi]\", \"TI\"]\)\!\(\*
+StyleBox[\"=\", \"TI\"]\)\!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"0\", \"TR\"]]\).
+InflatonLagrangianValue[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {{\!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"1\", \"TR\"]], \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[
+RowBox[{\"1\", \",\", \" \", \"0\"}], \"TR\"]]\)}, {\!\(\*
+StyleBox[SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[\"2\", \"TR\"]], \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"\[CurlyPhi]\", \"TI\"], 
+StyleBox[
+RowBox[{\"2\", \",\", \" \", \"0\"}], \"TR\"]]\)}, \!\(\*
+StyleBox[\"\[Ellipsis]\", \"TR\"]\)}, \!\(\*
+StyleBox[\"t\", \"TI\"]\), \!\(\*
+StyleBox[\"property\", \"TI\"]\)] yields the value of a specified \!\(\*
+StyleBox[\"property\", \"TI\"]\) for a multiple field Lagrangian.";
+
+
 InflatonLagrangianValue::nonq = "Only quadratic forms are supported for kinetic terms.";
 
 
-InflatonLagrangianValue[lagrangian_, time_, expression_, state : {___List}] := Module[{
+InflatonLagrangianValue[lagrangian_, state : {___List}, time_, expression_] := Module[{
 		fields, momenta, metric, potential, metricDerivative, connection},
 	fields = Through[state[[All, 1]][time]];
 	momenta = D[fields, time];
@@ -766,8 +810,20 @@ InflatonLagrangianValue[lagrangian_, time_, expression_, state : {___List}] := M
 ]
 
 
-InflatonLagrangianValue[lagrangian_, time_, expression_, state_] :=
-	InflatonLagrangianValue[lagrangian, time, expression, {state}]
+InflatonLagrangianValue[lagrangian_, state_, time_, expression_] :=
+	InflatonLagrangianValue[lagrangian, {state}, time, expression]
+
+
+(* ::Subsection:: *)
+(*InflatonLagrangianPropertyData*)
+
+
+InflatonLagrangianPropertyData::usage = "InflatonLagrangianPropertyData[] " <>
+"gives the list of all basic properties supported by InflatonLagrangianValue.";
+
+
+InflatonLagrangianPropertyData[] =
+	{"SlowRollEpsilon", "SlowRollEta", "EffectiveAxionDecayConstant"};
 
 
 (* ::Section:: *)
@@ -778,34 +834,29 @@ InflatonLagrangianValue[lagrangian_, time_, expression_, state_] :=
 (*ExperimentallyConsistentInflationQ*)
 
 
-ExperimentallyConsistentInflationQ::usage = StringRiffle[{
-	"ExperimentallyConsistentInflationQ[\!\(\*
-StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), {\!\(\*
-StyleBox[\"\[CurlyPhi]\", \"TI\"]\)[\!\(\*
-StyleBox[\"t\", \"TI\"]\)], \!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\), \!\(\*SubscriptBox[
-StyleBox[\"\[PartialD]\", \"TI\"], 
-StyleBox[\"t\", \"TI\"]]\)\!\(\*SubscriptBox[
-StyleBox[\"\[CurlyPhi]\", \"TI\"], 
-StyleBox[\"0\", \"TR\"]]\)}, \!\(\*
+ExperimentallyConsistentInflationQ::usage = "ExperimentallyConsistentInflationQ[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), \!\(\*
+StyleBox[\"init\", \"TI\"]\), \!\(\*
 StyleBox[\"t\", \"TI\"]\), \!\(\*SubscriptBox[
 StyleBox[\"N\", \"TI\"], 
-StyleBox[\"pivot\", \"TI\"]]\)] " <>
-		"yields True if the specified model results in inflation with " <>
-		"experimentally consistent observables, and False otherwise.",
-	"ExperimentallyConsistentInflationQ[\!\(\*SubscriptBox[
+StyleBox[\"pivot\", \"TI\"]]\)] yields True if the specified model results in " <>
+"inflation with experimentally consistent observables, and False otherwise.
+ExperimentallyConsistentInflationQ[\!\(\*
+StyleBox[\"\[ScriptCapitalL]\", \"TI\"]\), \!\(\*
+StyleBox[\"evo\", \"TI\"]\), \!\(\*
+StyleBox[\"t\", \"TI\"]\), \!\(\*SubscriptBox[
+StyleBox[\"N\", \"TI\"], 
+StyleBox[\"pivot\", \"TI\"]]\)] uses precomputed output of InflationEvolution \!\(\*
+StyleBox[\"evo\", \"TI\"]\).
+ExperimentallyConsistentInflationQ[\!\(\*SubscriptBox[
 StyleBox[\"n\", \"TI\"], 
 StyleBox[\"s\", \"TI\"]]\), \!\(\*
-StyleBox[\"r\", \"TI\"]\)] " <>
-		"yields True if a given index of scalar spectral perturbations " <>
-		"\!\(\*SubscriptBox[
+StyleBox[\"r\", \"TI\"]\)] yields True if a given index of scalar spectral " <>
+"perturbations \!\(\*SubscriptBox[
 StyleBox[\"n\", \"TI\"], 
-StyleBox[\"s\", \"TI\"]]\) and " <>
-		"tensor-to-scalar power spectrum ratio \!\(\*
-StyleBox[\"r\", \"TI\"]\) are consistent with experimental " <>
-		"bounds, and False otherwise."
-}, "\n"];
+StyleBox[\"s\", \"TI\"]]\) and tensor-to-scalar power spectrum ratio \!\(\*
+StyleBox[\"r\", \"TI\"]\) are consistent with experimental bounds, and False " <>
+"otherwise.";
 
 
 Options[ExperimentallyConsistentInflationQ] = Options[InflationEvolution];

@@ -4,7 +4,7 @@ Cell[TextData[{
  Cell["0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"eda6ade1-43de-4a5c-9bed-e65f46ae433d"],
  " | Modified in: ",
- Cell[" ", "HistoryData",
+ Cell["0.3 ", "HistoryData",
   CellTags->"Modified",ExpressionUUID->"7fb9729e-9af1-4f18-a0ed-de4f4554c8b7"],
  " | Obsolete in: ",
  Cell[" ", "HistoryData",
@@ -136,7 +136,33 @@ Cell[TextData[{
  StyleBox["n", "TI"],
  " is the number of e-foldings as a function of time ",
  StyleBox["t", "TI"],
- "."
+ ".\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"e17337dd-6ef4-417d-bfef-2e483c9cbb1a"],
+ Cell[BoxData[
+  RowBox[{"InflationEquationsOfMotion", "[", 
+   RowBox[{
+    StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       StyleBox[
+        SubscriptBox[
+         StyleBox["\[CurlyPhi]", "TI"], 
+         StyleBox["1", "TR"]], "TI"], "[", 
+       StyleBox["t", "TI"], "]"}], ",", " ", 
+      RowBox[{
+       StyleBox[
+        SubscriptBox[
+         StyleBox["\[CurlyPhi]", "TI"], 
+         StyleBox["2", "TR"]], "TI"], "[", 
+       StyleBox["t", "TI"], "]"}], ",", " ", 
+      StyleBox["\[Ellipsis]", "TR"]}], "}"}], ",", " ", 
+    RowBox[{
+     StyleBox["n", "TI"], "[", 
+     StyleBox["t", "TI"], "]"}], ",", " ", 
+    StyleBox["t", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "46456cb9-be47-4c1b-bbb9-54c9b1da6328"],
+ "\[LineSeparator]yields the equations for a multiple field model."
 }], "Usage",
  CellID->982511436,ExpressionUUID->"d3497367-aaa5-4d02-9740-4ec438e42097"],
 
@@ -156,38 +182,39 @@ Cell[TextData[{
  Cell[BoxData[
   FormBox[
    RowBox[{
-    FractionBox[
-     RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
-     RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], "-", 
-    RowBox[{"3", 
-     FractionBox[
-      OverscriptBox["a", "."], "a"], 
-     FractionBox[
-      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
-      RowBox[{"\[PartialD]", 
-       OverscriptBox["\[CurlyPhi]", "."]}]]}], "-", 
     RowBox[{
-     SubscriptBox["\[PartialD]", "t"], 
      FractionBox[
       RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
       RowBox[{"\[PartialD]", 
-       OverscriptBox["\[CurlyPhi]", "."]}]]}]}], TraditionalForm]], 
-  "InlineMath",ExpressionUUID->"7130921b-41f4-4f24-a197-ab89c0d195b4"],
+       SubscriptBox["\[CurlyPhi]", "i"]}]], "-", 
+     RowBox[{"3", 
+      FractionBox[
+       OverscriptBox["a", "."], "a"], 
+      FractionBox[
+       RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+       RowBox[{"\[PartialD]", 
+        SubscriptBox[
+         OverscriptBox["\[CurlyPhi]", "."], "i"]}]]}], "-", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "t"], 
+      FractionBox[
+       RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+       RowBox[{"\[PartialD]", 
+        SubscriptBox[
+         OverscriptBox["\[CurlyPhi]", "."], "i"]}]]}]}], "=", "0"}], 
+   TraditionalForm]], "InlineMath",ExpressionUUID->
+  "7130921b-41f4-4f24-a197-ab89c0d195b4"],
  "."
 }], "Notes",
  CellID->1988951768,ExpressionUUID->"8da234b5-07f2-4282-970a-834e10ed051e"],
 
 Cell[TextData[{
- "To derive that, we need to vary with respect to fields, say, ",
- Cell[BoxData[
-  FormBox["\[CurlyPhi]", TraditionalForm]], "InlineMath",ExpressionUUID->
-  "89d88bc1-4deb-4871-90f3-45d820b91794"],
- " and ",
+ "To derive that, we need to vary with respect to fields ",
  Cell[BoxData[
   FormBox[
-   OverscriptBox["\[CurlyPhi]", "_"], TraditionalForm]], "InlineMath",
-  ExpressionUUID->"e2e2b0eb-550a-46aa-87eb-fff9dd534416"],
- ", and thus obtain (factors ",
+   SubscriptBox["\[CurlyPhi]", "i"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"89d88bc1-4deb-4871-90f3-45d820b91794"],
+ " and thus obtain (factors ",
  Cell[BoxData[
   FormBox[
    SqrtBox[
@@ -217,7 +244,8 @@ Cell[TextData[Cell[BoxData[
       RowBox[{"-", "g"}]], 
      FractionBox[
       RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
-      RowBox[{"\[PartialD]", "\[CurlyPhi]"}]]}], "-", 
+      RowBox[{"\[PartialD]", 
+       SubscriptBox["\[CurlyPhi]", "i"]}]]}], "-", 
     RowBox[{
      SubscriptBox["\[PartialD]", "\[Mu]"], 
      RowBox[{"(", 
@@ -229,9 +257,9 @@ Cell[TextData[Cell[BoxData[
         RowBox[{"\[PartialD]", 
          RowBox[{"(", 
           RowBox[{
-           SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], ")"}]}]]}], 
-      ")"}]}]}], "=", "0"}], 
-  TraditionalForm]], \
+           SubscriptBox["\[PartialD]", "\[Mu]"], 
+           SubscriptBox["\[CurlyPhi]", "i"]}], ")"}]}]]}], ")"}]}]}], "=", 
+   "0"}], TraditionalForm]], \
 "InlineMath",ExpressionUUID->"aaa156ff-377d-4bc6-88ae-507a43cb46a8"]], \
 "ExampleText",
  TextAlignment->Center,
@@ -243,7 +271,8 @@ Cell[TextData[Cell[BoxData[
    RowBox[{
     FractionBox[
      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
-     RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], "-", 
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["\[CurlyPhi]", "i"]}]], "-", 
     RowBox[{
      FractionBox["1", 
       SuperscriptBox["a", "3"]], 
@@ -255,7 +284,9 @@ Cell[TextData[Cell[BoxData[
         FractionBox[
          RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
          RowBox[{"\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."]}]]}], ")"}]}]}]}], "=", "0"}], 
+          SubscriptBox[
+           OverscriptBox["\[CurlyPhi]", "."], "i"]}]]}], ")"}]}]}]}], "=", 
+   "0"}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"3829edd1-3326-4a2c-aca4-7abd2916e0dc"]], \
 "ExampleText",
@@ -271,7 +302,8 @@ Cell[TextData[Cell[BoxData[
    RowBox[{
     FractionBox[
      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
-     RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], "-", 
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["\[CurlyPhi]", "i"]}]], "-", 
     RowBox[{
      FractionBox["1", 
       SuperscriptBox["a", "3"]], " ", 
@@ -283,7 +315,8 @@ Cell[TextData[Cell[BoxData[
         FractionBox[
          RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
          RowBox[{"\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."]}]]}], "+", 
+          SubscriptBox[
+           OverscriptBox["\[CurlyPhi]", "."], "i"]}]]}], "+", 
        RowBox[{
         SuperscriptBox["a", "3"], 
         RowBox[{
@@ -291,24 +324,29 @@ Cell[TextData[Cell[BoxData[
          FractionBox[
           RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
           RowBox[{"\[PartialD]", 
-           OverscriptBox["\[CurlyPhi]", "."]}]]}]}]}], ")"}]}]}], "=", 
+           SubscriptBox[
+            OverscriptBox["\[CurlyPhi]", "."], "i"]}]]}]}]}], ")"}]}]}], "=", 
+   
    RowBox[{
     FractionBox[
      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
-     RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], "-", 
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["\[CurlyPhi]", "i"]}]], "-", 
     RowBox[{"3", 
      FractionBox[
       OverscriptBox["a", "."], "a"], 
      FractionBox[
       RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
       RowBox[{"\[PartialD]", 
-       OverscriptBox["\[CurlyPhi]", "."]}]]}], "-", 
+       SubscriptBox[
+        OverscriptBox["\[CurlyPhi]", "."], "i"]}]]}], "-", 
     RowBox[{
      SubscriptBox["\[PartialD]", "t"], 
      FractionBox[
       RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
       RowBox[{"\[PartialD]", 
-       OverscriptBox["\[CurlyPhi]", "."]}]]}]}]}], 
+       SubscriptBox[
+        OverscriptBox["\[CurlyPhi]", "."], "i"]}]]}]}]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"7dae21f0-853b-491c-a65d-c37f5a1fb05b"]], \
 "ExampleText",
@@ -399,8 +437,8 @@ Cell[TextData[{
    RowBox[{
     RowBox[{
      OverscriptBox["a", "."], "/", "a"}], "=", 
-    OverscriptBox["n", "."]}], TraditionalForm]], "InlineMath",
-  ExpressionUUID->"314f2912-5969-4698-8ca5-c1fda2b11f51"],
+    OverscriptBox["n", "."]}], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "314f2912-5969-4698-8ca5-c1fda2b11f51"],
  ", where ",
  Cell[BoxData[
   FormBox["n", TraditionalForm]], "InlineMath",ExpressionUUID->
@@ -435,45 +473,15 @@ on time explicitly:\
 Cell[TextData[Cell[BoxData[
  FormBox[
   RowBox[{
-   OverscriptBox["\[CurlyPhi]", "\[DoubleDot]"], "=", 
+   SubscriptBox[
+    OverscriptBox["\[CurlyPhi]", "\[DoubleDot]"], "i"], "=", 
    RowBox[{
-    RowBox[{"(", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"-", 
-        SqrtBox[
-         RowBox[{"3", " ", 
-          RowBox[{"(", 
-           RowBox[{
-            RowBox[{"-", "\[ScriptCapitalL]"}], " ", "+", " ", 
-            RowBox[{
-             FractionBox[
-              RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
-              RowBox[{"\[PartialD]", 
-               OverscriptBox["\[CurlyPhi]", "."]}]], " ", 
-             OverscriptBox["\[CurlyPhi]", "."]}]}], ")"}]}]]}], " ", 
-       FractionBox[
-        RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
-        RowBox[{"\[PartialD]", 
-         OverscriptBox["\[CurlyPhi]", "."]}]]}], " ", "+", " ", 
-      FractionBox[
-       RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
-       RowBox[{"\[PartialD]", "\[CurlyPhi]"}]], " ", "-", " ", 
-      RowBox[{
-       OverscriptBox["\[CurlyPhi]", "."], " ", 
-       FractionBox[
-        RowBox[{
-         SuperscriptBox["\[PartialD]", "2"], "\[ScriptCapitalL]"}], 
-        RowBox[{
-         RowBox[{"\[PartialD]", "\[CurlyPhi]"}], 
-         RowBox[{"\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."]}]}]]}]}], ")"}], "/", 
-    FractionBox[
-     RowBox[{
-      SuperscriptBox["\[PartialD]", "2"], "\[ScriptCapitalL]"}], 
-     RowBox[{"\[PartialD]", 
-      SuperscriptBox[
-       OverscriptBox["\[CurlyPhi]", "."], "2"]}]]}]}], 
+    SubscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox["g", 
+       RowBox[{"-", "1"}]], ")"}], 
+     RowBox[{"i", " ", "j"}]], 
+    SubscriptBox["R", "j"]}]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"840b47a2-9cc3-44b8-9c53-0bbc354bfbeb"]], \
 "ExampleText",
@@ -490,7 +498,66 @@ Cell[TextData[Cell[BoxData[
 "InlineMath",ExpressionUUID->"0a53057f-146a-4295-a1c2-3e281ffc2149"]], \
 "ExampleText",
  TextAlignment->Center,
- CellID->282370256,ExpressionUUID->"f2a91ed3-a87d-46b1-9fcf-e7db25d3cdcd"]
+ CellID->282370256,ExpressionUUID->"f2a91ed3-a87d-46b1-9fcf-e7db25d3cdcd"],
+
+Cell["where", "ExampleText",
+ CellID->817374660,ExpressionUUID->"1d6e0905-12c3-4fc0-a3bb-28a4a445e411"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["g", 
+    RowBox[{"i", " ", "j"}]], "=", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "\[ScriptCapitalL]"}], 
+    RowBox[{
+     RowBox[{"\[PartialD]", 
+      SubscriptBox[
+       OverscriptBox["\[CurlyPhi]", "."], "i"]}], 
+     RowBox[{"\[PartialD]", 
+      SubscriptBox[
+       OverscriptBox["\[CurlyPhi]", "."], "j"]}]}]]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"e65fa61e-5026-4b93-8cc4-b26c08480730"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->1122852969,ExpressionUUID->"4cf9292c-5c09-4503-aa43-410edb0ca9f6"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["R", "i"], "=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["\[CurlyPhi]", "i"]}]], "-", 
+    RowBox[{
+     SqrtBox[
+      RowBox[{"3", "\[Rho]"}]], 
+     FractionBox[
+      RowBox[{"\[PartialD]", "\[ScriptCapitalL]"}], 
+      RowBox[{"\[PartialD]", 
+       SubscriptBox[
+        OverscriptBox["\[CurlyPhi]", "."], "i"]}]]}], "-", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["\[PartialD]", "2"], "\[ScriptCapitalL]"}], 
+      RowBox[{
+       RowBox[{"\[PartialD]", 
+        SubscriptBox[
+         OverscriptBox["\[CurlyPhi]", "."], "i"]}], 
+       RowBox[{"\[PartialD]", 
+        SubscriptBox["\[CurlyPhi]", "j"]}]}]], 
+     SubscriptBox[
+      OverscriptBox["\[CurlyPhi]", "."], "j"]}]}]}], 
+  TraditionalForm]], \
+"InlineMath",ExpressionUUID->"cf818fc8-a489-4b5b-addc-2815502ed76e"]], \
+"ExampleText",
+ TextAlignment->Center,
+ CellID->832689100,ExpressionUUID->"d4cf5539-76a7-4f05-a780-a6812e73567b"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -573,7 +640,7 @@ Cell[BoxData[
       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}]}], ",", 
    RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
    RowBox[{"n", "[", "t", "]"}], ",", "t"}], "]"}]], "Input",
- CellLabel->"In[119]:=",
+ CellLabel->"In[421]:=",
  CellID->692301668,ExpressionUUID->"d14b04fe-b7d0-4a72-bfda-0e8130cfcd51"],
 
 Cell[BoxData[
@@ -622,8 +689,148 @@ Cell[BoxData[
           SuperscriptBox["\[CurlyPhi]", "\[Prime]",
            MultilineFunction->None], "[", "t", "]"}], "2"]}]}]], 
      SqrtBox["3"]]}]}], "}"}]], "Output",
- CellLabel->"Out[119]=",
- CellID->1240690168,ExpressionUUID->"e4819ea3-897b-4d24-8d69-925360f84319"]
+ CellLabel->"Out[421]=",
+ CellID->474590812,ExpressionUUID->"c03c0e17-6f93-4e70-9ae2-b27712dfe224"]
+}, Open  ]],
+
+Cell["The same for two fields:", "ExampleText",
+ CellID->763062358,ExpressionUUID->"50ad3058-5595-46c7-8ff0-a81bf5d4888a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InflationEquationsOfMotion", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
+      RowBox[{
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
+      RowBox[{
+       RowBox[{"\[Chi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{
+     FractionBox["m", "2"], 
+     SuperscriptBox[
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{
+     FractionBox["m", "2"], 
+     SuperscriptBox[
+      RowBox[{"\[Chi]", "[", "t", "]"}], "2"]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+     RowBox[{"\[Chi]", "[", "t", "]"}]}], "}"}], ",", 
+   RowBox[{"n", "[", "t", "]"}], ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[422]:=",
+ CellID->550315590,ExpressionUUID->"af632038-0ce0-4cd1-96bf-5c2e361ffef6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["\[CurlyPhi]", "\[Prime]\[Prime]",
+      MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "m"}], " ", 
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}]}], "-", 
+     RowBox[{
+      SqrtBox["3"], " ", 
+      RowBox[{
+       SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         FractionBox["1", "2"], " ", "m", " ", 
+         SuperscriptBox[
+          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", "m", " ", 
+         SuperscriptBox[
+          RowBox[{"\[Chi]", "[", "t", "]"}], "2"]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{
+           SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "2"]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{
+           SuperscriptBox["\[Chi]", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "2"]}]}]]}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["\[Chi]", "\[Prime]\[Prime]",
+      MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "m"}], " ", 
+      RowBox[{"\[Chi]", "[", "t", "]"}]}], "-", 
+     RowBox[{
+      SqrtBox["3"], " ", 
+      RowBox[{
+       SuperscriptBox["\[Chi]", "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         FractionBox["1", "2"], " ", "m", " ", 
+         SuperscriptBox[
+          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", "m", " ", 
+         SuperscriptBox[
+          RowBox[{"\[Chi]", "[", "t", "]"}], "2"]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{
+           SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "2"]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{
+           SuperscriptBox["\[Chi]", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "2"]}]}]]}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["n", "\[Prime]",
+      MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+    FractionBox[
+     SqrtBox[
+      RowBox[{
+       RowBox[{
+        FractionBox["1", "2"], " ", "m", " ", 
+        SuperscriptBox[
+         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "2"]}], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "m", " ", 
+        SuperscriptBox[
+         RowBox[{"\[Chi]", "[", "t", "]"}], "2"]}], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+           MultilineFunction->None], "[", "t", "]"}], "2"]}], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["\[Chi]", "\[Prime]",
+           MultilineFunction->None], "[", "t", "]"}], "2"]}]}]], 
+     SqrtBox["3"]]}]}], "}"}]], "Output",
+ CellLabel->"Out[422]=",
+ CellID->813142078,ExpressionUUID->"169667f8-d9e7-4130-913e-470b28ba45e9"]
 }, Open  ]]
 }, Open  ]],
 
@@ -710,8 +917,7 @@ Cell[BoxData[
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
