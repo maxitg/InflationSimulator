@@ -4,7 +4,7 @@ Cell[TextData[{
  Cell["0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"5fd882f0-3267-4832-bce0-0ad40b26d79f"],
  " | Modified in: ",
- Cell[" ", "HistoryData",
+ Cell[" 0.3", "HistoryData",
   CellTags->"Modified",ExpressionUUID->"0318a176-d800-41ca-bf22-0dea944c5b6e"],
  " | Obsolete in: ",
  Cell[" ", "HistoryData",
@@ -121,21 +121,7 @@ Cell[TextData[{
   RowBox[{"ExperimentallyConsistentInflationQ", "[", 
    RowBox[{
     StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{
-       StyleBox["\[CurlyPhi]", "TI"], "[", 
-       StyleBox["t", "TI"], "]"}], ",", " ", 
-      SubscriptBox[
-       StyleBox["\[CurlyPhi]", "TI"], 
-       StyleBox["0", "TR"]], ",", " ", 
-      RowBox[{
-       SubscriptBox[
-        StyleBox["\[PartialD]", "TI"], 
-        StyleBox["t", "TI"]], 
-       SubscriptBox[
-        StyleBox["\[CurlyPhi]", "TI"], 
-        StyleBox["0", "TR"]]}]}], "}"}], ",", " ", 
+    StyleBox["init", "TI"], ",", " ", 
     StyleBox["t", "TI"], ",", " ", 
     SubscriptBox[
      StyleBox["N", "TI"], 
@@ -151,6 +137,28 @@ observables, and ",
   BaseStyle->"Link",
   ButtonData->"paclet:ref/False"],
  " otherwise.\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"57ef299e-4748-481d-bae1-f50b6739f5ec"],
+ Cell[BoxData[
+  RowBox[{"ExperimentallyConsistentInflationQ", "[", 
+   RowBox[{
+    StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
+    StyleBox["evo", "TI"], ",", " ", 
+    StyleBox["t", "TI"], ",", " ", 
+    SubscriptBox[
+     StyleBox["N", "TI"], 
+     StyleBox["pivot", "TI"]]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "f6244184-7201-47d9-8633-e9dade213a0f"],
+ "\[LineSeparator]uses precomputed output of ",
+ Cell[BoxData[
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"7a114312-a05d-40f1-8af5-b6f7b6cc31b0"],
+ " ",
+ Cell[BoxData[
+  StyleBox["evo", "TI"]], "InlineFormula",ExpressionUUID->
+  "571957da-b098-46a7-9990-2b25c29ffba9"],
+ ".\n",
  Cell["      ", "ModInfo",ExpressionUUID->
   "e98b6b73-8cb5-4ba9-9b92-a634404f613d"],
  Cell[BoxData[
@@ -172,7 +180,9 @@ observables, and ",
    StyleBox["s", "TI"]]], "InlineFormula",ExpressionUUID->
   "6583654b-8cf6-446b-9888-33bfc7259139"],
  " and tensor-to-scalar power spectrum ratio ",
- StyleBox["r", "TI"],
+ Cell[BoxData[
+  StyleBox["r", "TI"]], "InlineFormula",ExpressionUUID->
+  "5d6552c8-13ca-44d3-8252-f07b6372ae26"],
  " are consistent with experimental bounds, and ",
  ButtonBox["False",
   BaseStyle->"Link",
@@ -188,14 +198,28 @@ Cell[TextData[{
  ButtonBox["True",
   BaseStyle->"Link",
   ButtonData->"paclet:ref/True"],
- " will only be yielded if inflation stops and produces sufficient number of \
-e-foldings. In this case, options of ",
+ " will only be yielded if inflation stops and produces a sufficient number \
+of e-foldings. In the case where ",
+ Cell[BoxData[
+  StyleBox["init", "TI"]], "InlineFormula",ExpressionUUID->
+  "b2ca73eb-8d29-42ab-98a7-4b6cb11b8b0c"],
+ " is supplied, options of ",
  Cell[BoxData[
   ButtonBox["InflationEvolution",
    BaseStyle->"Link",
    ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
   "InlineFormula",ExpressionUUID->"92e6000c-3d88-4f62-ab3f-b2fffc5c6f5a"],
- " are accepted."
+ " are accepted, and ",
+ Cell[BoxData[
+  StyleBox["init", "TI"]], "InlineFormula",ExpressionUUID->
+  "6eb21be2-0063-4441-9dc2-6ffd4d35b837"],
+ " has the same format as in ",
+ Cell[BoxData[
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"7ffc84b2-2311-488d-9814-f6d8d44f2dbd"],
+ "."
 }], "Notes",
  CellID->1067943069,ExpressionUUID->"827e7ab9-a889-48df-a4fb-c2a180da389e"],
 
@@ -295,16 +319,15 @@ Cell[BoxData[
         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
     ",", 
    RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+    RowBox[{"\[CurlyPhi]", ",", 
      RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
    ",", "60.0"}], "]"}]], "Input",
- CellLabel->"In[135]:=",
+ CellLabel->"In[632]:=",
  CellID->110677409,ExpressionUUID->"0a30b95b-cb1a-4358-9faa-c62630fcae76"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[135]=",
- CellID->1268513865,ExpressionUUID->"a72b5863-5dc8-4219-8466-a8ca95c8d2fa"]
+ CellLabel->"Out[632]=",
+ CellID->1262955048,ExpressionUUID->"24a941d8-e1c7-41ab-8720-04eba2d8b886"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -346,13 +369,12 @@ Cell[BoxData[
           RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "f"}], "]"}]}], 
        ")"}]}], ",", 
      RowBox[{"{", 
-      RowBox[{
-       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+      RowBox[{"\[CurlyPhi]", ",", 
        RowBox[{"0.9", " ", "f", " ", "\[Pi]"}], ",", "0.0"}], "}"}], ",", "t",
       ",", "60.0"}], "]"}], ",", 
    RowBox[{"{", 
     RowBox[{"f", ",", "1", ",", "10", ",", "1"}], "}"}]}], "]"}]], "Input",
- CellLabel->"In[136]:=",
+ CellLabel->"In[633]:=",
  CellID->1429462046,ExpressionUUID->"bf3ceff5-8c6c-4d32-84c8-afad89e32543"],
 
 Cell[BoxData[
@@ -361,8 +383,8 @@ Cell[BoxData[
   "False", ",", "False", ",", "False", ",", "False", ",", "False", ",", 
    "True", ",", "True", ",", "True", ",", "True", ",", "True"}], 
   "}"}]], "Output",
- CellLabel->"Out[136]=",
- CellID->862938165,ExpressionUUID->"5c01c309-14b7-4251-bf6d-41447e00d8c6"]
+ CellLabel->"Out[633]=",
+ CellID->1257736550,ExpressionUUID->"ec5fbba1-b9ae-44f9-b33a-9bdf18a71cd3"]
 }, Open  ]]
 }, Open  ]],
 
@@ -396,12 +418,12 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"ExperimentallyConsistentInflationQ", "[", 
   RowBox[{"0.965", ",", "0.06"}], "]"}]], "Input",
- CellLabel->"In[106]:=",
+ CellLabel->"In[634]:=",
  CellID->1534495695,ExpressionUUID->"ffd868e8-cd65-4ca7-8698-ee882a467034"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[106]=",
- CellID->1539665063,ExpressionUUID->"63312bcf-b84c-43d4-a078-89ed88fdbd71"]
+ CellLabel->"Out[634]=",
+ CellID->1942056351,ExpressionUUID->"985e2bc6-d477-498f-a89b-a37fb5cfa914"]
 }, Open  ]]
 }, Open  ]],
 
@@ -430,12 +452,12 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"ExperimentallyConsistentInflationQ", "[", 
   RowBox[{"0.955", ",", "0.06"}], "]"}]], "Input",
- CellLabel->"In[105]:=",
+ CellLabel->"In[635]:=",
  CellID->1385922496,ExpressionUUID->"db9d67f4-2510-4b5a-b790-67fb6c478a34"],
 
 Cell[BoxData["False"], "Output",
- CellLabel->"Out[105]=",
- CellID->373175488,ExpressionUUID->"374f5bf5-44ae-4acc-966c-e30e757cac12"]
+ CellLabel->"Out[635]=",
+ CellID->907396662,ExpressionUUID->"89d42728-19e5-44f3-b5fe-aa747cd7583d"]
 }, Open  ]]
 }, Open  ]],
 
@@ -473,12 +495,12 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"ExperimentallyConsistentInflationQ", "[", 
   RowBox[{"0.955", ",", "0.03"}], "]"}]], "Input",
- CellLabel->"In[107]:=",
+ CellLabel->"In[636]:=",
  CellID->1179734577,ExpressionUUID->"77423d75-0fb3-4d1f-8384-97ed690bc978"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[107]=",
- CellID->1277475793,ExpressionUUID->"4cde4b08-972d-41e4-92a9-244caead1872"]
+ CellLabel->"Out[636]=",
+ CellID->440134463,ExpressionUUID->"ece57931-39f9-4c7c-9396-e8ce758f5da7"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -566,8 +588,7 @@ Cell[BoxData[
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

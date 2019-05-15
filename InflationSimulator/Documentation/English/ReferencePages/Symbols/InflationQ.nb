@@ -4,7 +4,7 @@ Cell[TextData[{
  Cell["0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"a904ece9-d06d-42a5-8279-00b06f2766dc"],
  " | Modified in: ",
- Cell[" ", "HistoryData",
+ Cell[" 0.3", "HistoryData",
   CellTags->"Modified",ExpressionUUID->"be04cbe5-0d51-4c20-a41c-177869ff32b6"],
  " | Obsolete in: ",
  Cell[" ", "HistoryData",
@@ -120,27 +120,14 @@ Cell[TextData[{
   RowBox[{"InflationQ", "[", 
    RowBox[{
     StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{
-       StyleBox["\[CurlyPhi]", "TI"], "[", 
-       StyleBox["t", "TI"], "]"}], ",", " ", 
-      SubscriptBox[
-       StyleBox["\[CurlyPhi]", "TI"], 
-       StyleBox["0", "TR"]], ",", " ", 
-      RowBox[{
-       SubscriptBox[
-        StyleBox["\[PartialD]", "TI"], 
-        StyleBox["t", "TI"]], 
-       SubscriptBox[
-        StyleBox["\[CurlyPhi]", "TI"], 
-        StyleBox["0", "TR"]]}]}], "}"}], ",", " ", 
+    StyleBox["init", "TI"], ",", " ", 
     StyleBox["t", "TI"], ",", " ", 
     SubscriptBox[
      StyleBox["N", "TI"], 
      StyleBox["pivot", "TI"]]}], "]"}]], "InlineFormula",ExpressionUUID->
   "ba04d664-4aa6-41aa-bfbc-1535e92f1f75"],
- "\[LineSeparator]yields True if inflation stops and produces at least ",
+ "\[LineSeparator]yields True if inflation stops (final density is zero) and \
+produces at least ",
  Cell[BoxData[
   SubscriptBox[
    StyleBox["N", "TI"], 
@@ -170,24 +157,18 @@ Cell[TextData[{
  CellID->982511436,ExpressionUUID->"4a4899e2-33b8-4739-9901-eefcc41e0413"],
 
 Cell[TextData[{
- ButtonBox["InflationQ",
-  BaseStyle->"Link",
-  ButtonData->"paclet:InflationSimulator/ref/InflationQ"],
- " uses outputs of ",
  Cell[BoxData[
-  ButtonBox["InflationStopsQ",
-   BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/InflationStopsQ"]], 
-  "InlineFormula",ExpressionUUID->"7ddc550e-8fad-4115-876b-29dcf790eaa8"],
- " and ",
+  StyleBox["init", "TI"]], "InlineFormula",ExpressionUUID->
+  "17dbcd5e-f0b6-4b8f-8c11-4065e154a355"],
+ " has the same format as in ",
  Cell[BoxData[
-  ButtonBox["InflationEfoldingsCount",
+  ButtonBox["InflationEvolution",
    BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/InflationEfoldingsCount"]], 
-  "InlineFormula",ExpressionUUID->"5430c4c8-c885-4554-8471-bb0dd3a42e29"],
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"7d5d4c91-1746-4fbc-afdb-a6df26b69663"],
  "."
 }], "Notes",
- CellID->1067943069,ExpressionUUID->"6e9deb95-9872-46dd-900e-95ba8cc6031b"]
+ CellID->905464957,ExpressionUUID->"b68e77f7-030d-4789-86a6-663aa7fd3a0f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -273,16 +254,15 @@ Cell[BoxData[
         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
     ",", 
    RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+    RowBox[{"\[CurlyPhi]", ",", 
      RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
    ",", "60.0"}], "]"}]], "Input",
- CellLabel->"In[489]:=",
+ CellLabel->"In[436]:=",
  CellID->802418346,ExpressionUUID->"084d54b4-51dd-492e-a5e4-fe419cd56cf9"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[489]=",
- CellID->1169566628,ExpressionUUID->"77325574-1327-4922-b5ac-dd649810c9d4"]
+ CellLabel->"Out[436]=",
+ CellID->1262108355,ExpressionUUID->"4790e22c-b47b-4f0e-bf4b-c37635eceb1e"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -317,16 +297,15 @@ Cell[BoxData[
         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
     ",", 
    RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+    RowBox[{"\[CurlyPhi]", ",", 
      RowBox[{"0.4", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
    ",", "60.0"}], "]"}]], "Input",
- CellLabel->"In[496]:=",
+ CellLabel->"In[437]:=",
  CellID->1370520511,ExpressionUUID->"0e82077a-f45f-47ab-acbe-1d51d8fb0cb0"],
 
 Cell[BoxData["False"], "Output",
- CellLabel->"Out[496]=",
- CellID->50390859,ExpressionUUID->"9e287f1f-9ef1-4b03-8b16-995f5faea958"]
+ CellLabel->"Out[437]=",
+ CellID->561902113,ExpressionUUID->"35b121c3-13c2-46c9-84e8-a71045c87012"]
 }, Open  ]]
 }, Open  ]],
 
@@ -339,11 +318,14 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleDelimiter",
  CellID->531839574,ExpressionUUID->"e0be0774-fe0c-4edc-a327-ce8d6ec668e3"],
 
-Cell["\<\
-If inflation never stops (due to non-zero ground-state potential in this \
-case), False is returned even though the total number of e-foldings is \
-infinite:\
-\>", "ExampleText",
+Cell[TextData[{
+ "If inflation never stops (due to non-zero ground-state potential in this \
+case), ",
+ ButtonBox["False",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/False"],
+ " is returned:"
+}], "ExampleText",
  CellID->1112402804,ExpressionUUID->"cfca805e-0736-4c63-a2c0-d9b69d89ee3e"],
 
 Cell[CellGroupData[{
@@ -364,21 +346,20 @@ Cell[BoxData[
         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
     ",", 
    RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+    RowBox[{"\[CurlyPhi]", ",", 
      RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
    ",", "60.0"}], "]"}]], "Input",
- CellLabel->"In[499]:=",
+ CellLabel->"In[438]:=",
  CellID->161296046,ExpressionUUID->"3b16811c-8ec4-4f6b-b74d-c82ca9a82b4f"],
 
 Cell[BoxData["False"], "Output",
- CellLabel->"Out[499]=",
- CellID->1099744355,ExpressionUUID->"ed212dfa-82e3-4e54-a22b-ce382cdf8462"]
+ CellLabel->"Out[438]=",
+ CellID->485554511,ExpressionUUID->"56d00061-4497-4451-8022-25b2687b01d4"]
 }, Open  ]],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"evo", "=", 
+  RowBox[{"evolution", "=", 
    RowBox[{"InflationEvolution", "[", 
     RowBox[{
      RowBox[{
@@ -394,11 +375,10 @@ Cell[BoxData[
           RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], 
        ")"}]}], ",", 
      RowBox[{"{", 
-      RowBox[{
-       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+      RowBox[{"\[CurlyPhi]", ",", 
        RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", 
      "t"}], "]"}]}], ";"}]], "Input",
- CellLabel->"In[500]:=",
+ CellLabel->"In[439]:=",
  CellID->1564630990,ExpressionUUID->"896145b1-5a52-4059-8d1a-4fe6f0a0f8bb"],
 
 Cell[CellGroupData[{
@@ -407,11 +387,12 @@ Cell[BoxData[
  RowBox[{"Plot", "[", 
   RowBox[{
    RowBox[{
-    RowBox[{"evo", "[", "\"\<Efoldings\>\"", "]"}], "[", "t", "]"}], ",", 
+    RowBox[{"evolution", "[", "\"\<Efoldings\>\"", "]"}], "[", "t", "]"}], 
+   ",", 
    RowBox[{"{", 
     RowBox[{"t", ",", "0", ",", "1000"}], "}"}], ",", 
    RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
- CellLabel->"In[504]:=",
+ CellLabel->"In[440]:=",
  CellID->604327900,ExpressionUUID->"1f26c486-e573-4168-9ccb-5f5f834e301d"],
 
 Cell[BoxData[
@@ -419,40 +400,40 @@ Cell[BoxData[
     TagBox[
      {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
       1.], LineBox[CompressedData["
-1:eJwVxX040wkAB3AxRR6y4UglsycpRce5ktg3ebmGqKTcpfLSlpJ53xgZtvmt
-2OhFqsO85q5CeiGhYpXTlVj1UHjK6E2USXGiu/vj83yoIext+9XV1NR8/vP/
-w6pv3h7MCRc/Lmcdy3HCJaY80d6tWEH3kEwtMeUq6FydEebCYiX9gLh/dJij
-pPOaK9RIxeP0g1lLB9o44/SZ0xk+UzINXD028jCfo4Fmkmp8XGaARipjNTgG
-MHNa4Tkmo2GYLB+VJtCw5Zn800eZPaLm3R1eFm8P5GbouMe5wdxwTY/jJjeQ
-xwNqckO34G/XTkuh0Ra43ORuTdH3h+WOn+969WyHLLb5Uu+uQFSN8ZRluoHo
-39zXNe2xB1Yvb7offh2E/V5JIyEdwfgnOv/jUG4wNjZ8JXVEhsHeo8opziIM
-OvWv1Ba9YiKeX2sxIWDCeswzcgMRDpu6MN2TJuFYf8P0trN6BCSUUMWzlEOo
-3rx32T12JJjljtTdTw6jab7+LFkchVGrKdcfV0fBtL7iRU1rNLIVYQse74qG
-RcZ0dINJLLyq/ILDz8Vgj5328UxWHK4EuViWPY0FeYVPmbwoHmZbO5OcJuPA
-dvZlR6gSwO+lGUesSYDbmcxVAhsu2hT8vut+HMgpR0rmChNR2NtK3ifkghO1
-usT7aRIizc9U/FKTiGIjg5PqC5IxdHEsb0lrEjjd111ooSkoYYebBL7lQT6Q
-8+KK7AjukFMCfptIhlsnTV2rOxW3rNve+U+moD6yIUp5ko9936141TqpEJsc
-6UmyS0NCqrwqT4OPNZ2yQs++NDyasTN/RPDxabrI6osgHaT6h1y2VhoiGA0X
-dlMzUDo4L6YyOQ1N5+2PTbZnQLP2etwfX9PQbtUW6h0uwL2hAzb1rHSMLXKc
-k04S4sngQJKJIh0jS7SnP1wUYqQqf2qOewbKN30eWcAQYVC185vWpQzYcV2c
-D3wWgd2+0+rUIgF4j0uF3BOZyCxsFKr4AvSdHTp+0JbA7uDLDg8GBDCKE33L
-7SbQ8iBlboyXENrRrnujE8Qgn7dWH70gRFdykJmIehQOjFQh00CEa//4lyT/
-dRRFc9w7KVwRtv/OWmrNPAZdxtxqv6ci3PfumdTTz8LlvNtOXY6Z+GLOfPBn
-VRZonjeK7U5ngs7qCLFiZOMlRZgfpsrEnsbTAS9U2Vi8NaRVcweBdQ68TR45
-EuQ0nzPsqiHwjOe6UvOEBE6UcuJQLYH4Fm2y/JQEOsmUKdJVArW++f0bz0mg
-XbC8Y20dgVUHryU6V0jgElzgV9BEwLzoY/VPjRKUkZovsNoJaGuHLaa9leDK
-S/LzKSWBSl9rjYH3EowrbV4dHyLgkad6JxuRoHK+6ZD1GwICWlqd2bgEgxYs
-ZdB7ArPOhdtMZyV4RLVvuPOJgCqmmyAbSlFl5KEgZgjk3ChiP/5BCpZeXSX1
-OwFbNVaAdKEUWe2WvAY1MSKyJ2i6S6UIp+kZf9AQ4/V5yi2tlVIUxfpY+84X
-QzDaU35/lRRvSjXfvdERg+ZQnCWylcJJrijl64qxr8X2V5KDFIGHmvRr9cWY
-1fqK1rVSMJr6WxgUMQp8m5enr5fi7ClqjNJAjA15Qr2NzlLMdBNmyUZiPO/1
-nvhOl8LS37jN0FiMfwEf7Dne
+1:eJwVzWk41AkAx3FXPSO5UyLnPDbCypWoMT8llogt68mWUYiUazTMuApz/ac0
+E4lKMWzS1hLahKKSJ8WuqxSFtpGyoZjJUaRtX3yfz8uvSWjczgMKcnJyvt/7
+3zHpgo9HxLSrP4u5MdJ52jWhLNneveQJ9dW2CQM91hMqS2UiYnXJMJUjG/gw
+xhympjZdllMqkVE7NxhKHjFl1K8FbN/PYkWYqY3/fZapiCYlqUwm1gYmPazB
+1IbhJgvPKTEZzYkuH0VJZOx41jL5UWyPigDdSbNEeyCHrbKN4Q7mLodu563u
+0JQFVuWE7QDptrE+V2cHXG+zfk7XCMAnJ/mm7f27ID7SVDGwOwhjlSbDl1SD
+MOQ12DPvQYOaraFnzNtgHNieMhHauR/vB4pkIzn74dYwq9QZGw7a42OuDNNw
+qNS9ltN/HYGwe0Ym05wIWE55xm4momBJm1HO042CS73ePYpCNMa8XLqfpR/G
+da8Qs4dxscirrli992kMGpdpLGoK4jF7uINiax0PvbrLL6se0DE1QlvetZsO
+U/Y8vUH3CFJz4/dFFSaAZqecy49kIHCo8IdLvUegaeF7qaU4EXtfNDI3zTEQ
+R/GLi5YmofGGhU70+iS4n+NbcX5kIaiB9qLWn4kWraOlS7nJiNbqVd/HZYEZ
+b13q05uCZY3VlT9VJaNERztPQT0NITrBxQYPUsDsq3Ulh6XjFWOVadBoKlok
+p17eEB+F6ln50D3TaXDvJiuQ+o7BNyZqJmAuHXWxDfHDeRnwp7cKrqscg0D3
+aH+KXSbczjytzVfMwPpucZHnYCZiJfS1HUQGJueLzWc4WfgyFJgeR8pEtHfD
+tb0mbDyucUi6kpaJxnL7E3NtbNDaspi/z2aizfxRmE8UB/dGd9vWRWZhSt9Z
+PkuJi3Y97XTdJ1mYMFCeH/+Di57qh1/kt7FRtvXThLo3D4z62gVSBRt2LFfK
+wU88rFnBMD+jz0Fq129c1mk+uqbUuNIMDgbPj+QesiGgZnHesV3CgQ6Dt5DT
+R2AkPGlpwnYulOlbQuhJAhys4Ch8uPb9kxZsyDM5jpbgpbwIbR5ufgkoTXt8
+HBN3OV1aLB52XYg0sow4gejbXpX+vTy0+vTPqWlko6Rj3KXHmY8Z44j2q5XZ
+ULDqEdsV8EGN7Aw19z6JCxeLCsKlfNDuFAS+lJ7Eaeuk5iW/ENjomLrV45QQ
+Rawy7Z4qAs9St6xbclqIz72V/MM1BBKblTVbzgjRvX/NnNKfBGr8zg65FQqR
+/c62w+kWAatDN5Mpl4WIGSz3u9hIwLj443WHO0JsWGi5GtlGQFk5fA15VIgD
+tav6Pw8TuOJnqSh5L4TRcod/ckcIeORL/xVPCHEuz/CN5TsCHHLmLUOZEIvP
+D0mC3xNYpBTt1FsU4s2wU/39SQLShD5Cc4UI1mLvHuIrgVP1xXFdK0Xobm8o
+N/lGwEYuMlC0WoTCbouUBjkBok9Ok1WNRLAM1lg5rijA23Ktu6R1IpTa+a/z
+WyYA50N/WauVCFfqSaPvVAQgO5Zk82xE2GP7vDRDVYB9zTa/KjmKkB9yX71G
+Q4BF0iweOInA/0ty31tLgIt+TWuzXESYzTejD2sLsDmfq+ZGEUHvfLZBmo4A
+LwZ8pr9RRTCt1mtdsUqA/wCOFz2a
        "]]},
-     Annotation[#, "Charting`Private`Tag$179531#1"]& ]}, {}, {}},
+     Annotation[#, "Charting`Private`Tag$116627#1"]& ]}, {}},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->{True, True},
   AxesLabel->{None, None},
-  AxesOrigin->{0, 0},
+  AxesOrigin->{Automatic, Automatic},
   DisplayFunction->Identity,
   Frame->{{False, False}, {False, False}},
   FrameLabel->{{None, None}, {None, None}},
@@ -464,7 +445,14 @@ nvhOl8LS37jN0FiMfwEf7Dne
     GrayLevel[0.5, 0.4]],
   ImagePadding->All,
   Method->{
-   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
     AbsolutePointSize[6], "ScalingFunctions" -> None, 
     "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
         (Identity[#]& )[
@@ -483,8 +471,8 @@ nvhOl8LS37jN0FiMfwEf7Dne
      Scaled[0.05], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellLabel->"Out[504]=",
- CellID->1028765815,ExpressionUUID->"71b14719-4bb2-4959-b2f7-b94fa38f90d7"]
+ CellLabel->"Out[440]=",
+ CellID->131651271,ExpressionUUID->"e1bc4e60-0c01-4816-8187-54ee1c5c3565"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -572,8 +560,7 @@ Cell[BoxData[
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

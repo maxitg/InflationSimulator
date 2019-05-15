@@ -93,10 +93,10 @@ Cell["Inflation Simulator", "GuideTitle",
  CellID->942062912,ExpressionUUID->"6648ce2e-bed8-43b3-a626-9dfd3a2f53ee"],
 
 Cell["\<\
-Inflation Simulator takes a single-field Lagrangian as an input (possibly \
-with non-canonical kinetic terms), and can generate evolution of both the \
-field and e-foldings count, as well as compute the values of some observables \
-such as tensor and scalar spectral indices, and tensor-to-scalar ratio.\
+Inflation Simulator takes a Lagrangian as an input (possibly with a \
+non-canonical kinetic term), and can generate evolution of both the field and \
+the e-foldings count, as well as compute the values of some observables such \
+as tensor and scalar spectral indices, and tensor-to-scalar ratio.\
 \>", "GuideAbstract",
  CellID->2001916300,ExpressionUUID->"4a056e21-8966-4943-9568-1bdf0aea5605"]
 }, Open  ]],
@@ -141,31 +141,9 @@ Cell[TextData[{
   "InlineGuideFunction",ExpressionUUID->
   "a2861bad-7a88-4b8b-a199-373ceb0e981a"],
  " \[LongDash] compute functions describing evolution of the field and the \
-number of e-foldings with time."
+number of e-foldings over time."
 }], "GuideText",
  CellID->1316496314,ExpressionUUID->"b2cc32b6-2ca5-4687-9374-1440826b3810"],
-
-Cell[TextData[{
- Cell[BoxData[
-  ButtonBox["InflationStopsQ",
-   BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/InflationStopsQ"]], 
-  "InlineGuideFunction",ExpressionUUID->
-  "481be92a-85d3-48e8-b7e0-24c86f08535f"],
- " \[LongDash] determine if inflation stops in a given model."
-}], "GuideText",
- CellID->1215889132,ExpressionUUID->"b87fcc17-80e3-46cf-8ee7-8c6b15d7a75f"],
-
-Cell[TextData[{
- Cell[BoxData[
-  ButtonBox["InflationEfoldingsCount",
-   BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/InflationEfoldingsCount"]], 
-  "InlineGuideFunction",ExpressionUUID->
-  "1f01b431-248b-4a77-a4d9-d36bc38100f2"],
- " \[LongDash] determine how many e-foldings are produced by a given model."
-}], "GuideText",
- CellID->120296219,ExpressionUUID->"6c10eecb-6287-464f-ab77-189728fc73d9"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -198,28 +176,6 @@ Cell["Observables", "GuideFunctionsSection",
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["InflationProperty",
-   BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/InflationProperty"]], 
-  "InlineGuideFunction",ExpressionUUID->
-  "55c31cc6-ae68-4953-8c60-44c6f91afedc"],
- " \[LongDash] represents an inflation variables at a particular time."
-}], "GuideText",
- CellID->2024153100,ExpressionUUID->"d0935373-d84d-437c-9dd5-961312095e0f"],
-
-Cell[TextData[{
- Cell[BoxData[
-  ButtonBox["InflationPropertyData",
-   BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/InflationPropertyData"]], 
-  "InlineGuideFunction",ExpressionUUID->
-  "22439e0b-6beb-47bc-9ed0-873842bbeba3"],
- " \[LongDash] list all supported inflation properties."
-}], "GuideText",
- CellID->381197379,ExpressionUUID->"acc9b7fa-672a-4b39-8d16-8f0bca37b7c1"],
-
-Cell[TextData[{
- Cell[BoxData[
   ButtonBox["InflationValue",
    BaseStyle->"Link",
    ButtonData->"paclet:InflationSimulator/ref/InflationValue"]], 
@@ -227,7 +183,42 @@ Cell[TextData[{
   "638a838f-60dd-4b73-b103-5fd74aa47512"],
  " \[LongDash] compute values of various inflation parameters and observables."
 }], "GuideText",
- CellID->718253418,ExpressionUUID->"9ebea00d-d341-4ae7-8c8a-55c9ce2abd42"]
+ CellID->718253418,ExpressionUUID->"9ebea00d-d341-4ae7-8c8a-55c9ce2abd42"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["InflationPropertyData",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationPropertyData"]], 
+  "InlineGuideFunction",ExpressionUUID->
+  "e57e08dc-d1a2-4b23-ad41-df13a0d6beb2"],
+ " \[LongDash] list all supported inflation properties."
+}], "GuideText",
+ CellID->381197379,ExpressionUUID->"acc9b7fa-672a-4b39-8d16-8f0bca37b7c1"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["InflatonLagrangianValue",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflatonLagrangianValue"]], 
+  "InlineGuideFunction",ExpressionUUID->
+  "483c86cd-07ff-4706-8d1d-c23734a141d0"],
+ " \[LongDash] compute values of various parameters of the Lagrangian, that \
+don't require evolution of the fields."
+}], "GuideText",
+ CellID->368409814,ExpressionUUID->"bf834618-bfb1-49fb-b0f8-9b46b8553694"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["InflatonLagrangianPropertyData",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:InflationSimulator/ref/InflatonLagrangianPropertyData"]], 
+  "InlineGuideFunction",ExpressionUUID->
+  "76a9eb1b-6d40-4a16-a66e-d084dc169b62"],
+ " \[LongDash] list all supported properties of inflaton Lagrangian."
+}], "GuideText",
+ CellID->568102369,ExpressionUUID->"33a4b801-6e14-461d-b31c-1cb2374615da"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -278,8 +269,7 @@ Cell["Related Links", "GuideRelatedLinksSection",
 },
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

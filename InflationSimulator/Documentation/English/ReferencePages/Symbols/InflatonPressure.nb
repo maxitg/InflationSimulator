@@ -4,7 +4,7 @@ Cell[TextData[{
  Cell["0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"cb7170d5-d075-42d0-9230-8137c007f084"],
  " | Modified in: ",
- Cell[" ", "HistoryData",
+ Cell[" 0.3", "HistoryData",
   CellTags->"Modified",ExpressionUUID->"94291299-20d6-4f36-b813-cc05a4d3857e"],
  " | Obsolete in: ",
  Cell[" ", "HistoryData",
@@ -131,15 +131,38 @@ Cell[TextData[{
  StyleBox["t", "TI"],
  "] with Lagrangian ",
  StyleBox["\[ScriptCapitalL]", "TI"],
- "."
+ ".\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"bfe45ceb-29d1-499c-ab67-908d7bcd37e9"],
+ Cell[BoxData[
+  RowBox[{"InflatonPressure", "[", 
+   RowBox[{
+    StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       StyleBox[
+        SubscriptBox[
+         StyleBox["\[CurlyPhi]", "TI"], 
+         StyleBox["1", "TR"]], "TI"], "[", 
+       StyleBox["t", "TI"], "]"}], ",", " ", 
+      RowBox[{
+       StyleBox[
+        SubscriptBox[
+         StyleBox["\[CurlyPhi]", "TI"], 
+         StyleBox["2", "TR"]], "TI"], "[", 
+       StyleBox["t", "TI"], "]"}], ",", " ", 
+      StyleBox["\[Ellipsis]", "TR"]}], "}"}], ",", " ", 
+    StyleBox["t", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "11472443-2f0e-4afd-8507-3207364c7b1e"],
+ "\[LineSeparator]yields the pressure for a Lagrangian with multiple fields."
 }], "Usage",
  CellID->982511436,ExpressionUUID->"6865fcbe-b125-452b-a307-e42575c794c4"],
 
 Cell[TextData[{
  "Field pressure happens to simply be equal to the Lagrangian ",
  Cell[BoxData[
-  FormBox["\[ScriptCapitalL]", TraditionalForm]], "InlineMath",
-  ExpressionUUID->"718b084e-4d7d-4b54-85f7-c251444825cb"],
+  FormBox["\[ScriptCapitalL]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "718b084e-4d7d-4b54-85f7-c251444825cb"],
  ", the second and the third arguments are ignored. See ",
  Cell[BoxData[
   ButtonBox["InflatonDensity",
@@ -211,7 +234,9 @@ Cell[BoxData[
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151,ExpressionUUID->"b5c389d9-cff6-406e-992d-2e94994eefdd"],
 
-Cell["Evaluate field density of a real scalar field:", "ExampleText",
+Cell["\<\
+Evaluate field pressure for a model of two real scalar fields:\
+\>", "ExampleText",
  CellID->2133414990,ExpressionUUID->"7194b72c-7cdd-4c48-8aec-420081585e36"],
 
 Cell[CellGroupData[{
@@ -224,26 +249,44 @@ Cell[BoxData[
      FractionBox["1", "2"], 
      SuperscriptBox[
       RowBox[{
-       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
+      RowBox[{
+       RowBox[{"\[Chi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
     RowBox[{"V", "[", 
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], ",", 
-   RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "t"}], "]"}]], "Input",
- CellLabel->"In[114]:=",
+     RowBox[{
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+      RowBox[{"\[Chi]", "[", "t", "]"}]}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+     RowBox[{"\[Chi]", "[", "t", "]"}]}], "}"}], ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[418]:=",
  CellID->1177442084,ExpressionUUID->"9873d45b-f665-4fdf-a202-31e1bd25e5c9"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"-", 
    RowBox[{"V", "[", 
-    RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+     RowBox[{"\[Chi]", "[", "t", "]"}]}], "]"}]}], "+", 
   RowBox[{
    FractionBox["1", "2"], " ", 
    SuperscriptBox[
     RowBox[{
      SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+      MultilineFunction->None], "[", "t", "]"}], "2"]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     SuperscriptBox["\[Chi]", "\[Prime]",
       MultilineFunction->None], "[", "t", "]"}], "2"]}]}]], "Output",
- CellLabel->"Out[114]=",
- CellID->1609166377,ExpressionUUID->"0ed9df02-1586-4250-abce-197bd07eb498"]
+ CellLabel->"Out[418]=",
+ CellID->1493569631,ExpressionUUID->"4a5301e8-904f-406f-9f22-4090f1311b79"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -255,7 +298,7 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleDelimiter",
  CellID->1432581561,ExpressionUUID->"66977307-b84a-4bc8-80f3-169cc1f85a06"],
 
-Cell["Evaluate field density of a non-supersymmetric DBI field:", \
+Cell["Evaluate field pressure of a non-supersymmetric DBI field:", \
 "ExampleText",
  CellID->49483078,ExpressionUUID->"08470f69-3640-4afb-9eb3-bf4912e0e20c"],
 
@@ -288,7 +331,7 @@ Cell[BoxData[
        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], ",", 
      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "t"}], "]"}], 
    "]"}]}]], "Input",
- CellLabel->"In[116]:=",
+ CellLabel->"In[419]:=",
  CellID->392585504,ExpressionUUID->"73c147cb-ad35-471e-89f8-254dd7257e8d"],
 
 Cell[BoxData[
@@ -312,8 +355,8 @@ Cell[BoxData[
           MultilineFunction->None], "[", "t", "]"}], "2"]}]}]]}], 
    RowBox[{"f", "[", 
     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]]}]], "Output",
- CellLabel->"Out[116]=",
- CellID->1422956759,ExpressionUUID->"12d408e2-86c2-4545-8172-5dc0c588c93e"]
+ CellLabel->"Out[419]=",
+ CellID->1936686532,ExpressionUUID->"a77751ea-34c3-4ad2-9902-22796fe0bcee"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -324,7 +367,7 @@ arXiv:hep-th/0702196v2]",
   ButtonData->{
     URL["https://arxiv.org/abs/hep-th/0702196"], None},
   ButtonNote->"https://arxiv.org/abs/hep-th/0702196"],
- "."
+ ":"
 }], "ExampleText",
  CellID->1186968378,ExpressionUUID->"af8b5184-1564-4d78-876d-144ed33570a5"],
 
@@ -355,12 +398,12 @@ Cell[BoxData[
            RowBox[{
             RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}]}]]]}]}], 
     ")"}]}], "]"}]], "Input",
- CellLabel->"In[117]:=",
+ CellLabel->"In[420]:=",
  CellID->542343200,ExpressionUUID->"5e52a4a3-8f5f-4e0a-a080-d914ef8d71c0"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[117]=",
- CellID->1743202214,ExpressionUUID->"82f77c71-55c0-49d0-9f21-bdeb384f9d8a"]
+ CellLabel->"Out[420]=",
+ CellID->923429786,ExpressionUUID->"3ed2259a-f1ce-4f99-8a5f-9881a2e53ddc"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -448,8 +491,7 @@ Cell[BoxData[
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

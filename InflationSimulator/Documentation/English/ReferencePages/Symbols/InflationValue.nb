@@ -4,7 +4,7 @@ Cell[TextData[{
  Cell["0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"488093c3-0833-4ff2-8c38-8b426c27db38"],
  " | Modified in: ",
- Cell[" ", "HistoryData",
+ Cell[" 0.3", "HistoryData",
   CellTags->"Modified",ExpressionUUID->"45512985-296b-4b5b-ad71-33f4ffee536a"],
  " | Obsolete in: ",
  Cell[" ", "HistoryData",
@@ -121,29 +121,18 @@ Cell[TextData[{
   RowBox[{"InflationValue", "[", 
    RowBox[{
     StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{
-       StyleBox["\[CurlyPhi]", "TI"], "[", 
-       StyleBox["t", "TI"], "]"}], ",", " ", 
-      SubscriptBox[
-       StyleBox["\[CurlyPhi]", "TI"], 
-       StyleBox["0", "TR"]], ",", " ", 
-      RowBox[{
-       SubscriptBox[
-        StyleBox["\[PartialD]", "TI"], 
-        StyleBox["t", "TI"]], 
-       SubscriptBox[
-        StyleBox["\[CurlyPhi]", "TI"], 
-        StyleBox["0", "TR"]]}]}], "}"}], ",", " ", 
+    StyleBox["init", "TI"], ",", " ", 
     StyleBox["t", "TI"], ",", " ", 
     SubscriptBox[
      StyleBox["N", "TI"], 
      StyleBox["pivot", "TI"]], ",", " ", 
-    StyleBox["property", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
+    StyleBox["property", "TI"], ",", " ", 
+    StyleBox["timespec", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
   "e1663330-9e2e-4bae-87e3-ecb2be88d065"],
- "\[LineSeparator]yield the value of a specified ",
- StyleBox["property", "TI"],
+ "\[LineSeparator]yields the value of a specified ",
+ StyleBox["property ", "TI"],
+ "at time ",
+ StyleBox["timespec", "TI"],
  " for a specified model.\n",
  Cell["      ", "ModInfo",ExpressionUUID->
   "356f4535-4f14-49dd-b86c-ded7d30cbed6"],
@@ -151,73 +140,100 @@ Cell[TextData[{
   RowBox[{"InflationValue", "[", 
    RowBox[{
     StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{
-       StyleBox["\[CurlyPhi]", "TI"], "[", 
-       StyleBox["t", "TI"], "]"}], ",", " ", 
-      SubscriptBox[
-       StyleBox["\[CurlyPhi]", "TI"], 
-       StyleBox["0", "TR"]], ",", " ", 
-      RowBox[{
-       SubscriptBox[
-        StyleBox["\[PartialD]", "TI"], 
-        StyleBox["t", "TI"]], 
-       SubscriptBox[
-        StyleBox["\[CurlyPhi]", "TI"], 
-        StyleBox["0", "TR"]]}]}], "}"}], ",", " ", 
+    StyleBox["evo", "TI"], ",", " ", 
     StyleBox["t", "TI"], ",", " ", 
     SubscriptBox[
      StyleBox["N", "TI"], 
      StyleBox["pivot", "TI"]], ",", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      SubscriptBox[
-       StyleBox["p", "TI"], 
-       StyleBox["1", "TR"]], ",", " ", 
-      SubscriptBox[
-       StyleBox["p", "TI"], 
-       StyleBox["2", "TR"]], ",", " ", 
-      StyleBox["\[Ellipsis]", "TR"]}], "}"}]}], "]"}]], "InlineFormula",
-  ExpressionUUID->"ffe80ac0-f44d-4668-a35c-7f871a09f43d"],
- "\[LineSeparator]yields a list of values for properties ",
+    StyleBox["property", "TI"], ",", " ", 
+    StyleBox["timespec", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "ffe80ac0-f44d-4668-a35c-7f871a09f43d"],
+ "\[LineSeparator]yields the value using a precomputed output of ",
  Cell[BoxData[
-  SubscriptBox[
-   StyleBox["p", "TI"], 
-   StyleBox["1", "TR"]]], "InlineFormula",ExpressionUUID->
-  "6c4e3404-798c-496b-81af-fcab03032518"],
- ", ",
- Cell[BoxData[
-  SubscriptBox[
-   StyleBox["p", "TI"], 
-   StyleBox["2", "TR"]]], "InlineFormula",ExpressionUUID->
-  "72255189-64da-46f0-ae1a-7c3394607d08"],
- ", ",
- StyleBox["\[Ellipsis]", "TR"]
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"7a4ad122-5e25-40ec-a577-f3682e09910a"],
+ " ",
+ StyleBox["evo", "TI"],
+ "."
 }], "Usage",
  CellID->982511436,ExpressionUUID->"670a8474-8945-48b6-9807-fc575482f1fd"],
 
 Cell[TextData[{
  Cell[BoxData[
- "\"\<Time\>\""], "InlineFormula",ExpressionUUID->
-  "6955c701-6c52-43ae-844c-fb9db2ee2e82"],
+  StyleBox["init", "TI"]], "InlineFormula",ExpressionUUID->
+  "96f41baf-4c07-4eb2-bf48-f5a825dbaeae"],
+ " has the same format as in ",
+ Cell[BoxData[
+  ButtonBox["InflationEvolution",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationEvolution"]], 
+  "InlineFormula",ExpressionUUID->"4b3065ed-7e8a-400b-af15-c8f1e0466510"],
+ "."
+}], "Notes",
+ CellID->905464957,ExpressionUUID->"63844b8f-f983-4530-9446-260ed678698d"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox["property", "TI"]], "InlineFormula",ExpressionUUID->
+  "9cc5ea25-0b78-4bd0-a2c0-75c781113320"],
+ " can be any expression containing ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula",ExpressionUUID->
+  "f66fcec6-66dd-40b2-8501-472b644af61c"],
+ ", any of the fields, any of the properties returned by ",
+ Cell[BoxData[
+  ButtonBox["InflationPropertyData",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationPropertyData"]], 
+  "InlineFormula",ExpressionUUID->"11401df8-5cfb-4e13-88e2-b1b2fd8a4240"],
+ ", and any of their derivatives."
+}], "Notes",
+ CellID->1598664400,ExpressionUUID->"59e7539a-be95-49cf-b218-f86f2a17a435"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox["timespec", "TI"]], "InlineFormula",ExpressionUUID->
+  "6f44a979-022b-4e12-bb32-60826943b82e"],
+ " can be either a value (symbolic or numeric) corresponding to a specific \
+timestamp, or one of ",
+ StyleBox["\"Start\"", "InlineCode"],
+ ", ",
+ StyleBox["\"HorizonExit\"", "InlineCode"],
+ " or ",
+ StyleBox["\"End\".", "InlineCode"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["InflationValue",
+   BaseStyle->"Link",
+   ButtonData->"paclet:InflationSimulator/ref/InflationValue"]], 
+  "InlineFormula",ExpressionUUID->"ab737faa-1843-44f5-8f48-7b880bc03268"],
+ " automatically threads over ",
+ Cell[BoxData[
+  StyleBox["timespec", "TI"]], "InlineFormula",ExpressionUUID->
+  "86f3ece6-467a-4bea-81af-bc21d7cbd781"],
+ "."
+}], "Notes",
+ CellID->1334837338,ExpressionUUID->"3e3122e5-b190-486f-a814-7ed33e7c7eee"],
+
+Cell["\<\
+Below are some details on how various properties are computed.\
+\>", "Notes",
+ CellID->172163674,ExpressionUUID->"83e446da-fd30-47c4-a6fa-71bbc66b026a"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula",ExpressionUUID->
+  "f30159d9-54b5-4fcc-821f-a0be7a7966ff"],
  " either returns explicitly specified time as is, or explicitly computed \
 implicitly-specified time."
 }], "Notes",
  CellID->1207398177,ExpressionUUID->"23a4f256-4d97-42ff-bdd8-8f5dfc614413"],
 
 Cell[TextData[{
- Cell[BoxData[
- "\"\<Field\>\""], "InlineFormula",ExpressionUUID->
-  "b8fa8ee9-cd2f-4573-b283-ee260e6850b6"],
- ", ",
- Cell[BoxData[
- "\"\<FieldTimeDerivative\>\""], "InlineFormula",ExpressionUUID->
-  "882b21c4-9da6-49ae-8c07-3109c86c5856"],
- ", and ",
- Cell[BoxData[
- "\"\<Efoldings\>\""], "InlineFormula",ExpressionUUID->
-  "e3a3a62c-b1b5-4b42-954e-d15ca849b808"],
+ "Fields, their first derivatives and ",
+ StyleBox["\"Efoldings\"", "InlineCode"],
  " are taken directly from an association returned by ",
  Cell[BoxData[
   ButtonBox["InflationEvolution",
@@ -227,36 +243,6 @@ Cell[TextData[{
  "."
 }], "Notes",
  CellID->1655203078,ExpressionUUID->"bd21c33d-2408-4f11-8515-98fecad2eb77"],
-
-Cell[TextData[{
- Cell[BoxData[
- "\"\<Lagrangian\>\""], "InlineFormula",ExpressionUUID->
-  "acc4ac24-9653-4528-a525-4fe014d9f587"],
- ", ",
- Cell[BoxData[
- "\"\<Density\>\""], "InlineFormula",ExpressionUUID->
-  "daaa50eb-bf60-4bdd-a69d-cff2c6ac801d"],
- ", ",
- Cell[BoxData[
- "\"\<Pressure\>\""], "InlineFormula",ExpressionUUID->
-  "1e9a97ec-35cc-493c-8991-b3864f36abcd"],
- " and their derivatives are computed by substituting values of the field and \
-its derivatives to the appropriate expressions."
-}], "Notes",
- CellID->429827120,ExpressionUUID->"27509ab8-ebfd-4869-a315-8d4a324b3032"],
-
-Cell[TextData[{
- Cell[BoxData[
- "\"\<Potential\>\""], "InlineFormula",ExpressionUUID->
-  "3a1232ec-d33a-4500-8fff-bc3a1cc15627"],
- " is computed by substituting zero for the first field derivative ",
- Cell[BoxData[
-  FormBox[
-   OverscriptBox["\[CurlyPhi]", "."], TraditionalForm]], "InlineMath",
-  ExpressionUUID->"c684b7e6-cf96-4e4f-b8d8-aadfc497516a"],
- " to the Lagrangian."
-}], "Notes",
- CellID->1850337759,ExpressionUUID->"be3a1f69-6c2d-4463-8d64-d6d17abcd948"],
 
 Cell[TextData[{
  "Higher derivatives of the field and e-foldings are computed by \
@@ -272,37 +258,24 @@ differentiating a numerical solution multiple times."
  CellID->1893896980,ExpressionUUID->"7d7151b9-9c8d-4099-b47e-db0eb2ab3e15"],
 
 Cell[TextData[{
- Cell[BoxData[
- "\"\<HubbleParameter\>\""], "InlineFormula",ExpressionUUID->
-  "e11cbb35-fb73-448a-a6a9-576e981d24b6"],
- " is identical to ",
- Cell[BoxData[
- "\"\<EfoldingsTimeDerivative\>\""], "InlineFormula",ExpressionUUID->
-  "15812a6e-9b91-42e0-bdd5-315820634960"],
+ StyleBox["\"HubbleParameter\"", "InlineCode"],
+ " is identical to the first derivative of e-foldings ",
+ StyleBox["\"Efoldings\"'", "InlineCode"],
  ", its derivatives are equivalent to corresponding higher derivatives of \
 e-foldings."
 }], "Notes",
  CellID->1652347352,ExpressionUUID->"840e40bd-b24d-4b0b-b8bd-128e17185721"],
 
 Cell[TextData[{
- Cell[BoxData[
- "\"\<SlowRollEpsilon\>\""], "InlineFormula",ExpressionUUID->
-  "eede3406-2408-4064-9e43-ff3936e93e3c"],
- " with ",
- Cell[BoxData[
-  RowBox[{"Method", " ", "->", " ", "\"\<FromHubbleParameter\>\""}]], 
-  "InlineFormula",ExpressionUUID->"42ac6a07-8cd3-4541-b4f7-5c4371851a93"],
- " and ",
- Cell[BoxData[
- "\"\<SlowRollEpsilonTimeDerivative\>\""], "InlineFormula",ExpressionUUID->
-  "1a193371-ab50-4202-bfda-9ab2a46c5907"],
- " are computed using the following equations:"
+ StyleBox["\"SlowRollEpsilon\"", "InlineCode"],
+ " is computed using the following equation:"
 }], "Notes",
  CellID->1946269614,ExpressionUUID->"a998e460-f4b2-4ffa-8d42-5394e8ae6330"],
 
 Cell[TextData[Cell[BoxData[
  FormBox[
-  RowBox[{"\[Epsilon]", "=", 
+  RowBox[{
+   SubscriptBox["\[Epsilon]", "H"], "=", 
    RowBox[{"-", 
     FractionBox[
      OverscriptBox["H", "."], 
@@ -313,76 +286,16 @@ Cell[TextData[Cell[BoxData[
  TextAlignment->Center,
  CellID->1359661814,ExpressionUUID->"95f31410-1782-43e9-9d76-747d3e158fdf"],
 
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   OverscriptBox["\[Epsilon]", "."], "=", 
-   RowBox[{
-    RowBox[{
-     FractionBox["\[DifferentialD]", 
-      RowBox[{"\[DifferentialD]", "t"}]], 
-     RowBox[{"(", 
-      RowBox[{"-", 
-       FractionBox[
-        OverscriptBox["H", "."], 
-        SuperscriptBox["H", "2"]]}], ")"}]}], "=", 
-    FractionBox[
-     RowBox[{
-      RowBox[{"2", 
-       SuperscriptBox[
-        OverscriptBox["H", "."], "2"]}], "-", 
-      RowBox[{"H", " ", 
-       OverscriptBox["H", "\[DoubleDot]"]}]}], 
-     SuperscriptBox["H", "3"]]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"3aeab39c-ec38-44ce-81a2-6230c9366f79"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->1087195707,ExpressionUUID->"997b0573-ec35-4d4e-bb9f-147ef0a9c6d4"],
-
 Cell[TextData[{
- Cell[BoxData[
- "\"\<SlowRollEpsilon\>\""], "InlineFormula",ExpressionUUID->
-  "fdea75f3-b3e0-400a-8c30-522a45e7bd62"],
- " with ",
- Cell[BoxData[
-  RowBox[{"Method", " ", "->", " ", "\"\<FromPotential\>\""}]], 
-  "InlineFormula",ExpressionUUID->"7c2f8238-95d2-43b2-8b90-b303cebc948f"],
- " is computed assuming field acceleration is zero as:"
-}], "Notes",
- CellID->1428889108,ExpressionUUID->"f6998f06-8dc2-4b37-8cda-ef8beedd785e"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SubscriptBox["\[Epsilon]", "V"], "=", 
-   RowBox[{
-    FractionBox["1", "2"], 
-    SuperscriptBox[
-     RowBox[{"(", 
-      FractionBox[
-       RowBox[{
-        SuperscriptBox["\[ScriptCapitalL]", "\[Prime]"], "(", "\[CurlyPhi]", 
-        ")"}], 
-       RowBox[{"\[ScriptCapitalL]", "(", "\[CurlyPhi]", ")"}]], ")"}], 
-     "2"]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"7b2b62ff-2257-44a4-abf1-bfe7dafb1e5e"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->369088393,ExpressionUUID->"68752731-9a5d-42b1-a6bc-8caead2cdf8d"],
-
-Cell[TextData[{
- Cell[BoxData[
- "\"\<SlowRollDynamicEta\>\""], "InlineFormula",ExpressionUUID->
-  "bd8a5557-d93c-4104-bc67-8059b4584463"],
+ StyleBox["\"SlowRollEta\"", "InlineCode"],
  " is computed according to:"
 }], "Notes",
  CellID->874449879,ExpressionUUID->"2373ab21-1933-4fee-98dc-3f5314b6bf8b"],
 
 Cell[TextData[Cell[BoxData[
  FormBox[
-  RowBox[{"\[Eta]", "=", 
+  RowBox[{
+   SubscriptBox["\[Eta]", "H"], "=", 
    FractionBox[
     OverscriptBox["\[Epsilon]", "."], 
     RowBox[{"\[Epsilon]", " ", "H"}]]}], 
@@ -393,56 +306,7 @@ Cell[TextData[Cell[BoxData[
  CellID->975402016,ExpressionUUID->"0e1ce9ae-ce33-4081-a643-56a67a9244aa"],
 
 Cell[TextData[{
- Cell[BoxData[
- "\"\<SlowRollPotentialEta\>\""], "InlineFormula",ExpressionUUID->
-  "07cbbfa0-ff9f-46c5-9dea-231252c40270"],
- " is computed as follows."
-}], "Notes",
- CellID->182210122,ExpressionUUID->"9ff0aa4f-64b2-433e-aaca-28533031e482"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SubscriptBox["\[Eta]", "V"], "=", 
-   FractionBox[
-    RowBox[{
-     SuperscriptBox["\[ScriptCapitalL]", "\[DoublePrime]"], "(", 
-     "\[CurlyPhi]", ")"}], 
-    RowBox[{"\[ScriptCapitalL]", "(", "\[CurlyPhi]", ")"}]]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"d7ac0224-128a-44ce-b330-2245796a2633"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->93839832,ExpressionUUID->"3fb52038-157b-41dd-b3f1-d8970c176ff5"],
-
-Cell[TextData[{
- "Note that this expression is different from ",
- Cell[BoxData[
- "\"\<SlowRollDynamicEta\>\""], "InlineFormula",ExpressionUUID->
-  "0f9634be-6d8a-4c05-a1e8-9c10291cf498"],
- ". Specifically,"
-}], "ExampleText",
- CellID->600488685,ExpressionUUID->"7625c63d-eea7-4826-84d6-caa6e153edc9"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{"\[Eta]", "=", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"-", "2"}], 
-     SubscriptBox["\[Eta]", "V"]}], "+", 
-    RowBox[{"4", 
-     SubscriptBox["\[Epsilon]", "V"]}]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"0e518159-c2e1-47c6-aceb-51274f3b0387"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->902963654,ExpressionUUID->"1acc6c0a-9646-41de-9562-07c1a05633ca"],
-
-Cell[TextData[{
- Cell[BoxData[
- "\"\<EffectiveAxionDecayConstant\>\""], "InlineFormula",ExpressionUUID->
-  "bdadaa4e-1e2e-42ee-ae05-d754dec6f05e"],
+ StyleBox["\"EffectiveAxionDecayConstant\"", "InlineCode"],
  " is computed as:"
 }], "Notes",
  CellID->1876158815,ExpressionUUID->"f244edbc-d04a-4225-8c3a-5cd4ad234009"],
@@ -450,11 +314,13 @@ Cell[TextData[{
 Cell[TextData[Cell[BoxData[
  FormBox[
   RowBox[{
-   SubscriptBox["f", "e"], "=", 
+   SubscriptBox["f", "eH"], "=", 
    FractionBox["1", 
     SqrtBox[
-     RowBox[{"\[Eta]", "-", 
-      RowBox[{"2", "\[Epsilon]"}]}]]]}], 
+     RowBox[{
+      SubscriptBox["\[Eta]", "H"], "-", 
+      RowBox[{"2", 
+       SubscriptBox["\[Epsilon]", "H"]}]}]]]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"46391e86-a5f2-41fa-88ee-0b802ad182df"]], \
 "ExampleText",
@@ -767,8 +633,7 @@ parameters:\
 
 Cell[TextData[Cell[BoxData[
  FormBox[
-  RowBox[{
-   SubscriptBox["\[Epsilon]", "V"], "=", 
+  RowBox[{"\[Epsilon]", "=", 
    RowBox[{
     FractionBox["1", "2"], 
     SuperscriptBox[
@@ -787,8 +652,7 @@ Cell[TextData[Cell[BoxData[
 
 Cell[TextData[Cell[BoxData[
  FormBox[
-  RowBox[{
-   SubscriptBox["\[Eta]", "V"], "=", 
+  RowBox[{"\[Eta]", "=", 
    FractionBox[
     RowBox[{
      SuperscriptBox["V", "\[DoublePrime]"], "(", 
@@ -807,17 +671,7 @@ Cell[TextData[{
   FormBox[
    SubscriptBox["f", "e"], TraditionalForm]], "InlineMath",ExpressionUUID->
   "b77a37c6-e109-4847-998b-0c797ce44aff"],
- ", we get the expression used if ",
- Cell[BoxData[
-  RowBox[{"Method", " ", "->", " ", "\"\<FromPotential\>\""}]], 
-  "InlineFormula",ExpressionUUID->"5e04a0c0-4bbc-46d1-9a44-9d15b22bd600"],
- " is supplied to ",
- Cell[BoxData[
-  ButtonBox["InflationProperty",
-   BaseStyle->"Link",
-   ButtonData->"paclet:InflationSimulator/ref/InflationProperty"]], 
-  "InlineFormula",ExpressionUUID->"9e1ea9a3-a7b0-451c-84f5-a420e37532f8"],
- ":"
+ ", we get the expression:"
 }], "ExampleText",
  CellID->447032893,ExpressionUUID->"8b5134f2-0d45-4bf3-adde-52b0831e43a2"],
 
@@ -829,9 +683,7 @@ Cell[TextData[Cell[BoxData[
     SqrtBox[
      RowBox[{"2", 
       RowBox[{"(", 
-       RowBox[{
-        SubscriptBox["\[Epsilon]", "V"], "-", 
-        SubscriptBox["\[Eta]", "V"]}], ")"}]}]]]}], 
+       RowBox[{"\[Epsilon]", "-", "\[Eta]"}], ")"}]}]]]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"c3813346-0723-44c9-b74a-7fa6e8f93670"]], \
 "ExampleText",
@@ -854,8 +706,8 @@ parameters ",
 
 Cell[TextData[Cell[BoxData[
  FormBox[
-  RowBox[{"\[Epsilon]", "=", 
-   SubscriptBox["\[Epsilon]", "V"]}], 
+  RowBox[{
+   SubscriptBox["\[Epsilon]", "H"], "=", "\[Epsilon]"}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"5179a9c4-1abc-47b6-8ac4-b310a1311e8f"]], \
 "ExampleText",
@@ -864,26 +716,19 @@ Cell[TextData[Cell[BoxData[
 
 Cell[TextData[Cell[BoxData[
  FormBox[
-  RowBox[{"\[Eta]", "=", 
+  RowBox[{
+   SubscriptBox["\[Eta]", "H"], "=", 
    RowBox[{
     RowBox[{
-     RowBox[{"-", "2"}], 
-     SubscriptBox["\[Eta]", "V"]}], "+", 
-    RowBox[{"4", 
-     SubscriptBox["\[Epsilon]", "V"]}]}]}], 
+     RowBox[{"-", "2"}], "\[Eta]"}], "+", 
+    RowBox[{"4", "\[Epsilon]"}]}]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"50e57b33-aca7-42a8-b058-c88d2db2d57f"]], \
 "ExampleText",
  TextAlignment->Center,
  CellID->1269996689,ExpressionUUID->"05715935-ea28-449b-9d1c-374b7c376704"],
 
-Cell[TextData[{
- "and obtain the expressions used for ",
- Cell[BoxData[
-  RowBox[{"Method", " ", "->", " ", "\"\<FromHubbleParameter\>\""}]], 
-  "InlineFormula",ExpressionUUID->"1f80a142-8234-4652-a807-7c0de20659e8"],
- ":"
-}], "ExampleText",
+Cell["and obtain:", "ExampleText",
  CellID->401733464,ExpressionUUID->"76ca5e1a-0b21-45ad-a1cc-1caa8ccec1e7"],
 
 Cell[TextData[Cell[BoxData[
@@ -892,8 +737,10 @@ Cell[TextData[Cell[BoxData[
    SubscriptBox["f", "e"], "=", 
    FractionBox["1", 
     SqrtBox[
-     RowBox[{"\[Eta]", "-", 
-      RowBox[{"2", "\[Epsilon]"}]}]]]}], 
+     RowBox[{
+      SubscriptBox["\[Eta]", "H"], "-", 
+      RowBox[{"2", 
+       SubscriptBox["\[Epsilon]", "H"]}]}]]]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"dedb7934-dfe9-484e-8231-5111fdbb10b6"]], \
 "ExampleText",
@@ -901,210 +748,9 @@ Cell[TextData[Cell[BoxData[
  CellID->1405769814,ExpressionUUID->"951b5cfe-d68b-496c-b43d-02c1a2bd6f8c"],
 
 Cell[TextData[{
- Cell[BoxData[
- "\"\<SpeedOfSound\>\""], "InlineFormula",ExpressionUUID->
-  "36c5ada2-504c-4430-b41a-c843183decc8"],
+ StyleBox["\"ScalarSpectralIndex\"", "InlineCode"],
  " and ",
- Cell[BoxData[
- "\"\<SpeedOfSoundTimeDerivative\>\""], "InlineFormula",ExpressionUUID->
-  "3025d407-ed53-4b22-8bd4-9fad835d6b01"],
- " are computed as:"
-}], "Notes",
- CellID->64656244,ExpressionUUID->"02beae70-bc28-4a1a-a292-6650d994b24b"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SubscriptBox["c", "s"], "=", 
-   SqrtBox[
-    FractionBox[
-     RowBox[{
-      SubscriptBox["\[PartialD]", "\[Beta]"], "p"}], 
-     RowBox[{
-      SubscriptBox["\[PartialD]", "\[Beta]"], "\[Rho]"}]]]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"6a023a7c-18a9-4ea4-a170-008e8e84fa5a"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->180431657,ExpressionUUID->"847afc46-bfcf-4a1d-9b14-96e5e568d70c"],
-
-Cell[TextData[{
- "where ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"\[Beta]", "=", 
-    SuperscriptBox[
-     OverscriptBox["\[CurlyPhi]", "."], "2"]}], TraditionalForm]], 
-  "InlineMath",ExpressionUUID->"5c933c90-395c-4425-84c1-5758f1d7ca2f"],
- ". We first need to simplify it. We get:"
-}], "ExampleText",
- CellID->574574021,ExpressionUUID->"11a1037e-5e00-4e2b-9032-1a948c6c4cd7"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SubscriptBox["c", "s"], "=", 
-   RowBox[{
-    SqrtBox[
-     RowBox[{
-      FractionBox[
-       RowBox[{"\[PartialD]", "p"}], 
-       RowBox[{"\[PartialD]", 
-        SuperscriptBox[
-         OverscriptBox["\[CurlyPhi]", "."], "2"]}]], "/", 
-      FractionBox[
-       RowBox[{"\[PartialD]", "\[Rho]"}], 
-       RowBox[{"\[PartialD]", 
-        SuperscriptBox[
-         OverscriptBox["\[CurlyPhi]", "."], "2"]}]]}]], "=", 
-    RowBox[{
-     SqrtBox[
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{
-         FractionBox[
-          RowBox[{"\[PartialD]", "p"}], 
-          RowBox[{"\[PartialD]", 
-           OverscriptBox["\[CurlyPhi]", "."]}]], 
-         FractionBox[
-          RowBox[{"\[PartialD]", 
-           OverscriptBox["a", "."]}], 
-          RowBox[{"\[PartialD]", 
-           SuperscriptBox[
-            OverscriptBox["\[CurlyPhi]", "."], "2"]}]]}], ")"}], "/", 
-       RowBox[{"(", 
-        RowBox[{
-         FractionBox[
-          RowBox[{"\[PartialD]", "\[Rho]"}], 
-          RowBox[{"\[PartialD]", 
-           OverscriptBox["\[CurlyPhi]", "."]}]], 
-         FractionBox[
-          RowBox[{"\[PartialD]", 
-           OverscriptBox["\[CurlyPhi]", "."]}], 
-          RowBox[{"\[PartialD]", 
-           SuperscriptBox[
-            OverscriptBox["\[CurlyPhi]", "."], "2"]}]]}], ")"}]}]], "=", 
-     RowBox[{
-      SqrtBox[
-       RowBox[{
-        FractionBox[
-         RowBox[{"\[PartialD]", "p"}], 
-         RowBox[{"\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."]}]], "/", 
-        FractionBox[
-         RowBox[{"\[PartialD]", "\[Rho]"}], 
-         RowBox[{"\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."]}]]}]], "=", 
-      SqrtBox[
-       FractionBox[
-        RowBox[{
-         SubscriptBox["\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."]], "p"}], 
-        RowBox[{
-         SubscriptBox["\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."]], "\[Rho]"}]]]}]}]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"b80657d8-c3a7-4c72-a695-2853e077dc9e"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->1274317622,ExpressionUUID->"3d163009-7fe6-4cd4-8d0a-4eddbdab2a64"],
-
-Cell[TextData[{
- "For the derivative of the speed of sound ",
- Cell[BoxData[
-  FormBox[
-   OverscriptBox[
-    SubscriptBox["c", "s"], "."], TraditionalForm]],ExpressionUUID->
-  "df61571f-0d1e-441c-b5ee-70435b9dfd16"],
- ":"
-}], "ExampleText",
- CellID->1659803786,ExpressionUUID->"9462667b-9fc7-4e35-9868-631e99ff8046"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   OverscriptBox[
-    SubscriptBox["c", "s"], "."], "=", 
-   RowBox[{
-    RowBox[{
-     RowBox[{
-      FractionBox["\[DifferentialD]", 
-       RowBox[{"\[DifferentialD]", "t"}]], 
-      SqrtBox[
-       FractionBox[
-        RowBox[{
-         SubscriptBox["\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."]], "p"}], 
-        RowBox[{
-         SubscriptBox["\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."]], "\[Rho]"}]]]}], "\[Congruent]", 
-     
-     RowBox[{
-      FractionBox["\[DifferentialD]", 
-       RowBox[{"\[DifferentialD]", "t"}]], 
-      SqrtBox[
-       FractionBox[
-        SubscriptBox["p", 
-         OverscriptBox["\[CurlyPhi]", "."]], 
-        SubscriptBox["\[Rho]", 
-         OverscriptBox["\[CurlyPhi]", "."]]]]}]}], "=", 
-    FractionBox[
-     RowBox[{
-      RowBox[{
-       SubscriptBox["\[Rho]", 
-        OverscriptBox["\[CurlyPhi]", "."]], 
-       OverscriptBox[
-        SubscriptBox["p", 
-         OverscriptBox["\[CurlyPhi]", "."]], "."]}], "-", 
-      RowBox[{
-       SubscriptBox["p", 
-        OverscriptBox["\[CurlyPhi]", "."]], 
-       OverscriptBox[
-        SubscriptBox["\[Rho]", 
-         OverscriptBox["\[CurlyPhi]", "."]], "."]}]}], 
-     RowBox[{"2", 
-      SqrtBox[
-       RowBox[{
-        SubscriptBox["p", 
-         OverscriptBox["\[CurlyPhi]", "."]], 
-        SubsuperscriptBox["\[Rho]", 
-         OverscriptBox["\[CurlyPhi]", "."], "3"]}]]}]]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"27027a13-abfa-4bf1-a362-41257204c7e1"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->428565455,ExpressionUUID->"e9b23391-3d52-4f91-b47b-2cddb812ec2b"],
-
-Cell[TextData[{
- Cell[BoxData[
- "\"\<SlowRollS\>\""], "InlineFormula",ExpressionUUID->
-  "ef6d8975-369c-4888-ba3c-15f19539d29d"],
- " is computed as:"
-}], "Notes",
- CellID->1203021199,ExpressionUUID->"e953bed0-c517-497c-99cb-f364dedf8f49"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{"s", "=", 
-   FractionBox[
-    OverscriptBox[
-     SubscriptBox["c", "s"], "."], 
-    RowBox[{
-     SubscriptBox["c", "s"], "H"}]]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"17c9eb6b-1544-48c2-ab35-e029dac48932"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->1627719695,ExpressionUUID->"f2c47c44-a2b8-40f7-9d82-2b3d317925bb"],
-
-Cell[TextData[{
- Cell[BoxData[
- "\"\<ScalarSpectralIndex\>\""], "InlineFormula",ExpressionUUID->
-  "3aa36df6-79ce-4683-8c60-93deb8b2d1b4"],
- " and ",
- Cell[BoxData[
- "\"\<TensorSpectralIndex\>\""], "InlineFormula",ExpressionUUID->
-  "b42b7c97-c5f2-40ca-8b05-386d90894d7f"],
+ StyleBox["\"TensorSpectralIndex\"", "InlineCode"],
  " are computed as:"
 }], "Notes",
  CellID->681155168,ExpressionUUID->"2a329676-ed5f-40d9-90fb-18f7ec07a85d"],
@@ -1114,7 +760,9 @@ Cell[TextData[Cell[BoxData[
   RowBox[{
    SubscriptBox["n", "s"], "=", 
    RowBox[{"1", "-", 
-    RowBox[{"2", "\[Epsilon]"}], "-", "\[Eta]", "-", "s"}]}], 
+    RowBox[{"2", 
+     SubscriptBox["\[Epsilon]", "H"]}], "-", 
+    SubscriptBox["\[Eta]", "H"]}]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"1294a552-01d8-40bf-b43d-17b6636eff05"]], \
 "ExampleText",
@@ -1126,7 +774,8 @@ Cell[TextData[Cell[BoxData[
   RowBox[{
    SubscriptBox["n", "t"], "=", 
    RowBox[{
-    RowBox[{"-", "2"}], "\[Epsilon]"}]}], 
+    RowBox[{"-", "2"}], 
+    SubscriptBox["\[Epsilon]", "H"]}]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"11b485a8-d2cc-40a4-a2c4-db15e13ee284"]], \
 "ExampleText",
@@ -1134,377 +783,16 @@ Cell[TextData[Cell[BoxData[
  CellID->1506892071,ExpressionUUID->"17dc3a48-82a5-4157-88cc-781a24109799"],
 
 Cell[TextData[{
- "If ",
- Cell[BoxData[
-  RowBox[{"Method", " ", "->", " ", "\"\<FromPotential\>\""}]], 
-  "InlineFormula",ExpressionUUID->"ed925bb3-8ac0-4bdd-94e6-8e4b9cc26f11"],
- " is supplied, equivalent expressions in terms of ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox["\[Epsilon]", "V"], TraditionalForm]], "InlineMath",
-  ExpressionUUID->"b777dc1c-8c1f-4526-abee-b1c69bd595c2"],
- " and ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox["\[Eta]", "V"], TraditionalForm]], "InlineMath",
-  ExpressionUUID->"144d61f1-45b1-4aaa-8c94-661cd0c4a076"],
- " are used."
-}], "ExampleText",
- CellID->1619467995,ExpressionUUID->"fb1ad127-e4c2-4860-aa68-46878d16513b"],
-
-Cell[TextData[{
- Cell[BoxData[
- "\"\<TensorPowerSpectrum\>\""], "InlineFormula",ExpressionUUID->
-  "7044cfd8-21c9-42b1-a28d-832222ca8cef"],
- " and ",
- Cell[BoxData[
- "\"\<ScalarPowerSpectrum\>\""], "InlineFormula",ExpressionUUID->
-  "67e47016-a730-49fa-a9d1-319406438a27"],
- " are computed as:"
-}], "Notes",
- CellID->198857349,ExpressionUUID->"43946dcf-4683-4b00-b21d-f15a42766882"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SuperscriptBox["P", "\[Zeta]"], "=", 
-   RowBox[{
-    FractionBox["1", 
-     RowBox[{"8", 
-      SuperscriptBox["\[Pi]", "2"]}]], 
-    FractionBox[
-     SuperscriptBox["H", "2"], 
-     RowBox[{
-      SubscriptBox["c", "s"], "\[Epsilon]"}]]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"12b2251b-89b3-4370-9a3f-6d4aeb080c40"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->966146073,ExpressionUUID->"16783572-3d7b-4ee4-8db7-02f084b63bd1"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SuperscriptBox["P", "h"], "=", 
-   RowBox[{
-    FractionBox["2", 
-     RowBox[{"3", 
-      SuperscriptBox["\[Pi]", "2"]}]], "\[Rho]"}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"cbca2393-b8cd-4cb7-a061-c0274084f5e2"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->893193944,ExpressionUUID->"240aad47-4638-4448-bba9-60704eeae4bc"],
-
-Cell[TextData[{
- Cell[BoxData[
- "\"\<TensorToScalarRatio\>\""], "InlineFormula",ExpressionUUID->
-  "9dea6f36-4c10-4249-944d-e3791c450387"],
- " is computed as the ratio of these spectra by default or as ",
+ StyleBox["\"TensorToScalarRatio\"", "InlineCode"],
+ " is computed as ",
  Cell[BoxData[
   FormBox[
    RowBox[{"16", " ", 
-    SubscriptBox["\[Epsilon]", "V"]}], TraditionalForm]], "InlineMath",
+    SubscriptBox["\[Epsilon]", "H"]}], TraditionalForm]], "InlineMath",
   ExpressionUUID->"c7c03a11-03e2-4b3b-bfdc-34f3a3252736"],
- " if ",
- Cell[BoxData[
-  RowBox[{"Method", " ", "->", " ", "\"\<FromPotential\>\""}]], 
-  "InlineFormula",ExpressionUUID->"07e238b6-2526-41dc-acbc-f1c9bd0f7a75"],
- " is used."
-}], "Notes",
- CellID->1517479973,ExpressionUUID->"ba7eebb1-e205-4b90-b82d-0c1d8841185c"],
-
-Cell[TextData[{
- Cell[BoxData[
- "\"\<NonGaussianityAmplitude\>\""], "InlineFormula",ExpressionUUID->
-  "35233764-e33e-4606-a68f-6de02e165525"],
- " is given by"
-}], "Notes",
- CellID->1140851893,ExpressionUUID->"c67ac2c0-3727-4194-bde5-ea15aef31383"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SubscriptBox["f", "NL"], "=", 
-   RowBox[{
-    RowBox[{
-     FractionBox["35", "108"], 
-     RowBox[{"(", 
-      RowBox[{
-       FractionBox["1", 
-        SubsuperscriptBox["c", "s", "2"]], "-", "1"}], ")"}]}], "-", 
-    RowBox[{
-     FractionBox["5", "81"], 
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{
-         FractionBox["1", 
-          SubsuperscriptBox["c", "s", "2"]], "-", "1", "-", 
-         RowBox[{"2", 
-          FractionBox[
-           SubscriptBox["z", "2"], 
-           SubscriptBox["z", "1"]]}]}], ")"}], "+", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{"3", "-", 
-          RowBox[{"2", "\[Gamma]"}]}], ")"}], "z", " ", 
-        FractionBox[
-         SubscriptBox["z", "2"], 
-         SubscriptBox["z", "1"]]}]}], ")"}]}], "+", 
-    RowBox[{"\[ScriptCapitalO]", "(", "\[Epsilon]", ")"}]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"3b77b53f-f473-4cb5-9a9b-cf93a8ac2280"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->1385740098,ExpressionUUID->"93c0a8bf-4d02-41fb-b884-516401413742"],
-
-Cell["where", "ExampleText",
- CellID->2144526706,ExpressionUUID->"6fba84b9-a83e-4c6a-8456-74e6a4d887d5"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SubscriptBox["z", "1"], "=", 
-   RowBox[{
-    RowBox[{"\[Beta]", " ", 
-     RowBox[{
-      SubscriptBox["\[PartialD]", "\[Beta]"], 
-      StyleBox["\[ScriptCapitalL]", "TI"]}]}], "+", 
-    RowBox[{"2", 
-     SuperscriptBox["\[Beta]", "2"], 
-     RowBox[{
-      SubsuperscriptBox["\[PartialD]", "\[Beta]", "2"], 
-      StyleBox["\[ScriptCapitalL]", "TI"]}]}]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"09be027a-31c6-469a-b7ce-1851d7507177"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->1680346625,ExpressionUUID->"8cb64325-8ad5-4fdd-b864-06cd5d3c90f6"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SubscriptBox["z", "2"], "=", 
-   RowBox[{
-    RowBox[{
-     SuperscriptBox["\[Beta]", "2"], 
-     RowBox[{
-      SubsuperscriptBox["\[PartialD]", "\[Beta]", "2"], 
-      StyleBox["\[ScriptCapitalL]", "TI"]}]}], "+", 
-    RowBox[{
-     FractionBox["2", "3"], 
-     SuperscriptBox["\[Beta]", "3"], 
-     RowBox[{
-      SubsuperscriptBox["\[PartialD]", "\[Beta]", "3"], 
-      StyleBox["\[ScriptCapitalL]", "TI"]}]}]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"25db3dce-8587-43b1-b5cf-f71258fa8306"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->1980369841,ExpressionUUID->"318fbf78-6078-4bdb-a22e-283c059405cd"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{"z", "=", 
-   FractionBox[
-    OverscriptBox[
-     SubscriptBox["z", "2"], "."], 
-    RowBox[{
-     SubscriptBox["z", "2"], "H"}]]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"807cce2e-506b-4819-aded-c7c4d5e60ded"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->226872834,ExpressionUUID->"5ab66667-f9d9-4f93-b1fa-98cae0858dae"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{"\[Beta]", "=", 
-   SuperscriptBox[
-    OverscriptBox["\[CurlyPhi]", "."], "2"]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"22b6f232-35fc-4dce-996b-08fd052e1336"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->1268247613,ExpressionUUID->"4cad3a9c-ae86-445d-a1a5-cd2c855bfe95"],
-
-Cell[TextData[{
- "and ",
- Cell[BoxData[
-  FormBox["\[Gamma]", TraditionalForm]], "InlineMath",ExpressionUUID->
-  "b9cd9b81-e0b5-409c-a968-36718379eddd"],
- " refers to ",
- ButtonBox["EulerGamma",
-  BaseStyle->"Link",
-  ButtonData->"paclet:ref/EulerGamma"],
  "."
-}], "ExampleText",
- CellID->210288359,ExpressionUUID->"dce2a78c-0574-4fbc-97b8-ce8e41b3875a"],
-
-Cell["Simplification yields", "ExampleText",
- CellID->1469270557,ExpressionUUID->"e59bd5ad-90c3-4823-abbc-aa9d8039124d"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SubscriptBox["z", "1"], "=", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"\[Beta]", " ", 
-      RowBox[{
-       SubscriptBox["\[PartialD]", "\[Beta]"], 
-       StyleBox["\[ScriptCapitalL]", "TI"]}]}], "+", 
-     RowBox[{"2", 
-      SuperscriptBox["\[Beta]", "2"], 
-      RowBox[{
-       SubsuperscriptBox["\[PartialD]", "\[Beta]", "2"], 
-       StyleBox["\[ScriptCapitalL]", "TI"]}]}]}], "=", 
-    RowBox[{
-     RowBox[{
-      RowBox[{
-       SuperscriptBox[
-        OverscriptBox["\[CurlyPhi]", "."], "2"], 
-       FractionBox[
-        RowBox[{"\[PartialD]", 
-         StyleBox["\[ScriptCapitalL]", "TI"]}], 
-        RowBox[{"\[PartialD]", "\[Beta]"}]]}], "+", 
-      RowBox[{"2", 
-       SuperscriptBox[
-        RowBox[{"(", 
-         SuperscriptBox[
-          OverscriptBox["\[CurlyPhi]", "."], "2"], ")"}], "2"], 
-       RowBox[{
-        FractionBox[
-         SuperscriptBox["\[PartialD]", "2"], 
-         RowBox[{"\[PartialD]", 
-          SuperscriptBox["\[Beta]", "2"]}]], 
-        StyleBox["\[ScriptCapitalL]", "TI"]}]}]}], "=", 
-     RowBox[{
-      RowBox[{
-       RowBox[{
-        SuperscriptBox[
-         OverscriptBox["\[CurlyPhi]", "."], "2"], 
-        FractionBox[
-         RowBox[{"\[PartialD]", 
-          StyleBox["\[ScriptCapitalL]", "TI"]}], 
-         RowBox[{"\[PartialD]", 
-          SuperscriptBox[
-           OverscriptBox["\[CurlyPhi]", "."], "2"]}]]}], "+", 
-       RowBox[{"2", 
-        SuperscriptBox[
-         OverscriptBox["\[CurlyPhi]", "."], "4"], 
-        RowBox[{
-         FractionBox[
-          SuperscriptBox["\[PartialD]", "2"], 
-          SuperscriptBox[
-           RowBox[{"(", 
-            RowBox[{"\[PartialD]", 
-             SuperscriptBox[
-              OverscriptBox["\[CurlyPhi]", "."], "2"]}], ")"}], "2"]], 
-         StyleBox["\[ScriptCapitalL]", "TI"]}]}]}], "=", 
-      RowBox[{
-       FractionBox["1", "2"], 
-       SuperscriptBox[
-        OverscriptBox["\[CurlyPhi]", "."], "2"], 
-       RowBox[{
-        SubsuperscriptBox["\[PartialD]", 
-         OverscriptBox["\[CurlyPhi]", "."], "2"], 
-        StyleBox["\[ScriptCapitalL]", "TI"]}]}]}]}]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"12051c36-034d-4c7f-9603-12cb72262ca0"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->133424286,ExpressionUUID->"e8bd99f0-6940-4842-bead-59dde407ed81"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{
-   SubscriptBox["z", "2"], "=", 
-   RowBox[{
-    RowBox[{
-     RowBox[{
-      SuperscriptBox["\[Beta]", "2"], 
-      RowBox[{
-       SubsuperscriptBox["\[PartialD]", "\[Beta]", "2"], 
-       StyleBox["\[ScriptCapitalL]", "TI"]}]}], "+", 
-     RowBox[{
-      FractionBox["2", "3"], 
-      SuperscriptBox["\[Beta]", "3"], 
-      RowBox[{
-       SubsuperscriptBox["\[PartialD]", "\[Beta]", "3"], 
-       StyleBox["\[ScriptCapitalL]", "TI"]}]}]}], "=", 
-    RowBox[{
-     FractionBox["1", "12"], 
-     SuperscriptBox[
-      OverscriptBox["\[CurlyPhi]", "."], "3"], 
-     RowBox[{
-      SubsuperscriptBox["\[PartialD]", 
-       OverscriptBox["\[CurlyPhi]", "."], "3"], 
-      StyleBox["\[ScriptCapitalL]", "TI"]}]}]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"e4cab815-13ac-40c7-9970-2b17a8a41103"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->489047334,ExpressionUUID->"b90df6cc-58d9-4459-a0d9-0669e8630074"],
-
-Cell[TextData[Cell[BoxData[
- FormBox[
-  RowBox[{"z", "=", 
-   RowBox[{
-    FractionBox[
-     OverscriptBox[
-      SubscriptBox["z", "2"], "."], 
-     RowBox[{
-      SubscriptBox["z", "2"], "H"}]], "=", 
-    RowBox[{
-     RowBox[{
-      FractionBox["1", "H"], 
-      FractionBox["12", 
-       RowBox[{
-        SuperscriptBox[
-         OverscriptBox["\[CurlyPhi]", "."], "3"], 
-        RowBox[{
-         SubsuperscriptBox["\[PartialD]", 
-          OverscriptBox["\[CurlyPhi]", "."], "3"], 
-         StyleBox["\[ScriptCapitalL]", "TI"]}]}]], 
-      RowBox[{
-       FractionBox["\[DifferentialD]", 
-        RowBox[{"\[DifferentialD]", "t"}]], 
-       RowBox[{"(", 
-        RowBox[{
-         FractionBox["1", "12"], 
-         SuperscriptBox[
-          OverscriptBox["\[CurlyPhi]", "."], "3"], 
-         RowBox[{
-          SubsuperscriptBox["\[PartialD]", 
-           OverscriptBox["\[CurlyPhi]", "."], "3"], 
-          StyleBox["\[ScriptCapitalL]", "TI"]}]}], ")"}]}]}], "=", 
-     RowBox[{
-      FractionBox["1", "H"], 
-      RowBox[{"(", 
-       RowBox[{
-        FractionBox[
-         RowBox[{
-          SubscriptBox["\[PartialD]", "t"], 
-          RowBox[{"(", 
-           RowBox[{
-            SubsuperscriptBox["\[PartialD]", 
-             OverscriptBox["\[CurlyPhi]", "."], "3"], 
-            StyleBox["\[ScriptCapitalL]", "TI"]}], ")"}]}], 
-         RowBox[{
-          SubsuperscriptBox["\[PartialD]", 
-           OverscriptBox["\[CurlyPhi]", "."], "3"], 
-          StyleBox["\[ScriptCapitalL]", "TI"]}]], "+", 
-        RowBox[{"3", 
-         FractionBox[
-          OverscriptBox["\[CurlyPhi]", "\[DoubleDot]"], 
-          OverscriptBox["\[CurlyPhi]", "."]]}]}], ")"}]}]}]}]}], 
-  TraditionalForm]], \
-"InlineMath",ExpressionUUID->"069ae8ca-aa77-4bba-a782-1cfee1a1c19b"]], \
-"ExampleText",
- TextAlignment->Center,
- CellID->998625469,ExpressionUUID->"b742d06b-fb36-40fd-8e1d-a31f29be9e45"]
+}], "Notes",
+ CellID->1517479973,ExpressionUUID->"ba7eebb1-e205-4b90-b82d-0c1d8841185c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1594,19 +882,16 @@ Cell[BoxData[
         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
     ",", 
    RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+    RowBox[{"\[CurlyPhi]", ",", 
      RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
-   ",", "60.0", ",", 
-   RowBox[{"InflationProperty", "[", 
-    RowBox[{"\"\<SlowRollEpsilon\>\"", ",", "\"\<HorizonExit\>\""}], "]"}]}], 
+   ",", "60.0", ",", "\"\<SlowRollEpsilon\>\"", ",", "\"\<HorizonExit\>\""}], 
   "]"}]], "Input",
- CellLabel->"In[507]:=",
+ CellLabel->"In[443]:=",
  CellID->255928323,ExpressionUUID->"e8f377d8-6215-4f67-91b7-769599fb0f07"],
 
-Cell[BoxData["0.006152712731087976`"], "Output",
- CellLabel->"Out[507]=",
- CellID->424427938,ExpressionUUID->"c736ba12-8c75-4299-b444-2d869e0ca729"]
+Cell[BoxData["0.006833835144663413`"], "Output",
+ CellLabel->"Out[443]=",
+ CellID->1751698126,ExpressionUUID->"39e75a7c-d1ab-44f5-b596-a0ad5b43b2c1"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1618,27 +903,9 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleDelimiter",
  CellID->1121882603,ExpressionUUID->"a298e01b-a476-4dce-acb8-34a4929b0046"],
 
-Cell[TextData[{
- "Determine the value of ",
- Cell[BoxData[
-  FormBox[
-   FractionBox[
-    RowBox[{"\[PartialD]", "p"}], 
-    RowBox[{"\[PartialD]", 
-     OverscriptBox["\[CurlyPhi]", "."]}],
-    MultilineFunction->None], TraditionalForm]], "InlineMath",ExpressionUUID->
-  "9ce1b21c-2172-4046-862c-8709dc9be275"],
- ", where ",
- Cell[BoxData[
-  FormBox[
-   OverscriptBox["\[CurlyPhi]", "."], TraditionalForm]], "InlineMath",
-  ExpressionUUID->"49c7d5f7-f849-4d92-b898-40a23215f870"],
- " is the time derivative of the field, and ",
- Cell[BoxData[
-  FormBox["p", TraditionalForm]], "InlineMath",ExpressionUUID->
-  "066f77de-90cf-4237-8b53-e0230a62e73b"],
- " is pressure:"
-}], "ExampleText",
+Cell["\<\
+Determine the third derivative of the Hubble parameter at horizon exit:\
+\>", "ExampleText",
  CellID->574487961,ExpressionUUID->"b6db27c3-3634-4b72-aaf6-c8b52fdd843e"],
 
 Cell[CellGroupData[{
@@ -1659,21 +926,18 @@ Cell[BoxData[
         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
     ",", 
    RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+    RowBox[{"\[CurlyPhi]", ",", 
      RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
    ",", "60.0", ",", 
-   RowBox[{"InflationProperty", "[", 
-    RowBox[{
-    "\"\<PressureFieldVelocityDerivative\>\"", ",", "\"\<HorizonExit\>\""}], 
-    "]"}]}], "]"}]], "Input",
- CellLabel->"In[508]:=",
+   RowBox[{"\"\<HubbleParameter\>\"", "'''"}], ",", "\"\<HorizonExit\>\""}], 
+  "]"}]], "Input",
+ CellLabel->"In[451]:=",
  CellID->69481342,ExpressionUUID->"5db18ca6-3462-4ee2-a95b-5e0050bad821"],
 
 Cell[BoxData[
- RowBox[{"-", "0.06058347287544151`"}]], "Output",
- CellLabel->"Out[508]=",
- CellID->1806170298,ExpressionUUID->"ce26262c-c26c-4e2c-82c6-1dca2cacddc7"]
+ RowBox[{"-", "1.5098401756014482`*^-8"}]], "Output",
+ CellLabel->"Out[451]=",
+ CellID->378573224,ExpressionUUID->"1f9ee69b-d5ee-4c03-8e44-d7d643152aee"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1686,17 +950,8 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleDelimiter",
  CellID->659221779,ExpressionUUID->"5db05150-a9a7-4eed-a3a5-e0484283c702"],
 
-Cell[TextData[{
- "Check that the speed of sound in that model is identically ",
- Cell[BoxData[
-  FormBox["1", TraditionalForm]], "InlineMath",ExpressionUUID->
-  "4d6d0fee-9814-4bdd-96db-0f473bb66d1a"],
- ", and its time derivative is ",
- Cell[BoxData[
-  FormBox["0", TraditionalForm]], "InlineMath",ExpressionUUID->
-  "cae706ca-4954-4abf-b15f-a71d188a005a"],
- ":"
-}], "ExampleText",
+Cell["Compute values for multiple properties at multiple times:", \
+"ExampleText",
  CellID->672304780,ExpressionUUID->"aeba5659-7220-4ada-96d2-c4ae4a96ccf5"],
 
 Cell[CellGroupData[{
@@ -1717,27 +972,103 @@ Cell[BoxData[
         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
     ",", 
    RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+    RowBox[{"\[CurlyPhi]", ",", 
      RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
    ",", "60.0", ",", 
    RowBox[{"{", 
-    RowBox[{
-     RowBox[{"InflationProperty", "[", 
-      RowBox[{"\"\<SpeedOfSound\>\"", ",", "\"\<HorizonExit\>\""}], "]"}], 
-     ",", 
-     RowBox[{"InflationProperty", "[", 
-      RowBox[{
-      "\"\<SpeedOfSoundTimeDerivative\>\"", ",", "\"\<HorizonExit\>\""}], 
-      "]"}]}], "}"}]}], "]"}]], "Input",
- CellLabel->"In[512]:=",
+    RowBox[{"t", ",", "\"\<HubbleParameter\>\"", ",", 
+     RowBox[{"\"\<HubbleParameter\>\"", "'"}], ",", 
+     RowBox[{"\"\<HubbleParameter\>\"", "''"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\"\<Start\>\"", ",", "\"\<HorizonExit\>\"", ",", "\"\<End\>\""}],
+     "}"}]}], "]"}]], "Input",
+ CellLabel->"In[460]:=",
  CellID->250898068,ExpressionUUID->"d65bf5a5-c33a-4149-9439-056b37cda8d5"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"0.9999999999999999`", ",", "0.`"}], "}"}]], "Output",
- CellLabel->"Out[512]=",
- CellID->1763520058,ExpressionUUID->"8e0c371d-36d7-497a-ba59-f75a7ea22888"]
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0.8064441531181095`", ",", "0.`", ",", "0.`"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"434.63353963726166`", ",", "0.5301325108341327`", ",", 
+     RowBox[{"-", "0.0019205843027591569`"}], ",", 
+     RowBox[{"-", "0.0000100877392297072`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"23810.914866827272`", ",", "0.000026743775040665484`", ",", 
+     RowBox[{"-", "1.6308143669569604`*^-9"}], ",", 
+     RowBox[{"-", "1.8300469077620912`*^-10"}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[460]=",
+ CellID->305325030,ExpressionUUID->"640db063-5d2c-4e41-aeac-97a92babbeca"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "fac816c5-be5e-40d6-acde-bd7bf6643147"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->912667167,ExpressionUUID->"b0dc17bf-be4e-41d0-8ae9-e7366a836961"],
+
+Cell[TextData[{
+ "Symbolic value can be obtained by supplying ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula",ExpressionUUID->
+  "e7ae936c-a5e3-4d60-a279-1828a8cf4ece"],
+ " as ",
+ Cell[BoxData[
+  StyleBox["timespec", "TI"]], "InlineFormula",ExpressionUUID->
+  "ac105e82-0cf5-436e-ac95-b674be71bb84"],
+ ":"
+}], "ExampleText",
+ CellID->1652829034,ExpressionUUID->"81a68c1d-b32e-4714-a516-ad3cbf276a0d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"InflationValue", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "2"], 
+      SuperscriptBox[
+       RowBox[{
+        RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], 
+      ")"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[CurlyPhi]", ",", 
+      RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
+    ",", "60.0", ",", "\"\<SlowRollEpsilon\>\"", ",", "t"}], "]"}], "//", 
+  "FullSimplify"}]], "Input",
+ CellLabel->"In[471]:=",
+ CellID->722659377,ExpressionUUID->"b0d53e5b-2b3b-403b-9d2b-f9b3de0be039"],
+
+Cell[BoxData[
+ FractionBox["1", 
+  RowBox[{
+   FractionBox["1", "3"], "+", 
+   FractionBox[
+    RowBox[{"4", " ", 
+     SuperscriptBox[
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "20"], "]"}], "2"]}], 
+    RowBox[{"3", " ", 
+     SuperscriptBox[
+      RowBox[{
+       SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], "2"]}]]}]]], "Output",
+ CellLabel->"Out[471]=",
+ CellID->1976893034,ExpressionUUID->"383ad141-bf4a-4d64-b05b-6107c6591b3d"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1751,9 +1082,8 @@ Cell[BoxData[
  CellID->2046956413,ExpressionUUID->"1a8a0901-2910-4612-b22a-793a373ffd0a"],
 
 Cell["\<\
-Check that effective axion decay constant equals the true decay constant in \
-the case of Natural inflation, and that getting it from potential derivatives \
-and from Hubble parameter derivatives yields similar results:\
+Check that effective axion decay constant approximately equals the true decay \
+constant in the case of Natural inflation:\
 \>", "ExampleText",
  CellID->508408351,ExpressionUUID->"a7858983-2ef8-47db-8d9a-5cd3a549f713"],
 
@@ -1779,31 +1109,16 @@ Cell[BoxData[
           RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "f"}], "]"}]}], 
        ")"}]}], ",", 
      RowBox[{"{", 
-      RowBox[{
-       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+      RowBox[{"\[CurlyPhi]", ",", 
        RowBox[{"0.9", " ", "f", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
-     ",", "60.0", ",", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"InflationProperty", "[", 
-        RowBox[{
-        "\"\<EffectiveAxionDecayConstant\>\"", ",", "\"\<HorizonExit\>\"", 
-         ",", 
-         RowBox[{"Method", "\[Rule]", "\"\<FromPotential\>\""}]}], "]"}], ",", 
-       RowBox[{"InflationProperty", "[", 
-        RowBox[{
-        "\"\<EffectiveAxionDecayConstant\>\"", ",", "\"\<HorizonExit\>\"", 
-         ",", 
-         RowBox[{"Method", "\[Rule]", "\"\<FromHubbleParameter\>\""}]}], 
-        "]"}]}], "}"}]}], "]"}]}], "]"}]], "Input",
- CellLabel->"In[513]:=",
+     ",", "60.0", ",", "\"\<EffectiveAxionDecayConstant\>\"", ",", 
+     "\"\<HorizonExit\>\""}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[475]:=",
  CellID->1627757159,ExpressionUUID->"fa05976a-6ecf-445d-bb85-af7d9d17161e"],
 
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"10.`", ",", "10.041269980560386`"}], "}"}]], "Output",
- CellLabel->"Out[513]=",
- CellID->1336795007,ExpressionUUID->"b5cffee0-58b6-4da2-a756-41ecf27f364f"]
+Cell[BoxData["10.046435103707282`"], "Output",
+ CellLabel->"Out[475]=",
+ CellID->1488372026,ExpressionUUID->"5fb42061-8b3a-4afa-9707-3545560de8a0"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -1890,10 +1205,35 @@ Cell[BoxData[
  CellID->589267740,ExpressionUUID->"78064208-bfff-48be-ac87-882d9d4e2010"],
 
 Cell["\<\
-Compare the values all available properties at horizon exit vs. the end of \
+Compare the values of all available properties at horizon exit vs. the end of \
 inflation for a Natural Inflation model:\
 \>", "ExampleText",
  CellID->1947197781,ExpressionUUID->"62aadc8d-9def-4111-bdaa-b4182f85b752"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"properties", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t", ",", "\[CurlyPhi]"}], "}"}], ",", 
+     RowBox[{"InflationPropertyData", "[", "]"}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[563]:=",
+ CellID->1059345317,ExpressionUUID->"1f166540-dcb1-49cf-a32d-17bc543cf7a2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"propertiesWithDerivatives", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"#", ",", 
+        RowBox[{"#", "'"}], ",", 
+        RowBox[{"#", "''"}]}], "}"}], "&"}], "/@", "properties"}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[567]:=",
+ CellID->1002730219,ExpressionUUID->"6ee999dd-2dd4-44fd-9c2d-fe606ec9984e"],
 
 Cell[CellGroupData[{
 
@@ -1901,138 +1241,148 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"Prepend", "[", 
    RowBox[{
-    RowBox[{"Table", "[", 
-     RowBox[{
-      RowBox[{"Flatten", "@", 
-       RowBox[{"{", 
-        RowBox[{"property", ",", 
-         RowBox[{"Table", "[", 
+    RowBox[{"Transpose", "@", 
+     RowBox[{"Prepend", "[", 
+      RowBox[{
+       RowBox[{"InflationValue", "[", 
+        RowBox[{
+         RowBox[{
           RowBox[{
-           RowBox[{"InflationValue", "[", 
+           FractionBox["1", "2"], 
+           SuperscriptBox[
             RowBox[{
+             RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+          RowBox[{"(", 
+           RowBox[{"1", "-", 
+            RowBox[{"Cos", "[", 
              RowBox[{
-              RowBox[{
-               FractionBox["1", "2"], 
-               SuperscriptBox[
-                RowBox[{
-                 RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
-              RowBox[{"(", 
-               RowBox[{"1", "-", 
-                RowBox[{"Cos", "[", 
-                 RowBox[{
-                  RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], 
-                 "]"}]}], ")"}]}], ",", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
-               RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], 
-             ",", "t", ",", "60.0", ",", 
-             RowBox[{"InflationProperty", "[", 
-              RowBox[{"property", ",", "time"}], "]"}]}], "]"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"time", ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<HorizonExit\>\"", ",", "\"\<End\>\""}], "}"}]}], 
-            "}"}]}], "]"}]}], "}"}]}], ",", 
-      RowBox[{"{", 
-       RowBox[{"property", ",", 
-        RowBox[{"InflationPropertyData", "[", "]"}]}], "}"}]}], "]"}], ",", 
+              RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], 
+           ")"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\[CurlyPhi]", ",", 
+           RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", 
+         "t", ",", "60.0", ",", "propertiesWithDerivatives", ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<HorizonExit\>\"", ",", "\"\<End\>\""}], "}"}]}], "]"}],
+        ",", "propertiesWithDerivatives"}], "]"}]}], ",", 
     RowBox[{"{", 
      RowBox[{
      "\"\<Property\>\"", ",", "\"\<HorizonExit\>\"", ",", "\"\<End\>\""}], 
      "}"}]}], "]"}], "//", "Grid"}]], "Input",
- CellLabel->"In[515]:=",
- CellID->1563004185,ExpressionUUID->"74fc11e7-a842-4d1b-b4e6-b15f0c30524f"],
+ CellLabel->"In[566]:=",
+ CellID->2144093313,ExpressionUUID->"1d32ad47-563c-4f94-bb14-614788f8b741"],
 
 Cell[BoxData[
  TagBox[GridBox[{
     {"\<\"Property\"\>", "\<\"HorizonExit\"\>", "\<\"End\"\>"},
-    {"\<\"Density\"\>", "0.8948143719852331`", "0.004001924298943565`"},
-    {"\<\"DensityFieldVelocityDerivative\"\>", 
-     RowBox[{"-", "0.06058347287544151`"}], 
-     RowBox[{"-", "0.06586747266001929`"}]},
-    {"\<\"DensityFieldVelocityDerivativeTimeDerivative\"\>", 
-     RowBox[{"-", "0.00016407889751093863`"}], "0.001165737476729314`"},
-    {"\<\"EffectiveAxionDecayConstant\"\>", "10.041269980560386`", 
-     RowBox[{"0.`", "\[VeryThinSpace]", "-", 
-      RowBox[{"1.0157972351328903`", " ", "\[ImaginaryI]"}]}]},
-    {"\<\"Efoldings\"\>", "312.8569454313329`", "372.8569454313329`"},
-    {"\<\"EfoldingsFourthTimeDerivative\"\>", 
-     RowBox[{"-", "1.9425058995207672`*^-8"}], "5.2992914052933795`*^-6"},
-    {"\<\"EfoldingsSecondTimeDerivative\"\>", 
-     RowBox[{"-", "0.001835178592824679`"}], 
-     RowBox[{"-", "0.002169261977309194`"}]},
-    {"\<\"EfoldingsThirdTimeDerivative\"\>", 
-     RowBox[{"-", "9.940469436786298`*^-6"}], "0.00007678418137722798`"},
-    {"\<\"EfoldingsTimeDerivative\"\>", "0.5461423416366937`", 
-     "0.03652361929374637`"},
-    {"\<\"Field\"\>", "14.635701670515816`", "0.6055117456434473`"},
-    {"\<\"FieldFourthTimeDerivative\"\>", "8.762027460450738`*^-9", 
-     "7.896004862796747`*^-6"},
-    {"\<\"FieldSecondTimeDerivative\"\>", 
-     RowBox[{"-", "0.00016407889751093863`"}], "0.001165737476729314`"},
-    {"\<\"FieldThirdTimeDerivative\"\>", "1.2374374160772786`*^-7", 
-     "0.00010108533090849982`"},
-    {"\<\"FieldTimeDerivative\"\>", 
-     RowBox[{"-", "0.06058347287544151`"}], 
-     RowBox[{"-", "0.06586747266001929`"}]},
-    {"\<\"HubbleParameter\"\>", "0.5461423416366937`", "0.03652361929374637`"},
-    {"\<\"HubbleParameterSecondTimeDerivative\"\>", 
-     RowBox[{"-", "9.940469436786298`*^-6"}], "0.00007678418137722798`"},
-    {"\<\"HubbleParameterThirdTimeDerivative\"\>", 
-     RowBox[{"-", "1.9425058995207672`*^-8"}], "5.2992914052933795`*^-6"},
-    {"\<\"HubbleParameterTimeDerivative\"\>", 
-     RowBox[{"-", "0.001835178592824679`"}], 
-     RowBox[{"-", "0.002169261977309194`"}]},
-    {"\<\"Lagrangian\"\>", 
-     RowBox[{"-", "0.8911440147995837`"}], "0.0003365996556748234`"},
-    {"\<\"LagrangianSecondFieldVelocityDerivative\"\>", "1", "1"},
-    {"\<\"LagrangianThirdFieldVelocityDerivative\"\>", "0", "0"},
-    {"\<\"LagrangianThirdFieldVelocityDerivativeTimeDerivative\"\>", "0", "0"},
-    {"\<\"NonGaussianityAmplitude\"\>", "Indeterminate", "Indeterminate"},
-    {"\<\"Potential\"\>", "0.8929791933924084`", "0.0018326623216343707`"},
-    {"\<\"PotentialFieldDerivative\"\>", "0.09942567811954116`", 
-     "0.00605141800909806`"},
-    {"\<\"PotentialSecondFieldDerivative\"\>", "0.0010702080660759164`", 
-     "0.009981673376783656`"},
-    {"\<\"Pressure\"\>", 
-     RowBox[{"-", "0.8911440147995837`"}], "0.0003365996556748234`"},
-    {"\<\"PressureFieldVelocityDerivative\"\>", 
-     RowBox[{"-", "0.06058347287544151`"}], 
-     RowBox[{"-", "0.06586747266001929`"}]},
-    {"\<\"PressureFieldVelocityDerivativeTimeDerivative\"\>", 
-     RowBox[{"-", "0.00016407889751093863`"}], "0.001165737476729314`"},
-    {"\<\"ScalarPowerSpectrum\"\>", "0.6139815562682642`", 
-     "0.000010389472372075537`"},
-    {"\<\"ScalarSpectralIndex\"\>", "0.965471180870607`", 
-     RowBox[{"-", "4.535517981653085`"}]},
-    {"\<\"SlowRollDynamicEta\"\>", "0.022223393667217088`", 
-     "2.283189628692726`"},
-    {"\<\"SlowRollEpsilon\"\>", "0.006152712731087976`", "1.626164176480179`"},
-    {"\<\"SlowRollEpsilonTimeDerivative\"\>", "0.00007467631276448934`", 
-     "0.13560639784014672`"},
-    {"\<\"SlowRollPotentialEta\"\>", "0.0011984692073397807`", 
-     "5.446542583950755`"},
-    {"\<\"SlowRollS\"\>", "0.`", "0.`"},
-    {"\<\"SpeedOfSound\"\>", "0.9999999999999999`", "1.`"},
-    {"\<\"SpeedOfSoundTimeDerivative\"\>", "0.`", "0.`"},
-    {"\<\"TensorPowerSpectrum\"\>", "0.06044243420647929`", 
-     "0.0002703198045439965`"},
+    {"t", "434.63353963726166`", "23810.914866827272`"},
+    {
+     SuperscriptBox["t", "\[Prime]",
+      MultilineFunction->None], "1", "1"},
+    {
+     SuperscriptBox["t", "\[Prime]\[Prime]",
+      MultilineFunction->None], "0", "0"},
+    {"\[CurlyPhi]", "14.113220795318785`", "0.0003208969052948976`"},
+    {
+     SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+      MultilineFunction->None], 
+     RowBox[{"-", "0.06197716196727883`"}], 
+     RowBox[{"-", "0.00005711067092859035`"}]},
+    {
+     SuperscriptBox["\[CurlyPhi]", "\[Prime]\[Prime]",
+      MultilineFunction->None], 
+     RowBox[{"-", "0.00016276542696538887`"}], 
+     RowBox[{"-", "3.2043869875910313`*^-6"}]},
+    {"\<\"EffectiveAxionDecayConstant\"\>", "10.046435103707282`", 
+     "0.015437696861963267`"},
+    {
+     SuperscriptBox["\<\"EffectiveAxionDecayConstant\"\>", "\[Prime]",
+      MultilineFunction->None], "0.0006675155310354778`", 
+     "0.0018089433955903818`"},
+    {
+     SuperscriptBox["\<\"EffectiveAxionDecayConstant\"\>", "\[Prime]\[Prime]",
+      
+      MultilineFunction->None], "0.000019284124963439438`", 
+     "0.00043287575900190976`"},
+    {"\<\"Efoldings\"\>", "317.4455967971368`", "377.4455967971368`"},
+    {
+     SuperscriptBox["\<\"Efoldings\"\>", "\[Prime]",
+      MultilineFunction->None], "0.5301325108341327`", 
+     "0.000026743775040665484`"},
+    {
+     SuperscriptBox["\<\"Efoldings\"\>", "\[Prime]\[Prime]",
+      MultilineFunction->None], 
+     RowBox[{"-", "0.0019205843027591569`"}], 
+     RowBox[{"-", "1.6308143669569604`*^-9"}]},
+    {"\<\"HubbleParameter\"\>", "0.5301325108341327`", 
+     "0.000026743775040665484`"},
+    {
+     SuperscriptBox["\<\"HubbleParameter\"\>", "\[Prime]",
+      MultilineFunction->None], 
+     RowBox[{"-", "0.0019205843027591569`"}], 
+     RowBox[{"-", "1.6308143669569604`*^-9"}]},
+    {
+     SuperscriptBox["\<\"HubbleParameter\"\>", "\[Prime]\[Prime]",
+      MultilineFunction->None], 
+     RowBox[{"-", "0.0000100877392297072`"}], 
+     RowBox[{"-", "1.8300469077620912`*^-10"}]},
+    {"\<\"ScalarSpectralIndex\"\>", "0.9627568867449563`", 
+     RowBox[{"-", "4204.115706954692`"}]},
+    {
+     SuperscriptBox["\<\"ScalarSpectralIndex\"\>", "\[Prime]",
+      MultilineFunction->None], 
+     RowBox[{"-", "0.00034032345515107207`"}], "982.3238844590084`"},
+    {
+     SuperscriptBox["\<\"ScalarSpectralIndex\"\>", "\[Prime]\[Prime]",
+      MultilineFunction->None], 
+     RowBox[{"-", "5.450708412866333`*^-6"}], 
+     RowBox[{"-", "110.23995417842931`"}]},
+    {"\<\"SlowRollEpsilon\"\>", "0.006833835144663413`", 
+     "2.2801273705095744`"},
+    {
+     SuperscriptBox["\<\"SlowRollEpsilon\"\>", "\[Prime]",
+      MultilineFunction->None], "0.00008541001497777663`", 
+     "0.256146567575188`"},
+    {
+     SuperscriptBox["\<\"SlowRollEpsilon\"\>", "\[Prime]\[Prime]",
+      MultilineFunction->None], "1.3721204750820182`*^-6", 
+     RowBox[{"-", "0.03117302169924852`"}]},
+    {"\<\"SlowRollEta\"\>", "0.02357544296571687`", "4200.555452213673`"},
+    {
+     SuperscriptBox["\<\"SlowRollEta\"\>", "\[Prime]",
+      MultilineFunction->None], "0.00016950342519551882`", 
+     RowBox[{"-", "982.8361775941588`"}]},
+    {
+     SuperscriptBox["\<\"SlowRollEta\"\>", "\[Prime]\[Prime]",
+      MultilineFunction->None], "2.7064674627022972`*^-6", 
+     "110.30230022182786`"},
     {"\<\"TensorSpectralIndex\"\>", 
-     RowBox[{"-", "0.012305425462175952`"}], 
-     RowBox[{"-", "3.252328352960358`"}]},
-    {"\<\"TensorToScalarRatio\"\>", "0.09844340369740755`", 
-     "26.018626823682858`"},
-    {"\<\"Time\"\>", "426.1075843365069`", "620.3150637750948`"},
-    {"\<\"z\"\>", "Indeterminate", "Indeterminate"},
-    {"\<\"z1\"\>", "0.0018351785928246787`", "0.002169261977309194`"},
-    {"\<\"z2\"\>", "0.`", "0.`"}
+     RowBox[{"-", "0.013667670289326826`"}], 
+     RowBox[{"-", "4.560254741019149`"}]},
+    {
+     SuperscriptBox["\<\"TensorSpectralIndex\"\>", "\[Prime]",
+      MultilineFunction->None], 
+     RowBox[{"-", "0.00017082002995555325`"}], 
+     RowBox[{"-", "0.512293135150376`"}]},
+    {
+     SuperscriptBox["\<\"TensorSpectralIndex\"\>", "\[Prime]\[Prime]",
+      MultilineFunction->None], 
+     RowBox[{"-", "2.744240950164037`*^-6"}], "0.06234604339849704`"},
+    {"\<\"TensorToScalarRatio\"\>", "0.10934136231461461`", 
+     "36.48203792815319`"},
+    {
+     SuperscriptBox["\<\"TensorToScalarRatio\"\>", "\[Prime]",
+      MultilineFunction->None], "0.001366560239644426`", "4.098345081203008`"},
+    {
+     SuperscriptBox["\<\"TensorToScalarRatio\"\>", "\[Prime]\[Prime]",
+      MultilineFunction->None], "0.00002195392760131229`", 
+     RowBox[{"-", "0.4987683471879763`"}]}
    },
    AutoDelete->False,
    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
   "Grid"]], "Output",
- CellLabel->"Out[515]=",
- CellID->1098631904,ExpressionUUID->"6ec812a0-187d-48b7-8cca-40aa32c725dd"]
+ CellLabel->"Out[566]=",
+ CellID->1177571730,ExpressionUUID->"819e62fa-af9b-4e49-9dd9-d166c1e86d26"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2045,422 +1395,121 @@ Cell[BoxData[
  CellID->1167399478,ExpressionUUID->"a0d8524e-7a7a-4565-af11-a93608358ee2"],
 
 Cell["\<\
-Consider an axionic model that involves interference between multiple cosines:\
+Plot effective axion decay constant as a function of pivot e-foldings:\
 \>", "ExampleText",
- CellID->1072427754,ExpressionUUID->"e2545f34-334d-4ba2-afac-97a19e5c0557"],
+ CellID->317386969,ExpressionUUID->"6ca824f2-7a9c-4e2a-896f-640594359b90"],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{
-   RowBox[{"cosineSumLagrangian", "[", 
-    RowBox[{"f_", ",", "G_"}], "]"}], "[", 
-   RowBox[{"\[CurlyPhi]_", ",", " ", "t_"}], "]"}], ":=", 
-  RowBox[{
-   RowBox[{
-    FractionBox["1", "2"], " ", 
-    SuperscriptBox[
-     RowBox[{"D", "[", 
-      RowBox[{"\[CurlyPhi]", ",", "t"}], "]"}], "2"]}], "-", 
-   RowBox[{"4", " ", 
-    SuperscriptBox["f", "4"], " ", 
-    RowBox[{"(", 
+  RowBox[{"evolution", "=", 
+   RowBox[{"InflationEvolution", "[", 
+    RowBox[{
      RowBox[{
       RowBox[{
-       RowBox[{"-", "20"}], " ", "G", " ", 
-       RowBox[{"(", 
-        RowBox[{"1", "-", 
-         RowBox[{"Cos", "[", 
-          FractionBox["\[CurlyPhi]", 
-           RowBox[{
-            SqrtBox["2"], " ", "f"}]], "]"}]}], ")"}]}], "+", 
-      RowBox[{"20", " ", "G", " ", 
-       RowBox[{"(", 
-        RowBox[{"1", "-", 
-         RowBox[{"Cos", "[", 
-          FractionBox[
-           RowBox[{"5", " ", "\[CurlyPhi]"}], 
-           RowBox[{
-            SqrtBox["2"], " ", "f"}]], "]"}]}], ")"}]}], "+", 
-      RowBox[{"25", " ", 
-       SuperscriptBox["G", "2"], " ", 
-       RowBox[{"(", 
-        RowBox[{"1", "-", 
-         RowBox[{"Cos", "[", 
-          FractionBox[
-           RowBox[{"5", " ", "\[CurlyPhi]"}], 
-           RowBox[{
-            SqrtBox["2"], " ", "f"}]], "]"}]}], ")"}]}], "+", 
-      RowBox[{"16", " ", 
-       RowBox[{"(", 
-        RowBox[{"1", "-", 
-         RowBox[{"Cos", "[", 
-          FractionBox[
-           RowBox[{"2", " ", 
-            SqrtBox["2"], " ", "\[CurlyPhi]"}], "f"], "]"}]}], ")"}]}], "+", 
-      RowBox[{"20", " ", "G", " ", 
-       RowBox[{"(", 
-        RowBox[{"1", "-", 
-         RowBox[{"Cos", "[", 
-          FractionBox[
-           RowBox[{"2", " ", 
-            SqrtBox["2"], " ", "\[CurlyPhi]"}], "f"], "]"}]}], ")"}]}]}], 
-     ")"}]}]}]}]], "Input",
- CellLabel->"In[516]:=",
- CellID->258698526,ExpressionUUID->"fd993e05-3f46-483e-99fb-cbf8a5269d4f"],
-
-Cell["\<\
-Find experimental consistent parameter sets, and compute effective axion \
-decay constants using potential and Hubble parameter methods. The following \
-computation takes a while:\
-\>", "ExampleText",
- CellID->66880141,ExpressionUUID->"dc342702-fd11-4370-bb9b-0214bd84cede"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"cosineSumResults", "=", 
-   RowBox[{"ParallelMap", "[", 
-    RowBox[{
-     RowBox[{"Function", "[", 
-      RowBox[{
-       RowBox[{"{", "input", "}"}], ",", 
-       RowBox[{
+       FractionBox["1", "2"], 
+       SuperscriptBox[
         RowBox[{
-         RowBox[{"If", "[", 
-          RowBox[{
-           RowBox[{"ExperimentallyConsistentInflationQ", "[", "##", "]"}], 
-           ",", 
-           RowBox[{"Join", "[", 
-            RowBox[{"input", ",", 
-             RowBox[{"Association", "@", 
-              RowBox[{"Thread", "[", 
-               RowBox[{
-                RowBox[{"{", 
-                 RowBox[{"\"\<fDynamic\>\"", ",", "\"\<fStatic\>\""}], "}"}], 
-                "\[Rule]", 
-                RowBox[{"InflationValue", "[", 
-                 RowBox[{"##", ",", 
-                  RowBox[{"{", 
-                   RowBox[{
-                    RowBox[{"InflationProperty", "[", 
-                    RowBox[{
-                    "\"\<EffectiveAxionDecayConstant\>\"", ",", 
-                    "\"\<HorizonExit\>\"", ",", 
-                    RowBox[{
-                    "Method", "\[Rule]", "\"\<FromHubbleParameter\>\""}]}], 
-                    "]"}], ",", 
-                    RowBox[{"InflationProperty", "[", 
-                    RowBox[{
-                    "\"\<EffectiveAxionDecayConstant\>\"", ",", 
-                    "\"\<HorizonExit\>\"", ",", 
-                    RowBox[{"Method", "\[Rule]", "\"\<FromPotential\>\""}]}], 
-                    "]"}]}], "}"}]}], "]"}]}], "]"}]}]}], "]"}], ",", 
-           "Nothing"}], "]"}], "&"}], "[", 
-        RowBox[{
+         RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"Cos", "[", 
          RowBox[{
-          RowBox[{"cosineSumLagrangian", "[", 
-           RowBox[{
-            RowBox[{"input", "[", "\"\<fTrue\>\"", "]"}], ",", 
-            RowBox[{"input", "[", "\"\<G\>\"", "]"}]}], "]"}], "[", 
-          RowBox[{
-           RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "t"}], "]"}], ",", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
-           RowBox[{"input", "[", "\"\<fieldInitial\>\"", "]"}], ",", "0.0"}], 
-          "}"}], ",", "t", ",", 
-         RowBox[{"input", "[", "\"\<pivotEfoldingsCount\>\"", "]"}]}], 
-        "]"}]}], "]"}], ",", 
-     RowBox[{"Table", "[", 
-      RowBox[{
-       RowBox[{"With", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"fValue", "=", 
-            RowBox[{"RandomReal", "[", 
-             RowBox[{"{", 
-              RowBox[{"0", ",", "1"}], "}"}], "]"}]}], ",", 
-           RowBox[{"G", "=", 
-            RowBox[{"RandomReal", "[", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"-", "0.88931"}], ",", 
-               RowBox[{"-", "0.88920"}]}], "}"}], "]"}]}], ",", 
-           RowBox[{"nPivot", "=", 
-            RowBox[{"RandomReal", "[", 
-             RowBox[{"{", 
-              RowBox[{"50", ",", "60"}], "}"}], "]"}]}]}], "}"}], ",", 
-         RowBox[{"\[LeftAssociation]", 
-          RowBox[{
-           RowBox[{"\"\<fTrue\>\"", "\[Rule]", "fValue"}], ",", 
-           RowBox[{"\"\<G\>\"", "\[Rule]", "G"}], ",", 
-           RowBox[{"\"\<fieldInitial\>\"", "\[Rule]", 
-            RowBox[{"RandomReal", "[", 
-             RowBox[{"{", 
-              RowBox[{"0", ",", 
-               RowBox[{"\[Pi]", " ", "fValue", " ", 
-                SqrtBox["2"]}]}], "}"}], "]"}]}], ",", 
-           RowBox[{"\"\<pivotEfoldingsCount\>\"", "\[Rule]", "nPivot"}]}], 
-          "\[RightAssociation]"}]}], "]"}], ",", "10000"}], "]"}]}], "]"}]}], 
-  ";"}]], "Input",
- CellLabel->"In[517]:=",
- CellID->511008118,ExpressionUUID->"3bab9f9a-3d84-4cda-8939-02e71abb4677"],
-
-Cell["\<\
-Plot effective vs. true decay constant and verify there is enhancement:\
-\>", "ExampleText",
- CellID->424684921,ExpressionUUID->"d5add61c-8a32-4094-8c0d-dbf7c7d03df2"],
+          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], 
+       ")"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[CurlyPhi]", ",", 
+       RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", 
+     "t"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[605]:=",
+ CellID->2038533302,ExpressionUUID->"cdc89724-f255-41cb-a7f2-b7ed12723a77"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"ListPlot", "[", 
   RowBox[{
-   RowBox[{"cosineSumResults", "\[LeftDoubleBracket]", 
-    RowBox[{"All", ",", 
-     RowBox[{"{", 
-      RowBox[{"\"\<fTrue\>\"", ",", "\"\<fDynamic\>\""}], "}"}]}], 
-    "\[RightDoubleBracket]"}], ",", 
-   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
- CellLabel->"In[518]:=",
- CellID->1328322132,ExpressionUUID->"b3d8cb4a-8ba8-4af3-a9d7-95e42b20d10d"],
-
-Cell[BoxData[
- GraphicsBox[{{}, {{}, 
-    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.009166666666666668], 
-     AbsoluteThickness[1.6], PointBox[CompressedData["
-1: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
-      
-      "]]}, {}}, {}, {}, {}, {}},
-  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
-  Axes->{True, True},
-  AxesLabel->{None, None},
-  AxesOrigin->{0.1487482028057994, 4.490455084209642},
-  DisplayFunction->Identity,
-  Frame->{{False, False}, {False, False}},
-  FrameLabel->{{None, None}, {None, None}},
-  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{None, None},
-  GridLinesStyle->Directive[
-    GrayLevel[0.5, 0.4]],
-  ImagePadding->All,
-  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
-        (Identity[#]& )[
-         Part[#, 1]], 
-        (Identity[#]& )[
-         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
-        (Identity[#]& )[
-         Part[#, 1]], 
-        (Identity[#]& )[
-         Part[#, 2]]}& )}},
-  PlotRange->{{0.16183630860386455`, 0.9994750796800353}, {
-   4.5904359077874695`, 6.590052379344039}},
-  PlotRangeClipping->True,
-  PlotRangePadding->{{
-     Scaled[0.02], 
-     Scaled[0.02]}, {
-     Scaled[0.05], 
-     Scaled[0.05]}},
-  Ticks->{Automatic, Automatic}]], "Output",
- CellLabel->"Out[518]=",
- CellID->969507620,ExpressionUUID->"8d72c34e-657b-4438-b4ad-d1a290744234"]
-}, Open  ]],
-
-Cell["\<\
-Compare effective decay constants computed using potential and Hubble \
-parameter methods:\
-\>", "ExampleText",
- CellID->1745067869,ExpressionUUID->"5d2c43c8-1583-461d-aa8b-e1791ce91e37"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Show", "[", 
-  RowBox[{
-   RowBox[{"ListPlot", "[", 
+   RowBox[{"InflationValue", "[", 
     RowBox[{
-     RowBox[{"cosineSumResults", "\[LeftDoubleBracket]", 
-      RowBox[{"All", ",", 
-       RowBox[{"{", 
-        RowBox[{"\"\<fStatic\>\"", ",", "\"\<fDynamic\>\""}], "}"}]}], 
-      "\[RightDoubleBracket]"}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
-   RowBox[{"Plot", "[", 
-    RowBox[{"x", ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], 
+       SuperscriptBox[
+        RowBox[{
+         RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"Cos", "[", 
+         RowBox[{
+          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], 
+       ")"}]}], ",", "evolution", ",", "t", ",", "60.0", ",", 
      RowBox[{"{", 
-      RowBox[{"x", ",", "4", ",", "7"}], "}"}], ",", 
-     RowBox[{"PlotStyle", "\[Rule]", "Black"}]}], "]"}]}], "]"}]], "Input",
- CellLabel->"In[519]:=",
- CellID->1529603472,ExpressionUUID->"c6835114-3acd-4bea-a650-0a9d71798315"],
+      RowBox[{
+       RowBox[{
+        RowBox[{"evolution", "[", "\"\<TotalEfoldings\>\"", "]"}], "-", 
+        "\"\<Efoldings\>\""}], ",", "\"\<EffectiveAxionDecayConstant\>\""}], 
+      "}"}], ",", 
+     RowBox[{"Range", "[", 
+      RowBox[{"5", ",", "1000", ",", "5"}], "]"}]}], "]"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"30", ",", "100"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"10", ",", "10.2"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[629]:=",
+ CellID->1304421811,ExpressionUUID->"6064c698-be91-4c9f-9a5f-84dc458a6e10"],
 
 Cell[BoxData[
- GraphicsBox[{{{}, {{}, 
+ GraphicsBox[{{}, {{{}, {}, 
      {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.009166666666666668],
-       AbsoluteThickness[1.6], PointBox[CompressedData["
-1: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
-qt7sUGDxf2E1Yek=
-       "]]}, {}}, {}, {}, {}, {}}, {{{}, {}, 
-     TagBox[
-      {GrayLevel[0], AbsoluteThickness[1.6], Opacity[1.], 
-       LineBox[CompressedData["
-1:eJxNxXss1AEAB/DjlCTlTofDFa6OdpbmjMuQxxhWp0SKssUVlR6Xw7zmTBa2
-49SdmzJLTsv7ZLSRtNjl2uxk120iXTJt3PIoV+1C9Ue/b3989nFLvR53wZxE
-Ih374+8eWmcLEsk25N8BoXl+K//N69RlzJrhnPKasREyVgVayissMb959YDd
-LvwgRx3L2oPp9Nz7RwOx4yhD0VaETdbs9t5+rGEvHhQbcVev0T3Xn0Kcpc2w
-3yHE4edYBT292OJlbZKnEbcMXD0c5UMlTt4rqcjPwssO9MlEJc4xxDeZG7AV
-e3pmyMuOWLShpntewuRAsuphK85NWDIsLGANOcxuhrWbmOOib/2UjgvUc6FS
-BdbofWMS5zFN6z/2mUUjDj7bGMtMw0LeqXCBAovfCvwuf8RybojiEMOeuHNL
-UqlVCm5Jf3defA8rOY+6mdP48dS+wtsuDsS3HLdH1p7GmUMBJU/rMNf0ZqBU
-h9eoLgIG1ZF4SNotV8fhzLaOQddqzPJai68cx8OhTYsNNnTiExyLdVE0NlQp
-i7Mr8ZXiYTPaK2ycdFtTbXMivmnLSYuMxhNTreM3ynAw5VpXhwpXTcnFMrIz
-saZEOB9zBDPu1CupIszzZ+eXPcOuzj78u4N4dYPLa3yO5apI98EXWJ+Q+vrb
-CBYI65z4Y1jabTkQNoMvynY2H/+AuXm06hQ9ng5hpuXP4v3jwdZP5nHfl+xk
-tyVcPlEY4b2Mk/pKvYNW8GZRDfnMVxxl09Em+Y6dVnpkDT+wQdtf3P4TS+pH
-T46acKpIE6T7hX35Oo+5dbw16j1ldQNPsudMm5v4NxpAAhE=
-        "]]},
-      Annotation[#, "Charting`Private`Tag$3694998#1"]& ]}, {}, {}}},
+       AbsoluteThickness[1.6], LineBox[CompressedData["
+1:eJwd0ws01HkUB3DRSwlFHtmdHdNfdJJm2yxL1terFZLHkMZ4ixiMYUxEZXfT
+VnpnNtIp2y5TseWRsENSq9qKnEb08GjbyrOVnVTaZK+95/zO73zO75577u+e
+3880UuS3SV1NTS2G1tQuXBjEm7DbArX/g4GhNXedhcEWqN4V+CZMZ3CvO5JT
+d18KQbHqyA7y2EU/nr9Mik9YRc5p5JojAre3PCl+u5vx+WHytI+1wcX6UpiU
+JzwNIctPXZ0W2p6Gpnlji7eRTc1sSkzz0iCSS7Nzya2ux+pf+aehlvX1kzxy
+tOV1xW29NJQn2h6aqtdxx4NdpZTAbE+GVQGZdUorQX5UgsbCrx6dIIsMi83O
++ktQVjw4XkRuzO14UKsngeeuFLMS8p56jmGnMhUV241UZ8ijH/XSp+elYq1i
+eNevZK1LDgVOvFSsXrrgh0pyrZU/66B+KrLydbxqyEbZgZUv21OwNsRKRzF1
+nrFDI1SWAj3hWMTv5MHDkttPAlIQUvw04wb5xwOPb0oNUmBcUx7YQvbLXXuV
+3SmGdHSn4t7UPPxe7Ow9JsabAJXLY3LCibC+qiAxBD37DP4kL7yZdfOksRjj
+K/Zf7CMXF2Xq/PQoGZyMRwdHyHO+TSpTFCbjubgm7C35PeeP/BFBMroMlyom
+yc+CKjodWMm4UdhYOWsGgx5pyoB3owhxHezIBeRzLRnawc4ieJ2T7/qUXNvz
+OuJ0cxKm2SzyWkp+GBBmb742CZm/FA7akU32irSG7ySiuFe8141sO7too8on
+EfwPrrpJZMslqb873k/A8lLdSW9yQ+4MjfaNCVh/vYMbSlaeT39e2SPErTXa
+5vHkJ701/N4oIczVZSHpZA9H7TjBQDyMwtvqdpGbXpuuWi6Kh1Ops23+VL9D
+pu95Y3G4ktoNOVkzx3NRZ2YcJvU7pbXkyd4NejXqcRhCc98fZPsho+/e7dkM
+d8NP1nSTRbaTnFPzN8OCXeygIl+Lk3ecL4hFgy1HY+ZMBpID3OPLOLFI1f26
+gkVOxOo849IYPFjp/M6anF5/cs62VTGwdJXWeZN3F96J51/eBNcSvreQvG2U
+537JfROqZEdO7ySf847ly5TRkGVG5MrJodZbcz6ERiOqa+bWq+T+Sd+WV4NR
+aJzlYj5M5u7VSdiyJQrVgR49GrPo/v091bLpUXjzWqfBktzg3G3jeyQS2Ts8
+RwPINkc/O32BHQlbzXlOu8muS+4oL12IgNK7masgx4q6Hyc4RuC+s4fwL7Jw
+vHqk82447G5V2prMZtDeZ5D1MTwcx0UHg3zJnEOanNbnYVhlGp13mLxar1PF
+nRuGca5g4W1yXn672xcrQ7GpL2rEUJPB65TR5L/4IfjnbZdmELlsW9MsnxwB
+jLbaVV8gY42L2e6KYJwJfrFogiwZWWRS2MuHH39AEDmHgYWc1ZSvw8dy6UDJ
+FXK6xqplh502ojLLxnflXPr/bsH9eWlBGKqPfn6arN9v/fRi6Qb8HbdimNFi
+wLPaaqn+LBD2636uqiRbyFZKD7ACwXN4nOM5j+q1cuXC4ABkaOTd/Ycc9Hb/
+ZOlxHkqzZ+eUatO8dC5rR3b5o4q130iiQ/O/JakvYvvjvXW1wEeX8vcF2mfG
++uFs9v6f3eZTft8h9RkVvqgaqMwMXMAg31Gv1XfCBzkqtua3egzKOQGyNC8f
+XC7fHtKmzyC71pit6bAeI8aJb9wMGJxZfGjdkr51+Mz1cusLQwbu18YeCY95
+oekboVJhzCC5+aWHhrcnfObfVmsxYXDTWjfIYK4H2paU+DAsckTVs9ZWdyRZ
+Dcpb2QzC7dy0NhR8g5aXbO2uxQxeXSp7+CB+DQaVZc18cwazT56L2e7ihn/r
+VOc3L6P/OtR2UrzYFUrJ+gkTLt1XaObTNccFe4/WzT9qzaAoIvnfvnEnnFBM
+7PtgT/0OP7zR8AoYzH5T870L1Rf79mv1OiLkBed6theDttAvHdqHHZB54Ibc
+bwMDNYuZx9hzVyOrLak0KZreP++nIfE9e8T8Hwz+A171ofU=
+       "]]}}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.009166666666666668], 
+     AbsoluteThickness[1.6]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.009166666666666668],
+       AbsoluteThickness[1.6]}, {}}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.009166666666666668],
+       AbsoluteThickness[1.6]}, {}}}, {{}, {}}},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->{True, True},
   AxesLabel->{None, None},
-  AxesOrigin->{4.5016330627559595`, 4.490455084209642},
+  AxesOrigin->{30., 10.},
   DisplayFunction->Identity,
   Frame->{{False, False}, {False, False}},
   FrameLabel->{{None, None}, {None, None}},
@@ -2468,8 +1517,9 @@ T46acKpIE6T7hX35Oo+5dbw16j1ldQNPsudMm5v4NxpAAhE=
   GridLines->{None, None},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
-  ImagePadding->All,
-  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+  Method->{
+   "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
         (Identity[#]& )[
          Part[#, 1]], 
         (Identity[#]& )[
@@ -2478,17 +1528,12 @@ T46acKpIE6T7hX35Oo+5dbw16j1ldQNPsudMm5v4NxpAAhE=
          Part[#, 1]], 
         (Identity[#]& )[
          Part[#, 2]]}& )}},
-  PlotRange->{{4.5317708177589, 6.460587137947153}, {4.5904359077874695`, 
-   6.590052379344039}},
+  PlotRange->{{30, 100}, {10, 10.2}},
   PlotRangeClipping->True,
-  PlotRangePadding->{{
-     Scaled[0.02], 
-     Scaled[0.02]}, {
-     Scaled[0.05], 
-     Scaled[0.05]}},
+  PlotRangePadding->{{0, 0}, {0, 0}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellLabel->"Out[519]=",
- CellID->45511766,ExpressionUUID->"2061bfc8-363d-4ac6-9c42-dc01e70beec5"]
+ CellLabel->"Out[629]=",
+ CellID->1429815928,ExpressionUUID->"f32ba7aa-5ce1-4846-99ac-380bf14b4d75"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -2497,8 +1542,7 @@ T46acKpIE6T7hX35Oo+5dbw16j1ldQNPsudMm5v4NxpAAhE=
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

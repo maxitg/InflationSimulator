@@ -4,7 +4,7 @@ Cell[TextData[{
  Cell["0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"8be81234-e4d9-446a-a1df-29965d3c96af"],
  " | Modified in: ",
- Cell[" ", "HistoryData",
+ Cell[" 0.3", "HistoryData",
   CellTags->"Modified",ExpressionUUID->"7ff7ed9c-7ea9-47e0-a882-667380461d70"],
  " | Obsolete in: ",
  Cell[" ", "HistoryData",
@@ -131,7 +131,30 @@ Cell[TextData[{
  StyleBox["t", "TI"],
  "] with Lagrangian ",
  StyleBox["\[ScriptCapitalL]", "TI"],
- "."
+ ".\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"6873aab5-7f33-40d0-8bde-1843a590874e"],
+ Cell[BoxData[
+  RowBox[{"InflatonDensity", "[", 
+   RowBox[{
+    StyleBox["\[ScriptCapitalL]", "TI"], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       StyleBox[
+        SubscriptBox[
+         StyleBox["\[CurlyPhi]", "TI"], 
+         StyleBox["1", "TR"]], "TI"], "[", 
+       StyleBox["t", "TI"], "]"}], ",", " ", 
+      RowBox[{
+       StyleBox[
+        SubscriptBox[
+         StyleBox["\[CurlyPhi]", "TI"], 
+         StyleBox["2", "TR"]], "TI"], "[", 
+       StyleBox["t", "TI"], "]"}], ",", " ", 
+      StyleBox["\[Ellipsis]", "TR"]}], "}"}], ",", " ", 
+    StyleBox["t", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "2af8544b-3433-4324-b386-91cb77b1bf59"],
+ "\[LineSeparator]yields the density for a Lagrangian with multiple fields."
 }], "Usage",
  CellID->982511436,ExpressionUUID->"c5eaf628-b6e1-44cf-82fc-0bf8488b72c5"],
 
@@ -148,16 +171,20 @@ Cell[TextData[{
          SuperscriptBox[
           OverscriptBox["\[CurlyPhi]", "."], "2"]}]}], ")"}]}], "+", 
      RowBox[{
-      FractionBox[
-       RowBox[{"\[Delta]", " ", 
-        RowBox[{"\[ScriptCapitalL]", "(", 
-         RowBox[{"\[CurlyPhi]", ",", 
-          RowBox[{"-", 
-           SuperscriptBox[
-            OverscriptBox["\[CurlyPhi]", "."], "2"]}]}], ")"}]}], 
-       RowBox[{"\[Delta]", " ", 
-        OverscriptBox["\[CurlyPhi]", "."]}]], 
-      OverscriptBox["\[CurlyPhi]", "."]}]}]}], TraditionalForm]], 
+      UnderscriptBox["\[Sum]", "i"], 
+      RowBox[{
+       FractionBox[
+        RowBox[{"\[Delta]", " ", 
+         RowBox[{"\[ScriptCapitalL]", "(", 
+          RowBox[{"\[CurlyPhi]", ",", 
+           RowBox[{"-", 
+            SuperscriptBox[
+             OverscriptBox["\[CurlyPhi]", "."], "2"]}]}], ")"}]}], 
+        RowBox[{"\[Delta]", " ", 
+         SubscriptBox[
+          OverscriptBox["\[CurlyPhi]", "."], "i"]}]], 
+       SubscriptBox[
+        OverscriptBox["\[CurlyPhi]", "."], "i"]}]}]}]}], TraditionalForm]], 
   "InlineMath",ExpressionUUID->"ab89c6be-c2d2-4db1-b53c-30dfd70b5136"],
  "."
 }], "Notes",
@@ -417,32 +444,36 @@ Cell[TextData[Cell[BoxData[{
             SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
          ")"}]}], "+", 
        RowBox[{
-        SqrtBox["g"], 
-        FractionBox[
-         RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
-          RowBox[{"(", 
-           RowBox[{"\[CurlyPhi]", ",", 
+        UnderscriptBox["\[Sum]", "i"], 
+        RowBox[{
+         SqrtBox["g"], 
+         FractionBox[
+          RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
+           RowBox[{"(", 
+            RowBox[{"\[CurlyPhi]", ",", 
+             RowBox[{
+              RowBox[{
+               SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+              RowBox[{
+               SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
+            ")"}]}], 
+          RowBox[{"\[Delta]", " ", 
+           RowBox[{"(", 
             RowBox[{
              RowBox[{
-              SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+              SubscriptBox["\[PartialD]", "\[Mu]"], 
+              SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
              RowBox[{
-              SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
-           ")"}]}], 
-         RowBox[{"\[Delta]", " ", 
-          RowBox[{"(", 
+              SuperscriptBox["\[PartialD]", "\[Mu]"], 
+              SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}]], "\[Delta]", " ", 
+         RowBox[{"(", 
+          RowBox[{
            RowBox[{
-            RowBox[{
-             SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-            RowBox[{
-             SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], 
-           ")"}]}]], "\[Delta]", " ", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{
-           SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-          RowBox[{
-           SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], 
-         ")"}]}]}], ")"}]}]}]}], 
+            SubscriptBox["\[PartialD]", "\[Mu]"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "\[Mu]"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}]}]}], ")"}]}]}]}], 
   TraditionalForm]}], \
 "InlineMath",ExpressionUUID->"becd377d-49a2-4dc4-88bb-8aa472065729"]], \
 "ExampleText",
@@ -459,10 +490,11 @@ Cell[TextData[Cell[BoxData[
     RowBox[{"(", 
      RowBox[{
       RowBox[{
-       SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+       SubscriptBox["\[PartialD]", "\[Mu]"], 
+       SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
       RowBox[{
-       SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], ")"}]}], 
-   "=", 
+       SuperscriptBox["\[PartialD]", "\[Mu]"], 
+       SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}], "=", 
    RowBox[{
     RowBox[{"\[Delta]", " ", 
      RowBox[{"(", 
@@ -470,25 +502,30 @@ Cell[TextData[Cell[BoxData[
        SuperscriptBox["g", 
         RowBox[{"\[Mu]", " ", "\[Nu]"}]], 
        RowBox[{
-        SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+        SubscriptBox["\[PartialD]", "\[Mu]"], 
+        SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
        RowBox[{
-        SubscriptBox["\[PartialD]", "\[Nu]"], "\[CurlyPhi]"}]}], ")"}]}], "=", 
+        SubscriptBox["\[PartialD]", "\[Nu]"], 
+        SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}], "=", 
     RowBox[{
      RowBox[{
       RowBox[{
-       SubscriptBox["\[PartialD]", "\[Alpha]"], "\[CurlyPhi]"}], " ", 
+       SubscriptBox["\[PartialD]", "\[Alpha]"], 
+       SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
       RowBox[{
-       SubscriptBox["\[PartialD]", "\[Beta]"], "\[CurlyPhi]"}], " ", 
-      "\[Delta]", " ", 
+       SubscriptBox["\[PartialD]", "\[Beta]"], 
+       SubscriptBox["\[CurlyPhi]", "i"]}], " ", "\[Delta]", " ", 
       SuperscriptBox["g", 
        RowBox[{"\[Alpha]", " ", "\[Beta]"}]]}], "=", 
      RowBox[{
       RowBox[{
        RowBox[{"-", 
         RowBox[{
-         SubscriptBox["\[PartialD]", "\[Alpha]"], "\[CurlyPhi]"}]}], " ", 
+         SubscriptBox["\[PartialD]", "\[Alpha]"], 
+         SubscriptBox["\[CurlyPhi]", "i"]}]}], " ", 
        RowBox[{
-        SubscriptBox["\[PartialD]", "\[Beta]"], "\[CurlyPhi]"}], " ", 
+        SubscriptBox["\[PartialD]", "\[Beta]"], 
+        SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
        SuperscriptBox["g", 
         RowBox[{"\[Alpha]", " ", "\[Mu]"}]], 
        SuperscriptBox["g", 
@@ -498,10 +535,11 @@ Cell[TextData[Cell[BoxData[
       RowBox[{
        RowBox[{"-", 
         RowBox[{
-         SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], " ", 
+         SuperscriptBox["\[PartialD]", "\[Mu]"], 
+         SubscriptBox["\[CurlyPhi]", "i"]}]}], " ", 
        RowBox[{
-        SuperscriptBox["\[PartialD]", "\[Nu]"], "\[CurlyPhi]"}], " ", 
-       "\[Delta]", " ", 
+        SuperscriptBox["\[PartialD]", "\[Nu]"], 
+        SubscriptBox["\[CurlyPhi]", "i"]}], " ", "\[Delta]", " ", 
        SubscriptBox["g", 
         RowBox[{"\[Mu]", " ", "\[Nu]"}]]}]}]}]}]}], 
   TraditionalForm]], \
@@ -540,32 +578,36 @@ Cell[TextData[Cell[BoxData[{
         SubscriptBox["g", 
          RowBox[{"\[Mu]", " ", "\[Nu]"}]]}], "-", 
        RowBox[{
-        SqrtBox["g"], 
-        FractionBox[
-         RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
-          RowBox[{"(", 
-           RowBox[{"\[CurlyPhi]", ",", 
+        UnderscriptBox["\[Sum]", "i"], 
+        RowBox[{
+         SqrtBox["g"], 
+         FractionBox[
+          RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
+           RowBox[{"(", 
+            RowBox[{"\[CurlyPhi]", ",", 
+             RowBox[{
+              RowBox[{
+               SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+              RowBox[{
+               SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
+            ")"}]}], 
+          RowBox[{"\[Delta]", " ", 
+           RowBox[{"(", 
             RowBox[{
              RowBox[{
-              SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+              SubscriptBox["\[PartialD]", "\[Mu]"], 
+              SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
              RowBox[{
-              SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
-           ")"}]}], 
-         RowBox[{"\[Delta]", " ", 
-          RowBox[{"(", 
-           RowBox[{
-            RowBox[{
-             SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-            RowBox[{
-             SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], 
-           ")"}]}]], 
-        RowBox[{
-         SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-        RowBox[{
-         SuperscriptBox["\[PartialD]", "\[Nu]"], "\[CurlyPhi]"}], " ", 
-        "\[Delta]", " ", 
-        SubscriptBox["g", 
-         RowBox[{"\[Mu]", " ", "\[Nu]"}]]}]}], ")"}]}]}]}], 
+              SuperscriptBox["\[PartialD]", "\[Mu]"], 
+              SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}]], 
+         RowBox[{
+          SuperscriptBox["\[PartialD]", "\[Mu]"], 
+          SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+         RowBox[{
+          SuperscriptBox["\[PartialD]", "\[Nu]"], 
+          SubscriptBox["\[CurlyPhi]", "i"]}], " ", "\[Delta]", " ", 
+         SubscriptBox["g", 
+          RowBox[{"\[Mu]", " ", "\[Nu]"}]]}]}]}], ")"}]}]}]}], 
   TraditionalForm], "\[IndentingNewLine]", 
  FormBox[
   RowBox[{"=", 
@@ -590,29 +632,35 @@ Cell[TextData[Cell[BoxData[{
              SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
           ")"}]}], "-", 
         RowBox[{"2", 
-         FractionBox[
-          RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
-           RowBox[{"(", 
-            RowBox[{"\[CurlyPhi]", ",", 
-             RowBox[{
-              RowBox[{
-               SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-              RowBox[{
-               SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
-            ")"}]}], 
-          RowBox[{"\[Delta]", " ", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{
-              SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-             RowBox[{
-              SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], 
-            ")"}]}]], 
          RowBox[{
-          SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-         RowBox[{
-          SuperscriptBox["\[PartialD]", "\[Nu]"], "\[CurlyPhi]"}]}]}], ")"}], 
-      "\[Delta]", " ", 
+          UnderscriptBox["\[Sum]", "i"], 
+          RowBox[{
+           FractionBox[
+            RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
+             RowBox[{"(", 
+              RowBox[{"\[CurlyPhi]", ",", 
+               RowBox[{
+                RowBox[{
+                 SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+                RowBox[{
+                 SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
+              ")"}]}], 
+            RowBox[{"\[Delta]", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[PartialD]", "\[Mu]"], 
+                SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+               RowBox[{
+                SuperscriptBox["\[PartialD]", "\[Mu]"], 
+                SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}]], 
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "\[Mu]"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "\[Nu]"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}]}]}]}]}], ")"}], "\[Delta]", 
+      " ", 
       SubscriptBox["g", 
        RowBox[{"\[Mu]", " ", "\[Nu]"}]]}]}]}]}], 
   TraditionalForm]}], \
@@ -644,27 +692,34 @@ Cell[TextData[Cell[BoxData[
          SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], ")"}]}],
      "-", 
     RowBox[{"2", 
-     FractionBox[
-      RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
-       RowBox[{"(", 
-        RowBox[{"\[CurlyPhi]", ",", 
-         RowBox[{
-          RowBox[{
-           SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-          RowBox[{
-           SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
-        ")"}]}], 
-      RowBox[{"\[Delta]", " ", 
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{
-          SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-         RowBox[{
-          SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], ")"}]}]], 
      RowBox[{
-      SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-     RowBox[{
-      SuperscriptBox["\[PartialD]", "\[Nu]"], "\[CurlyPhi]"}]}]}]}], 
+      UnderscriptBox["\[Sum]", "i"], 
+      RowBox[{
+       FractionBox[
+        RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
+         RowBox[{"(", 
+          RowBox[{"\[CurlyPhi]", ",", 
+           RowBox[{
+            RowBox[{
+             SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+            RowBox[{
+             SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
+          ")"}]}], 
+        RowBox[{"\[Delta]", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            SubscriptBox["\[PartialD]", "\[Mu]"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "\[Mu]"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}]], 
+       RowBox[{
+        SuperscriptBox["\[PartialD]", "\[Mu]"], 
+        SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+       RowBox[{
+        SuperscriptBox["\[PartialD]", "\[Nu]"], 
+        SubscriptBox["\[CurlyPhi]", "i"]}]}]}]}]}]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"435b059f-0492-446d-82e7-52bee8dddb89"]], \
 "ExampleText",
@@ -691,28 +746,34 @@ Cell[TextData[Cell[BoxData[
           SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
        ")"}]}], "-", 
      RowBox[{"2", 
-      FractionBox[
-       RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
-        RowBox[{"(", 
-         RowBox[{"\[CurlyPhi]", ",", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-           RowBox[{
-            SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
-         ")"}]}], 
-       RowBox[{"\[Delta]", " ", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{
-           SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-          RowBox[{
-           SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], 
-         ")"}]}]], 
       RowBox[{
-       SuperscriptBox["\[PartialD]", "0"], "\[CurlyPhi]"}], " ", 
-      RowBox[{
-       SuperscriptBox["\[PartialD]", "0"], "\[CurlyPhi]"}]}]}]}]}], 
+       UnderscriptBox["\[Sum]", "i"], 
+       RowBox[{
+        FractionBox[
+         RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
+          RowBox[{"(", 
+           RowBox[{"\[CurlyPhi]", ",", 
+            RowBox[{
+             RowBox[{
+              SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+             RowBox[{
+              SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
+           ")"}]}], 
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             SubscriptBox["\[PartialD]", "\[Mu]"], 
+             SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+            RowBox[{
+             SuperscriptBox["\[PartialD]", "\[Mu]"], 
+             SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}]], 
+        RowBox[{
+         SuperscriptBox["\[PartialD]", "0"], 
+         SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+        RowBox[{
+         SuperscriptBox["\[PartialD]", "0"], 
+         SubscriptBox["\[CurlyPhi]", "i"]}]}]}]}]}]}]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"cfb436f4-a4d8-42a5-913d-27679f72ac05"]], \
 "ExampleText",
@@ -748,42 +809,51 @@ Cell[TextData[Cell[BoxData[
        ")"}]}], "-", 
      RowBox[{
       FractionBox["2", "3"], 
-      FractionBox[
-       RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
-        RowBox[{"(", 
-         RowBox[{"\[CurlyPhi]", ",", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-           RowBox[{
-            SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
-         ")"}]}], 
-       RowBox[{"\[Delta]", " ", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{
-           SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-          RowBox[{
-           SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], 
-         ")"}]}]], 
-      RowBox[{"(", 
+      RowBox[{
+       UnderscriptBox["\[Sum]", "i"], 
        RowBox[{
-        RowBox[{
+        FractionBox[
+         RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
+          RowBox[{"(", 
+           RowBox[{"\[CurlyPhi]", ",", 
+            RowBox[{
+             RowBox[{
+              SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+             RowBox[{
+              SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
+           ")"}]}], 
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             SubscriptBox["\[PartialD]", "\[Mu]"], 
+             SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+            RowBox[{
+             SuperscriptBox["\[PartialD]", "\[Mu]"], 
+             SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}]], 
+        RowBox[{"(", 
          RowBox[{
-          SuperscriptBox["\[PartialD]", "1"], "\[CurlyPhi]"}], " ", 
-         RowBox[{
-          SuperscriptBox["\[PartialD]", "1"], "\[CurlyPhi]"}]}], "+", 
-        RowBox[{
-         RowBox[{
-          SuperscriptBox["\[PartialD]", "2"], "\[CurlyPhi]"}], " ", 
-         RowBox[{
-          SuperscriptBox["\[PartialD]", "2"], "\[CurlyPhi]"}]}], "+", 
-        RowBox[{
-         RowBox[{
-          SuperscriptBox["\[PartialD]", "3"], "\[CurlyPhi]"}], " ", 
-         RowBox[{
-          SuperscriptBox["\[PartialD]", "3"], "\[CurlyPhi]"}]}]}], 
-       ")"}]}]}]}]}], 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "1"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "1"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}]}], "+", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "2"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "2"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}]}], "+", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "3"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "3"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}]}]}], ")"}]}]}]}]}]}]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"2cf5eb62-6f74-48ea-848d-e6ffe9c190d4"]], \
 "ExampleText",
@@ -823,8 +893,10 @@ therefore, ",
 Cell[TextData[Cell[BoxData[
  FormBox[
   RowBox[{
-   SubscriptBox["\[CurlyPhi]", "0"], "=", 
-   OverscriptBox["\[CurlyPhi]", "."]}], 
+   SubscriptBox["\[CurlyPhi]", 
+    RowBox[{"i", ",", " ", "0"}]], "=", 
+   SubscriptBox[
+    OverscriptBox["\[CurlyPhi]", "."], "i"]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"07b3e396-c14d-49a1-a90c-0d9d55bd3ba8"]], \
 "ExampleText",
@@ -865,25 +937,30 @@ Cell[TextData[Cell[BoxData[
          SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], ")"}]}],
      "-", 
     RowBox[{"2", 
-     FractionBox[
-      RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
-       RowBox[{"(", 
-        RowBox[{"\[CurlyPhi]", ",", 
-         RowBox[{
+     RowBox[{
+      UnderscriptBox["\[Sum]", "i"], 
+      RowBox[{
+       FractionBox[
+        RowBox[{"\[Delta]", " ", "\[ScriptCapitalL]", 
+         RowBox[{"(", 
+          RowBox[{"\[CurlyPhi]", ",", 
+           RowBox[{
+            RowBox[{
+             SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
+            RowBox[{
+             SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
+          ")"}]}], 
+        RowBox[{"\[Delta]", " ", 
+         RowBox[{"(", 
           RowBox[{
-           SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-          RowBox[{
-           SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}]}], 
-        ")"}]}], 
-      RowBox[{"\[Delta]", " ", 
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{
-          SubscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}], " ", 
-         RowBox[{
-          SuperscriptBox["\[PartialD]", "\[Mu]"], "\[CurlyPhi]"}]}], ")"}]}]], 
-     SuperscriptBox[
-      OverscriptBox["\[CurlyPhi]", "."], "2"]}]}]}], 
+           RowBox[{
+            SubscriptBox["\[PartialD]", "\[Mu]"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}], " ", 
+           RowBox[{
+            SuperscriptBox["\[PartialD]", "\[Mu]"], 
+            SubscriptBox["\[CurlyPhi]", "i"]}]}], ")"}]}]], 
+       SubsuperscriptBox[
+        OverscriptBox["\[CurlyPhi]", "."], "i", "2"]}]}]}]}]}], 
   TraditionalForm]], \
 "InlineMath",ExpressionUUID->"599783be-1c80-4884-9194-580a790cacdb"]], \
 "ExampleText",
@@ -968,7 +1045,9 @@ Cell[BoxData[
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151,ExpressionUUID->"5840f003-a136-4a03-957d-e335f284b1aa"],
 
-Cell["Evaluate field density of a real scalar field:", "ExampleText",
+Cell["\<\
+Evaluate field density for a model of two real scalar fields:\
+\>", "ExampleText",
  CellID->241879145,ExpressionUUID->"fbcf4340-64b1-4008-9424-739a09af9c8e"],
 
 Cell[CellGroupData[{
@@ -981,25 +1060,43 @@ Cell[BoxData[
      FractionBox["1", "2"], 
      SuperscriptBox[
       RowBox[{
-       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
+      RowBox[{
+       RowBox[{"\[Chi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
     RowBox[{"V", "[", 
-     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], ",", 
-   RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "t"}], "]"}]], "Input",
- CellLabel->"In[110]:=",
+     RowBox[{
+      RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+      RowBox[{"\[Chi]", "[", "t", "]"}]}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+     RowBox[{"\[Chi]", "[", "t", "]"}]}], "}"}], ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[416]:=",
  CellID->1177442084,ExpressionUUID->"070c9a59-3e6e-4434-9e48-d06e3f963af7"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"V", "[", 
-   RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}], "+", 
+   RowBox[{
+    RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", 
+    RowBox[{"\[Chi]", "[", "t", "]"}]}], "]"}], "+", 
   RowBox[{
    FractionBox["1", "2"], " ", 
    SuperscriptBox[
     RowBox[{
      SuperscriptBox["\[CurlyPhi]", "\[Prime]",
+      MultilineFunction->None], "[", "t", "]"}], "2"]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     SuperscriptBox["\[Chi]", "\[Prime]",
       MultilineFunction->None], "[", "t", "]"}], "2"]}]}]], "Output",
- CellLabel->"Out[110]=",
- CellID->1960515736,ExpressionUUID->"5062f9bd-9188-4bc9-928a-11bf907b1e8e"]
+ CellLabel->"Out[416]=",
+ CellID->1457381463,ExpressionUUID->"a09a5b87-53df-45ad-a5c8-3a6777339616"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1042,7 +1139,7 @@ Cell[BoxData[
      RowBox[{"V", "[", 
       RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]}], ",", 
     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], ",", "t"}], "]"}], "]"}]], "Input",
- CellLabel->"In[112]:=",
+ CellLabel->"In[417]:=",
  CellID->967934317,ExpressionUUID->"1b554828-99dc-47df-b95f-3d5e2b9b6139"],
 
 Cell[BoxData[
@@ -1064,8 +1161,8 @@ Cell[BoxData[
            MultilineFunction->None], "[", "t", "]"}], "2"]}]}]]]}], 
    RowBox[{"f", "[", 
     RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "]"}]]}]], "Output",
- CellLabel->"Out[112]=",
- CellID->258908162,ExpressionUUID->"0cc60351-2ec3-4a77-aa69-af80ebb1251d"]
+ CellLabel->"Out[417]=",
+ CellID->1533694315,ExpressionUUID->"40178dbb-164b-4dc5-b441-1a86a11a04cb"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -1165,8 +1262,7 @@ Cell[BoxData[
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
