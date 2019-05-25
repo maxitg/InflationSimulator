@@ -4,7 +4,7 @@ Cell[TextData[{
  Cell["0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"5fd882f0-3267-4832-bce0-0ad40b26d79f"],
  " | Modified in: ",
- Cell[" 0.3", "HistoryData",
+ Cell[" 0.3.1", "HistoryData",
   CellTags->"Modified",ExpressionUUID->"0318a176-d800-41ca-bf22-0dea944c5b6e"],
  " | Obsolete in: ",
  Cell[" ", "HistoryData",
@@ -224,13 +224,13 @@ of e-foldings. In the case where ",
  CellID->1067943069,ExpressionUUID->"827e7ab9-a889-48df-a4fb-c2a180da389e"],
 
 Cell[TextData[{
- "Planck TT,TE,EE+lowP at 95% CL from Figure 12 of ",
- ButtonBox["[Ade, P. A. R., et al. \"Planck 2015 results-XX. Constraints on \
-inflation.\" Astronomy & Astrophysics 594 (2016): A20, arXiv:1502.02114v2]",
+ "Planck TT,TE,EE+lowE+lensing+BK14+BAO at 95% CL from Figure 8 of ",
+ ButtonBox["[Akrami, Y., et al. \"Planck 2018 results. X. Constraints on \
+inflation.\", arXiv:1807.06211]",
   BaseStyle->"Hyperlink",
   ButtonData->{
-    URL["https://arxiv.org/abs/1502.02114"], None},
-  ButtonNote->"https://arxiv.org/abs/1502.02114"],
+    URL["https://arxiv.org/abs/1807.06211"], None},
+  ButtonNote->"https://arxiv.org/abs/1807.06211"],
  " is used for experimental bounds."
 }], "Notes",
  CellID->2907726,ExpressionUUID->"9cfb1d3f-a64a-422a-8ae4-83011e3c3f77"]
@@ -297,7 +297,8 @@ Cell[BoxData[
  CellID->880084151,ExpressionUUID->"025dda20-6209-4d1a-8d26-81e19896de4a"],
 
 Cell["\<\
-Check if a Natural Inflation model satisfies experimental constraints:\
+Natural Inflation no longer satisfies experimental constraints since Planck \
+2018 results:\
 \>", "ExampleText",
  CellID->340009159,ExpressionUUID->"91614508-950a-4aa3-8850-4d9ddc033a89"],
 
@@ -316,18 +317,18 @@ Cell[BoxData[
      RowBox[{"1", "-", 
       RowBox[{"Cos", "[", 
        RowBox[{
-        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], ")"}]}],
-    ",", 
+        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "8"}], "]"}]}], ")"}]}], 
+   ",", 
    RowBox[{"{", 
     RowBox[{"\[CurlyPhi]", ",", 
-     RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
-   ",", "60.0"}], "]"}]], "Input",
- CellLabel->"In[632]:=",
+     RowBox[{"0.9", " ", "8", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
+   ",", "50.0"}], "]"}]], "Input",
+ CellLabel->"In[39]:=",
  CellID->110677409,ExpressionUUID->"0a30b95b-cb1a-4358-9faa-c62630fcae76"],
 
-Cell[BoxData["True"], "Output",
- CellLabel->"Out[632]=",
- CellID->1262955048,ExpressionUUID->"24a941d8-e1c7-41ab-8720-04eba2d8b886"]
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[39]=",
+ CellID->2140311970,ExpressionUUID->"0262a064-d444-4b46-889b-f0890b65e59c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -335,56 +336,43 @@ Cell[CellGroupData[{
 Cell[BoxData[
  InterpretationBox[Cell[
   "\t", "ExampleDelimiter",ExpressionUUID->
-   "7199bfd0-739d-48c4-b18b-d94b3b9f857a"],
+   "c0ff319f-2ac9-448f-acdf-c217e8470f31"],
   $Line = 0; Null]], "ExampleDelimiter",
- CellID->1384394933,ExpressionUUID->"ae44bfe7-6d03-4457-980d-454e617d4863"],
+ CellID->539788196,ExpressionUUID->"187dfe1a-527f-4693-ba83-df37df397d31"],
 
-Cell[TextData[{
- "Natural Inflation model works for large enough values of the axion decay \
-constant ",
- Cell[BoxData[
-  FormBox["f", TraditionalForm]], "InlineMath",ExpressionUUID->
-  "e9273188-4113-4708-bb55-7f306ffb60a8"],
- ":"
-}], "ExampleText",
- CellID->1687807333,ExpressionUUID->"d6db2f46-043c-4a70-bf5d-9540c1ff5561"],
+Cell["\<\
+It would satisfy experimental constraints if we allowed for 70 pivot \
+e-foldings (which is too high):\
+\>", "ExampleText",
+ CellID->1732477402,ExpressionUUID->"278c8533-cc59-476e-96c2-d4e347650a87"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Table", "[", 
+ RowBox[{"ExperimentallyConsistentInflationQ", "[", 
   RowBox[{
-   RowBox[{"ExperimentallyConsistentInflationQ", "[", 
+   RowBox[{
     RowBox[{
-     RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox[
       RowBox[{
-       FractionBox["1", "2"], 
-       SuperscriptBox[
-        RowBox[{
-         RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
-      RowBox[{"(", 
-       RowBox[{"1", "-", 
-        RowBox[{"Cos", "[", 
-         RowBox[{
-          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "f"}], "]"}]}], 
-       ")"}]}], ",", 
-     RowBox[{"{", 
-      RowBox[{"\[CurlyPhi]", ",", 
-       RowBox[{"0.9", " ", "f", " ", "\[Pi]"}], ",", "0.0"}], "}"}], ",", "t",
-      ",", "60.0"}], "]"}], ",", 
+       RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "8"}], "]"}]}], ")"}]}], 
+   ",", 
    RowBox[{"{", 
-    RowBox[{"f", ",", "1", ",", "10", ",", "1"}], "}"}]}], "]"}]], "Input",
- CellLabel->"In[633]:=",
- CellID->1429462046,ExpressionUUID->"bf3ceff5-8c6c-4d32-84c8-afad89e32543"],
+    RowBox[{"\[CurlyPhi]", ",", 
+     RowBox[{"0.9", " ", "8", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", "t", 
+   ",", "70.0"}], "]"}]], "Input",
+ CellLabel->"In[41]:=",
+ CellID->1608617594,ExpressionUUID->"d4555529-95b9-46a3-b07b-7db4c0027a83"],
 
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-  "False", ",", "False", ",", "False", ",", "False", ",", "False", ",", 
-   "True", ",", "True", ",", "True", ",", "True", ",", "True"}], 
-  "}"}]], "Output",
- CellLabel->"Out[633]=",
- CellID->1257736550,ExpressionUUID->"ec5fbba1-b9ae-44f9-b33a-9bdf18a71cd3"]
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[41]=",
+ CellID->66325614,ExpressionUUID->"ad51d3be-0c0c-4804-a21f-41c5ddeb8194"]
 }, Open  ]]
 }, Open  ]],
 
@@ -418,12 +406,12 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"ExperimentallyConsistentInflationQ", "[", 
   RowBox[{"0.965", ",", "0.06"}], "]"}]], "Input",
- CellLabel->"In[634]:=",
+ CellLabel->"In[42]:=",
  CellID->1534495695,ExpressionUUID->"ffd868e8-cd65-4ca7-8698-ee882a467034"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[634]=",
- CellID->1942056351,ExpressionUUID->"985e2bc6-d477-498f-a89b-a37fb5cfa914"]
+ CellLabel->"Out[42]=",
+ CellID->428036451,ExpressionUUID->"c5dbfd2b-f900-4fcb-93d3-475932b8fd21"]
 }, Open  ]]
 }, Open  ]],
 
@@ -441,7 +429,7 @@ Cell[TextData[{
  Cell[BoxData[
   FormBox[
    RowBox[{
-    SubscriptBox["n", "s"], "=", "0.955`"}], TraditionalForm]], "InlineMath",
+    SubscriptBox["n", "s"], "=", "0.960"}], TraditionalForm]], "InlineMath",
   ExpressionUUID->"2ce4aa9e-6b1c-47e5-8844-80ddac5dd282"],
  " puts the point outside experimental bounds:"
 }], "ExampleText",
@@ -451,13 +439,13 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"ExperimentallyConsistentInflationQ", "[", 
-  RowBox[{"0.955", ",", "0.06"}], "]"}]], "Input",
- CellLabel->"In[635]:=",
+  RowBox[{"0.960", ",", "0.06"}], "]"}]], "Input",
+ CellLabel->"In[43]:=",
  CellID->1385922496,ExpressionUUID->"db9d67f4-2510-4b5a-b790-67fb6c478a34"],
 
 Cell[BoxData["False"], "Output",
- CellLabel->"Out[635]=",
- CellID->907396662,ExpressionUUID->"89d42728-19e5-44f3-b5fe-aa747cd7583d"]
+ CellLabel->"Out[43]=",
+ CellID->873984362,ExpressionUUID->"2ab18229-08ba-4dd5-8654-2dd68e3a7c56"]
 }, Open  ]]
 }, Open  ]],
 
@@ -494,13 +482,13 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"ExperimentallyConsistentInflationQ", "[", 
-  RowBox[{"0.955", ",", "0.03"}], "]"}]], "Input",
- CellLabel->"In[636]:=",
+  RowBox[{"0.960", ",", "0.03"}], "]"}]], "Input",
+ CellLabel->"In[44]:=",
  CellID->1179734577,ExpressionUUID->"77423d75-0fb3-4d1f-8384-97ed690bc978"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[636]=",
- CellID->440134463,ExpressionUUID->"ece57931-39f9-4c7c-9396-e8ce758f5da7"]
+ CellLabel->"Out[44]=",
+ CellID->1859989205,ExpressionUUID->"5aeeb975-b3d2-4649-baec-115f4abc50b6"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
