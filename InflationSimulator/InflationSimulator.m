@@ -688,7 +688,7 @@ InflationPropertyData::usage = "InflationPropertyData[] " <>
 (*The values are added later in the implementation.*)
 
 
-InflationPropertyData[] = {"Efoldings"};
+InflationPropertyData[] = {"Efoldings", "Lagrangian", "Density", "Pressure"};
 
 
 (* ::Subsubsection::Closed:: *)
