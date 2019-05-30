@@ -1679,6 +1679,30 @@ Natural Inflation model:\
 \>", "ExampleText",
  CellID->317386969,ExpressionUUID->"6ca824f2-7a9c-4e2a-896f-640594359b90"],
 
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"evolution", "=", 
+   RowBox[{"InflationEvolution", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], 
+       SuperscriptBox[
+        RowBox[{
+         RowBox[{"\[CurlyPhi]", "'"}], "[", "t", "]"}], "2"]}], "-", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"Cos", "[", 
+         RowBox[{
+          RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], 
+       ")"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[CurlyPhi]", ",", 
+       RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", 
+     "t"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[138]:=",
+ CellID->417273468,ExpressionUUID->"21d4a23c-8df5-4692-a7f0-c37cb29e04f3"],
+
 Cell[CellGroupData[{
 
 Cell[BoxData[
@@ -1698,11 +1722,7 @@ Cell[BoxData[
          RowBox[{"Cos", "[", 
           RowBox[{
            RowBox[{"\[CurlyPhi]", "[", "t", "]"}], "/", "10"}], "]"}]}], 
-        ")"}]}], ",", 
-      RowBox[{"{", 
-       RowBox[{"\[CurlyPhi]", ",", 
-        RowBox[{"0.9", " ", "10", " ", "\[Pi]"}], ",", "0."}], "}"}], ",", 
-      "t", ",", "60.0", ",", 
+        ")"}]}], ",", "evolution", ",", "t", ",", "60.0", ",", 
       RowBox[{"{", 
        RowBox[{
         RowBox[{
@@ -1720,7 +1740,7 @@ Cell[BoxData[
        RowBox[{"10", ",", "10.2"}], "}"}]}], "}"}]}], ",", 
    RowBox[{"AspectRatio", "\[Rule]", 
     RowBox[{"1", "/", "GoldenRatio"}]}]}], "]"}]], "Input",
- CellLabel->"In[126]:=",
+ CellLabel->"In[139]:=",
  CellID->715043207,ExpressionUUID->"2576161e-8d94-4f44-83ab-7120ccd1c634"],
 
 Cell[BoxData[
@@ -2192,7 +2212,7 @@ gEYVjYtlBbPIakXhUkug1kgja73NBeRpm4a3LYDq93J8HlodoH/XORxO
        0.08013281186038443}, {2.676993367556179, 0.08303588109699822}, {
        2.6764221004790443`, 0.08600069121610941}, {2.675851242198746, 
        0.0890421790429082}}]},
-     Annotation[#, "Charting`Private`Tag$23499#1"]& ]}, {}},
+     Annotation[#, "Charting`Private`Tag$34735#1"]& ]}, {}},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->{True, True},
   AxesLabel->{None, None},
@@ -2216,8 +2236,8 @@ gEYVjYtlBbPIakXhUkug1kgja73NBeRpm4a3LYDq93J8HlodoH/XORxO
   PlotRangeClipping->True,
   PlotRangePadding->{{0, 0}, {0, 0}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellLabel->"Out[126]=",
- CellID->1096651598,ExpressionUUID->"84614420-739c-43a6-8b45-80e29d0723ce"]
+ CellLabel->"Out[139]=",
+ CellID->1400595188,ExpressionUUID->"764422d1-a655-46db-bd1d-4b3103d0fe27"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
