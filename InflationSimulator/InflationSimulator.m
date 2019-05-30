@@ -546,70 +546,120 @@ StyleBox[\"timespec\", \"TI\"]\)] yields the value using a precomputed output of
 StyleBox[\"evo\", \"TI\"]\).";
 
 
-InflationValue[
+Attributes[InflationValue] = {HoldAll};
+
+
+InflationValue[lagrangian_,
+		evolutionOrInitialConditions_,
+		time_,
+		pivotEfoldings_,
+		expression_,
+		timespec_,
+		o : OptionsPattern[]] :=
+	$InflationValue[lagrangian,
+		evolutionOrInitialConditions,
+		time,
+		pivotEfoldings,
+		Hold[expression],
+		timespec,
+		o]
+
+
+$InflationValue[
 		lagrangian_,
 		evolution_Association,
 		time_,
 		pivotEfoldings_,
 		expression_,
 		timespec_List] := Module[{
-			fields, higherDerivativesRules, $D,
-			evolutionVariablesOnly, propagatedDerivatives, trajectoryOnly,
-			trajectoryOnlyNoTime},
+			fields, variables, elementaryFunctions, timespecExplicit,
+			variableValues, modelExpressions, modelValues,
+			simplifiedExpression, substituteEvolutionDerivatives,
+			$timeD, $timeDExpression, $fieldD, k},
 	fields = Keys[evolution][[
 			1 ;; (Position[Keys[evolution], "Efoldings"][[1, 1]] - 1) / 2]];
+	variables = Append[fields, "Efoldings"];
+	elementaryFunctions = Join[
+		Through[fields[time]], D[Through[fields[time]], time], {"Efoldings"[time]}];
 	
-	evolutionVariablesOnly = expression //. $DerivedValues;
+	timespecExplicit = timespec /. {
+		"Start" -> 0,
+		"HorizonExit" -> CosmologicalHorizonExitTime[evolution, pivotEfoldings],
+		"End" -> evolution["IntegrationTime"]
+	};
 	
-	propagatedDerivatives = evolutionVariablesOnly /.
-		With[{variables = Append[fields, "Efoldings"]}, Join[
-			Thread[variables -> Through[variables[time]]],
-			Derivative[n_][#] :> $D[#[time], {time, n}] & /@ variables]] //.
-		Derivative[n_][f_] :> $D[f, {time, n}] /.
-		$D -> D;
+	variableValues = Association[
+			Table[v -> evolution[Head @ v][#], {v, elementaryFunctions}]] &
+		/@ timespecExplicit;
+	modelExpressions = <|
+		"Lagrangian" @@ elementaryFunctions -> lagrangian,
+		"Density" @@ elementaryFunctions ->
+			InflatonDensity[lagrangian, Through[fields[time]], time],
+		"Pressure" @@ elementaryFunctions ->
+			InflatonPressure[lagrangian, Through[fields[time]], time]|>;
+	modelValues = modelExpressions /. # & /@ variableValues;
 		
-	higherDerivativesRules = Append[
-		With[{secondDerivatives = $FieldsSecondTimeDerivatives[
-				lagrangian, Through[fields[time]], D[Through[fields[time]], time]]},
-			Thread[Derivative[n_ ? (# >= 2 &)][#][time] & /@ fields :>
-				Evaluate[D[#, {time, n - 2}] & /@ secondDerivatives]]],
-		With[{efoldingsDerivative = $EfoldingsTimeDerivative[
-				lagrangian, Through[fields[time]], D[Through[fields[time]], time]]},
-			Derivative[n_ ? (# >= 1 &)]["Efoldings"][time] :>
-				Evaluate[D[efoldingsDerivative, {time, n - 1}]]]];
-	trajectoryOnly = propagatedDerivatives //. higherDerivativesRules;
-	trajectoryOnlyNoTime = trajectoryOnly /. n_[time] :> n;
+	simplifiedExpression = ReleaseHold[expression //. $DerivedValues
+		//. Derivative[n_][k_] :> D[k, {time, n}]
+		/. Thread[variables -> Through[variables[time]]]
+		/. {l : "Lagrangian" | "Density" | "Pressure" :> l @@ elementaryFunctions}];
 	
-	Switch[#,
-		_ ? NumericQ,
-			trajectoryOnlyNoTime /. Join[
-				Evaluate /@ (evolution /. x_InterpolatingFunction :> x[#]),
-				<|time -> #|>],
-		Indeterminate | Infinity | Missing[___],
-			#,
-		_,
-			trajectoryOnly /. {time -> #}] & /@ (timespec /. {
-			"HorizonExit" -> CosmologicalHorizonExitTime[evolution, pivotEfoldings],
-			"Start" -> 0,
-			"End" -> evolution["IntegrationTime"]})
+	substituteEvolutionDerivatives[k_][expr_] := expr
+		/. variableValues[[k]]
+		/. Derivative[order_][func_][time] :> $timeD[order, func, k]
+		/. time -> timespecExplicit[[k]];
+	
+	$timeD[orders_, func_, k_] := $timeD[orders, func, k] =
+		substituteEvolutionDerivatives[k][$timeDExpression[orders, func, k]];
+	
+	$timeDExpression[order_, "Efoldings", k_] :=
+		D[
+			$EfoldingsTimeDerivative[
+				lagrangian,
+				Through[fields[time]],
+				D[Through[fields[time]], time]],
+			{time, order - 1}];
+	
+	$timeDExpression[order_, field_, k_] := Module[{position},
+		position = FirstPosition[Through[fields[time]], field][[1]];
+		D[
+			$FieldsSecondTimeDerivatives[
+				lagrangian,
+				Through[fields[time]],
+				D[Through[fields[time]], time]][[position]],
+			{time, order - 2}]
+	];
+	
+	$fieldD[
+			orders_,
+			func : "Lagrangian" | "Density" | "Pressure",
+			args_,
+			k_] := $fieldD[orders, func, args, k] =
+		substituteEvolutionDerivatives[k][
+			D[func @@ args /. modelExpressions, ##] & @@ Transpose[{args, orders}]];
+	
+	Table[substituteEvolutionDerivatives[k][simplifiedExpression
+		/. modelValues[[k]]
+		/. Derivative[order__][func : "Lagrangian" | "Density" | "Pressure"][args__]
+			:> $fieldD[{order}, func, {args}, k]], {k, Length[timespecExplicit]}]
 ]
 
 
-InflationValue[
+$InflationValue[
 		lagrangian_,
 		evolution_Association,
 		time_,
 		pivotEfoldings_,
 		expression_,
 		timespec_] :=
-	InflationValue[
+	$InflationValue[
 		lagrangian, evolution, time, pivotEfoldings, expression, {timespec}][[1]]
 
 
-Options[InflationValue] = Options[InflationEvolution];
+Options[InflationValue] = Options[$InflationValue] = Options[InflationEvolution];
 
 
-InflationValue[
+$InflationValue[
 		lagrangian_,
 		initialConditions_,
 		time_,
@@ -617,7 +667,7 @@ InflationValue[
 		expression_,
 		timespec_,
 		o : OptionsPattern[]] :=
-	InflationValue[
+	$InflationValue[
 		lagrangian,
 		InflationEvolution[lagrangian, initialConditions, time, o],
 		time,
@@ -638,7 +688,7 @@ InflationPropertyData::usage = "InflationPropertyData[] " <>
 (*The values are added later in the implementation.*)
 
 
-InflationPropertyData[] = {"Efoldings"};
+InflationPropertyData[] = {"Efoldings", "Lagrangian", "Density", "Pressure"};
 
 
 (* ::Subsubsection::Closed:: *)

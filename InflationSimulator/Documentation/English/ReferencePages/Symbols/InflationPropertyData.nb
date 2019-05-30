@@ -4,7 +4,7 @@ Cell[TextData[{
  Cell["0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"4c811fba-671e-4b5b-ab7d-ebd10c20f008"],
  " | Modified in: ",
- Cell[" 0.3", "HistoryData",
+ Cell[" 0.3.1", "HistoryData",
   CellTags->"Modified",ExpressionUUID->"1a1d7bda-bd0c-427c-b4be-39400404b12b"],
  " | Obsolete in: ",
  Cell[" ", "HistoryData",
@@ -220,18 +220,19 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"InflationPropertyData", "[", "]"}]], "Input",
- CellLabel->"In[631]:=",
+ CellLabel->"In[109]:=",
  CellID->1458218148,ExpressionUUID->"6608c825-7eec-4ebd-a4f5-86567d24b6de"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"\<\"EffectiveAxionDecayConstant\"\>", ",", "\<\"Efoldings\"\>", 
-   ",", "\<\"HubbleParameter\"\>", ",", "\<\"ScalarSpectralIndex\"\>", 
-   ",", "\<\"SlowRollEpsilon\"\>", ",", "\<\"SlowRollEta\"\>", 
-   ",", "\<\"TensorSpectralIndex\"\>", ",", "\<\"TensorToScalarRatio\"\>"}], 
-  "}"}]], "Output",
- CellLabel->"Out[631]=",
- CellID->789113183,ExpressionUUID->"013e77d5-b42a-43d9-9a7c-5883783c77ce"]
+  RowBox[{"\<\"Density\"\>", ",", "\<\"EffectiveAxionDecayConstant\"\>", 
+   ",", "\<\"Efoldings\"\>", ",", "\<\"HubbleParameter\"\>", 
+   ",", "\<\"Lagrangian\"\>", ",", "\<\"Pressure\"\>", 
+   ",", "\<\"ScalarSpectralIndex\"\>", ",", "\<\"SlowRollEpsilon\"\>", 
+   ",", "\<\"SlowRollEta\"\>", ",", "\<\"TensorSpectralIndex\"\>", 
+   ",", "\<\"TensorToScalarRatio\"\>"}], "}"}]], "Output",
+ CellLabel->"Out[109]=",
+ CellID->1552550628,ExpressionUUID->"2302ca6c-e07e-40f9-b5b9-24fa2ff77c65"]
 }, Open  ]]
 }, Open  ]],
 
