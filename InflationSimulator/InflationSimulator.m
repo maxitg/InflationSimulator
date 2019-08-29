@@ -242,7 +242,8 @@ Options[InflationEvolution] = Join[{
 	"FinalDensityPrecisionGoal" -> 8,
 	"FinalDensityRelativeDuration" -> 0.5,
 	"ZeroDensityTolerance" -> 10,
-	"MaxIntegrationTime" -> \[Infinity]
+	"MaxIntegrationTime" -> \[Infinity],
+	"EndOfInflationCondition" -> Automatic
 }, Options[NDSolve]];
 
 
@@ -262,7 +263,8 @@ InflationEvolution[
 		time_,
 		o : OptionsPattern[]] := Module[{
 			initialLagrangian, initialDensity,
-			fields, velocities, scaledLagrangian, scaledDensity,
+			fields, velocities, variableTransformationRules,
+			scaledLagrangian, scaledDensity,
 			scaledMaxTime,
 			finalDensitySign, scaledSolution, solution, integrationTime,
 			field, velocity, efoldings, finalDensity, finalDensityStartTime,
@@ -282,10 +284,11 @@ InflationEvolution[
 	
 	{fields, velocities} = Transpose @ Table[
 		#[i][time] & /@ {field, velocity}, {i, initialConditions[[All, 1]]}];
-	scaledLagrangian = lagrangian / initialDensity /. Flatten @ Table[
+	variableTransformationRules = Flatten @ Table[
 		{i'[time] -> Sqrt[initialDensity] velocity[i][time],
 			i[time] -> field[i][time]},
 		{i, initialConditions[[All, 1]]}];
+	scaledLagrangian = lagrangian / initialDensity /. variableTransformationRules;
 	scaledDensity = $InflatonDensity[scaledLagrangian, velocities];
 	
 	scaledMaxTime = If[initialDensity <= 0.,
@@ -304,7 +307,9 @@ InflationEvolution[
 					10^(-OptionValue["FinalDensityPrecisionGoal"]),
 			initialEfoldings = $InitialEfoldings,
 			initialDensityFraction = $InitialDensityFraction,
-			scaledDensity = scaledDensity},
+			scaledDensity = scaledDensity,
+			endOfInflationCondition = OptionValue["EndOfInflationCondition"] /.
+				variableTransformationRules},
 		NDSolve[
 			Join[
 				(* Initial conditions *)
@@ -329,29 +334,44 @@ InflationEvolution[
 				{efoldings'[time] == Re[$EfoldingsTimeDerivative[
 					scaledLagrangian, fields, velocities]]},
 				
-				(* Initialize final density thresholds *)
-				{WhenEvent[efoldings[time] >= initialEfoldings ||
-						scaledDensity <= initialDensityFraction,
-					{finalDensity[time], finalDensityStartTime[time]} ->
-						{scaledDensity, time},
-					"LocationMethod" -> "StepEnd"]},
-				
-				(* Reached time threshold, potential end-of-inflation *)
-				{WhenEvent[time > finalDensityStartTime[time] /
-						(1 - finalDensityRelativeDuration),
-					If[finalDensityPrecision > 0 &&
-							finalDensity[time] - scaledDensity <=
-								finalDensityPrecision (1 - finalDensity[time]),
-						(* density is stable, check sign and stop *)
+				(* Custom end condition *)
+				{If[endOfInflationCondition =!= Automatic,
+					WhenEvent[endOfInflationCondition,
 						finalDensitySign = If[
 							scaledDensity <= zeroDensityPrecision,
 							0,
 							+1];
 						"StopIntegration",
-						(* density is still changing, set new threshold *)
+						"LocationMethod" -> "StepEnd"],
+					Nothing]},
+				
+				(* Initialize final density thresholds *)
+				{If[endOfInflationCondition =!= Automatic,
+					WhenEvent[efoldings[time] >= initialEfoldings ||
+							scaledDensity <= initialDensityFraction,
 						{finalDensity[time], finalDensityStartTime[time]} ->
-							{scaledDensity, time}],
-					"LocationMethod" -> "StepEnd"]},
+							{scaledDensity, time},
+						"LocationMethod" -> "StepEnd"],
+					Nothing]},
+				
+				(* Reached time threshold, potential end-of-inflation *)
+				{If[endOfInflationCondition =!= Automatic,
+					WhenEvent[time > finalDensityStartTime[time] /
+							(1 - finalDensityRelativeDuration),
+						If[finalDensityPrecision > 0 &&
+								finalDensity[time] - scaledDensity <=
+									finalDensityPrecision (1 - finalDensity[time]),
+							(* density is stable, check sign and stop *)
+							finalDensitySign = If[
+								scaledDensity <= zeroDensityPrecision,
+								0,
+								+1];
+							"StopIntegration",
+							(* density is still changing, set new threshold *)
+							{finalDensity[time], finalDensityStartTime[time]} ->
+								{scaledDensity, time}],
+						"LocationMethod" -> "StepEnd"],
+					Nothing]},
 				 
 				(* Reached negative density, abort *)
 				{WhenEvent[scaledDensity < 0,
