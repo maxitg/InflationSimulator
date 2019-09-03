@@ -241,10 +241,10 @@ InflationEvolution::nnuml =
 Options[InflationEvolution] = Join[{
 	"FinalDensityPrecisionGoal" -> 8,
 	"FinalDensityRelativeDuration" -> 0.5,
-	"ZeroDensityTolerance" -> 10,
+	"ZeroDensityRelativeThreshold" -> Automatic,
 	"MaxIntegrationTime" -> \[Infinity],
 	"EndOfInflationCondition" -> Automatic,
-	"MaxBounces" -> 10
+	"MaxBounceCount" -> Infinity
 }, Options[NDSolve]];
 
 
@@ -303,9 +303,9 @@ InflationEvolution[
 				10^(-OptionValue["FinalDensityPrecisionGoal"]),
 			finalDensityRelativeDuration =
 				OptionValue["FinalDensityRelativeDuration"],
-			zeroDensityPrecision =
-				OptionValue["ZeroDensityTolerance"]
-					10^(-OptionValue["FinalDensityPrecisionGoal"]),
+			zeroDensityPrecision = Replace[
+				OptionValue["ZeroDensityRelativeThreshold"],
+				Automatic -> 10 10^(-OptionValue["FinalDensityPrecisionGoal"])],
 			initialEfoldings = $InitialEfoldings,
 			initialDensityFraction = $InitialDensityFraction,
 			scaledDensity = scaledDensity,
@@ -380,20 +380,29 @@ InflationEvolution[
 					"LocationMethod" -> "StepEnd"]},
 				
 				(* Bounce counter, separate for each field *)
-				Table[
-					With[{i = i},
-						WhenEvent[velocity[i][time] == 0,
-							bounces[i][time] -> bounces[i][time] + 1,
-							"LocationMethod" -> "StepEnd"]],
-					{i, initialConditions[[All, 1]]}],
+				If[OptionValue["MaxBounceCount"] == Infinity,
+					{},
+					Table[
+						With[{i = i},
+							WhenEvent[velocity[i][time] == 0,
+								bounces[i][time] -> bounces[i][time] + 1,
+								"LocationMethod" -> "StepEnd"]],
+						{i, initialConditions[[All, 1]]}]],
 				
 				(* Termination by bounce count *)
-				Table[
-					With[{i = i},
-						WhenEvent[bounces[i][time] == OptionValue["MaxBounces"],
-							"StopIntegration",
-							"LocationMethod" -> "StepEnd"]],
-					{i, initialConditions[[All, 1]]}]],
+				If[OptionValue["MaxBounceCount"] == Infinity,
+					{},
+					Table[
+						With[{i = i},
+							WhenEvent[
+								bounces[i][time] == OptionValue["MaxBounceCount"],
+								finalDensitySign = If[
+									scaledDensity <= zeroDensityPrecision,
+									0,
+									+1];
+								"StopIntegration",
+								"LocationMethod" -> "StepEnd"]],
+						{i, initialConditions[[All, 1]]}]]],
 			Join[
 				Table[field[i], {i, initialConditions[[All, 1]]}],
 				Table[velocity[i], {i, initialConditions[[All, 1]]}],
