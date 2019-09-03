@@ -169,7 +169,7 @@ InflationEquationsOfMotion[lagrangian_, field_, efoldings_, time_] :=
 (*Evolution*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InflationEvolution*)
 
 
@@ -243,7 +243,8 @@ Options[InflationEvolution] = Join[{
 	"FinalDensityRelativeDuration" -> 0.5,
 	"ZeroDensityTolerance" -> 10,
 	"MaxIntegrationTime" -> \[Infinity],
-	"EndOfInflationCondition" -> Automatic
+	"EndOfInflationCondition" -> Automatic,
+	"MaxBounces" -> 10
 }, Options[NDSolve]];
 
 
@@ -268,7 +269,7 @@ InflationEvolution[
 			scaledMaxTime,
 			finalDensitySign, scaledSolution, solution, integrationTime,
 			field, velocity, efoldings, finalDensity, finalDensityStartTime,
-			i},
+			bounces, i},
 	{initialLagrangian, initialDensity} = {
 		lagrangian,
 		$InflatonDensity[
@@ -320,6 +321,9 @@ InflationEvolution[
 				{efoldings[0] == 0},
 				{finalDensity[0] == initialDensity},
 				{finalDensityStartTime[0] == 0},
+				Table[
+					bounces[i][0] == 0,
+					{i, initialConditions[[All, 1]]}],
 				
 				(* Evolution equations *)
 				Table[
@@ -373,14 +377,32 @@ InflationEvolution[
 				{WhenEvent[scaledDensity < 0,
 					finalDensitySign = -1;
 					"StopIntegration",
-					"LocationMethod" -> "StepEnd"]}],
+					"LocationMethod" -> "StepEnd"]},
+				
+				(* Bounce counter, separate for each field *)
+				Table[
+					With[{i = i},
+						WhenEvent[velocity[i][time] == 0,
+							bounces[i][time] -> bounces[i][time] + 1,
+							"LocationMethod" -> "StepEnd"]],
+					{i, initialConditions[[All, 1]]}],
+				
+				(* Termination by bounce count *)
+				Table[
+					With[{i = i},
+						WhenEvent[bounces[i][time] == OptionValue["MaxBounces"],
+							"StopIntegration",
+							"LocationMethod" -> "StepEnd"]],
+					{i, initialConditions[[All, 1]]}]],
 			Join[
 				Table[field[i], {i, initialConditions[[All, 1]]}],
 				Table[velocity[i], {i, initialConditions[[All, 1]]}],
 				{efoldings}
 			],
 			{time, 0, scaledMaxTime},
-			DiscreteVariables -> {finalDensity, finalDensityStartTime},
+			DiscreteVariables -> Join[
+				{finalDensity, finalDensityStartTime},
+				Table[bounces[i], {i, initialConditions[[All, 1]]}]],
 			FilterRules[{o}, Options[NDSolve]],
 			MaxSteps -> Infinity]];
 	If[Head[scaledSolution] === NDSolve,
