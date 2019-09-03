@@ -346,32 +346,28 @@ InflationEvolution[
 					Nothing]},
 				
 				(* Initialize final density thresholds *)
-				{If[endOfInflationCondition =!= Automatic,
-					WhenEvent[efoldings[time] >= initialEfoldings ||
-							scaledDensity <= initialDensityFraction,
-						{finalDensity[time], finalDensityStartTime[time]} ->
-							{scaledDensity, time},
-						"LocationMethod" -> "StepEnd"],
-					Nothing]},
+				{WhenEvent[efoldings[time] >= initialEfoldings ||
+						scaledDensity <= initialDensityFraction,
+					{finalDensity[time], finalDensityStartTime[time]} ->
+						{scaledDensity, time},
+					"LocationMethod" -> "StepEnd"]},
 				
 				(* Reached time threshold, potential end-of-inflation *)
-				{If[endOfInflationCondition =!= Automatic,
-					WhenEvent[time > finalDensityStartTime[time] /
-							(1 - finalDensityRelativeDuration),
-						If[finalDensityPrecision > 0 &&
-								finalDensity[time] - scaledDensity <=
-									finalDensityPrecision (1 - finalDensity[time]),
-							(* density is stable, check sign and stop *)
-							finalDensitySign = If[
-								scaledDensity <= zeroDensityPrecision,
-								0,
-								+1];
-							"StopIntegration",
-							(* density is still changing, set new threshold *)
-							{finalDensity[time], finalDensityStartTime[time]} ->
-								{scaledDensity, time}],
-						"LocationMethod" -> "StepEnd"],
-					Nothing]},
+				{WhenEvent[time > finalDensityStartTime[time] /
+						(1 - finalDensityRelativeDuration),
+					If[finalDensityPrecision > 0 &&
+							finalDensity[time] - scaledDensity <=
+								finalDensityPrecision (1 - finalDensity[time]),
+						(* density is stable, check sign and stop *)
+						finalDensitySign = If[
+							scaledDensity <= zeroDensityPrecision,
+							0,
+							+1];
+						"StopIntegration",
+						(* density is still changing, set new threshold *)
+						{finalDensity[time], finalDensityStartTime[time]} ->
+							{scaledDensity, time}],
+					"LocationMethod" -> "StepEnd"]},
 				 
 				(* Reached negative density, abort *)
 				{WhenEvent[scaledDensity < 0,
