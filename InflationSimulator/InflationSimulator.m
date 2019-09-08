@@ -396,16 +396,11 @@ InflationEvolution[
 						With[{i = i},
 							WhenEvent[
 								bounces[i][time] == OptionValue["MaxBounceCount"],
-								If[And @@ Table[
-										bounces[j][time] >=
-											OptionValue["MaxBounceCount"],
-										{j, initialConditions[[All, 1]]}],
-									finalDensitySign = If[
-										scaledDensity <= zeroDensityPrecision,
-										0,
-										+1];
-									"StopIntegration",
-								],
+								finalDensitySign = If[
+									scaledDensity <= zeroDensityPrecision,
+									0,
+									+1];
+								"StopIntegration",
 								"LocationMethod" -> "StepEnd"]],
 						{i, initialConditions[[All, 1]]}]]],
 			Join[
