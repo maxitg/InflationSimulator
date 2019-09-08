@@ -169,7 +169,7 @@ InflationEquationsOfMotion[lagrangian_, field_, efoldings_, time_] :=
 (*Evolution*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InflationEvolution*)
 
 
@@ -404,7 +404,7 @@ InflationEvolution[
 										scaledDensity <= zeroDensityPrecision,
 										0,
 										+1];
-									"StopIntegration",
+									"StopIntegration"
 								],
 								"LocationMethod" -> "StepEnd"]],
 						{i, initialConditions[[All, 1]]}]]],
